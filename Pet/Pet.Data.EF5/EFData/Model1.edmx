@@ -1,0 +1,2290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PETCENTERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Anastesia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Horario" Type="varchar" MaxLength="50" />
+          <Property Name="Observacion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Anio">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Epicrisis">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="AreaHospitalaria" Type="varchar" MaxLength="50" />
+          <Property Name="Servicio" Type="varchar" MaxLength="50" />
+          <Property Name="DiasEstancia" Type="varchar" MaxLength="50" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="Veterianario" Type="varchar" MaxLength="50" />
+          <Property Name="TratamientoRecibido" Type="varchar" MaxLength="50" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoEstado" Type="int" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="EpicrisisDetalle">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEpicrisis" Type="int" />
+          <Property Name="CodigoTipoInsumo" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="50" />
+          <Property Name="Frecuencia" Type="varchar" MaxLength="50" />
+          <Property Name="Dosis" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="EstadoEpicrisis">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Operacion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumeroHistoriaClinica" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Genero" Type="varchar" MaxLength="50" />
+          <Property Name="Edad" Type="varchar" MaxLength="50" />
+          <Property Name="Peso" Type="varchar" MaxLength="50" />
+          <Property Name="Raza" Type="varchar" MaxLength="50" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" />
+          <Property Name="Cliente" Type="varchar" MaxLength="50" />
+          <Property Name="Paciente" Type="varchar" MaxLength="50" />
+          <Property Name="FechaIntervencion" Type="datetime" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleAnastesia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="CodigoAnastesia" Type="int" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleDiagnostico">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="CodigoDiagnostico" Type="int" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleOperacion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="CodigoOperacion" Type="int" />
+          <Property Name="EstadoRegistro" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleProfesional">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="CodigoProfesional" Type="int" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleSignosVitales">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrdenIntervencion" Type="int" />
+          <Property Name="CodigoSignosVitales" Type="int" />
+          <Property Name="EstadoRegisto" Type="bit" />
+        </EntityType>
+        <EntityType Name="Profesional">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumeroOrden" Type="int" />
+          <Property Name="DNI" Type="varchar" MaxLength="50" />
+          <Property Name="Profesional" Type="varchar" MaxLength="50" />
+          <Property Name="Especialidad" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProgramacionTurno">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFin" Type="datetime" />
+          <Property Name="CodigoSede" Type="int" />
+          <Property Name="CodigoAnio" Type="int" />
+          <Property Name="CodigoMes" Type="int" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProgramacionTurnoDetalle">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoTurno" Type="int" />
+          <Property Name="CodigoCargo" Type="int" />
+          <Property Name="CodigoEmpleado" Type="int" />
+          <Property Name="CodigoProgramacionTurno" Type="int" />
+          <Property Name="Responsable" Type="bit" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="SignosVitales">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="TipoBusqueda">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="TipoInsumo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstadoRegistro" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Epicrisis__Codig__08B54D69">
+          <End Role="EstadoEpicrisis" Type="Self.EstadoEpicrisis" Multiplicity="0..1" />
+          <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoEpicrisis">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Epicrisis">
+              <PropertyRef Name="CodigoEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4D94879B">
+          <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="0..1" />
+          <End Role="EpicrisisDetalle" Type="Self.EpicrisisDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Epicrisis">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="EpicrisisDetalle">
+              <PropertyRef Name="CodigoEpicrisis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4E88ABD4">
+          <End Role="TipoInsumo" Type="Self.TipoInsumo" Multiplicity="0..1" />
+          <End Role="EpicrisisDetalle" Type="Self.EpicrisisDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoInsumo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="EpicrisisDetalle">
+              <PropertyRef Name="CodigoTipoInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4F7CD00D">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Epicrisis">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5AEE82B9">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleAnastesia">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5BE2A6F2">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleDiagnostico">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5CD6CB2B">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleOperacion">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5DCAEF64">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleProfesional">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5EBF139D">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleSignosVitales">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5FB337D6">
+          <End Role="Anastesia" Type="Self.Anastesia" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anastesia">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleAnastesia">
+              <PropertyRef Name="CodigoAnastesia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__60A75C0F">
+          <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnostico">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleDiagnostico">
+              <PropertyRef Name="CodigoDiagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__619B8048">
+          <End Role="Operacion" Type="Self.Operacion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operacion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleOperacion">
+              <PropertyRef Name="CodigoOperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__628FA481">
+          <End Role="Profesional" Type="Self.Profesional" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesional">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleProfesional">
+              <PropertyRef Name="CodigoProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__6383C8BA">
+          <End Role="SignosVitales" Type="Self.SignosVitales" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SignosVitales">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleSignosVitales">
+              <PropertyRef Name="CodigoSignosVitales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6477ECF3">
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sede">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__656C112C">
+          <End Role="Anio" Type="Self.Anio" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anio">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoAnio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__66603565">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6754599E">
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramacionTurno">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoProgramacionTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__68487DD7">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__693CA210">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6A30C649">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="USP_CONSULTAEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="datetime" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAEPICRISISFINAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="datetime" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAEPICRISISV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="datetime" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAEPICRISISV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAEPICRISISV4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAORDENINTERVENCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="datetime" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAORDENINTERVENCIONV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAORDENINTERVENCIONV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAORDENINTERVENCIONV4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_CONSULTAPROGRAMACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoSede" Type="int" Mode="In" />
+          <Parameter Name="CodigoAnio" Type="int" Mode="In" />
+          <Parameter Name="CodigoMes" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERTARDETALLEEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="CodigoEpicrisis" Type="int" Mode="In" />
+          <Parameter Name="CodigoTipoInsumo" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+          <Parameter Name="Frecuencia" Type="varchar" Mode="In" />
+          <Parameter Name="Dosis" Type="varchar" Mode="In" />
+          <Parameter Name="Accion" Type="char" Mode="In" />
+          <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="USP_INSERTARDETALLEPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="CodigoTurno" Type="int" Mode="In" />
+          <Parameter Name="CodigoCargo" Type="int" Mode="In" />
+          <Parameter Name="CodigoEmpleado" Type="int" Mode="In" />
+          <Parameter Name="CodigoProgramacionTurno" Type="int" Mode="In" />
+          <Parameter Name="Responsable" Type="bit" Mode="In" />
+          <Parameter Name="Accion" Type="char" Mode="In" />
+          <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="USP_INSERTAREPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+          <Parameter Name="AreaHospitalaria" Type="varchar" Mode="In" />
+          <Parameter Name="Servicio" Type="varchar" Mode="In" />
+          <Parameter Name="DiasEstancia" Type="varchar" Mode="In" />
+          <Parameter Name="FechaIngreso" Type="datetime" Mode="In" />
+          <Parameter Name="FechaAlta" Type="datetime" Mode="In" />
+          <Parameter Name="Veterinario" Type="varchar" Mode="In" />
+          <Parameter Name="TratamientoRecibido" Type="varchar" Mode="In" />
+          <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+          <Parameter Name="Accion" Type="char" Mode="In" />
+          <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="USP_INSERTARPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+          <Parameter Name="CodigoSede" Type="int" Mode="In" />
+          <Parameter Name="CodigoAnio" Type="int" Mode="In" />
+          <Parameter Name="CodigoMes" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Accion" Type="char" Mode="In" />
+          <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEANASTESIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEDIAGNOSTICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEOPERACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEORDENINTERVENCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEPROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLEPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERDETALLESIGNOSVITALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENEREPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_OBTENERPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PETCENTERModelStoreContainer">
+          <EntitySet Name="Anastesia" EntityType="Self.Anastesia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Anio" EntityType="Self.Anio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Epicrisis" EntityType="Self.Epicrisis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EpicrisisDetalle" EntityType="Self.EpicrisisDetalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoEpicrisis" EntityType="Self.EstadoEpicrisis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mes" EntityType="Self.Mes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operacion" EntityType="Self.Operacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencion" EntityType="Self.OrdenIntervencion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencionDetalleAnastesia" EntityType="Self.OrdenIntervencionDetalleAnastesia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencionDetalleDiagnostico" EntityType="Self.OrdenIntervencionDetalleDiagnostico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencionDetalleOperacion" EntityType="Self.OrdenIntervencionDetalleOperacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencionDetalleProfesional" EntityType="Self.OrdenIntervencionDetalleProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenIntervencionDetalleSignosVitales" EntityType="Self.OrdenIntervencionDetalleSignosVitales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesional" EntityType="Self.Profesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramacionTurno" EntityType="Self.ProgramacionTurno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramacionTurnoDetalle" EntityType="Self.ProgramacionTurnoDetalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignosVitales" EntityType="Self.SignosVitales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoBusqueda" EntityType="Self.TipoBusqueda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoInsumo" EntityType="Self.TipoInsumo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Epicrisis__Codig__08B54D69" Association="Self.FK__Epicrisis__Codig__08B54D69">
+            <End Role="EstadoEpicrisis" EntitySet="EstadoEpicrisis" />
+            <End Role="Epicrisis" EntitySet="Epicrisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4D94879B" Association="Self.FK__Epicrisis__Codig__4D94879B">
+            <End Role="Epicrisis" EntitySet="Epicrisis" />
+            <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4E88ABD4" Association="Self.FK__Epicrisis__Codig__4E88ABD4">
+            <End Role="TipoInsumo" EntitySet="TipoInsumo" />
+            <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4F7CD00D" Association="Self.FK__Epicrisis__Codig__4F7CD00D">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="Epicrisis" EntitySet="Epicrisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5AEE82B9" Association="Self.FK__OrdenInte__Codig__5AEE82B9">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5BE2A6F2" Association="Self.FK__OrdenInte__Codig__5BE2A6F2">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnostico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5CD6CB2B" Association="Self.FK__OrdenInte__Codig__5CD6CB2B">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5DCAEF64" Association="Self.FK__OrdenInte__Codig__5DCAEF64">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5EBF139D" Association="Self.FK__OrdenInte__Codig__5EBF139D">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+            <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5FB337D6" Association="Self.FK__OrdenInte__Codig__5FB337D6">
+            <End Role="Anastesia" EntitySet="Anastesia" />
+            <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__60A75C0F" Association="Self.FK__OrdenInte__Codig__60A75C0F">
+            <End Role="Diagnostico" EntitySet="Diagnostico" />
+            <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnostico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__619B8048" Association="Self.FK__OrdenInte__Codig__619B8048">
+            <End Role="Operacion" EntitySet="Operacion" />
+            <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__628FA481" Association="Self.FK__OrdenInte__Codig__628FA481">
+            <End Role="Profesional" EntitySet="Profesional" />
+            <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__6383C8BA" Association="Self.FK__OrdenInte__Codig__6383C8BA">
+            <End Role="SignosVitales" EntitySet="SignosVitales" />
+            <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6477ECF3" Association="Self.FK__Programac__Codig__6477ECF3">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__656C112C" Association="Self.FK__Programac__Codig__656C112C">
+            <End Role="Anio" EntitySet="Anio" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__66603565" Association="Self.FK__Programac__Codig__66603565">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6754599E" Association="Self.FK__Programac__Codig__6754599E">
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__68487DD7" Association="Self.FK__Programac__Codig__68487DD7">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__693CA210" Association="Self.FK__Programac__Codig__693CA210">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6A30C649" Association="Self.FK__Programac__Codig__6A30C649">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PETCENTERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Anastesia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Horario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencionDetalleAnastesias" Relationship="Self.FK__OrdenInte__Codig__5FB337D6" FromRole="Anastesia" ToRole="OrdenIntervencionDetalleAnastesia" />
+        </EntityType>
+        <EntityType Name="Anio">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoes" Relationship="Self.FK__Programac__Codig__656C112C" FromRole="Anio" ToRole="ProgramacionTurno" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoDetalles" Relationship="Self.FK__Programac__Codig__693CA210" FromRole="Cargo" ToRole="ProgramacionTurnoDetalle" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencionDetalleDiagnosticoes" Relationship="Self.FK__OrdenInte__Codig__60A75C0F" FromRole="Diagnostico" ToRole="OrdenIntervencionDetalleDiagnostico" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoDetalles" Relationship="Self.FK__Programac__Codig__68487DD7" FromRole="Empleado" ToRole="ProgramacionTurnoDetalle" />
+        </EntityType>
+        <EntityType Name="Epicrisi">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="AreaHospitalaria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Servicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiasEstancia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="Veterianario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TratamientoRecibido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EpicrisisDetalles" Relationship="Self.FK__Epicrisis__Codig__4D94879B" FromRole="Epicrisis" ToRole="EpicrisisDetalle" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__Epicrisis__Codig__4F7CD00D" FromRole="Epicrisis" ToRole="OrdenIntervencion" />
+          <Property Name="CodigoEstado" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="EstadoEpicrisi" Relationship="PETCENTERModel.FK__Epicrisis__Codig__08B54D69" FromRole="Epicrisi" ToRole="EstadoEpicrisi" />
+        </EntityType>
+        <EntityType Name="EpicrisisDetalle">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEpicrisis" Type="Int32" />
+          <Property Name="CodigoTipoInsumo" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dosis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Epicrisi" Relationship="Self.FK__Epicrisis__Codig__4D94879B" FromRole="EpicrisisDetalle" ToRole="Epicrisis" />
+          <NavigationProperty Name="TipoInsumo" Relationship="Self.FK__Epicrisis__Codig__4E88ABD4" FromRole="EpicrisisDetalle" ToRole="TipoInsumo" />
+        </EntityType>
+        <EntityType Name="EstadoEpicrisi">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Epicrisis" Relationship="PETCENTERModel.FK__Epicrisis__Codig__08B54D69" FromRole="EstadoEpicrisi" ToRole="Epicrisi" />
+        </EntityType>
+        <EntityType Name="Me">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoes" Relationship="Self.FK__Programac__Codig__66603565" FromRole="Mes" ToRole="ProgramacionTurno" />
+        </EntityType>
+        <EntityType Name="Operacion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencionDetalleOperacions" Relationship="Self.FK__OrdenInte__Codig__619B8048" FromRole="Operacion" ToRole="OrdenIntervencionDetalleOperacion" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroHistoriaClinica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Peso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Paciente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIntervencion" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Epicrisis" Relationship="Self.FK__Epicrisis__Codig__4F7CD00D" FromRole="OrdenIntervencion" ToRole="Epicrisis" />
+          <NavigationProperty Name="OrdenIntervencionDetalleAnastesias" Relationship="Self.FK__OrdenInte__Codig__5AEE82B9" FromRole="OrdenIntervencion" ToRole="OrdenIntervencionDetalleAnastesia" />
+          <NavigationProperty Name="OrdenIntervencionDetalleDiagnosticoes" Relationship="Self.FK__OrdenInte__Codig__5BE2A6F2" FromRole="OrdenIntervencion" ToRole="OrdenIntervencionDetalleDiagnostico" />
+          <NavigationProperty Name="OrdenIntervencionDetalleOperacions" Relationship="Self.FK__OrdenInte__Codig__5CD6CB2B" FromRole="OrdenIntervencion" ToRole="OrdenIntervencionDetalleOperacion" />
+          <NavigationProperty Name="OrdenIntervencionDetalleProfesionals" Relationship="Self.FK__OrdenInte__Codig__5DCAEF64" FromRole="OrdenIntervencion" ToRole="OrdenIntervencionDetalleProfesional" />
+          <NavigationProperty Name="OrdenIntervencionDetalleSignosVitales" Relationship="Self.FK__OrdenInte__Codig__5EBF139D" FromRole="OrdenIntervencion" ToRole="OrdenIntervencionDetalleSignosVitales" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleAnastesia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="CodigoAnastesia" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Anastesia" Relationship="Self.FK__OrdenInte__Codig__5FB337D6" FromRole="OrdenIntervencionDetalleAnastesia" ToRole="Anastesia" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__OrdenInte__Codig__5AEE82B9" FromRole="OrdenIntervencionDetalleAnastesia" ToRole="OrdenIntervencion" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleDiagnostico">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="CodigoDiagnostico" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Diagnostico" Relationship="Self.FK__OrdenInte__Codig__60A75C0F" FromRole="OrdenIntervencionDetalleDiagnostico" ToRole="Diagnostico" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__OrdenInte__Codig__5BE2A6F2" FromRole="OrdenIntervencionDetalleDiagnostico" ToRole="OrdenIntervencion" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleOperacion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="CodigoOperacion" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Operacion" Relationship="Self.FK__OrdenInte__Codig__619B8048" FromRole="OrdenIntervencionDetalleOperacion" ToRole="Operacion" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__OrdenInte__Codig__5CD6CB2B" FromRole="OrdenIntervencionDetalleOperacion" ToRole="OrdenIntervencion" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleProfesional">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="CodigoProfesional" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__OrdenInte__Codig__5DCAEF64" FromRole="OrdenIntervencionDetalleProfesional" ToRole="OrdenIntervencion" />
+          <NavigationProperty Name="Profesional" Relationship="Self.FK__OrdenInte__Codig__628FA481" FromRole="OrdenIntervencionDetalleProfesional" ToRole="Profesional" />
+        </EntityType>
+        <EntityType Name="OrdenIntervencionDetalleSignosVitale">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrdenIntervencion" Type="Int32" />
+          <Property Name="CodigoSignosVitales" Type="Int32" />
+          <Property Name="EstadoRegisto" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencion" Relationship="Self.FK__OrdenInte__Codig__5EBF139D" FromRole="OrdenIntervencionDetalleSignosVitales" ToRole="OrdenIntervencion" />
+          <NavigationProperty Name="SignosVitale" Relationship="Self.FK__OrdenInte__Codig__6383C8BA" FromRole="OrdenIntervencionDetalleSignosVitales" ToRole="SignosVitales" />
+        </EntityType>
+        <EntityType Name="Profesional">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroOrden" Type="Int32" />
+          <Property Name="DNI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Profesional1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencionDetalleProfesionals" Relationship="Self.FK__OrdenInte__Codig__628FA481" FromRole="Profesional" ToRole="OrdenIntervencionDetalleProfesional" />
+        </EntityType>
+        <EntityType Name="ProgramacionTurno">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Precision="3" />
+          <Property Name="CodigoSede" Type="Int32" />
+          <Property Name="CodigoAnio" Type="Int32" />
+          <Property Name="CodigoMes" Type="Int32" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Anio" Relationship="Self.FK__Programac__Codig__656C112C" FromRole="ProgramacionTurno" ToRole="Anio" />
+          <NavigationProperty Name="Me" Relationship="Self.FK__Programac__Codig__66603565" FromRole="ProgramacionTurno" ToRole="Mes" />
+          <NavigationProperty Name="Sede" Relationship="Self.FK__Programac__Codig__6477ECF3" FromRole="ProgramacionTurno" ToRole="Sede" />
+          <NavigationProperty Name="ProgramacionTurnoDetalles" Relationship="Self.FK__Programac__Codig__6754599E" FromRole="ProgramacionTurno" ToRole="ProgramacionTurnoDetalle" />
+        </EntityType>
+        <EntityType Name="ProgramacionTurnoDetalle">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoTurno" Type="Int32" />
+          <Property Name="CodigoCargo" Type="Int32" />
+          <Property Name="CodigoEmpleado" Type="Int32" />
+          <Property Name="CodigoProgramacionTurno" Type="Int32" />
+          <Property Name="Responsable" Type="Boolean" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK__Programac__Codig__693CA210" FromRole="ProgramacionTurnoDetalle" ToRole="Cargo" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Programac__Codig__68487DD7" FromRole="ProgramacionTurnoDetalle" ToRole="Empleado" />
+          <NavigationProperty Name="ProgramacionTurno" Relationship="Self.FK__Programac__Codig__6754599E" FromRole="ProgramacionTurnoDetalle" ToRole="ProgramacionTurno" />
+          <NavigationProperty Name="Turno" Relationship="Self.FK__Programac__Codig__6A30C649" FromRole="ProgramacionTurnoDetalle" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoes" Relationship="Self.FK__Programac__Codig__6477ECF3" FromRole="Sede" ToRole="ProgramacionTurno" />
+        </EntityType>
+        <EntityType Name="SignosVitale">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="OrdenIntervencionDetalleSignosVitales" Relationship="Self.FK__OrdenInte__Codig__6383C8BA" FromRole="SignosVitales" ToRole="OrdenIntervencionDetalleSignosVitales" />
+        </EntityType>
+        <EntityType Name="TipoBusqueda">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TipoInsumo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="EpicrisisDetalles" Relationship="Self.FK__Epicrisis__Codig__4E88ABD4" FromRole="TipoInsumo" ToRole="EpicrisisDetalle" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRegistro" Type="Boolean" />
+          <NavigationProperty Name="ProgramacionTurnoDetalles" Relationship="Self.FK__Programac__Codig__6A30C649" FromRole="Turno" ToRole="ProgramacionTurnoDetalle" />
+        </EntityType>
+        <Association Name="FK__OrdenInte__Codig__5FB337D6">
+          <End Role="Anastesia" Type="Self.Anastesia" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anastesia">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleAnastesia">
+              <PropertyRef Name="CodigoAnastesia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__656C112C">
+          <End Role="Anio" Type="Self.Anio" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anio">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoAnio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__693CA210">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__60A75C0F">
+          <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnostico">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleDiagnostico">
+              <PropertyRef Name="CodigoDiagnostico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__68487DD7">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4D94879B">
+          <End Role="Epicrisis" Type="Self.Epicrisi" Multiplicity="0..1" />
+          <End Role="EpicrisisDetalle" Type="Self.EpicrisisDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Epicrisis">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="EpicrisisDetalle">
+              <PropertyRef Name="CodigoEpicrisis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4F7CD00D">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="Epicrisis" Type="Self.Epicrisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Epicrisis">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Epicrisis__Codig__4E88ABD4">
+          <End Role="TipoInsumo" Type="Self.TipoInsumo" Multiplicity="0..1" />
+          <End Role="EpicrisisDetalle" Type="Self.EpicrisisDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoInsumo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="EpicrisisDetalle">
+              <PropertyRef Name="CodigoTipoInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__66603565">
+          <End Role="Mes" Type="Self.Me" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__619B8048">
+          <End Role="Operacion" Type="Self.Operacion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operacion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleOperacion">
+              <PropertyRef Name="CodigoOperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5AEE82B9">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleAnastesia">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5BE2A6F2">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleDiagnostico">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5CD6CB2B">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleOperacion">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5DCAEF64">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleProfesional">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__5EBF139D">
+          <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenIntervencion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleSignosVitales">
+              <PropertyRef Name="CodigoOrdenIntervencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__628FA481">
+          <End Role="Profesional" Type="Self.Profesional" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesional">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleProfesional">
+              <PropertyRef Name="CodigoProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdenInte__Codig__6383C8BA">
+          <End Role="SignosVitales" Type="Self.SignosVitale" Multiplicity="0..1" />
+          <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SignosVitales">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="OrdenIntervencionDetalleSignosVitales">
+              <PropertyRef Name="CodigoSignosVitales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6477ECF3">
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sede">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurno">
+              <PropertyRef Name="CodigoSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6754599E">
+          <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramacionTurno">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoProgramacionTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programac__Codig__6A30C649">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="0..1" />
+          <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ProgramacionTurnoDetalle">
+              <PropertyRef Name="CodigoTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PETCENTEREntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anastesias" EntityType="Self.Anastesia" />
+          <EntitySet Name="Anios" EntityType="Self.Anio" />
+          <EntitySet Name="Cargoes" EntityType="Self.Cargo" />
+          <EntitySet Name="Diagnosticoes" EntityType="Self.Diagnostico" />
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleado" />
+          <EntitySet Name="Epicrisis" EntityType="Self.Epicrisi" />
+          <EntitySet Name="EpicrisisDetalles" EntityType="Self.EpicrisisDetalle" />
+          <EntitySet Name="EstadoEpicrisis" EntityType="Self.EstadoEpicrisi" />
+          <EntitySet Name="Mes" EntityType="Self.Me" />
+          <EntitySet Name="Operacions" EntityType="Self.Operacion" />
+          <EntitySet Name="OrdenIntervencions" EntityType="Self.OrdenIntervencion" />
+          <EntitySet Name="OrdenIntervencionDetalleAnastesias" EntityType="Self.OrdenIntervencionDetalleAnastesia" />
+          <EntitySet Name="OrdenIntervencionDetalleDiagnosticoes" EntityType="Self.OrdenIntervencionDetalleDiagnostico" />
+          <EntitySet Name="OrdenIntervencionDetalleOperacions" EntityType="Self.OrdenIntervencionDetalleOperacion" />
+          <EntitySet Name="OrdenIntervencionDetalleProfesionals" EntityType="Self.OrdenIntervencionDetalleProfesional" />
+          <EntitySet Name="OrdenIntervencionDetalleSignosVitales" EntityType="Self.OrdenIntervencionDetalleSignosVitale" />
+          <EntitySet Name="Profesionals" EntityType="Self.Profesional" />
+          <EntitySet Name="ProgramacionTurnoes" EntityType="Self.ProgramacionTurno" />
+          <EntitySet Name="ProgramacionTurnoDetalles" EntityType="Self.ProgramacionTurnoDetalle" />
+          <EntitySet Name="Sedes" EntityType="Self.Sede" />
+          <EntitySet Name="SignosVitales" EntityType="Self.SignosVitale" />
+          <EntitySet Name="TipoBusquedas" EntityType="Self.TipoBusqueda" />
+          <EntitySet Name="TipoInsumoes" EntityType="Self.TipoInsumo" />
+          <EntitySet Name="Turnoes" EntityType="Self.Turno" />
+          <AssociationSet Name="FK__OrdenInte__Codig__5FB337D6" Association="Self.FK__OrdenInte__Codig__5FB337D6">
+            <End Role="Anastesia" EntitySet="Anastesias" />
+            <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__656C112C" Association="Self.FK__Programac__Codig__656C112C">
+            <End Role="Anio" EntitySet="Anios" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurnoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__693CA210" Association="Self.FK__Programac__Codig__693CA210">
+            <End Role="Cargo" EntitySet="Cargoes" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__60A75C0F" Association="Self.FK__OrdenInte__Codig__60A75C0F">
+            <End Role="Diagnostico" EntitySet="Diagnosticoes" />
+            <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnosticoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__68487DD7" Association="Self.FK__Programac__Codig__68487DD7">
+            <End Role="Empleado" EntitySet="Empleadoes" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4D94879B" Association="Self.FK__Epicrisis__Codig__4D94879B">
+            <End Role="Epicrisis" EntitySet="Epicrisis" />
+            <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4F7CD00D" Association="Self.FK__Epicrisis__Codig__4F7CD00D">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="Epicrisis" EntitySet="Epicrisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Epicrisis__Codig__4E88ABD4" Association="Self.FK__Epicrisis__Codig__4E88ABD4">
+            <End Role="TipoInsumo" EntitySet="TipoInsumoes" />
+            <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__66603565" Association="Self.FK__Programac__Codig__66603565">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurnoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__619B8048" Association="Self.FK__OrdenInte__Codig__619B8048">
+            <End Role="Operacion" EntitySet="Operacions" />
+            <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5AEE82B9" Association="Self.FK__OrdenInte__Codig__5AEE82B9">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5BE2A6F2" Association="Self.FK__OrdenInte__Codig__5BE2A6F2">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnosticoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5CD6CB2B" Association="Self.FK__OrdenInte__Codig__5CD6CB2B">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5DCAEF64" Association="Self.FK__OrdenInte__Codig__5DCAEF64">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesionals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__5EBF139D" Association="Self.FK__OrdenInte__Codig__5EBF139D">
+            <End Role="OrdenIntervencion" EntitySet="OrdenIntervencions" />
+            <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__628FA481" Association="Self.FK__OrdenInte__Codig__628FA481">
+            <End Role="Profesional" EntitySet="Profesionals" />
+            <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesionals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdenInte__Codig__6383C8BA" Association="Self.FK__OrdenInte__Codig__6383C8BA">
+            <End Role="SignosVitales" EntitySet="SignosVitales" />
+            <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6477ECF3" Association="Self.FK__Programac__Codig__6477ECF3">
+            <End Role="Sede" EntitySet="Sedes" />
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurnoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6754599E" Association="Self.FK__Programac__Codig__6754599E">
+            <End Role="ProgramacionTurno" EntitySet="ProgramacionTurnoes" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programac__Codig__6A30C649" Association="Self.FK__Programac__Codig__6A30C649">
+            <End Role="Turno" EntitySet="Turnoes" />
+            <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalles" />
+          </AssociationSet>
+          <FunctionImport Name="USP_CONSULTAPROGRAMACION" ReturnType="Collection(PETCENTERModel.USP_CONSULTAPROGRAMACION_Result)">
+            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoAnio" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoMes" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEPROGRAMACIONTURNO" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEPROGRAMACIONTURNO_Result)">
+          <Parameter Name="Codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERPROGRAMACIONTURNO" ReturnType="Collection(PETCENTERModel.USP_OBTENERPROGRAMACIONTURNO_Result)">
+          <Parameter Name="Codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERTARDETALLEPROGRAMACIONTURNO">
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoTurno" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoCargo" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoProgramacionTurno" Mode="In" Type="Int32" />
+            <Parameter Name="Responsable" Mode="In" Type="Boolean" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="CodigoOut" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERTARPROGRAMACIONTURNO">
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoAnio" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoMes" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="CodigoOut" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK__Epicrisis__Codig__08B54D69" Association="PETCENTERModel.FK__Epicrisis__Codig__08B54D69">
+            <End Role="EstadoEpicrisi" EntitySet="EstadoEpicrisis" />
+            <End Role="Epicrisi" EntitySet="Epicrisis" />
+          </AssociationSet>
+          <FunctionImport Name="USP_CONSULTAEPICRISIS" ReturnType="Collection(PETCENTERModel.USP_CONSULTAEPICRISIS_Result)">
+            <Parameter Name="FechaIngresoInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIngresoFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="DateTime" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAORDENINTERVENCION" ReturnType="Collection(PETCENTERModel.USP_CONSULTAORDENINTERVENCION_Result)">
+            <Parameter Name="CodigoIntervencion" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="DateTime" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERTARDETALLEEPICRISIS">
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoEpicrisis" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoTipoInsumo" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Observaciones" Mode="In" Type="String" />
+            <Parameter Name="Frecuencia" Mode="In" Type="String" />
+            <Parameter Name="Dosis" Mode="In" Type="String" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="CodigoOut" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERTAREPICRISIS">
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+            <Parameter Name="AreaHospitalaria" Mode="In" Type="String" />
+            <Parameter Name="Servicio" Mode="In" Type="String" />
+            <Parameter Name="DiasEstancia" Mode="In" Type="String" />
+            <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaAlta" Mode="In" Type="DateTime" />
+            <Parameter Name="Veterinario" Mode="In" Type="String" />
+            <Parameter Name="TratamientoRecibido" Mode="In" Type="String" />
+            <Parameter Name="Observaciones" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="CodigoOut" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEEPICRISIS" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEEPICRISIS_Result)">
+          <Parameter Name="Codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENEREPICRISIS" ReturnType="Collection(PETCENTERModel.USP_OBTENEREPICRISIS_Result)">
+          <Parameter Name="Codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAEPICRISISFINAL" ReturnType="Collection(PETCENTERModel.USP_CONSULTAEPICRISISFINAL_Result)">
+            <Parameter Name="FechaIngresoInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIngresoFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="DateTime" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAEPICRISISV2" ReturnType="Collection(PETCENTERModel.USP_CONSULTAEPICRISISV2_Result)">
+            <Parameter Name="FechaIngresoInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIngresoFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="DateTime" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAEPICRISISV3" ReturnType="Collection(PETCENTERModel.USP_CONSULTAEPICRISISV3_Result)">
+            <Parameter Name="FechaIngresoInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIngresoFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAEPICRISISV4" ReturnType="Collection(PETCENTERModel.USP_CONSULTAEPICRISISV4_Result)">
+            <Parameter Name="FechaIngresoInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIngresoFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CodigoEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAORDENINTERVENCIONV2" ReturnType="Collection(PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV2_Result)">
+            <Parameter Name="CodigoIntervencion" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAORDENINTERVENCIONV3" ReturnType="Collection(PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV3_Result)">
+            <Parameter Name="CodigoIntervencion" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_CONSULTAORDENINTERVENCIONV4" ReturnType="Collection(PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV4_Result)">
+            <Parameter Name="CodigoIntervencion" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEANASTESIA" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEANASTESIA_Result)">
+          <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEDIAGNOSTICO" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEDIAGNOSTICO_Result)">
+          <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEOPERACION" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEOPERACION_Result)">
+          <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEPROFESIONAL" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEPROFESIONAL_Result)">
+          <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLESIGNOSVITALES" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLESIGNOSVITALES_Result)">
+          <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_OBTENERDETALLEORDENINTERVENCION" ReturnType="Collection(PETCENTERModel.USP_OBTENERDETALLEORDENINTERVENCION_Result)">
+            <Parameter Name="CodigoOrdenIntervencion" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="USP_CONSULTAPROGRAMACION_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Sede" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Anio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Mes" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FechaInicio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaFin" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEPROGRAMACIONTURNO_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="CodigoProgramacionTurno" Nullable="true" />
+          <Property Type="Int32" Name="CodigoTurno" Nullable="true" />
+          <Property Type="Int32" Name="CodigoCargo" Nullable="true" />
+          <Property Type="Int32" Name="CodigoEmpleado" Nullable="true" />
+          <Property Type="Boolean" Name="Responsable" Nullable="true" />
+          <Property Type="String" Name="Turno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cargo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Empleado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERPROGRAMACIONTURNO_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="CodigoSede" Nullable="true" />
+          <Property Type="Int32" Name="CodigoAnio" Nullable="true" />
+          <Property Type="Int32" Name="CodigoMes" Nullable="true" />
+          <Property Type="String" Name="FechaInicio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaFin" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <Association Name="FK__Epicrisis__Codig__08B54D69">
+          <End Type="PETCENTERModel.EstadoEpicrisi" Role="EstadoEpicrisi" Multiplicity="0..1" />
+          <End Type="PETCENTERModel.Epicrisi" Role="Epicrisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoEpicrisi">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Epicrisi">
+              <PropertyRef Name="CodigoEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_CONSULTAEPICRISIS_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiasEstancia" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaIngreso" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaAlta" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Veterianario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TratamientoRecibido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CodigoEstado" Nullable="true" />
+          <Property Type="Boolean" Name="EstadoRegistro" Nullable="true" />
+          <Property Type="Int32" Name="Codigo1" Nullable="false" />
+          <Property Type="String" Name="NumeroHistoriaClinica" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Peso" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Raza" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Paciente" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaIntervencion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="EstadoRegistro1" Nullable="true" />
+          <Property Type="Int32" Name="Codigo2" Nullable="false" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion1" Nullable="true" />
+          <Property Type="Int32" Name="CodigoDiagnostico" Nullable="true" />
+          <Property Type="Boolean" Name="EstadoRegistro2" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAORDENINTERVENCION_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Paciente" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaIntervencion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEEPICRISIS_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="CodigoEpicrisis" Nullable="true" />
+          <Property Type="Int32" Name="CodigoTipoInsumo" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Frecuencia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Dosis" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TipoConsumo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENEREPICRISIS_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiasEstancia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaAlta" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Veterianario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TratamientoRecibido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CodigoEstado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAEPICRISISFINAL_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="DateTime" Name="FechaIngreso" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaAlta" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="Diagnostico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAEPICRISISV2_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaAlta" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="Diagnostico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAEPICRISISV3_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaAlta" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="Diagnostico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAEPICRISISV4_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FechaAlta" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CodigoOrdenIntervencion" Nullable="true" />
+          <Property Type="String" Name="Diagnostico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AreaHospitalaria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Servicio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAORDENINTERVENCIONV2_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Paciente" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaIntervencion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAORDENINTERVENCIONV3_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Paciente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FechaIntervencion" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_CONSULTAORDENINTERVENCIONV4_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Paciente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FechaIntervencion" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NumeroHistoriaClinica" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Peso" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Raza" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEANASTESIA_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Horario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Observacion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEDIAGNOSTICO_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEOPERACION_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEPROFESIONAL_Result">
+          <Property Type="Int32" Name="NumeroOrden" Nullable="true" />
+          <Property Type="String" Name="Dni" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Profesional" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Especialidad" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLESIGNOSVITALES_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_OBTENERDETALLEORDENINTERVENCION_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="NumeroHistoriaClinica" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Peso" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Raza" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PETCENTERModelStoreContainer" CdmEntityContainer="PETCENTEREntities1">
+          <EntitySetMapping Name="Anastesias">
+            <EntityTypeMapping TypeName="PETCENTERModel.Anastesia">
+              <MappingFragment StoreEntitySet="Anastesia">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anios">
+            <EntityTypeMapping TypeName="PETCENTERModel.Anio">
+              <MappingFragment StoreEntitySet="Anio">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnosticoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Diagnostico">
+              <MappingFragment StoreEntitySet="Diagnostico">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleadoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Epicrisis">
+            <EntityTypeMapping TypeName="PETCENTERModel.Epicrisi">
+              <MappingFragment StoreEntitySet="Epicrisis">
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+                <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
+                <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EpicrisisDetalles">
+            <EntityTypeMapping TypeName="PETCENTERModel.EpicrisisDetalle">
+              <MappingFragment StoreEntitySet="EpicrisisDetalle">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoEpicrisis" ColumnName="CodigoEpicrisis" />
+                <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+                <ScalarProperty Name="Dosis" ColumnName="Dosis" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoEpicrisis">
+            <EntityTypeMapping TypeName="PETCENTERModel.EstadoEpicrisi">
+              <MappingFragment StoreEntitySet="EstadoEpicrisis">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Me">
+              <MappingFragment StoreEntitySet="Mes">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operacions">
+            <EntityTypeMapping TypeName="PETCENTERModel.Operacion">
+              <MappingFragment StoreEntitySet="Operacion">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencions">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencion">
+              <MappingFragment StoreEntitySet="OrdenIntervencion">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencionDetalleAnastesias">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencionDetalleAnastesia">
+              <MappingFragment StoreEntitySet="OrdenIntervencionDetalleAnastesia">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="CodigoAnastesia" ColumnName="CodigoAnastesia" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencionDetalleDiagnosticoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencionDetalleDiagnostico">
+              <MappingFragment StoreEntitySet="OrdenIntervencionDetalleDiagnostico">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencionDetalleOperacions">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencionDetalleOperacion">
+              <MappingFragment StoreEntitySet="OrdenIntervencionDetalleOperacion">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="CodigoOperacion" ColumnName="CodigoOperacion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencionDetalleProfesionals">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencionDetalleProfesional">
+              <MappingFragment StoreEntitySet="OrdenIntervencionDetalleProfesional">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="CodigoProfesional" ColumnName="CodigoProfesional" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenIntervencionDetalleSignosVitales">
+            <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencionDetalleSignosVitale">
+              <MappingFragment StoreEntitySet="OrdenIntervencionDetalleSignosVitales">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="CodigoSignosVitales" ColumnName="CodigoSignosVitales" />
+                <ScalarProperty Name="EstadoRegisto" ColumnName="EstadoRegisto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesionals">
+            <EntityTypeMapping TypeName="PETCENTERModel.Profesional">
+              <MappingFragment StoreEntitySet="Profesional">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Profesional1" ColumnName="Profesional" />
+                <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramacionTurnoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.ProgramacionTurno">
+              <MappingFragment StoreEntitySet="ProgramacionTurno">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+                <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
+                <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramacionTurnoDetalles">
+            <EntityTypeMapping TypeName="PETCENTERModel.ProgramacionTurnoDetalle">
+              <MappingFragment StoreEntitySet="ProgramacionTurnoDetalle">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoTurno" ColumnName="CodigoTurno" />
+                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="CodigoProgramacionTurno" ColumnName="CodigoProgramacionTurno" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Sede">
+              <MappingFragment StoreEntitySet="Sede">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignosVitales">
+            <EntityTypeMapping TypeName="PETCENTERModel.SignosVitale">
+              <MappingFragment StoreEntitySet="SignosVitales">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoBusquedas">
+            <EntityTypeMapping TypeName="PETCENTERModel.TipoBusqueda">
+              <MappingFragment StoreEntitySet="TipoBusqueda">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoInsumoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.TipoInsumo">
+              <MappingFragment StoreEntitySet="TipoInsumo">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turnoes">
+            <EntityTypeMapping TypeName="PETCENTERModel.Turno">
+              <MappingFragment StoreEntitySet="Turno">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAPROGRAMACION" FunctionName="PETCENTERModel.Store.USP_CONSULTAPROGRAMACION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAPROGRAMACION_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Sede" ColumnName="Sede" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROGRAMACIONTURNO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROGRAMACIONTURNO_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoProgramacionTurno" ColumnName="CodigoProgramacionTurno" />
+                <ScalarProperty Name="CodigoTurno" ColumnName="CodigoTurno" />
+                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERPROGRAMACIONTURNO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERPROGRAMACIONTURNO_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+                <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
+                <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEPROGRAMACIONTURNO" />
+          <FunctionImportMapping FunctionImportName="USP_INSERTARPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARPROGRAMACIONTURNO" />
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISIS" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISIS_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
+                <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+                <ScalarProperty Name="Codigo1" ColumnName="Codigo1" />
+                <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="EstadoRegistro1" ColumnName="EstadoRegistro1" />
+                <ScalarProperty Name="Codigo2" ColumnName="Codigo2" />
+                <ScalarProperty Name="CodigoOrdenIntervencion1" ColumnName="CodigoOrdenIntervencion1" />
+                <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
+                <ScalarProperty Name="EstadoRegistro2" ColumnName="EstadoRegistro2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCION" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCION_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEEPICRISIS" />
+          <FunctionImportMapping FunctionImportName="USP_INSERTAREPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTAREPICRISIS" />
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEEPICRISIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEEPICRISIS_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoEpicrisis" ColumnName="CodigoEpicrisis" />
+                <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+                <ScalarProperty Name="Dosis" ColumnName="Dosis" />
+                <ScalarProperty Name="TipoConsumo" ColumnName="TipoConsumo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENEREPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENEREPICRISIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENEREPICRISIS_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
+                <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISFINAL" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISFINAL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISFINAL_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV2_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV3" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV3_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV4_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV2_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV3" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV3_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV4_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEANASTESIA" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEANASTESIA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEANASTESIA_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEDIAGNOSTICO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEDIAGNOSTICO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEDIAGNOSTICO_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEOPERACION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEOPERACION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEOPERACION_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROFESIONAL" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROFESIONAL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROFESIONAL_Result">
+                <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Profesional" ColumnName="Profesional" />
+                <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLESIGNOSVITALES" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLESIGNOSVITALES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLESIGNOSVITALES_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEORDENINTERVENCION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEORDENINTERVENCION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEORDENINTERVENCION_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

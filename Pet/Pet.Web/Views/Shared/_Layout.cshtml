@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="no-js" ng-app="api" ng-controller="LayoutController">
+    <head>
+        <meta charset="utf-8" />
+    <title>Pet Center</title>
+    @Html.Partial("Referencias")
+    @Html.Partial("Header")
+</head>
+<body>
+    @Html.AntiForgeryToken()
+
+    @RenderBody()
+
+    @RenderSection("Scripts", false)
+
+    @Html.Partial("Footer")
+</body>
+</html>

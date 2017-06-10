@@ -1,0 +1,352 @@
+﻿@{
+    Layout = null;
+}
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraAdministacion.cshtml")
+
+    <!-- SECCION CRITERIOS -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Consulta Historica Epicrisis</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="BusquedaEpicrisisFrm" name="BusquedaEpicrisisFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Tipo Búsqueda
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboTipo">
+                                        <option value="">[Seleccione]</option>
+                                       
+
+                                    </select>
+                                    <div class="caja11 msgerror Tipo">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Tipo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha Ingrego Inicio
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaInicio,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           data-val-date="El campo Fecha Inicio debe ser una fecha."
+                                           id="FechaInicio"
+                                           name="FechaInicio"
+                                           required
+                                           control_max_date="FechaFin" />
+                                    <div class="caja11 msgerror FechaInicio">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaInicio" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha Ingreso Fin
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaFin,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           ng-enter="Enter()"
+                                           data-val-date="El campo Fecha Fin debe ser una fecha."
+                                           id="FechaFin"
+                                           name="FechaFin"
+                                           required
+                                           control_min_date="FechaInicio" />
+                                    <div class="caja11 msgerror FechaFin">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaFin" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Codigo
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Codigo"
+                                           name="Codigo" />
+                                    <div class="caja11 msgerror Codigo">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Codigo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nombre
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Nombre"
+                                           name="Nombre" />
+                                    <div class="caja11 msgerror Nombre">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Nombre" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Estado
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboEstado">
+                                        <option value="">[Seleccione]</option>
+                                        
+
+                                    </select>
+                                    <div class="caja11 msgerror Estado">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Estado" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION CRITERIOS -->
+          
+   <!-- RESULTADO DE BUSQUEDA-->
+    <div id="seccion-2">
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoEpicrisis" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaEpicrisis"></table>
+                    <div id="pagerconsultaEpicrisis"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- RESULTADO DE BUSQUEDA-->
+
+   
+</div>
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+        CrearGrillas();
+        
+        $.getJSON("/Epicrisis/ListaTipoBusqueda").done(function (data) {
+            var options = $("#cboTipo");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+        $.getJSON("/Epicrisis/ListaEstado").done(function (data) {
+            var options = $("#cboEstado");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+    });
+    function Nuevo_Click() {
+        window.location.href = '/#!/Epicrisis/Adicionar';
+    }
+    function VerDetalle(Codigo) {
+        window.location.href = '/#!/Epicrisis/Lectura?CodigoEpicrisis=' + Codigo;
+    }
+    function Editar(Codigo) {
+        window.location.href = '/#!/Epicrisis/Adicionar?CodigoEpicrisis=' + Codigo;
+    }
+    function Eliminar(rowId) {
+        MiConfirm("¿Esta seguro de eliminar el Epicrisis?.", function () {
+            var filtro =
+             {
+                 codigo: rowId,
+                 codigoOrdenIntervencion: 0,
+                 areaHospitalaria: '',
+                 servicio: '',
+                 diasEstancia: '',
+                 fechaIngreso: "08/06/2017",
+                 fechaAlta: "08/06/2017",
+                 veterinario: '',
+                 tratamientoRecibido: '',
+                 observaciones: '',
+                 codigoEstado: 0,
+                 accion: 'D'
+             }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/Epicrisis/IngresarEpicrisis/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                        MiAlertOk("Se ha eliminado correctamente la epicrisis");
+                    } else {
+                        MiError("Ocurrio un problema al eliminar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+            var grid = jQuery("#consultaEpicrisis");
+            grid.jqGrid('delRowData', rowId);
+            $("#consultaEpicrisis").trigger("reloadGrid");
+        });
+    }
+    function Buscar_Click() {
+        var filtro = {
+            fechaIngresoInicio: $('#FechaInicio').val(),
+            fechaIngresoFin: $('#FechaFin').val(),
+            codigo: $("#Codigo").val(),
+            nombre: $("#Nombre").val(),
+            codigoEstado: $('#cboEstado').val()
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/Epicrisis/listarEpicrisis/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaEpicrisis");
+                grid.clearGridData();
+
+                for (var i = 0; i < myData.length; i++) {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaEpicrisis").trigger("reloadGrid");
+
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        
+
+    }
+    function CrearGrillas() {
+        jQuery("#consultaEpicrisis").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Código', 'Fecha Ingreso', 'Fecha Alta', 'Código Intervención', 'Diagnostico',
+                        'Área Hosp.', 'Servicio Hosp.', 'Estado', 'Ver Detalle',
+                        'Editar',
+                        'Eliminar'],
+            colModel: [
+                { name: 'Codigo', index: 'Codigo', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaIngreso', index: 'FechaIngreso', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaAlta', index: 'FechaAlta', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'CodigoOrdenIntervencion', index: 'CodigoOrdenIntervencion', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Diagnostico', index: 'Diagnostico', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'AreaHospitalaria', index: 'AreaHospitalaria', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Servicio', index: 'Servicio', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Estado', index: 'Estado', shrinkToFit: false, align: "center", sortable: false },
+                {
+                    name: 'VerDetalle',
+                    align: 'center',
+                    width: '100px',
+                    shrinkToFit: false,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Ver Detalle' onclick='VerDetalle(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/buscar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Editar',
+                    align: 'center',
+                    sortable: false,
+                    width: '100px',
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Editar' onclick='Editar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/editar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    width: '100px',
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='Eliminar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                }
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pagerconsultaEpicrisis',
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+        jQuery("#consultaEpicrisis").jqGrid('navGrid', '#pagerconsultaEpicrisis', { edit: false, add: false, del: false });
+    }
+    function Salir_Click() {
+        window.location.href = '/#!/sistema/bienvenido/';
+    }
+    function Limpiar_Click() {
+        $("#cboTipo").val("");
+        $("#cboEstado").val("");
+        $("#FechaInicio").val("");
+        $("#FechaFin").val("");
+        $("#Codigo").val("");
+        $("#Nombre").val("");
+    }
+
+</script>

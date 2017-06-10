@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="no-js" ng-app="api" ng-controller="LayoutController">
+<head>
+    <meta charset="utf-8" />
+    <title>Pet Center</title>
+    @Html.Partial("Referencias")
+    @Html.Partial("Header")
+</head>
+<body>
+    <div id="ContenedorBodyMenu" class="divautenticado" style="width: 100%; clear: both; display: none;">
+        <div>
+            <div class="wrapper wrapperMediano col-md-12" style="padding-top: 0px!important; padding-bottom: 0px!important; border: 0px!important">
+            </div>
+        </div>
+    </div>
+    <div id="ContenedorBody" style="width: 100%; clear: both;">
+        <div>
+            <div id="centroPagina" class="currentPageClass col-md-12 wrapper  wrapperMediano" style="padding-top: 0px!important; padding-bottom: 0px!important; border: 0px!important; position: relative">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    @Html.Partial("Footer")
+</body>
+</html>
+@*<div class="ng-hide">*@

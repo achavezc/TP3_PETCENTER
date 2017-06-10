@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+    ViewBag.Usuario = Session["usuario"];
+}
+
+<style>
+    .navbar-default {
+        background-color: transparent!important;
+    }
+
+    .navbar-login {
+        width: 305px;
+        padding: 10px;
+        padding-bottom: 0px;
+    }
+
+    .navbar-login-session {
+        padding: 10px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+    .icon-size {
+        font-size: 87px;
+    }
+</style>
+<div id="header" class="wrapper wrapperMediano col-md-12" style="overflow: visible; padding-top: 0px!important; padding-bottom: 0px!important; border: 0px!important">
+    <div class="block" style="background-color: white">
+        <div class="block_head">
+            <div class="bheadl">
+                <div class="">
+                    <a ng-href="/" target="_self">
+                        <img id="tramarsa_logo" src="~/Images/Logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="contend_menu">
+        </div>
+    </div>
+
+
+
+    <div class="navbar navbar-default" role="navigation" style="margin-bottom: 0px !important; background-color: #0E75B5 !important;">
+        <div class="boton_act menuespaciotop2">
+            <a class="tituloSistema" ng-href="/" target="_self">Pet Center</a>
+        </div>
+        <div class="container" style="width: 100%;">
+            <div class="navbar-header">
+                <button ng-show="Menus.MenuIzquierdo.length>0" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+
+
+            <div class="collapse navbar-collapse">
+
+
+
+                <ul class="nav navbar-nav">
+                    <li ng-show="Menus.MenuIzquierdo.length>0" ng-repeat="opcion in Menus.MenuIzquierdo" class="{{(opcion.Opciones.length>0?'dropdown':'')}}">
+                        <a href="{{(opcion.Opciones.length>0?'#':'#!'+opcion.Url)}}" class="{{(opcion.Opciones.length>0?'dropdown-toggle':'')}}"
+                            data-toggle="{{(opcion.Opciones.length>0?'dropdown':'')}}">{{opcion.NombreControl}}
+  												<span class="caret" ng-show="opcion.Opciones.length>0"></span>
+                        </a>
+                        <ul ng-show="opcion.Opciones.length>0" class="{{(opcion.Opciones.length>0?'dropdown-menu':'')}}">
+                            <li ng-repeat="opcionN2 in opcion.Opciones">
+                                <a ng-href="{{(opcionN2.Opciones.length>0?'':'#!'+opcionN2.Url)}}">{{opcionN2.NombreControl}}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+
+
+                <ul ng-show="Menus.MenuIzquierdo.length>0" class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!--<span class="glyphicon glyphicon-user"></span>-->
+                            <span class="ui-icon ui-icon-person" style="top: 3px; margin-right: 3px; display: inline-block;"></span>
+                            <strong style="font-size: 11px;">{{Menus.NombreUsuario}} ({{Menus.RolUsuario}})</strong>
+                            <span class="ui-icon ui-icon-triangle-1-s" style="float: right; top: 3px; margin-right: 3px; display: inline-block;"></span>
+                            <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
+                        </a>
+
+
+
+                        <ul class="dropdown-menu" style="width: 100%;">
+                            <li>
+                                <div class="navbar-login">
+                                </div>
+                            </li>
+                            <li><a ng-href="{{Menus.UrlCerrarSesion}}">Cerrar Sesión</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

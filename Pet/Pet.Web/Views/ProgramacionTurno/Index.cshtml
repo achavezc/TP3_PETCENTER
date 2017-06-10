@@ -1,0 +1,281 @@
+﻿@{
+    Layout = null;
+}
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraAdministacion.cshtml")
+
+    <!-- SECCION CRITERIOS -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active" data-codigoseccion="BuscarBL">
+            <h2>
+                <span>Buscar Programación Turno</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="BusquedaProgramacionFrm" name="BusquedaProgramacionFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Sede
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboSede">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">San Isidro</option>
+                                        <option value="2">San Borja</option>
+
+                                    </select>
+                                    <div class="caja11 msgerror Sede">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Sede" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Año
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboAnio">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">2016</option>
+                                        <option value="2">2017</option>
+                                    </select>
+                                    <div class="caja11 msgerror Anio">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Anio" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Mes
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboMes">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                    </select>
+                                    <div class="caja11 msgerror Mes">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Mes" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION CRITERIOS -->
+          
+   <!-- RESULTADO DE BUSQUEDA-->
+    <div id="seccion-2">
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoProgramacionTurno" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaProgramaciones"></table>
+                    <div id="pagerconsultaProgramaciones"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- RESULTADO DE BUSQUEDA-->
+
+   
+</div>
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+        CrearGrillas();
+        $.getJSON("/ProgramacionTurno/ListaSede").done(function (data) {
+            var options = $("#cboSede");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+        $.getJSON("/ProgramacionTurno/ListaAnio").done(function (data) {
+            var options = $("#cboAnio");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+        $.getJSON("/ProgramacionTurno/ListaMes").done(function (data) {
+            var options = $("#cboMes");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+    });
+    function Nuevo_Click() {
+        window.location.href = '/#!/ProgramacionTurno/Adicionar';
+    }
+    function VerDetalle(Codigo) {
+        window.location.href = '/#!/ProgramacionTurno/Lectura?CodigoProgramacion=' + Codigo;
+    }
+    function Editar(Codigo) {
+        window.location.href = '/#!/ProgramacionTurno/Adicionar?CodigoProgramacion=' + Codigo;
+    }
+    function Eliminar(rowId) {
+        MiConfirm("¿Esta seguro de eliminar la programación de turno?.", function () {
+            var filtro =
+            {
+                codigo: rowId,
+                codigoSede: 0,
+                codigoAnio: 0,
+                codigoMes: 0,
+                fechaInicio: "08/06/2017",
+                fechaFin: "08/06/2017",
+                accion: "D"
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/ProgramacionTurno/IngresarProgramacionTurno/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                        MiAlertOk("Se ha eliminado correctamente la programación");
+                    } else {
+                        MiError("Ocurrio un problema al eliminar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+            var grid = jQuery("#consultaProgramaciones");
+            grid.jqGrid('delRowData', rowId);
+            $("#consultaProgramaciones").trigger("reloadGrid");
+        });
+      
+    }
+    function Buscar_Click() {
+
+        var filtro = {
+            codigoSede: $('#cboSede').val(),
+            codigoAnio: $('#cboAnio').val(),
+            codigoMes: $('#cboMes').val()
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/ProgramacionTurno/listarProgramacionTurno/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaProgramaciones");
+                grid.clearGridData();
+                
+                for (var i = 0; i < myData.length; i++) {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaProgramaciones").trigger("reloadGrid");
+
+              
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        
+    }
+    function CrearGrillas() {
+        jQuery("#consultaProgramaciones").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Código', 'Sede', 'Año','Mes' ,'Fecha Inicio', 'Fecha Fin', 'Ver Detalle', 'Editar', 'Eliminar'],
+            colModel: [
+                { name: 'Codigo', index: 'Codigo', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Sede', index: 'Sede', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Anio', index: 'Anio', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Mes', index: 'Mes', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaInicio', index: 'FechaInicio', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaFin', index: 'FechaFin', shrinkToFit: false, align: "center", sortable: false },
+                {
+                    name: 'VerDetalle',
+                    align: 'center',
+                    sortable: false,
+                    shrinkToFit: false,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Ver Detalle' onclick='VerDetalle(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/buscar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Editar',
+                    align: 'center',
+                    sortable: false,
+                    shrinkToFit: false,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Editar' onclick='Editar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/editar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    shrinkToFit: false,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='Eliminar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                }
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pagerconsultaProgramaciones',
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+        //jQuery("#consultaProgramaciones").jqGrid('navGrid', '#pagerconsultaSolicitudes', { edit: false, add: false, del: false });
+    }
+    function Salir_Click() {
+        window.location.href = '/#!/sistema/bienvenido/';
+    }
+    function Limpiar_Click() {
+        $("#cboSede").val("");
+        $("#cboAnio").val("");
+        $("#cboMes").val("");
+    }
+
+</script>

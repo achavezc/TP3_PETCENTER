@@ -1,0 +1,12 @@
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\bin\Debug\Pet.Entity.dll
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\bin\Debug\Pet.Entity.pdb
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\bin\Debug\log4net.dll
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\bin\Debug\log4net.xml
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.dll
+D:\pet_centercalidad\MyFirstProject\PetCenter\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.pdb
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\bin\Debug\Pet.Entity.dll
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\bin\Debug\Pet.Entity.pdb
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\bin\Debug\log4net.dll
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\bin\Debug\log4net.xml
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.dll
+D:\Documents\UPC\TP3\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.pdb

@@ -1,0 +1,275 @@
+﻿@{
+    Layout = null;
+}
+<div class="block" style="">
+
+        <!-- SECCION BOTONERA -->
+        @Html.Partial("~/Views/Botonera/BotoneraBusquedaClásicaConBotonSalir.cshtml")
+        <div style="display: none">0</div>
+        <!-- SECCION BOTONERA -->
+
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+        <div>
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>Criterios de Búsqueda</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <form id="BusquedaOrdenIntervencionFrm" name="BusquedaOrdenIntervencionFrm">
+                
+                <div class="block_content" style="width:100%">
+                    <!--SECCION 1-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Codigo Intervención
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="10"
+                                               type="text"
+                                               id="CodigoIntervencion"
+                                               name="CodigoIntervencion" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Tipo Búsqueda
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="InputSELECT_01" id="cboTipoBusqueda">
+                                            <option value="">[Seleccione]</option>
+                                           
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--SECCION 2-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Fecha Interv. Inicio
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_04Fecha"
+                                               maxlength="10" type="text"
+                                               data-bind="dateValue: FechaIntervencionInicio,datePattern: 'dd/MM/yyyy'"
+                                               data-val="true"
+                                               data-val-date="El campo Fecha Inicio debe ser una fecha."
+                                               id="FechaIntervencionInicio"
+                                               name="FechaIntervencionInicio"
+                                               required
+                                               control_max_date="FechaIntervencionFin" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Fecha Interv. Fin
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_04Fecha"
+                                               maxlength="10" type="text"
+                                               data-bind="dateValue: FechaIntervencionFin,datePattern: 'dd/MM/yyyy'"
+                                               data-val="true"
+                                               ng-enter="Enter()"
+                                               data-val-date="El campo Fecha Fin debe ser una fecha."
+                                               id="FechaIntervencionFin"
+                                               name="FechaIntervencionFin"
+                                               required
+                                               control_min_date="FechaIntervencionInicio" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--SECCION 3-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Codigo
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="10"
+                                               type="text"
+                                               id="Codigo"
+                                               name="Codigo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                       Nombre
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="10"
+                                               type="text"
+                                               id="NombreIntervencion"
+                                               name="NombreIntervencion" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="caja11 msgerror Objeto"></div>
+                </div>
+            </form>
+        </div>
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+
+        <!-- SECCION RESULTADO -->
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoOrdenes" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaOrdenes"></table>
+                    <div id="pagerconsultaOrdenes"></div>
+                </div>
+                <div class="caja11 msgerror ListaOrdenes">
+                    <span class="field-validation-valid msgerror" data-valmsg-for="ListaOrdenes" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+        <!-- SECCION RESULTADO -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON("/Epicrisis/ListaTipoBusqueda").done(function (data) {
+            var options = $("#cboTipoBusqueda");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+        ponerFechas("divPopupBuscarOrdenIntervencion");
+        CrearGrillas();
+    });
+    function CrearGrillas() {
+        jQuery("#consultaOrdenes").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Codigo', 'Cliente', 'Paciente', 'Fecha de Intervención', 'Estado'],
+            colModel: [
+                { name: 'Codigo', index: 'Codigo', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Cliente', index: 'Cliente', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Paciente', index: 'Paciente', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaIntervencion', index: 'FechaIntervencion', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Estado', index: 'Estado', shrinkToFit: false, align: "center", sortable: false },
+
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pagerconsultaOrdenes',
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+    }
+
+    function Buscar_Click() {
+
+
+       var filtro = {
+           codigoIntervencion: $('#CodigoIntervencion').val(),
+           fechaInicio: $('#FechaIntervencionInicio').val(),
+           fechaFin: $('#FechaIntervencionFin').val(),
+            codigo: $("#Codigo").val(),
+            nombre: $("#NombreIntervencion").val()
+            
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/OrdenIntervencion/listarOrdenIntervencion/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaOrdenes");
+                grid.clearGridData();
+
+                for (var i = 0; i < myData.length; i++) {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaOrdenes").trigger("reloadGrid");
+
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        
+        //var grid = jQuery("#consultaOrdenes");
+        //grid.clearGridData();
+        //var myData = [
+        //    { "Codigo": "1", "Cliente": "demo1", "Paciente": "paciente1", "FechaIntervencion": "03/06/2017", "Estado": "Demo" },
+        //    { "Codigo": "2", "Cliente": "demo1", "Paciente": "paciente1", "FechaIntervencion": "03/06/2017", "Estado": "Demo" },
+        //    { "Codigo": "3", "Cliente": "demo1", "Paciente": "paciente1", "FechaIntervencion": "03/06/2017", "Estado": "Demo" }
+        //];
+        //for (var i = 0; i < myData.length; i++) {
+        //    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+        //}
+
+        //$("#consultaOrdenes").trigger("reloadGrid");
+    }
+
+     
+    
+    function Seleccionar_Click() {
+        var myGrid = $('#consultaOrdenes'),
+        selRowId = myGrid.jqGrid('getGridParam', 'selrow'),
+        celValue = myGrid.jqGrid('getCell', selRowId, 'Codigo');
+        if (celValue) {
+            CargarOrdenPorCodigo(celValue);
+            $("#" + 'divPopupBuscarOrdenIntervencion').modal("hide");
+        } else {
+            MiAlert("Debe seleccionar un registro.");
+        }
+    }
+    function Limpiar_Click() {
+        $("#CodigoIntervencion").val("");
+        $("#cboTipoBusqueda").val("");
+        $("#FechaIntervencionInicio").val("");
+        $("#FechaIntervencionFin").val("");
+        $("#Codigo").val("");
+        $("#NombreIntervencion").val("");
+    }
+    function Salir_Click() {
+        $("#" + 'divPopupBuscarOrdenIntervencion').modal("hide");
+    }
+</script>

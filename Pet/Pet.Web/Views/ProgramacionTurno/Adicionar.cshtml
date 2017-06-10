@@ -1,0 +1,666 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraRegistro.cshtml")
+
+    <!-- SECCION DATOS GENERALES -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Generales</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroProgramacionFrm" name="RegistroProgramacionFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Sede
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboSede">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">San Isidro</option>
+                                        <option value="2">San Borja</option>
+
+                                    </select>
+                                    <div class="caja11 msgerror Sede">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Sede" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Año
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboAnio">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">2016</option>
+                                        <option value="2">2017</option>
+                                    </select>
+                                    <div class="caja11 msgerror Anio">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Anio" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Mes
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboMes">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                    </select>
+                                    <div class="caja11 msgerror Mes">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Mes" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-4">
+                                Fecha Inicio
+                            </div>
+                            <div class="col-md-8">
+                                <input class="InputTEXT_04Fecha"
+                                       maxlength="10" type="text"
+                                       data-bind="dateValue: FechaInicio,datePattern: 'dd/MM/yyyy'"
+                                       data-val="true"
+                                       data-val-date="El campo Fecha Inicio debe ser una fecha."
+                                       id="FechaInicio"
+                                       name="FechaInicio"
+                                       required
+                                       control_max_date="FechaFin" />
+                                <div class="caja11 msgerror FechaInicio">
+                                    <span class="field-validation-valid msgerror" data-valmsg-for="FechaInicio" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-4">
+                                Fecha Fin
+                            </div>
+                            <div class="col-md-8">
+                                <input class="InputTEXT_04Fecha"
+                                       maxlength="10" type="text"
+                                       data-bind="dateValue: FechaFin,datePattern: 'dd/MM/yyyy'"
+                                       data-val="true"
+                                       ng-enter="Enter()"
+                                       data-val-date="El campo Fecha Fin debe ser una fecha."
+                                       id="FechaFin"
+                                       name="FechaFin"
+                                       required
+                                       control_min_date="FechaInicio" />
+                                <div class="caja11 msgerror FechaFin">
+                                    <span class="field-validation-valid msgerror" data-valmsg-for="FechaFin" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS GENERALES -->
+
+    <!-- SECCION DETALLE-->
+    <div id="seccion-2">
+        
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>EMPLEADOS ASIGNADOS</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div class="block_menu">
+                <div style="max-width: 100%; height: 100%">
+                    <div class="boton">
+                        <button id="btnAgregar" onclick="AgregarEmpleado()" class="SeparatorLeft boton1Style boton1" style="">
+                            <span class="boton1Span">
+                                <img class="boton1Img csBtnAgregar" alt="Agregar" src="/Images/formatmap32x32.png">
+                            </span>
+                            <span class="boton1txt">Agregar</span>
+                        </button>
+
+                    </div>
+                </div>
+                <form id="RegistroEmpleadoFrm" name="RegistroEmpleadoFrm" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="block_content" style="width: 100%">
+                        <!------------------- 1 Seccion -------------------------------------------->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-4">
+                                            Turno
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="InputSELECT_01" id="cboTurno">
+                                                <option value="">[Seleccione]</option>
+                                                <option value="1">Madrugada</option>
+                                                <option value="2">Mañana</option>
+                                                <option value="2">Tarde</option>
+                                                <option value="2">Noche</option>
+
+                                            </select>
+                                            <div class="caja11 msgerror Turno">
+                                                <span class="field-validation-valid msgerror" data-valmsg-for="Turno" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-4">
+                                            Cargo
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="InputSELECT_01" id="cboCargo">
+                                                <option value="">[Seleccione]</option>
+                                                <option value="1">Medico</option>
+                                                <option value="2">Enfermero</option>
+                                                <option value="2">Anestesiologo</option>
+                                            </select>
+                                            <div class="caja11 msgerror Cargo">
+                                                <span class="field-validation-valid msgerror" data-valmsg-for="Cargo" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-4">
+                                            Empleado
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="InputSELECT_01" id="cboEmpleado">
+                                                <option value="">[Seleccione]</option>
+                                                <option value="1">Jorge Fia Diaz</option>
+                                                <option value="2">Jorge Uni Lucas</option>
+                                            </select>
+                                            <div class="caja11 msgerror Empleado">
+                                                <span class="field-validation-valid msgerror" data-valmsg-for="Empleado" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                    <div id="ContentListadoEmpleados" class="block_content">
+                        <div class="form_section" style="width: 100%">
+                            <table id="consultaEmpleados"></table>
+                            <div id="pagerconsultaEmpleados"></div>
+                        </div>
+                        <div class="caja11 msgerror ListaEmpleados">
+                            <span class="field-validation-valid msgerror" data-valmsg-for="ListaEmpleados" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SECCION DETALLE-->
+
+
+        </div>
+
+</div>
+<script type="text/javascript">
+    var listaEmpleadosEliminados = [];
+    $(document).ready(function () {
+        CargarCombos();
+        CrearGrillas();
+        var codigoProgramacion = getParameterByName('CodigoProgramacion');
+        if (codigoProgramacion>0) {
+            ObtenerProgramacionTurno(codigoProgramacion);
+        }
+    });
+    function CargarCombos() {
+        $.ajax({
+            url: "/ProgramacionTurno/ListaSede",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboSede");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaAnio",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboAnio");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaMes",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboMes");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaTurno",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboTurno");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaCargo",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboCargo");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaEmpleado",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboEmpleado");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+    }
+    function AgregarEmpleado() {
+        if (ValidarCamposDetalle()) {
+            var grid = jQuery("#consultaEmpleados");
+            var codDetalle = GenerarId(grid.getRowData(), "Codigo");
+            var myData =
+                {
+                    "Turno": $("#cboTurno option:selected").text(),
+                    "Cargo": $("#cboCargo option:selected").text(),
+                    "Empleado": $("#cboEmpleado option:selected").text(),
+                    "CodigoTurno": $("#cboTurno").val(),
+                    "CodigoCargo": $("#cboCargo").val(),
+                    "CodigoEmpleado": $("#cboEmpleado").val(),
+                    "Codigo": codDetalle,
+                    "Accion" : "I"
+                };
+            grid.jqGrid('addRowData', codDetalle, myData);
+
+            $("#consultaEmpleados").trigger("reloadGrid");
+            LimpiarDetalleSeleccionado();
+        }
+    }
+    function EliminarEmpleado(rowId) {
+        
+        MiConfirm("¿Esta seguro de eliminar el empleado asignado?.", function () {
+            var grid = jQuery("#consultaEmpleados");
+            var datos = grid.getRowData();
+            for (var i = 0; i < datos.length; i++) {
+                if (datos[i].Codigo == rowId) {
+                    if (datos[i].Accion == "U") {
+                        listaEmpleadosEliminados.push(datos[i].Codigo);
+                    }
+                }
+            }
+            grid.jqGrid('delRowData', rowId);
+            $("#consultaEmpleados").trigger("reloadGrid");
+
+        });
+    }
+    function GenerarId(listaObjeto, NameIdObjeto)
+    {
+        var objMinId = $from(listaObjeto).min("parseInt($"+NameIdObjeto+")");
+        var	nuevoId=-1;
+        if(objMinId!=undefined)
+            nuevoId=objMinId[NameIdObjeto]-1;
+        return nuevoId;
+    }
+    function ObtenerProgramacionTurno(codigoProgramacion) {
+        
+        var filtro = {
+            codigo: codigoProgramacion
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/ProgramacionTurno/ObtenerProgramacionTurno/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                $("#cboSede").val(myData[0].CodigoSede);
+                $("#cboAnio").val(myData[0].CodigoAnio);
+                $("#cboMes").val(myData[0].CodigoMes);
+
+                var arrFechaInicio = myData[0].FechaInicio.split('-');
+                $("#FechaInicio").val(arrFechaInicio[2] + '/' + arrFechaInicio[1] + '/' + arrFechaInicio[0]);
+                var arrFechaFin = myData[0].FechaFin.split('-');
+                $("#FechaFin").val(arrFechaFin[2] + '/' + arrFechaFin[1] + '/' + arrFechaFin[0]);
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/ProgramacionTurno/ObtenerDetalleProgramacionTurno/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaEmpleados");
+                for (var i = 0; i < myData.length; i++) {
+                    if (myData[i].Responsable) {
+                        myData[i].Responsable = "True";
+                    } else {
+                        myData[i].Responsable = "False";
+                    }
+                    myData[i].Accion = "U";
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaEmpleados").trigger("reloadGrid");
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+
+      
+    }
+    function Salir_Click() {
+        window.location.href = '/#!/ProgramacionTurno';
+    }
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    function CrearGrillas() {
+        jQuery("#consultaEmpleados").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Turno', 'Cargo', 'Empleado', 'Responsable', 'Eliminar', 'CodigoTurno', 'CodigoCargo', 'CodigoEmpleado', 'Codigo', 'Accion'],
+            colModel: [
+                { name: 'Turno', index: 'Turno', width: 210, align: "center", sortable: false },
+                { name: 'Cargo', index: 'Cargo', width: 210, align: "center", sortable: false },
+                { name: 'Empleado', index: 'Empleado', width: 210, align: "center", sortable: false },
+                {
+                    name: 'Responsable', index: 'Responsable',
+                    editable: true, edittype: 'checkbox', editoptions: { value: "True:False" },
+                    formatter: "checkbox", align: "center", formatoptions: { disabled: false }
+                },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    width: 150,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='EliminarEmpleado(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                },
+                { name: 'CodigoTurno', index: 'CodigoTurno', width: 210, align: "center", sortable: false, hidden: true },
+                { name: 'CodigoCargo', index: 'CodigoCargo', width: 210, align: "center", sortable: false, hidden: true },
+                { name: 'CodigoEmpleado', index: 'CodigoEmpleado', width: 210, align: "center", sortable: false, hidden: true },
+                { name: 'Codigo', index: 'Codigo', width: 210, align: "center", sortable: false, hidden: true },
+                { name: 'Accion', index: 'Accion', width: 210, align: "center", sortable: false, hidden: true }
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+        //jQuery("#consultaEmpleados").jqGrid('navGrid', '#pagerconsultaSolicitudes', { edit: false, add: false, del: false });
+    }
+    function Guardar_Click() {
+        if (ValidarCampos()) {
+            //LLAMAR GUARDAR
+           
+            var codigoSede = $("#cboSede").val();
+            var codigoAnio = $("#cboAnio").val();
+            var codigoMes = $("#cboMes").val();
+            var fechaInicio = $("#FechaInicio").val();
+            var fechaFin = $("#FechaFin").val();
+            var codigoProgramacion = getParameterByName('CodigoProgramacion');
+            var accion = 'I';
+            if (codigoProgramacion > 0) {
+                accion = 'U';
+            } else {
+                codigoProgramacion = 0;
+            }
+            var filtro =
+            {
+                codigo: codigoProgramacion,
+                codigoSede: codigoSede,
+                codigoAnio: codigoAnio,
+                codigoMes: codigoMes,
+                fechaInicio: fechaInicio,
+                fechaFin: fechaFin,
+                accion: accion
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/ProgramacionTurno/IngresarProgramacionTurno/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                        GuardarDetalle(myData)
+                        MiAlertOk("Se ha grabado correctamente la programación", MiAlertOk_success);
+                    } else {
+                        MiError("Ocurrio un problema al guardar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function MiAlertOk_success() {
+        window.location.href = '/#!/ProgramacionTurno';
+    }
+    function GuardarDetalle(codigoProgramacionTurno) {
+        var grid = jQuery("#consultaEmpleados");
+        var datos = grid.getRowData();
+        for (var i = 0; i < datos.length; i++) {
+            var filtro =
+           {
+               codigo: datos[i].Codigo,
+               codigoTurno: datos[i].CodigoTurno,
+               codigoCargo: datos[i].CodigoCargo,
+               codigoEmpleado: datos[i].CodigoEmpleado,
+               codigoProgramacionTurno: codigoProgramacionTurno,
+               responsable: datos[i].Responsable,
+               accion: datos[i].Accion
+           }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/ProgramacionTurno/IngresarDetalleProgramacionTurno/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                  
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+        EliminarDetalleRegistrados();
+
+    }
+    function EliminarDetalleRegistrados() {
+        for (var i = 0; i < listaEmpleadosEliminados.length; i++) {
+            var codigoProgramacion = getParameterByName('CodigoProgramacion');
+            var filtro =
+           {
+               codigo: listaEmpleadosEliminados[i],
+               codigoTurno: 0,
+               codigoCargo: 0,
+               codigoEmpleado: 0,
+               codigoProgramacionTurno: codigoProgramacion,
+               responsable: 0,
+               accion: "D"
+           }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/ProgramacionTurno/IngresarDetalleProgramacionTurno/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function ValidarCampos() {
+        LimpiarCampos();
+        var resultado = true;
+        var codigoSede = $("#cboSede").val();
+        var codigoAnio = $("#cboAnio").val();
+        var codigoMes = $("#cboMes").val();
+        var fechaInicio = $("#FechaInicio").val();
+        var fechaFin = $("#FechaFin").val();
+        if (codigoSede == "") {
+            $(".caja11.msgerror.Sede").html("Sede es requerido.");
+            resultado = false;
+        }
+        if (codigoAnio == "") {
+            $(".caja11.msgerror.Anio").html("Año es requerido.");
+            resultado = false;
+        }
+        if (codigoMes == "") {
+            $(".caja11.msgerror.Mes").html("Mes es requerido.");
+            resultado = false;
+        }
+        if (fechaInicio == "") {
+            $(".caja11.msgerror.FechaInicio").html("Fecha Inicio es requerido.");
+            resultado = false;
+        }
+        if (fechaFin == "") {
+            $(".caja11.msgerror.FechaFin").html("Fecha Fin es requerido.");
+            resultado = false;
+        }
+        var grid = jQuery("#consultaEmpleados");
+        var dataEmpleados = grid.getRowData();
+        if (dataEmpleados.length == 0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar por lo menos un empleado.");
+            resultado = false;
+        }
+        return resultado;
+    }
+    function LimpiarCampos() {
+        $(".caja11.msgerror.Sede").html("");
+        $(".caja11.msgerror.Anio").html("");
+        $(".caja11.msgerror.Mes").html("");
+        $(".caja11.msgerror.FechaInicio").html("");
+        $(".caja11.msgerror.FechaFin").html("");
+        $(".caja11.msgerror.ListaEmpleados").html("");
+    }
+    function ValidarCamposDetalle() {
+        LimpiarCamposDetalle();
+        var resultado = true;
+        var codigoTurno = $("#cboTurno").val();
+        var codigoCargo = $("#cboCargo").val();
+        var codigoEmpleado = $("#cboEmpleado").val();
+       
+        if (codigoTurno == "") {
+            $(".caja11.msgerror.Turno").html("Turno es requerido.");
+            resultado = false;
+        }
+        if (codigoCargo == "") {
+            $(".caja11.msgerror.Cargo").html("Cargo es requerido.");
+            resultado = false;
+        }
+        if (codigoEmpleado == "") {
+            $(".caja11.msgerror.Empleado").html("Empleado es requerido.");
+            resultado = false;
+        }
+        return resultado;
+    }
+    function LimpiarCamposDetalle() {
+        $(".caja11.msgerror.Turno").html("");
+        $(".caja11.msgerror.Cargo").html("");
+        $(".caja11.msgerror.Empleado").html("");
+    }
+    function LimpiarDetalleSeleccionado() {
+       $("#cboTurno").val("");
+       $("#cboCargo").val("");
+       $("#cboEmpleado").val("");
+    }
+</script>
