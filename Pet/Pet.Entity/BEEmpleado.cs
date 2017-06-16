@@ -9,6 +9,7 @@ namespace Pet.Entity
     public class BEEmpleado
     {
         public int Codigo { get; set; }
+        public string Cargo { get; set; }
         public string Descripcion { get; set; }
         public bool? EstadoRegistro { get; set; }
     }

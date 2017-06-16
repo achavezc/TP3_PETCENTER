@@ -36,7 +36,7 @@ namespace Pet.Web.Controllers
             {
                 success = true;
                 nombreUsuario = "Juan Perez";
-                rolUsuario = "Jefe Operaciones";
+                rolUsuario = "Médico Cirujano";
                 menuDemo.Add(new ResponseOpcionUI
                 {
                     Clase = "Menu",

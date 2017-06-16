@@ -74,6 +74,12 @@ namespace Pet.Web.Controllers
             return Json(Pet.Service.TipoConsumo.ListaTipoConsumo().ToList(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult ListaEmpleado()
+        {
+            log.Info("Function: [ListaEmpleado()]");
+            return Json(Pet.Service.Empleado.ListaEmpleado().ToList(), JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Adicionar()
         {

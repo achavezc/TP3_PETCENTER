@@ -27,5 +27,6 @@ namespace Pet.Data.EF5.EFData
         public Nullable<bool> EstadoRegistro { get; set; }
     
         public virtual ICollection<OrdenIntervencionDetalleProfesional> OrdenIntervencionDetalleProfesionals { get; set; }
+        public virtual GG_Empleado GG_Empleado { get; set; }
     }
 }

@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{311A72B7-6F40-44CC-9E81-CBC58DB8FD82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PetCenter</RootNamespace>
+    <AssemblyName>PetCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Log" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Presentacion\Adopcion\BusCliente.aspx" />
+    <Content Include="Presentacion\Adopcion\BusMascota.aspx" />
+    <Content Include="Presentacion\Adopcion\RegistroSolicitudAdopcion.aspx" />
+    <Content Include="Presentacion\Adopcion\resources\css\angular-csp.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\angular-ui-notification.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap-theme.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap-theme.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\datepicker.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Presentacion\Adopcion\resources\css\jquery-ui-1.12.1.custom.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\ng-table.min.css" />
+    <Content Include="Presentacion\Adopcion\resources\css\style.css" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\fontawesome-webfont.svg" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Presentacion\Adopcion\resources\images\atras.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\banner.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\boton.jpg" />
+    <Content Include="Presentacion\Adopcion\resources\images\btnvideocodigo.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\btnvideofiltro.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\captcha.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\ejexpediente.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\favicon.ico" />
+    <Content Include="Presentacion\Adopcion\resources\images\favicon.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\fondo_contenedor.jpg" />
+    <Content Include="Presentacion\Adopcion\resources\images\footer.jpg" />
+    <Content Include="Presentacion\Adopcion\resources\images\icon-actualizar.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\icon-alerta.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\icon-exp.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\icon-impresora.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\imgdeudor.jpg" />
+    <Content Include="Presentacion\Adopcion\resources\images\keys.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\login-TD.jpg" />
+    <Content Include="Presentacion\Adopcion\resources\images\login-TD.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\logo-cej.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\logo-pj.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\logo-redam.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\noFoto.gif" />
+    <Content Include="Presentacion\Adopcion\resources\images\redam.png" />
+    <Content Include="Presentacion\Adopcion\resources\images\user.png" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-animate.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-locale_es-pe.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-resource.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-route.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-toastr.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-toastr.tpls.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular-ui-notification.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\angular.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\bootstrap-datepicker.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\bootstrap-datetimepicker.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\moment.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\ng-table.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\satellizer.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\satellizer.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\angularjs\ui-bootstrap-tpls.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\bootstrap\bootstrap.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\FuncionesComunes.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\jquery\jquery-ui-1.9.1.custom.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\jquery\jquery.blockUI.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\jquery\jquery.min.js" />
+    <Content Include="Presentacion\Adopcion\resources\js\jquery\npm.js" />
+    <Content Include="Presentacion\BuscarCamada.aspx" />
+    <Content Include="Presentacion\Adopcion\GestionSolicitudAdopcion.aspx" />
+    <Content Include="Presentacion\Solicitud.Master" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap-theme.css.map" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap-theme.min.css.map" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap.css.map" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap.min.css.bak" />
+    <Content Include="Presentacion\Adopcion\resources\css\bootstrap.min.css.map" />
+    <Content Include="Presentacion\Adopcion\resources\css\style.css.bak" />
+    <Content Include="Presentacion\Adopcion\resources\css\style.css.old" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\fontawesome-webfont.eot" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\fontawesome-webfont.woff" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\FontAwesome.otf" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Presentacion\Adopcion\resources\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Presentacion\BuscarCliente.aspx" />
+    <Content Include="Presentacion\BuscarMascota.aspx" />
+    <Content Include="Presentacion\ConsultaSolicitud.aspx" />
+    <Content Include="Presentacion\Principal.aspx" />
+    <Content Include="Presentacion\RegistroSolicitudPedigri.aspx" />
+    <Content Include="Presentacion\SolicitudCruces.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\DaoSolicitud.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Empleado.cs" />
+    <Compile Include="Entidades\Mascota.cs" />
+    <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="Entidades\SolicitudAdopcion.cs" />
+    <Compile Include="Entidades\SolicitudPedigri.cs" />
+    <Compile Include="Entidades\Solicitud.cs" />
+    <Compile Include="Presentacion\Adopcion\BusCliente.aspx.cs">
+      <DependentUpon>BusCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\BusCliente.aspx.designer.cs">
+      <DependentUpon>BusCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\BusMascota.aspx.cs">
+      <DependentUpon>BusMascota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\BusMascota.aspx.designer.cs">
+      <DependentUpon>BusMascota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FuncionesUrlString.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\BusinessSolicitud.cs" />
+    <Compile Include="Presentacion\Adopcion\RegistroSolicitudAdopcion.aspx.cs">
+      <DependentUpon>RegistroSolicitudAdopcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\RegistroSolicitudAdopcion.aspx.designer.cs">
+      <DependentUpon>RegistroSolicitudAdopcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\BuscarCamada.aspx.cs">
+      <DependentUpon>BuscarCamada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\BuscarCamada.aspx.designer.cs">
+      <DependentUpon>BuscarCamada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\BuscarCliente.aspx.cs">
+      <DependentUpon>BuscarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\BuscarCliente.aspx.designer.cs">
+      <DependentUpon>BuscarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\BuscarMascota.aspx.cs">
+      <DependentUpon>BuscarMascota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\BuscarMascota.aspx.designer.cs">
+      <DependentUpon>BuscarMascota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Constantes\Constantes.cs" />
+    <Compile Include="Presentacion\ConsultaSolicitud.aspx.cs">
+      <DependentUpon>ConsultaSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ConsultaSolicitud.aspx.designer.cs">
+      <DependentUpon>ConsultaSolicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\GestionSolicitudAdopcion.aspx.cs">
+      <DependentUpon>GestionSolicitudAdopcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Adopcion\GestionSolicitudAdopcion.aspx.designer.cs">
+      <DependentUpon>GestionSolicitudAdopcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\RegistroSolicitudPedigri.aspx.cs">
+      <DependentUpon>RegistroSolicitudPedigri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\RegistroSolicitudPedigri.aspx.designer.cs">
+      <DependentUpon>RegistroSolicitudPedigri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Solicitud.Master.cs">
+      <DependentUpon>Solicitud.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Solicitud.Master.designer.cs">
+      <DependentUpon>Solicitud.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\SolicitudCruces.aspx.cs">
+      <DependentUpon>SolicitudCruces.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\SolicitudCruces.aspx.designer.cs">
+      <DependentUpon>SolicitudCruces.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33620</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33620/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

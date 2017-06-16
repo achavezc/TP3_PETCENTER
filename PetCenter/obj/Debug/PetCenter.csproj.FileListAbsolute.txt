@@ -1,0 +1,79 @@
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.dll.config
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.dll
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.pdb
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.dll
+D:\Salvado_PC\Varios\UPC\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.pdb
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.dll.config
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.dll
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\bin\PetCenter.pdb
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.dll
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.pdb
+D:\TP2\Proyecto\TP2\Sistema\PetCenter\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\obj\Debug\PetCenter.dll
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\bin\PetCenter.dll.config
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\bin\PetCenter.dll
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\bin\PetCenter.pdb
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\obj\Debug\PetCenter.pdb
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_12\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+D:\TP2\PetCenter_13\PetCenter\bin\PetCenter.dll.config
+D:\TP2\PetCenter_13\PetCenter\bin\PetCenter.dll
+D:\TP2\PetCenter_13\PetCenter\bin\PetCenter.pdb
+D:\TP2\PetCenter_13\PetCenter\obj\Debug\PetCenter.dll
+D:\TP2\PetCenter_13\PetCenter\obj\Debug\PetCenter.pdb
+D:\TP2\PetCenter_13\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\bin\PetCenter.dll.config
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\bin\PetCenter.dll
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\bin\PetCenter.pdb
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\obj\Debug\PetCenter.dll
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\obj\Debug\PetCenter.pdb
+C:\Users\jorgeluis\Desktop\TP2\EntregableFinal\Fuentes\PetCenter_v14\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+D:\TP2\PetCenter_15\PetCenter\bin\PetCenter.dll.config
+D:\TP2\PetCenter_15\PetCenter\bin\PetCenter.dll
+D:\TP2\PetCenter_15\PetCenter\bin\PetCenter.pdb
+D:\TP2\PetCenter_15\PetCenter\obj\Debug\PetCenter.dll
+D:\TP2\PetCenter_15\PetCenter\obj\Debug\PetCenter.pdb
+D:\TP2\PetCenter_15\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\PetCenter.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\PetCenter.pdb
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\obj\Debug\PetCenter.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\obj\Debug\PetCenter.pdb
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\Newtonsoft.Json.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Net.Http.Formatting.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Web.Http.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Web.Http.WebHost.dll
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\Newtonsoft.Json.xml
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Net.Http.Formatting.xml
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Web.Http.xml
+C:\Users\pjudicial\Desktop\UPC\PetCenter_15\PetCenter\bin\System.Web.Http.WebHost.xml
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\PetCenter.dll.config
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\PetCenter.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\PetCenter.pdb
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\Newtonsoft.Json.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Net.Http.Formatting.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Web.Http.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Web.Http.WebHost.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\Newtonsoft.Json.xml
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Net.Http.Formatting.xml
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Web.Http.xml
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\bin\System.Web.Http.WebHost.xml
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\obj\Debug\PetCenter.dll
+D:\Documents\UPC\TP3\APLICACION OTRO GRUPO\backup_petcenter\PetCenter\obj\Debug\PetCenter.pdb
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\PetCenter.dll.config
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\PetCenter.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\PetCenter.pdb
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Net.Http.Formatting.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.WebHost.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\Newtonsoft.Json.xml
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Net.Http.Formatting.xml
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.xml
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.WebHost.xml
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\es\System.Net.Http.Formatting.resources.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\es\System.Web.Http.resources.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\es\System.Web.Http.WebHost.resources.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\obj\Debug\PetCenter.csprojResolveAssemblyReference.cache
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\obj\Debug\PetCenter.dll
+D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\obj\Debug\PetCenter.pdb

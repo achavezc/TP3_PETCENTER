@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Solicitud.master.cs" Inherits="PetCenter.Presentacion.Solicitud" %>
+<%@ Import Namespace="PetCenter"%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <!-- AGREGANDO ESTILOS EDISON TAIPE-->	    
+	<%=FuncionesUrlString.LibreriasCSS()%>
+    <%=FuncionesUrlString.LibreriasJS()%>
+    <style>
+
+    .ui-widget {font-family:Arial;}    
+    .ui-dialog .ui-widget-header {background:#791111;} 
+    .ui-dialog .ui-dialog-title {width: 100%;text-align: center;color:White;font-size:14px;}
+    </style>     
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="margin:auto;width:100%;padding-left:10px;padding-right:10px">
+        <div style="margin:auto;width:100%;padding-left:11px;padding-right:11px">
+            <table>
+                <tr>
+                    <td colspan="3">
+                        <h1>Gestión de Pedigrís, Adopciones y Cruces</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%--<asp:SiteMapPath>
+                            
+                        </asp:SiteMapPath>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="btn_Pedigri" runat="server" Text="Pedigris" OnClick="btn_Pedigri_Click" class="btn btn-default"/>
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_Cruces" runat="server" Text="Cruces" OnClick="btn_Cruces_Click" class="btn btn-default"/>
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_Adopciones" runat="server" Text="Adopciones" class="btn btn-default" OnClick="btn_Adopciones_Click"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+        
+
+    <div id="divConsulta" style="overflow:hidden;margin-left:0px;"></div>
+    <div id="divConsulta3" style="overflow:hidden;padding-left:8px;"></div>
+
+</body>
+</html>

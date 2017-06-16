@@ -31,6 +31,7 @@ namespace Pet.Data.EF5.EFData
         public string Observaciones { get; set; }
         public Nullable<int> CodigoEstado { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
+        public Nullable<System.DateTime> FechaRegistro { get; set; }
     
         public virtual ICollection<EpicrisisDetalle> EpicrisisDetalles { get; set; }
         public virtual OrdenIntervencion OrdenIntervencion { get; set; }

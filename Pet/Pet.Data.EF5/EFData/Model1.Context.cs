@@ -32,7 +32,6 @@ namespace Pet.Data.EF5.EFData
         public DbSet<Anio> Anios { get; set; }
         public DbSet<Cargo> Cargoes { get; set; }
         public DbSet<Diagnostico> Diagnosticoes { get; set; }
-        public DbSet<Empleado> Empleadoes { get; set; }
         public DbSet<Epicrisi> Epicrisis { get; set; }
         public DbSet<EpicrisisDetalle> EpicrisisDetalles { get; set; }
         public DbSet<EstadoEpicrisi> EstadoEpicrisis { get; set; }
@@ -52,6 +51,37 @@ namespace Pet.Data.EF5.EFData
         public DbSet<TipoBusqueda> TipoBusquedas { get; set; }
         public DbSet<TipoInsumo> TipoInsumoes { get; set; }
         public DbSet<Turno> Turnoes { get; set; }
+        public DbSet<Cita> Citas { get; set; }
+        public DbSet<cubiculo> cubiculoes { get; set; }
+        public DbSet<Estado> Estadoes { get; set; }
+        public DbSet<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
+        public DbSet<Ficha_Hospitalizacion_Insumo> Ficha_Hospitalizacion_Insumo { get; set; }
+        public DbSet<GAM_Informe_Medico> GAM_Informe_Medico { get; set; }
+        public DbSet<GCP_Cliente> GCP_Cliente { get; set; }
+        public DbSet<GCP_Especie> GCP_Especie { get; set; }
+        public DbSet<GCP_Mascota> GCP_Mascota { get; set; }
+        public DbSet<GCP_Raza> GCP_Raza { get; set; }
+        public DbSet<GCP_Tipo_Documento> GCP_Tipo_Documento { get; set; }
+        public DbSet<GFC_Comprobante_Pago> GFC_Comprobante_Pago { get; set; }
+        public DbSet<GG_Empleado> GG_Empleado { get; set; }
+        public DbSet<GG_Persona> GG_Persona { get; set; }
+        public DbSet<GPA_Camada> GPA_Camada { get; set; }
+        public DbSet<GPA_Declaracion_Jurada_Domicilio> GPA_Declaracion_Jurada_Domicilio { get; set; }
+        public DbSet<GPA_Detalle_Resultados_KCP> GPA_Detalle_Resultados_KCP { get; set; }
+        public DbSet<GPA_Informe_Verificacion_Domicilio> GPA_Informe_Verificacion_Domicilio { get; set; }
+        public DbSet<GPA_Registro_Resultados_KCP> GPA_Registro_Resultados_KCP { get; set; }
+        public DbSet<GPA_Requisito_Domicilio> GPA_Requisito_Domicilio { get; set; }
+        public DbSet<GPA_Solicitud> GPA_Solicitud { get; set; }
+        public DbSet<GPA_Solicitud_Adopcion> GPA_Solicitud_Adopcion { get; set; }
+        public DbSet<GPA_Solicitud_Cruces> GPA_Solicitud_Cruces { get; set; }
+        public DbSet<GPA_Solicitud_Pedigri> GPA_Solicitud_Pedigri { get; set; }
+        public DbSet<Insumo> Insumoes { get; set; }
+        public DbSet<InsumoRequerido> InsumoRequeridoes { get; set; }
+        public DbSet<InsumoRequeridoDetalle> InsumoRequeridoDetalles { get; set; }
+        public DbSet<Riesgo_Quirurgico> Riesgo_Quirurgico { get; set; }
+        public DbSet<sala> salas { get; set; }
+        public DbSet<sala_cubiculo> sala_cubiculo { get; set; }
+        public DbSet<Estadia_Hospitalizacion> Estadia_Hospitalizacion { get; set; }
     
         public virtual ObjectResult<USP_CONSULTAPROGRAMACION_Result> USP_CONSULTAPROGRAMACION(Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes)
         {
@@ -539,6 +569,203 @@ namespace Pet.Data.EF5.EFData
                 new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEORDENINTERVENCION_Result>("USP_OBTENERDETALLEORDENINTERVENCION", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual int sp_AnularSolicitud(Nullable<int> numero_solicitud, Nullable<int> usuarioModificacion)
+        {
+            var numero_solicitudParameter = numero_solicitud.HasValue ?
+                new ObjectParameter("numero_solicitud", numero_solicitud) :
+                new ObjectParameter("numero_solicitud", typeof(int));
+    
+            var usuarioModificacionParameter = usuarioModificacion.HasValue ?
+                new ObjectParameter("UsuarioModificacion", usuarioModificacion) :
+                new ObjectParameter("UsuarioModificacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AnularSolicitud", numero_solicitudParameter, usuarioModificacionParameter);
+        }
+    
+        public virtual ObjectResult<sp_ConsultarSolicitud_Result> sp_ConsultarSolicitud(Nullable<int> numero_solicitud, string nombres, string apellidoPaterno, string apellidoMaterno, Nullable<int> tipoDocumento, string numeroDocumento, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string estadoSolicitud)
+        {
+            var numero_solicitudParameter = numero_solicitud.HasValue ?
+                new ObjectParameter("numero_solicitud", numero_solicitud) :
+                new ObjectParameter("numero_solicitud", typeof(int));
+    
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("nombres", nombres) :
+                new ObjectParameter("nombres", typeof(string));
+    
+            var apellidoPaternoParameter = apellidoPaterno != null ?
+                new ObjectParameter("apellidoPaterno", apellidoPaterno) :
+                new ObjectParameter("apellidoPaterno", typeof(string));
+    
+            var apellidoMaternoParameter = apellidoMaterno != null ?
+                new ObjectParameter("apellidoMaterno", apellidoMaterno) :
+                new ObjectParameter("apellidoMaterno", typeof(string));
+    
+            var tipoDocumentoParameter = tipoDocumento.HasValue ?
+                new ObjectParameter("tipoDocumento", tipoDocumento) :
+                new ObjectParameter("tipoDocumento", typeof(int));
+    
+            var numeroDocumentoParameter = numeroDocumento != null ?
+                new ObjectParameter("numeroDocumento", numeroDocumento) :
+                new ObjectParameter("numeroDocumento", typeof(string));
+    
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("fechaInicial", fechaInicial) :
+                new ObjectParameter("fechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("fechaFinal", fechaFinal) :
+                new ObjectParameter("fechaFinal", typeof(System.DateTime));
+    
+            var estadoSolicitudParameter = estadoSolicitud != null ?
+                new ObjectParameter("estadoSolicitud", estadoSolicitud) :
+                new ObjectParameter("estadoSolicitud", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ConsultarSolicitud_Result>("sp_ConsultarSolicitud", numero_solicitudParameter, nombresParameter, apellidoPaternoParameter, apellidoMaternoParameter, tipoDocumentoParameter, numeroDocumentoParameter, fechaInicialParameter, fechaFinalParameter, estadoSolicitudParameter);
+        }
+    
+        public virtual ObjectResult<sp_ObtenerCamada_Result> sp_ObtenerCamada(Nullable<int> solicitud_pedigri)
+        {
+            var solicitud_pedigriParameter = solicitud_pedigri.HasValue ?
+                new ObjectParameter("solicitud_pedigri", solicitud_pedigri) :
+                new ObjectParameter("solicitud_pedigri", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ObtenerCamada_Result>("sp_ObtenerCamada", solicitud_pedigriParameter);
+        }
+    
+        public virtual ObjectResult<sp_ObtenerClientes_Result> sp_ObtenerClientes(string nombres, string apellidoPaterno, string apellidoMaterno, Nullable<int> tipoDocumento, string numeroDocumento)
+        {
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("nombres", nombres) :
+                new ObjectParameter("nombres", typeof(string));
+    
+            var apellidoPaternoParameter = apellidoPaterno != null ?
+                new ObjectParameter("apellidoPaterno", apellidoPaterno) :
+                new ObjectParameter("apellidoPaterno", typeof(string));
+    
+            var apellidoMaternoParameter = apellidoMaterno != null ?
+                new ObjectParameter("apellidoMaterno", apellidoMaterno) :
+                new ObjectParameter("apellidoMaterno", typeof(string));
+    
+            var tipoDocumentoParameter = tipoDocumento.HasValue ?
+                new ObjectParameter("tipoDocumento", tipoDocumento) :
+                new ObjectParameter("tipoDocumento", typeof(int));
+    
+            var numeroDocumentoParameter = numeroDocumento != null ?
+                new ObjectParameter("numeroDocumento", numeroDocumento) :
+                new ObjectParameter("numeroDocumento", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ObtenerClientes_Result>("sp_ObtenerClientes", nombresParameter, apellidoPaternoParameter, apellidoMaternoParameter, tipoDocumentoParameter, numeroDocumentoParameter);
+        }
+    
+        public virtual ObjectResult<sp_ObtenerMascotas_Result> sp_ObtenerMascotas(Nullable<int> codigo_cliente, string genero, string nombreMascota, string nombreRaza, string edadMayorIgual, string edadDias)
+        {
+            var codigo_clienteParameter = codigo_cliente.HasValue ?
+                new ObjectParameter("codigo_cliente", codigo_cliente) :
+                new ObjectParameter("codigo_cliente", typeof(int));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var nombreMascotaParameter = nombreMascota != null ?
+                new ObjectParameter("nombreMascota", nombreMascota) :
+                new ObjectParameter("nombreMascota", typeof(string));
+    
+            var nombreRazaParameter = nombreRaza != null ?
+                new ObjectParameter("nombreRaza", nombreRaza) :
+                new ObjectParameter("nombreRaza", typeof(string));
+    
+            var edadMayorIgualParameter = edadMayorIgual != null ?
+                new ObjectParameter("EdadMayorIgual", edadMayorIgual) :
+                new ObjectParameter("EdadMayorIgual", typeof(string));
+    
+            var edadDiasParameter = edadDias != null ?
+                new ObjectParameter("EdadDias", edadDias) :
+                new ObjectParameter("EdadDias", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ObtenerMascotas_Result>("sp_ObtenerMascotas", codigo_clienteParameter, generoParameter, nombreMascotaParameter, nombreRazaParameter, edadMayorIgualParameter, edadDiasParameter);
+        }
+    
+        public virtual ObjectResult<sp_ObtenerRazas_Result> sp_ObtenerRazas(Nullable<int> codigo_especie, string nombreRaza)
+        {
+            var codigo_especieParameter = codigo_especie.HasValue ?
+                new ObjectParameter("codigo_especie", codigo_especie) :
+                new ObjectParameter("codigo_especie", typeof(int));
+    
+            var nombreRazaParameter = nombreRaza != null ?
+                new ObjectParameter("nombreRaza", nombreRaza) :
+                new ObjectParameter("nombreRaza", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ObtenerRazas_Result>("sp_ObtenerRazas", codigo_especieParameter, nombreRazaParameter);
+        }
+    
+        public virtual int sp_RegistrarCamada(Nullable<int> codigo_solicitud_pedigri, Nullable<int> codigo_mascota)
+        {
+            var codigo_solicitud_pedigriParameter = codigo_solicitud_pedigri.HasValue ?
+                new ObjectParameter("codigo_solicitud_pedigri", codigo_solicitud_pedigri) :
+                new ObjectParameter("codigo_solicitud_pedigri", typeof(int));
+    
+            var codigo_mascotaParameter = codigo_mascota.HasValue ?
+                new ObjectParameter("codigo_mascota", codigo_mascota) :
+                new ObjectParameter("codigo_mascota", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistrarCamada", codigo_solicitud_pedigriParameter, codigo_mascotaParameter);
+        }
+    
+        public virtual int sp_RegistrarSolicitud(Nullable<int> codigo_cliente, Nullable<int> codigo_mascota_padre, Nullable<int> codigo_mascota_madre, string comentarios, string tipoSolicitud, Nullable<int> usuarioCreacion, ObjectParameter codigo_solicitud)
+        {
+            var codigo_clienteParameter = codigo_cliente.HasValue ?
+                new ObjectParameter("codigo_cliente", codigo_cliente) :
+                new ObjectParameter("codigo_cliente", typeof(int));
+    
+            var codigo_mascota_padreParameter = codigo_mascota_padre.HasValue ?
+                new ObjectParameter("codigo_mascota_padre", codigo_mascota_padre) :
+                new ObjectParameter("codigo_mascota_padre", typeof(int));
+    
+            var codigo_mascota_madreParameter = codigo_mascota_madre.HasValue ?
+                new ObjectParameter("codigo_mascota_madre", codigo_mascota_madre) :
+                new ObjectParameter("codigo_mascota_madre", typeof(int));
+    
+            var comentariosParameter = comentarios != null ?
+                new ObjectParameter("comentarios", comentarios) :
+                new ObjectParameter("comentarios", typeof(string));
+    
+            var tipoSolicitudParameter = tipoSolicitud != null ?
+                new ObjectParameter("tipoSolicitud", tipoSolicitud) :
+                new ObjectParameter("tipoSolicitud", typeof(string));
+    
+            var usuarioCreacionParameter = usuarioCreacion.HasValue ?
+                new ObjectParameter("UsuarioCreacion", usuarioCreacion) :
+                new ObjectParameter("UsuarioCreacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistrarSolicitud", codigo_clienteParameter, codigo_mascota_padreParameter, codigo_mascota_madreParameter, comentariosParameter, tipoSolicitudParameter, usuarioCreacionParameter, codigo_solicitud);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAEPICRISISV5_Result> USP_CONSULTAEPICRISISV5(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<int> codigo, string nombre, Nullable<int> codigoEstado)
+        {
+            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
+                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
+                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
+    
+            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
+                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
+                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISV5_Result>("USP_CONSULTAEPICRISISV5", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
         }
     }
 }

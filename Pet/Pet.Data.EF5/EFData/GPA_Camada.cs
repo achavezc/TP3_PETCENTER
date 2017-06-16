@@ -12,17 +12,12 @@ namespace Pet.Data.EF5.EFData
     using System;
     using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class GPA_Camada
     {
-        public Empleado()
-        {
-            this.ProgramacionTurnoDetalles = new HashSet<ProgramacionTurnoDetalle>();
-        }
+        public int numero_camada { get; set; }
+        public Nullable<int> solicitud_pedigri { get; set; }
+        public Nullable<int> codigo_mascota { get; set; }
     
-        public int Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
-    
-        public virtual ICollection<ProgramacionTurnoDetalle> ProgramacionTurnoDetalles { get; set; }
+        public virtual GPA_Solicitud_Pedigri GPA_Solicitud_Pedigri { get; set; }
     }
 }

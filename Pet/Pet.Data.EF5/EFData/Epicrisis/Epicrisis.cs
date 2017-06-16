@@ -14,7 +14,7 @@ namespace Pet.Data.EF5.Epicrisis
            
             using (var db = new EFData.PETCENTEREntities1())
             {
-                var result = db.USP_CONSULTAEPICRISISV4(fechaIngresoInicio, fechaIngresoFin, codigo,nombre,codigoEstado).ToList();
+                var result = db.USP_CONSULTAEPICRISISV5(fechaIngresoInicio, fechaIngresoFin, codigo,nombre,codigoEstado).ToList();
 
                 return result;
 
