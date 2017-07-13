@@ -1,0 +1,355 @@
+﻿@{
+    Layout = null;
+}
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraAdministacion.cshtml")
+
+    <!-- SECCION CRITERIOS -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Consulta Orden Intervención</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="BusquedaEpicrisisFrm" name="BusquedaEpicrisisFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Codigo"
+                                           name="Codigo" />
+                                    <div class="caja11 msgerror Tipo">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Tipo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha Operación
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaInicio,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           data-val-date="El campo Fecha Inicio debe ser una fecha."
+                                           id="FechaInicio"
+                                           name="FechaInicio"
+                                           required
+                                           control_max_date="FechaFin" />
+                                    <div class="caja11 msgerror FechaInicio">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaInicio" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                   Medico
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="NombreCliente"
+                                           name="Codigo" />
+                                    <div class="caja11 msgerror NombreCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombreCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Paciente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="NombrePaciente"
+                                           name="NombrePaciente" />
+                                    <div class="caja11 msgerror NombrePaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombrePaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Estado
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboEstado">
+                                        <option value="">[Seleccione]</option>
+                                        
+
+                                    </select>
+                                    <div class="caja11 msgerror Estado">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Estado" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION CRITERIOS -->
+          
+   <!-- RESULTADO DE BUSQUEDA-->
+    <div id="seccion-2">
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoFicha" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaOI"></table>
+                    <div id="pagerconsultaOI"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- RESULTADO DE BUSQUEDA-->
+
+   
+</div>
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+        CrearGrillas();
+        $.getJSON("/Epicrisis/ListaEstado").done(function (data) {
+            var options = $("#cboEstado");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                if (data[index].TipoEstado == "ORDEN_INTERVENCION") {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                }
+            });
+        });
+    });
+    function Nuevo_Click() {
+        window.location.href = '/#!/OrdenIntervencion/Adicionar';
+    }
+    function VerDetalle(Codigo) {
+        window.location.href = '/#!/OrdenIntervencion/Lectura?CodigoOrdenIntervencion=' + Codigo;
+    }
+    function Editar(Codigo) {
+        var rowData = jQuery('#consultaOI').jqGrid('getRowData', Codigo);
+      
+        if (rowData.Estado == "ANULADO") {
+            MiAlert("No se puede actualizar una Orden de Intervención Anulada");
+        }
+        else {
+            window.location.href = '/#!/OrdenIntervencion/Adicionar?CodigoOrdenIntervencion=' + Codigo;
+        }
+    }
+    function Eliminar(rowId) {
+        MiConfirm("¿Esta seguro de anular la ficha de hospitalización?.", function () {
+            
+            var rowData = jQuery('#consultaFicha').jqGrid('getRowData', rowId);
+            if (rowData.CodigoOrdenIntervencion>0) {
+                MiAlert("La ficha ya ha sido asociada a una intervención, no puede eliminarse");
+                return false;
+            }
+           if (rowData.Estado == "ANULADO") {
+                MiAlert("No se puede Anular un Ficha Anulada");
+            } else {
+
+               var filtro =
+                   {
+                       codigo: rowId,
+                       codigoEmpleado: null,
+                       codigoCita: 0,
+                       comentario: '',
+                       codigoEmpleadoMedico: null,
+                       codigoEmpleadoTecnico: null,
+                       codigoSala: null,
+                       codigoCubiculo: null,
+                       codigoEstado: 0,
+                       accion: 'D'
+                   }
+               $.ajax({
+                   type: "POST",
+                   async: false,
+                   url: '/FichaHospitalizacion/InsertarFicha/',
+                   cache: false,
+                   data: JSON.stringify(filtro),
+                   dataType: "JSON",
+                   contentType: "application/json",
+                   success: function (myData) {
+                       if (myData > 0) {
+                           MiAlertOk("Se ha anulado correctamente la ficha hospitalización");
+                       } else {
+                           MiError("Ocurrio un problema al guardar");
+                       }
+                   },
+                   error: function (xqr, errorMessage) {
+                   }
+               });
+                var grid = jQuery("#consultaFicha");
+                grid.jqGrid('delRowData', rowId);
+                $("#consultaFicha").trigger("reloadGrid");
+            }
+        });
+    }
+    function obtenerDias(f1, f2) {
+        var aFecha1 = f1.split('/');
+        var aFecha2 = f2.split('/');
+        var fFecha1 = Date.UTC(aFecha1[2], aFecha1[1] - 1, aFecha1[0]);
+        var fFecha2 = Date.UTC(aFecha2[2], aFecha2[1] - 1, aFecha2[0]);
+        var dif = fFecha2 - fFecha1;
+        var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+        return dias;
+    }
+    function Buscar_Click() {
+        var filtro = {
+            codigo: $('#Codigo').val(),
+            medico: $('#NombreCliente').val(),
+            paciente: $("#NombrePaciente").val(),
+            fechaOperacion: $("#FechaInicio").val(),
+            codigoEstado: $('#cboEstado').val()
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/OrdenIntervencion/listarOrden/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaOI");
+                grid.clearGridData();
+                //debugger;
+                //var groupBy = function (xs, key) {
+                //    return xs.reduce(function (rv, x) {
+                //        (rv[x[key]] = rv[x[key]] || []).push(x);
+                //        return rv;
+                //    }, {});
+                //};
+                //var dataagrupada = groupBy(myData, 'Codigo');
+                for (var i = 0; i < myData.length; i++) {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaOI").trigger("reloadGrid");
+
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        
+
+    }
+    function CrearGrillas() {
+        jQuery("#consultaOI").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Código', 'Paciente', 'Estado',
+                        'Fecha Registro', 'Fecha Programada', 'Medico', 'Ver Detalle', 'Editar', 'Anular'],
+            colModel: [
+                { name: 'Codigo', index: 'Codigo', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Paciente', index: 'Paciente', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Estado', index: 'Estado', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaRegistro', index: 'FechaRegistro', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaProgramada', index: 'FechaProgramada', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Medico', index: 'Medico', shrinkToFit: false, align: "center", sortable: false },
+                {
+                    name: 'VerDetalle',
+                    align: 'center',
+                    width: '100px',
+                    shrinkToFit: false,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Ver Detalle' onclick='VerDetalle(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/buscar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Editar',
+                    align: 'center',
+                    sortable: false,
+                    width: '100px',
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Editar' onclick='Editar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/editar.png'></button></a></div>";
+                    }
+                },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    width: '100px',
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='Eliminar(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                },
+                
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pagerconsultaOI',
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+        jQuery("#consultaOI").jqGrid('navGrid', '#pagerconsultaOI', { edit: false, add: false, del: false });
+    }
+    function Salir_Click() {
+        window.location.href = '/#!/sistema/bienvenido/';
+    }
+    function Limpiar_Click() {
+        $("#cboTipo").val("");
+        $("#cboEstado").val("");
+        $("#FechaInicio").val("");
+        $("#FechaFin").val("");
+        $("#Codigo").val("");
+        $("#Nombre").val("");
+    }
+
+</script>

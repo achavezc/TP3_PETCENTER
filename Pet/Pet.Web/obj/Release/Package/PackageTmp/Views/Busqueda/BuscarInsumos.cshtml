@@ -1,0 +1,263 @@
+﻿@{
+    Layout = null;
+}
+<div class="block" style="">
+
+    <!-- SECCION BOTONERA -->
+    @Html.Partial("~/Views/Botonera/BotoneraBusquedaClásicaConBotonSalir.cshtml")
+    <div style="display: none">0</div>
+    <!-- SECCION BOTONERA -->
+
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+        <div>
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>Criterios de Búsqueda</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <form id="BusquedaInsumosFrm" name="BusquedaInsumosFrm">
+
+                <div class="block_content" style="width:100%">
+                    <!--SECCION 1-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Enfermedad
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="100"
+                                               type="text"
+                                               id="Enfermedad"
+                                               name="Enfermedad" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Tipo Insumo
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="InputSELECT_01" id="cboTipoInsumo">
+                                            <option value="">[Seleccione]</option>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--SECCION 2-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Nombre Insumo
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="100"
+                                               type="text"
+                                               id="NombreInsumo"
+                                               name="NombreInsumo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                       Ingresar Cantidad
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05"
+                                               maxlength="100"
+                                               type="text"
+                                               id="Cantidad"
+                                               name="Cantidad" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                   
+                    <div class="caja11 msgerror Objeto"></div>
+                </div>
+            </form>
+        </div>
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+
+        <!-- SECCION RESULTADO -->
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoInsumosDetalle" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaInsumosDetalle"></table>
+                    <div id="pagerconsultaInsumosDetalle"></div>
+                </div>
+                <div class="caja11 msgerror ListInsumosDetalle">
+                    <span class="field-validation-valid msgerror" data-valmsg-for="ListInsumosDetalle" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+        <!-- SECCION RESULTADO -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON("/Epicrisis/ListaTipoConsumo").done(function (data) {
+            var options = $("#cboTipoInsumo");
+            options.empty();
+            options.append('<option value="">[Seleccione]</option>');
+            $.each(data, function (index, item) {
+                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+            });
+        });
+        CrearGrillas();
+    });
+    function CrearGrillas() {
+        jQuery("#consultaInsumosDetalle").jqGrid({
+            datatype: "local",
+            colNames: ['Enfermedad Asociada', 'Tipo de Insumo', 'Código de Insumo', 'Nombre Insumo', 'Stock Disponible'],
+            colModel: [
+                { name: 'EnfermedadAsociada', index: 'EnfermedadAsociada', width: 180,hidden:true, align: "center", sortable: false },
+                { name: 'TipoInsumo', index: 'TipoInsumo', width: 180, align: "center", sortable: false },
+                { name: 'Codigo', index: 'Codigo', width: 120, align: "center", sortable: false },
+                { name: 'NombreInsumo', index: 'NombreInsumo', width: 180, align: "center", sortable: false },
+                { name: 'Cantidad', index: 'Cantidad', width: 100, align: "center", sortable: false },
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true
+        });
+    }
+
+    
+    
+    function Buscar_Click() {
+
+
+        var filtro = {
+            enfermedad: '',
+            codigoTipoInsumo: $('#cboTipoInsumo').val(),
+            nombreInsumo: $('#NombreInsumo').val(),
+            cantidad: 0
+
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/FichaHospitalizacion/BuscarInsumosDetalle/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaInsumosDetalle");
+                grid.clearGridData();
+
+                for (var i = 0; i < myData.length; i++) {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaInsumosDetalle").trigger("reloadGrid");
+
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+
+
+    }
+
+
+
+    function Seleccionar_Click() {
+        $(".caja11.msgerror.Objeto").html("");
+        if ($("#Cantidad").val().trim() == "") {
+            $(".caja11.msgerror.Objeto").html("Cantidad es requerido");
+            return false;
+        }
+        var myGrid = jQuery("#consultaInsumosDetalle");
+        var selRowId = myGrid.jqGrid('getGridParam', 'selrow');
+        if (selRowId == null) {
+            $(".caja11.msgerror.Objeto").html("Seleccione un insumo");
+            return false;
+        }
+        var EnfermedadAsociada = myGrid.jqGrid('getCell', selRowId, 'EnfermedadAsociada');
+        var TipoInsumo = myGrid.jqGrid('getCell', selRowId, 'TipoInsumo');
+        var Codigo = myGrid.jqGrid('getCell', selRowId, 'Codigo');
+        var NombreInsumo = myGrid.jqGrid('getCell', selRowId, 'NombreInsumo');
+        var Stock = myGrid.jqGrid('getCell', selRowId, 'Cantidad');
+        var myData =
+            {
+                "EnfermedadAsociada": EnfermedadAsociada,
+                "TipoInsumo": TipoInsumo,
+                "Codigo": Codigo,
+                "NombreInsumo": NombreInsumo,
+                "Cantidad": $("#Cantidad").val(),
+                "Accion": "I"
+            };
+
+        
+        if (parseInt($("#Cantidad").val()) > parseInt(Stock)) {
+            MiAlert("No puede agregar un cantidad mayor al stock");
+            return false;
+        }
+        var grid = jQuery("#consultaInsumos");
+        var datosInsumos = grid.getRowData();
+        
+        var arrInsumo= jQuery.grep(datosInsumos, function (a) {
+            return a.Codigo == Codigo;
+        });
+
+        if (arrInsumo.length > 0) {
+            MiAlert("El insumo ya esta registrado");
+            return false;
+        }
+
+        grid.jqGrid('addRowData', Codigo, myData);
+
+        $("#consultaInsumos").trigger("reloadGrid");
+        $("#" + 'divPopupBuscarInsumos').modal("hide");
+        //celValueEstado = myGrid.jqGrid('getCell', selRowId, 'Estado');
+        //if (celValue) {
+        //    if (celValueEstado != "TERMINADO") {
+        //        CargarOrdenPorCodigo(celValue);
+        //        $("#" + 'divPopupBuscarOrdenIntervencion').modal("hide");
+        //    } else {
+        //        MiAlert("No se puede seleccionar un orden de intervención que ya se ha dado de alta");
+        //    }
+        //} else {
+        //    MiAlert("Debe seleccionar un registro.");
+        //}
+    }
+    function Limpiar_Click() {
+        $("#Enfermedad").val("");
+        $("#cboTipoInsumo").val("");
+        $("#NombreInsumo").val("");
+        $("#Cantidad").val("");
+    }
+    function Salir_Click() {
+        $("#" + 'divPopupBuscarInsumos').modal("hide");
+    }
+</script>

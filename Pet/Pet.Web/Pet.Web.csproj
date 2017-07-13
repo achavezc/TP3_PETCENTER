@@ -119,11 +119,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BienvenidoController.cs" />
+    <Compile Include="Controllers\FichaHospitalizacionController.cs" />
     <Compile Include="Controllers\OrdenIntervencionController.cs" />
     <Compile Include="Controllers\HomeController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\EpicrisisController.cs" />
+    <Compile Include="Controllers\RiesgoQuirurgicoController.cs" />
     <Compile Include="Controllers\SeguridadAgmaController.cs" />
     <Compile Include="Controllers\ProgramacionTurnoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -379,6 +381,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pet.Data.EF5\Pet.Data.EF5.csproj">
+      <Project>{4e0cc7e8-f7db-4b1a-9144-9a9633d37a4b}</Project>
+      <Name>Pet.Data.EF5</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pet.Entity\Pet.Entity.csproj">
       <Project>{01efe64d-718c-48f4-a42b-b7c1903248af}</Project>
       <Name>Pet.Entity</Name>
@@ -465,6 +471,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\de.pubxml" />
+    <Content Include="Views\FichaHospitalizacion\Index.cshtml" />
+    <Content Include="Views\FichaHospitalizacion\Adicionar.cshtml" />
+    <Content Include="Views\FichaHospitalizacion\Editar.cshtml" />
+    <Content Include="Views\Busqueda\BuscarInsumos.cshtml" />
+    <Content Include="Views\FichaHospitalizacion\Lectura.cshtml" />
+    <Content Include="Views\RiesgoQuirurgico\Index.cshtml" />
+    <Content Include="Views\RiesgoQuirurgico\Adicionar.cshtml" />
+    <Content Include="Views\Busqueda\BuscarFicha.cshtml" />
+    <Content Include="Views\RiesgoQuirurgico\Lectura.cshtml" />
+    <Content Include="Views\OrdenIntervencion\Index.cshtml" />
+    <Content Include="Views\OrdenIntervencion\Adicionar.cshtml" />
+    <Content Include="Views\OrdenIntervencion\Lectura.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

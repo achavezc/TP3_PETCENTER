@@ -42,7 +42,7 @@ namespace Pet.Data.EF5.EFData
         public virtual ICollection<GPA_Solicitud_Cruces> GPA_Solicitud_Cruces1 { get; set; }
         public virtual ICollection<GPA_Solicitud_Pedigri> GPA_Solicitud_Pedigri { get; set; }
         public virtual ICollection<GPA_Solicitud_Pedigri> GPA_Solicitud_Pedigri1 { get; set; }
-        public virtual GCP_Raza GCP_Raza1 { get; set; }
         public virtual ICollection<GPA_Solicitud_Adopcion> GPA_Solicitud_Adopcion { get; set; }
+        public virtual GCP_Raza GCP_Raza1 { get; set; }
     }
 }

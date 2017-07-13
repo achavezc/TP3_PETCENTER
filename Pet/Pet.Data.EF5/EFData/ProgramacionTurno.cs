@@ -25,9 +25,10 @@ namespace Pet.Data.EF5.EFData
         public Nullable<int> CodigoSede { get; set; }
         public Nullable<int> CodigoAnio { get; set; }
         public Nullable<int> CodigoMes { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
+        public Nullable<int> CodigoEstado { get; set; }
     
         public virtual Anio Anio { get; set; }
+        public virtual Estado Estado { get; set; }
         public virtual Me Me { get; set; }
         public virtual Sede Sede { get; set; }
         public virtual ICollection<ProgramacionTurnoDetalle> ProgramacionTurnoDetalles { get; set; }

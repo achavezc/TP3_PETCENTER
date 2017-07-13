@@ -16,17 +16,17 @@ namespace Pet.Data.EF5.EFData
     {
         public cubiculo()
         {
-            this.Estadia_Hospitalizacion = new HashSet<Estadia_Hospitalizacion>();
+            this.Ficha_Hospitalizacion = new HashSet<Ficha_Hospitalizacion>();
             this.sala_cubiculo = new HashSet<sala_cubiculo>();
         }
     
         public int codigo_cubiculo { get; set; }
         public string nombre_cubiculo { get; set; }
         public string observacion_cubiculo { get; set; }
-        public string tipo_cubiculo { get; set; }
-        public string estado_cubiculo { get; set; }
+        public bool estado_cubiculo { get; set; }
+        public Nullable<bool> Ocupado { get; set; }
     
-        public virtual ICollection<Estadia_Hospitalizacion> Estadia_Hospitalizacion { get; set; }
+        public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
         public virtual ICollection<sala_cubiculo> sala_cubiculo { get; set; }
     }
 }

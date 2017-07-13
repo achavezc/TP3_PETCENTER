@@ -13,7 +13,7 @@ namespace Pet.Data.EF5
         {
             List<BEMes> lista = new List<BEMes>();
 
-            using (var db = new EFData.PETCENTEREntities1())
+            using (var db = new EFData.PETCENTEREntities())
             {
                 foreach (var item in db.Mes.ToList())
                 {

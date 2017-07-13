@@ -16,15 +16,13 @@ namespace Pet.Data.EF5.EFData
     {
         public Riesgo_Quirurgico()
         {
-            this.Ficha_Hospitalizacion = new HashSet<Ficha_Hospitalizacion>();
+            this.Informe_Riesgo_Quirurgico_Detalle = new HashSet<Informe_Riesgo_Quirurgico_Detalle>();
         }
     
-        public int codigo_rq { get; set; }
-        public System.DateTime fecha_rq { get; set; }
-        public string complicaciones_rq { get; set; }
-        public string consideraciones_particulares_rq { get; set; }
-        public string clasificacion_riesgo_cardiaco { get; set; }
+        public int CodigoRiesgoQuirurgico { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
     
-        public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
+        public virtual ICollection<Informe_Riesgo_Quirurgico_Detalle> Informe_Riesgo_Quirurgico_Detalle { get; set; }
     }
 }

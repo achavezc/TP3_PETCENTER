@@ -10,6 +10,7 @@ namespace Pet.Entity
     {
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
+        public string TipoEstado { get; set; }
         public bool? EstadoRegistro { get; set; }
     }
 }

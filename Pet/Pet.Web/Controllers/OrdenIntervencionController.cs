@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Pet.Service.Epicrisis;
+using Pet.Service.OrdenIntervencion;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,9 +25,24 @@ namespace Pet.Web.Controllers
             return View("../Busqueda/BuscarOrdenIntervencion");
         }
         [HttpPost]
-        public JsonResult listarOrdenIntervencion(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
+        public JsonResult listarOrden(Nullable<int> codigo, string medico, string paciente, Nullable<System.DateTime> fechaOperacion, Nullable<int> codigoEstado)
         {
-            return Json(Epicrisis.ConsultarOrdenIntervencion(codigoIntervencion, fechaInicio, fechaFin, codigo, nombre), JsonRequestBehavior.AllowGet);
+            return Json(OrdenIntervencion.ConsultarOI(codigo, medico, paciente, fechaOperacion, codigoEstado), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult InsertarOI(Nullable<int> codigo, Nullable<int> codigoficha, Nullable<int> codigoDiagnosticoPresuntivo, Nullable<int> codigoDiagnosticoDefinitivo, Nullable<System.DateTime> fechaOperacion, Nullable<int> codigoEstado, string observaciones, string accion)
+        {
+            return Json(OrdenIntervencion.InsertarOI(codigo, codigoficha, codigoDiagnosticoPresuntivo, codigoDiagnosticoDefinitivo, fechaOperacion, codigoEstado, observaciones, accion), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult ObtenerOI(Nullable<int> codigo)
+        {
+            return Json(OrdenIntervencion.ObtenerOI(codigo), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult listarOrdenIntervencion(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre, Nullable<int> codigoTipoBusqueda)
+        {
+            return Json(Epicrisis.ConsultarOrdenIntervencion(codigoIntervencion, fechaInicio, fechaFin, codigo, nombre,codigoTipoBusqueda), JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult ObtenerDetalleOrdenIntervencion(Nullable<int> codigoOrdenIntervencion)
@@ -57,6 +73,20 @@ namespace Pet.Web.Controllers
         public JsonResult ObtenerDetalleSignosVitales(Nullable<int> codigoOrdenIntervencion)
         {
             return Json(Epicrisis.ObtenerDetalleSignosVitales(codigoOrdenIntervencion), JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult ListaDiagnostico()
+        {
+          
+            return Json(Pet.Service.Diagnostico.ListaDiagnostico().ToList(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Adicionar()
+        {
+            return View();
+        }
+        public ActionResult Lectura()
+        {
+            return View();
         }
  
     }

@@ -42,8 +42,7 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboSede" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">San Isidro</option>
-                                        <option value="2">San Borja</option>
+                                     
 
                                     </select>
                                     <div class="caja11 msgerror Sede">
@@ -60,8 +59,7 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboAnio" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">2016</option>
-                                        <option value="2">2017</option>
+                                   
                                     </select>
                                     <div class="caja11 msgerror Anio">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Anio" data-valmsg-replace="true"></span>
@@ -77,8 +75,7 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboMes" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">Enero</option>
-                                        <option value="2">Febrero</option>
+                                      
                                     </select>
                                     <div class="caja11 msgerror Mes">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Mes" data-valmsg-replace="true"></span>
@@ -186,8 +183,8 @@
             { name: 'CodigoEmpleado', index: 'CodigoEmpleado', width: 210, align: "center", sortable: false, hidden: true },
             { name: 'CodigoDetalle', index: 'CodigoDetalle', width: 210, align: "center", sortable: false, hidden: true }
         ],
-        rowNum: 10,
-        rowList: [10, 20, 30],
+        rowNum: 100,
+        rowList: [100, 200, 300],
         //sortname: 'Codigo',
         shrinkToFit: false,
         autowidth: true,
@@ -203,6 +200,7 @@
         if (codigoProgramacion > 0) {
             ObtenerProgramacionTurno(codigoProgramacion);
         }
+        $('input[type="checkbox"]').prop("disabled", "true");
     });
     function CargarCombos() {
         $.ajax({

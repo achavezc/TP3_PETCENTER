@@ -13,9 +13,9 @@ namespace Pet.Service.Epicrisis
         {
             return Pet.Data.EF5.Epicrisis.Epicrisis.ConsultarEpicrisis(fechaIngresoInicio, fechaIngresoFin, codigo, nombre, codigoEstado);
         }
-        public static object ConsultarOrdenIntervencion(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
+        public static object ConsultarOrdenIntervencion(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre, Nullable<int> codigoTipoBusqueda)
         {
-            return Pet.Data.EF5.Epicrisis.Epicrisis.ConsultarOrdenIntevencion(codigoIntervencion, fechaInicio, fechaFin, codigo, nombre);
+            return Pet.Data.EF5.Epicrisis.Epicrisis.ConsultarOrdenIntevencion(codigoIntervencion, fechaInicio, fechaFin, codigo, nombre, codigoTipoBusqueda);
         }
         public static object ObtenerDetalleOrdenIntervencion(Nullable<int> codigoOrdenIntervencion)
         {

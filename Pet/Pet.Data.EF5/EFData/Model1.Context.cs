@@ -16,10 +16,10 @@ namespace Pet.Data.EF5.EFData
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class PETCENTEREntities1 : DbContext
+    public partial class PETCENTEREntities : DbContext
     {
-        public PETCENTEREntities1()
-            : base("name=PETCENTEREntities1")
+        public PETCENTEREntities()
+            : base("name=PETCENTEREntities")
         {
         }
     
@@ -31,28 +31,13 @@ namespace Pet.Data.EF5.EFData
         public DbSet<Anastesia> Anastesias { get; set; }
         public DbSet<Anio> Anios { get; set; }
         public DbSet<Cargo> Cargoes { get; set; }
-        public DbSet<Diagnostico> Diagnosticoes { get; set; }
-        public DbSet<Epicrisi> Epicrisis { get; set; }
-        public DbSet<EpicrisisDetalle> EpicrisisDetalles { get; set; }
-        public DbSet<EstadoEpicrisi> EstadoEpicrisis { get; set; }
-        public DbSet<Me> Mes { get; set; }
-        public DbSet<Operacion> Operacions { get; set; }
-        public DbSet<OrdenIntervencion> OrdenIntervencions { get; set; }
-        public DbSet<OrdenIntervencionDetalleAnastesia> OrdenIntervencionDetalleAnastesias { get; set; }
-        public DbSet<OrdenIntervencionDetalleDiagnostico> OrdenIntervencionDetalleDiagnosticoes { get; set; }
-        public DbSet<OrdenIntervencionDetalleOperacion> OrdenIntervencionDetalleOperacions { get; set; }
-        public DbSet<OrdenIntervencionDetalleProfesional> OrdenIntervencionDetalleProfesionals { get; set; }
-        public DbSet<OrdenIntervencionDetalleSignosVitale> OrdenIntervencionDetalleSignosVitales { get; set; }
-        public DbSet<Profesional> Profesionals { get; set; }
-        public DbSet<ProgramacionTurno> ProgramacionTurnoes { get; set; }
-        public DbSet<ProgramacionTurnoDetalle> ProgramacionTurnoDetalles { get; set; }
-        public DbSet<Sede> Sedes { get; set; }
-        public DbSet<SignosVitale> SignosVitales { get; set; }
-        public DbSet<TipoBusqueda> TipoBusquedas { get; set; }
-        public DbSet<TipoInsumo> TipoInsumoes { get; set; }
-        public DbSet<Turno> Turnoes { get; set; }
         public DbSet<Cita> Citas { get; set; }
         public DbSet<cubiculo> cubiculoes { get; set; }
+        public DbSet<Diagnostico> Diagnosticoes { get; set; }
+        public DbSet<ENFERMEDAD> ENFERMEDADs { get; set; }
+        public DbSet<enfermedad_insumo> enfermedad_insumo { get; set; }
+        public DbSet<Epicrisi> Epicrisis { get; set; }
+        public DbSet<EpicrisisDetalle> EpicrisisDetalles { get; set; }
         public DbSet<Estado> Estadoes { get; set; }
         public DbSet<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
         public DbSet<Ficha_Hospitalizacion_Insumo> Ficha_Hospitalizacion_Insumo { get; set; }
@@ -75,500 +60,55 @@ namespace Pet.Data.EF5.EFData
         public DbSet<GPA_Solicitud_Adopcion> GPA_Solicitud_Adopcion { get; set; }
         public DbSet<GPA_Solicitud_Cruces> GPA_Solicitud_Cruces { get; set; }
         public DbSet<GPA_Solicitud_Pedigri> GPA_Solicitud_Pedigri { get; set; }
+        public DbSet<HISTORIA_CLINICA> HISTORIA_CLINICA { get; set; }
+        public DbSet<Informe_Riesgo_Quirurgico> Informe_Riesgo_Quirurgico { get; set; }
+        public DbSet<Informe_Riesgo_Quirurgico_Detalle> Informe_Riesgo_Quirurgico_Detalle { get; set; }
+        public DbSet<InformeAnalisisPreliminar> InformeAnalisisPreliminars { get; set; }
         public DbSet<Insumo> Insumoes { get; set; }
         public DbSet<InsumoRequerido> InsumoRequeridoes { get; set; }
         public DbSet<InsumoRequeridoDetalle> InsumoRequeridoDetalles { get; set; }
+        public DbSet<Me> Mes { get; set; }
+        public DbSet<Operacion> Operacions { get; set; }
+        public DbSet<OrdenIntervencion> OrdenIntervencions { get; set; }
+        public DbSet<OrdenIntervencionDetalleAnastesia> OrdenIntervencionDetalleAnastesias { get; set; }
+        public DbSet<OrdenIntervencionDetalleDiagnostico> OrdenIntervencionDetalleDiagnosticoes { get; set; }
+        public DbSet<OrdenIntervencionDetalleOperacion> OrdenIntervencionDetalleOperacions { get; set; }
+        public DbSet<OrdenIntervencionDetalleProfesional> OrdenIntervencionDetalleProfesionals { get; set; }
+        public DbSet<OrdenIntervencionDetalleSignosVitale> OrdenIntervencionDetalleSignosVitales { get; set; }
+        public DbSet<ProgramacionTurno> ProgramacionTurnoes { get; set; }
+        public DbSet<ProgramacionTurnoDetalle> ProgramacionTurnoDetalles { get; set; }
         public DbSet<Riesgo_Quirurgico> Riesgo_Quirurgico { get; set; }
         public DbSet<sala> salas { get; set; }
         public DbSet<sala_cubiculo> sala_cubiculo { get; set; }
-        public DbSet<Estadia_Hospitalizacion> Estadia_Hospitalizacion { get; set; }
+        public DbSet<Sede> Sedes { get; set; }
+        public DbSet<SignosVitale> SignosVitales { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<tipo_diagnostico> tipo_diagnostico { get; set; }
+        public DbSet<tipo_sala> tipo_sala { get; set; }
+        public DbSet<TipoBusqueda> TipoBusquedas { get; set; }
+        public DbSet<TipoInsumo> TipoInsumoes { get; set; }
+        public DbSet<Turno> Turnoes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     
-        public virtual ObjectResult<USP_CONSULTAPROGRAMACION_Result> USP_CONSULTAPROGRAMACION(Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
-            var codigoSedeParameter = codigoSede.HasValue ?
-                new ObjectParameter("CodigoSede", codigoSede) :
-                new ObjectParameter("CodigoSede", typeof(int));
-    
-            var codigoAnioParameter = codigoAnio.HasValue ?
-                new ObjectParameter("CodigoAnio", codigoAnio) :
-                new ObjectParameter("CodigoAnio", typeof(int));
-    
-            var codigoMesParameter = codigoMes.HasValue ?
-                new ObjectParameter("CodigoMes", codigoMes) :
-                new ObjectParameter("CodigoMes", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAPROGRAMACION_Result>("USP_CONSULTAPROGRAMACION", codigoSedeParameter, codigoAnioParameter, codigoMesParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEPROGRAMACIONTURNO_Result> USP_OBTENERDETALLEPROGRAMACIONTURNO(Nullable<int> codigo)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEPROGRAMACIONTURNO_Result>("USP_OBTENERDETALLEPROGRAMACIONTURNO", codigoParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERPROGRAMACIONTURNO_Result> USP_OBTENERPROGRAMACIONTURNO(Nullable<int> codigo)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERPROGRAMACIONTURNO_Result>("USP_OBTENERPROGRAMACIONTURNO", codigoParameter);
-        }
-    
-        public virtual int USP_INSERTARDETALLEPROGRAMACIONTURNO(Nullable<int> codigo, Nullable<int> codigoTurno, Nullable<int> codigoCargo, Nullable<int> codigoEmpleado, Nullable<int> codigoProgramacionTurno, Nullable<bool> responsable, string accion, ObjectParameter codigoOut)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var codigoTurnoParameter = codigoTurno.HasValue ?
-                new ObjectParameter("CodigoTurno", codigoTurno) :
-                new ObjectParameter("CodigoTurno", typeof(int));
-    
-            var codigoCargoParameter = codigoCargo.HasValue ?
-                new ObjectParameter("CodigoCargo", codigoCargo) :
-                new ObjectParameter("CodigoCargo", typeof(int));
-    
-            var codigoEmpleadoParameter = codigoEmpleado.HasValue ?
-                new ObjectParameter("CodigoEmpleado", codigoEmpleado) :
-                new ObjectParameter("CodigoEmpleado", typeof(int));
-    
-            var codigoProgramacionTurnoParameter = codigoProgramacionTurno.HasValue ?
-                new ObjectParameter("CodigoProgramacionTurno", codigoProgramacionTurno) :
-                new ObjectParameter("CodigoProgramacionTurno", typeof(int));
-    
-            var responsableParameter = responsable.HasValue ?
-                new ObjectParameter("Responsable", responsable) :
-                new ObjectParameter("Responsable", typeof(bool));
-    
-            var accionParameter = accion != null ?
-                new ObjectParameter("Accion", accion) :
-                new ObjectParameter("Accion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARDETALLEPROGRAMACIONTURNO", codigoParameter, codigoTurnoParameter, codigoCargoParameter, codigoEmpleadoParameter, codigoProgramacionTurnoParameter, responsableParameter, accionParameter, codigoOut);
-        }
-    
-        public virtual int USP_INSERTARPROGRAMACIONTURNO(Nullable<int> codigo, Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, string accion, ObjectParameter codigoOut)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var codigoSedeParameter = codigoSede.HasValue ?
-                new ObjectParameter("CodigoSede", codigoSede) :
-                new ObjectParameter("CodigoSede", typeof(int));
-    
-            var codigoAnioParameter = codigoAnio.HasValue ?
-                new ObjectParameter("CodigoAnio", codigoAnio) :
-                new ObjectParameter("CodigoAnio", typeof(int));
-    
-            var codigoMesParameter = codigoMes.HasValue ?
-                new ObjectParameter("CodigoMes", codigoMes) :
-                new ObjectParameter("CodigoMes", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var accionParameter = accion != null ?
-                new ObjectParameter("Accion", accion) :
-                new ObjectParameter("Accion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARPROGRAMACIONTURNO", codigoParameter, codigoSedeParameter, codigoAnioParameter, codigoMesParameter, fechaInicioParameter, fechaFinParameter, accionParameter, codigoOut);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAEPICRISIS_Result> USP_CONSULTAEPICRISIS(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<System.DateTime> codigo, string nombre, Nullable<int> codigoEstado)
-        {
-            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
-                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
-                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
-    
-            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
-                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
-                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(System.DateTime));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISIS_Result>("USP_CONSULTAEPICRISIS", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCION_Result> USP_CONSULTAORDENINTERVENCION(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<System.DateTime> codigo, string nombre)
-        {
-            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
-                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
-                new ObjectParameter("CodigoIntervencion", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(System.DateTime));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCION_Result>("USP_CONSULTAORDENINTERVENCION", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter);
-        }
-    
-        public virtual int USP_INSERTARDETALLEEPICRISIS(Nullable<int> codigo, Nullable<int> codigoEpicrisis, Nullable<int> codigoTipoInsumo, string descripcion, string observaciones, string frecuencia, string dosis, string accion, ObjectParameter codigoOut)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var codigoEpicrisisParameter = codigoEpicrisis.HasValue ?
-                new ObjectParameter("CodigoEpicrisis", codigoEpicrisis) :
-                new ObjectParameter("CodigoEpicrisis", typeof(int));
-    
-            var codigoTipoInsumoParameter = codigoTipoInsumo.HasValue ?
-                new ObjectParameter("CodigoTipoInsumo", codigoTipoInsumo) :
-                new ObjectParameter("CodigoTipoInsumo", typeof(int));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            var observacionesParameter = observaciones != null ?
-                new ObjectParameter("Observaciones", observaciones) :
-                new ObjectParameter("Observaciones", typeof(string));
-    
-            var frecuenciaParameter = frecuencia != null ?
-                new ObjectParameter("Frecuencia", frecuencia) :
-                new ObjectParameter("Frecuencia", typeof(string));
-    
-            var dosisParameter = dosis != null ?
-                new ObjectParameter("Dosis", dosis) :
-                new ObjectParameter("Dosis", typeof(string));
-    
-            var accionParameter = accion != null ?
-                new ObjectParameter("Accion", accion) :
-                new ObjectParameter("Accion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARDETALLEEPICRISIS", codigoParameter, codigoEpicrisisParameter, codigoTipoInsumoParameter, descripcionParameter, observacionesParameter, frecuenciaParameter, dosisParameter, accionParameter, codigoOut);
-        }
-    
-        public virtual int USP_INSERTAREPICRISIS(Nullable<int> codigo, Nullable<int> codigoOrdenIntervencion, string areaHospitalaria, string servicio, string diasEstancia, Nullable<System.DateTime> fechaIngreso, Nullable<System.DateTime> fechaAlta, string veterinario, string tratamientoRecibido, string observaciones, Nullable<int> codigoEstado, string accion, ObjectParameter codigoOut)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            var areaHospitalariaParameter = areaHospitalaria != null ?
-                new ObjectParameter("AreaHospitalaria", areaHospitalaria) :
-                new ObjectParameter("AreaHospitalaria", typeof(string));
-    
-            var servicioParameter = servicio != null ?
-                new ObjectParameter("Servicio", servicio) :
-                new ObjectParameter("Servicio", typeof(string));
-    
-            var diasEstanciaParameter = diasEstancia != null ?
-                new ObjectParameter("DiasEstancia", diasEstancia) :
-                new ObjectParameter("DiasEstancia", typeof(string));
-    
-            var fechaIngresoParameter = fechaIngreso.HasValue ?
-                new ObjectParameter("FechaIngreso", fechaIngreso) :
-                new ObjectParameter("FechaIngreso", typeof(System.DateTime));
-    
-            var fechaAltaParameter = fechaAlta.HasValue ?
-                new ObjectParameter("FechaAlta", fechaAlta) :
-                new ObjectParameter("FechaAlta", typeof(System.DateTime));
-    
-            var veterinarioParameter = veterinario != null ?
-                new ObjectParameter("Veterinario", veterinario) :
-                new ObjectParameter("Veterinario", typeof(string));
-    
-            var tratamientoRecibidoParameter = tratamientoRecibido != null ?
-                new ObjectParameter("TratamientoRecibido", tratamientoRecibido) :
-                new ObjectParameter("TratamientoRecibido", typeof(string));
-    
-            var observacionesParameter = observaciones != null ?
-                new ObjectParameter("Observaciones", observaciones) :
-                new ObjectParameter("Observaciones", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            var accionParameter = accion != null ?
-                new ObjectParameter("Accion", accion) :
-                new ObjectParameter("Accion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTAREPICRISIS", codigoParameter, codigoOrdenIntervencionParameter, areaHospitalariaParameter, servicioParameter, diasEstanciaParameter, fechaIngresoParameter, fechaAltaParameter, veterinarioParameter, tratamientoRecibidoParameter, observacionesParameter, codigoEstadoParameter, accionParameter, codigoOut);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEEPICRISIS_Result> USP_OBTENERDETALLEEPICRISIS(Nullable<int> codigo)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEEPICRISIS_Result>("USP_OBTENERDETALLEEPICRISIS", codigoParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENEREPICRISIS_Result> USP_OBTENEREPICRISIS(Nullable<int> codigo)
-        {
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENEREPICRISIS_Result>("USP_OBTENEREPICRISIS", codigoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAEPICRISISFINAL_Result> USP_CONSULTAEPICRISISFINAL(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<System.DateTime> codigo, string nombre, Nullable<int> codigoEstado)
-        {
-            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
-                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
-                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
-    
-            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
-                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
-                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(System.DateTime));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISFINAL_Result>("USP_CONSULTAEPICRISISFINAL", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAEPICRISISV2_Result> USP_CONSULTAEPICRISISV2(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<System.DateTime> codigo, string nombre, Nullable<int> codigoEstado)
-        {
-            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
-                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
-                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
-    
-            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
-                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
-                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(System.DateTime));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISV2_Result>("USP_CONSULTAEPICRISISV2", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAEPICRISISV3_Result> USP_CONSULTAEPICRISISV3(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, string codigo, string nombre, Nullable<int> codigoEstado)
-        {
-            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
-                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
-                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
-    
-            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
-                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
-                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo != null ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(string));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISV3_Result>("USP_CONSULTAEPICRISISV3", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAEPICRISISV4_Result> USP_CONSULTAEPICRISISV4(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<int> codigo, string nombre, Nullable<int> codigoEstado)
-        {
-            var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
-                new ObjectParameter("FechaIngresoInicio", fechaIngresoInicio) :
-                new ObjectParameter("FechaIngresoInicio", typeof(System.DateTime));
-    
-            var fechaIngresoFinParameter = fechaIngresoFin.HasValue ?
-                new ObjectParameter("FechaIngresoFin", fechaIngresoFin) :
-                new ObjectParameter("FechaIngresoFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var codigoEstadoParameter = codigoEstado.HasValue ?
-                new ObjectParameter("CodigoEstado", codigoEstado) :
-                new ObjectParameter("CodigoEstado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISV4_Result>("USP_CONSULTAEPICRISISV4", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCIONV2_Result> USP_CONSULTAORDENINTERVENCIONV2(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
-        {
-            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
-                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
-                new ObjectParameter("CodigoIntervencion", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCIONV2_Result>("USP_CONSULTAORDENINTERVENCIONV2", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCIONV3_Result> USP_CONSULTAORDENINTERVENCIONV3(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
-        {
-            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
-                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
-                new ObjectParameter("CodigoIntervencion", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCIONV3_Result>("USP_CONSULTAORDENINTERVENCIONV3", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter);
-        }
-    
-        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCIONV4_Result> USP_CONSULTAORDENINTERVENCIONV4(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
-        {
-            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
-                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
-                new ObjectParameter("CodigoIntervencion", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCIONV4_Result>("USP_CONSULTAORDENINTERVENCIONV4", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEANASTESIA_Result> USP_OBTENERDETALLEANASTESIA(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEANASTESIA_Result>("USP_OBTENERDETALLEANASTESIA", codigoOrdenIntervencionParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEDIAGNOSTICO_Result> USP_OBTENERDETALLEDIAGNOSTICO(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEDIAGNOSTICO_Result>("USP_OBTENERDETALLEDIAGNOSTICO", codigoOrdenIntervencionParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEOPERACION_Result> USP_OBTENERDETALLEOPERACION(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEOPERACION_Result>("USP_OBTENERDETALLEOPERACION", codigoOrdenIntervencionParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEPROFESIONAL_Result> USP_OBTENERDETALLEPROFESIONAL(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEPROFESIONAL_Result>("USP_OBTENERDETALLEPROFESIONAL", codigoOrdenIntervencionParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLESIGNOSVITALES_Result> USP_OBTENERDETALLESIGNOSVITALES(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLESIGNOSVITALES_Result>("USP_OBTENERDETALLESIGNOSVITALES", codigoOrdenIntervencionParameter);
-        }
-    
-        public virtual ObjectResult<USP_OBTENERDETALLEORDENINTERVENCION_Result> USP_OBTENERDETALLEORDENINTERVENCION(Nullable<int> codigoOrdenIntervencion)
-        {
-            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
-                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
-                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEORDENINTERVENCION_Result>("USP_OBTENERDETALLEORDENINTERVENCION", codigoOrdenIntervencionParameter);
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
         }
     
         public virtual int sp_AnularSolicitud(Nullable<int> numero_solicitud, Nullable<int> usuarioModificacion)
@@ -623,6 +163,66 @@ namespace Pet.Data.EF5.EFData
                 new ObjectParameter("estadoSolicitud", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ConsultarSolicitud_Result>("sp_ConsultarSolicitud", numero_solicitudParameter, nombresParameter, apellidoPaternoParameter, apellidoMaternoParameter, tipoDocumentoParameter, numeroDocumentoParameter, fechaInicialParameter, fechaFinalParameter, estadoSolicitudParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual ObjectResult<sp_ObtenerCamada_Result> sp_ObtenerCamada(Nullable<int> solicitud_pedigri)
@@ -743,6 +343,87 @@ namespace Pet.Data.EF5.EFData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistrarSolicitud", codigo_clienteParameter, codigo_mascota_padreParameter, codigo_mascota_madreParameter, comentariosParameter, tipoSolicitudParameter, usuarioCreacionParameter, codigo_solicitud);
         }
     
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<USP_BUSCARCITA_Result> USP_BUSCARCITA(Nullable<int> codigoCita)
+        {
+            var codigoCitaParameter = codigoCita.HasValue ?
+                new ObjectParameter("CodigoCita", codigoCita) :
+                new ObjectParameter("CodigoCita", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_BUSCARCITA_Result>("USP_BUSCARCITA", codigoCitaParameter);
+        }
+    
+        public virtual ObjectResult<USP_BUSCARFICHARQ_Result> USP_BUSCARFICHARQ(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_BUSCARFICHARQ_Result>("USP_BUSCARFICHARQ", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_BUSCARINSUMOS_Result> USP_BUSCARINSUMOS(string enfermedad, Nullable<int> codigoTipoInsumo, string nombreInsumo, Nullable<int> cantidad)
+        {
+            var enfermedadParameter = enfermedad != null ?
+                new ObjectParameter("Enfermedad", enfermedad) :
+                new ObjectParameter("Enfermedad", typeof(string));
+    
+            var codigoTipoInsumoParameter = codigoTipoInsumo.HasValue ?
+                new ObjectParameter("CodigoTipoInsumo", codigoTipoInsumo) :
+                new ObjectParameter("CodigoTipoInsumo", typeof(int));
+    
+            var nombreInsumoParameter = nombreInsumo != null ?
+                new ObjectParameter("NombreInsumo", nombreInsumo) :
+                new ObjectParameter("NombreInsumo", typeof(string));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_BUSCARINSUMOS_Result>("USP_BUSCARINSUMOS", enfermedadParameter, codigoTipoInsumoParameter, nombreInsumoParameter, cantidadParameter);
+        }
+    
         public virtual ObjectResult<USP_CONSULTAEPICRISISV5_Result> USP_CONSULTAEPICRISISV5(Nullable<System.DateTime> fechaIngresoInicio, Nullable<System.DateTime> fechaIngresoFin, Nullable<int> codigo, string nombre, Nullable<int> codigoEstado)
         {
             var fechaIngresoInicioParameter = fechaIngresoInicio.HasValue ?
@@ -766,6 +447,877 @@ namespace Pet.Data.EF5.EFData
                 new ObjectParameter("CodigoEstado", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAEPICRISISV5_Result>("USP_CONSULTAEPICRISISV5", fechaIngresoInicioParameter, fechaIngresoFinParameter, codigoParameter, nombreParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAFICHA_Result> USP_CONSULTAFICHA(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAFICHA_Result>("USP_CONSULTAFICHA", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAFICHAV1_Result> USP_CONSULTAFICHAV1(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAFICHAV1_Result>("USP_CONSULTAFICHAV1", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAFICHAV2_Result> USP_CONSULTAFICHAV2(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAFICHAV2_Result>("USP_CONSULTAFICHAV2", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAFICHAV3_Result> USP_CONSULTAFICHAV3(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAFICHAV3_Result>("USP_CONSULTAFICHAV3", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAFICHAV4_Result> USP_CONSULTAFICHAV4(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAFICHAV4_Result>("USP_CONSULTAFICHAV4", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCIONV4_Result> USP_CONSULTAORDENINTERVENCIONV4(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre)
+        {
+            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
+                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
+                new ObjectParameter("CodigoIntervencion", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCIONV4_Result>("USP_CONSULTAORDENINTERVENCIONV4", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAORDENINTERVENCIONV5_Result> USP_CONSULTAORDENINTERVENCIONV5(Nullable<int> codigoIntervencion, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombre, Nullable<int> codigoTipoBusqueda)
+        {
+            var codigoIntervencionParameter = codigoIntervencion.HasValue ?
+                new ObjectParameter("CodigoIntervencion", codigoIntervencion) :
+                new ObjectParameter("CodigoIntervencion", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var codigoTipoBusquedaParameter = codigoTipoBusqueda.HasValue ?
+                new ObjectParameter("CodigoTipoBusqueda", codigoTipoBusqueda) :
+                new ObjectParameter("CodigoTipoBusqueda", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAORDENINTERVENCIONV5_Result>("USP_CONSULTAORDENINTERVENCIONV5", codigoIntervencionParameter, fechaInicioParameter, fechaFinParameter, codigoParameter, nombreParameter, codigoTipoBusquedaParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAPROGRAMACION_Result> USP_CONSULTAPROGRAMACION(Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        {
+            var codigoSedeParameter = codigoSede.HasValue ?
+                new ObjectParameter("CodigoSede", codigoSede) :
+                new ObjectParameter("CodigoSede", typeof(int));
+    
+            var codigoAnioParameter = codigoAnio.HasValue ?
+                new ObjectParameter("CodigoAnio", codigoAnio) :
+                new ObjectParameter("CodigoAnio", typeof(int));
+    
+            var codigoMesParameter = codigoMes.HasValue ?
+                new ObjectParameter("CodigoMes", codigoMes) :
+                new ObjectParameter("CodigoMes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAPROGRAMACION_Result>("USP_CONSULTAPROGRAMACION", codigoSedeParameter, codigoAnioParameter, codigoMesParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTARIESGOQUIRURGICO_Result> USP_CONSULTARIESGOQUIRURGICO(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTARIESGOQUIRURGICO_Result>("USP_CONSULTARIESGOQUIRURGICO", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual int USP_INSERTARDETALLEEPICRISIS(Nullable<int> codigo, Nullable<int> codigoEpicrisis, Nullable<int> codigoTipoInsumo, string descripcion, string observaciones, string frecuencia, string dosis, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoEpicrisisParameter = codigoEpicrisis.HasValue ?
+                new ObjectParameter("CodigoEpicrisis", codigoEpicrisis) :
+                new ObjectParameter("CodigoEpicrisis", typeof(int));
+    
+            var codigoTipoInsumoParameter = codigoTipoInsumo.HasValue ?
+                new ObjectParameter("CodigoTipoInsumo", codigoTipoInsumo) :
+                new ObjectParameter("CodigoTipoInsumo", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var observacionesParameter = observaciones != null ?
+                new ObjectParameter("Observaciones", observaciones) :
+                new ObjectParameter("Observaciones", typeof(string));
+    
+            var frecuenciaParameter = frecuencia != null ?
+                new ObjectParameter("Frecuencia", frecuencia) :
+                new ObjectParameter("Frecuencia", typeof(string));
+    
+            var dosisParameter = dosis != null ?
+                new ObjectParameter("Dosis", dosis) :
+                new ObjectParameter("Dosis", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARDETALLEEPICRISIS", codigoParameter, codigoEpicrisisParameter, codigoTipoInsumoParameter, descripcionParameter, observacionesParameter, frecuenciaParameter, dosisParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARDETALLEPROGRAMACIONTURNO(Nullable<int> codigo, Nullable<int> codigoTurno, Nullable<int> codigoCargo, Nullable<int> codigoEmpleado, Nullable<int> codigoProgramacionTurno, Nullable<bool> responsable, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoTurnoParameter = codigoTurno.HasValue ?
+                new ObjectParameter("CodigoTurno", codigoTurno) :
+                new ObjectParameter("CodigoTurno", typeof(int));
+    
+            var codigoCargoParameter = codigoCargo.HasValue ?
+                new ObjectParameter("CodigoCargo", codigoCargo) :
+                new ObjectParameter("CodigoCargo", typeof(int));
+    
+            var codigoEmpleadoParameter = codigoEmpleado.HasValue ?
+                new ObjectParameter("CodigoEmpleado", codigoEmpleado) :
+                new ObjectParameter("CodigoEmpleado", typeof(int));
+    
+            var codigoProgramacionTurnoParameter = codigoProgramacionTurno.HasValue ?
+                new ObjectParameter("CodigoProgramacionTurno", codigoProgramacionTurno) :
+                new ObjectParameter("CodigoProgramacionTurno", typeof(int));
+    
+            var responsableParameter = responsable.HasValue ?
+                new ObjectParameter("Responsable", responsable) :
+                new ObjectParameter("Responsable", typeof(bool));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARDETALLEPROGRAMACIONTURNO", codigoParameter, codigoTurnoParameter, codigoCargoParameter, codigoEmpleadoParameter, codigoProgramacionTurnoParameter, responsableParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARDETALLERIESGOQUIRURGICO(Nullable<int> codigoInformeRiesgoQuirurgico, Nullable<int> codigoRiesgoQuirurgico, string detalleRiesgo, string consideraciones, string estadoRiesgo, string accion, ObjectParameter codigoOut)
+        {
+            var codigoInformeRiesgoQuirurgicoParameter = codigoInformeRiesgoQuirurgico.HasValue ?
+                new ObjectParameter("CodigoInformeRiesgoQuirurgico", codigoInformeRiesgoQuirurgico) :
+                new ObjectParameter("CodigoInformeRiesgoQuirurgico", typeof(int));
+    
+            var codigoRiesgoQuirurgicoParameter = codigoRiesgoQuirurgico.HasValue ?
+                new ObjectParameter("CodigoRiesgoQuirurgico", codigoRiesgoQuirurgico) :
+                new ObjectParameter("CodigoRiesgoQuirurgico", typeof(int));
+    
+            var detalleRiesgoParameter = detalleRiesgo != null ?
+                new ObjectParameter("DetalleRiesgo", detalleRiesgo) :
+                new ObjectParameter("DetalleRiesgo", typeof(string));
+    
+            var consideracionesParameter = consideraciones != null ?
+                new ObjectParameter("Consideraciones", consideraciones) :
+                new ObjectParameter("Consideraciones", typeof(string));
+    
+            var estadoRiesgoParameter = estadoRiesgo != null ?
+                new ObjectParameter("EstadoRiesgo", estadoRiesgo) :
+                new ObjectParameter("EstadoRiesgo", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARDETALLERIESGOQUIRURGICO", codigoInformeRiesgoQuirurgicoParameter, codigoRiesgoQuirurgicoParameter, detalleRiesgoParameter, consideracionesParameter, estadoRiesgoParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTAREPICRISIS(Nullable<int> codigo, Nullable<int> codigoOrdenIntervencion, string areaHospitalaria, string servicio, string diasEstancia, Nullable<System.DateTime> fechaIngreso, Nullable<System.DateTime> fechaAlta, string veterinario, string tratamientoRecibido, string observaciones, Nullable<int> codigoEstado, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            var areaHospitalariaParameter = areaHospitalaria != null ?
+                new ObjectParameter("AreaHospitalaria", areaHospitalaria) :
+                new ObjectParameter("AreaHospitalaria", typeof(string));
+    
+            var servicioParameter = servicio != null ?
+                new ObjectParameter("Servicio", servicio) :
+                new ObjectParameter("Servicio", typeof(string));
+    
+            var diasEstanciaParameter = diasEstancia != null ?
+                new ObjectParameter("DiasEstancia", diasEstancia) :
+                new ObjectParameter("DiasEstancia", typeof(string));
+    
+            var fechaIngresoParameter = fechaIngreso.HasValue ?
+                new ObjectParameter("FechaIngreso", fechaIngreso) :
+                new ObjectParameter("FechaIngreso", typeof(System.DateTime));
+    
+            var fechaAltaParameter = fechaAlta.HasValue ?
+                new ObjectParameter("FechaAlta", fechaAlta) :
+                new ObjectParameter("FechaAlta", typeof(System.DateTime));
+    
+            var veterinarioParameter = veterinario != null ?
+                new ObjectParameter("Veterinario", veterinario) :
+                new ObjectParameter("Veterinario", typeof(string));
+    
+            var tratamientoRecibidoParameter = tratamientoRecibido != null ?
+                new ObjectParameter("TratamientoRecibido", tratamientoRecibido) :
+                new ObjectParameter("TratamientoRecibido", typeof(string));
+    
+            var observacionesParameter = observaciones != null ?
+                new ObjectParameter("Observaciones", observaciones) :
+                new ObjectParameter("Observaciones", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTAREPICRISIS", codigoParameter, codigoOrdenIntervencionParameter, areaHospitalariaParameter, servicioParameter, diasEstanciaParameter, fechaIngresoParameter, fechaAltaParameter, veterinarioParameter, tratamientoRecibidoParameter, observacionesParameter, codigoEstadoParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARFICHA(Nullable<int> codigo, Nullable<int> codigoEmpleado, Nullable<int> codigoCita, string comentario, Nullable<int> codigoEmpleadoMedico, Nullable<int> codigoEmpleadoTecnico, Nullable<int> codigoSala, Nullable<int> codigoCubiculo, Nullable<int> codigoEstado, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoEmpleadoParameter = codigoEmpleado.HasValue ?
+                new ObjectParameter("CodigoEmpleado", codigoEmpleado) :
+                new ObjectParameter("CodigoEmpleado", typeof(int));
+    
+            var codigoCitaParameter = codigoCita.HasValue ?
+                new ObjectParameter("CodigoCita", codigoCita) :
+                new ObjectParameter("CodigoCita", typeof(int));
+    
+            var comentarioParameter = comentario != null ?
+                new ObjectParameter("Comentario", comentario) :
+                new ObjectParameter("Comentario", typeof(string));
+    
+            var codigoEmpleadoMedicoParameter = codigoEmpleadoMedico.HasValue ?
+                new ObjectParameter("CodigoEmpleadoMedico", codigoEmpleadoMedico) :
+                new ObjectParameter("CodigoEmpleadoMedico", typeof(int));
+    
+            var codigoEmpleadoTecnicoParameter = codigoEmpleadoTecnico.HasValue ?
+                new ObjectParameter("CodigoEmpleadoTecnico", codigoEmpleadoTecnico) :
+                new ObjectParameter("CodigoEmpleadoTecnico", typeof(int));
+    
+            var codigoSalaParameter = codigoSala.HasValue ?
+                new ObjectParameter("CodigoSala", codigoSala) :
+                new ObjectParameter("CodigoSala", typeof(int));
+    
+            var codigoCubiculoParameter = codigoCubiculo.HasValue ?
+                new ObjectParameter("CodigoCubiculo", codigoCubiculo) :
+                new ObjectParameter("CodigoCubiculo", typeof(int));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARFICHA", codigoParameter, codigoEmpleadoParameter, codigoCitaParameter, comentarioParameter, codigoEmpleadoMedicoParameter, codigoEmpleadoTecnicoParameter, codigoSalaParameter, codigoCubiculoParameter, codigoEstadoParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARINSUMO(Nullable<int> codigoFicha, Nullable<int> codigoInsumo, Nullable<int> cantidadInsumo, string estadoInsumo, string accion, ObjectParameter codigoOut)
+        {
+            var codigoFichaParameter = codigoFicha.HasValue ?
+                new ObjectParameter("CodigoFicha", codigoFicha) :
+                new ObjectParameter("CodigoFicha", typeof(int));
+    
+            var codigoInsumoParameter = codigoInsumo.HasValue ?
+                new ObjectParameter("CodigoInsumo", codigoInsumo) :
+                new ObjectParameter("CodigoInsumo", typeof(int));
+    
+            var cantidadInsumoParameter = cantidadInsumo.HasValue ?
+                new ObjectParameter("CantidadInsumo", cantidadInsumo) :
+                new ObjectParameter("CantidadInsumo", typeof(int));
+    
+            var estadoInsumoParameter = estadoInsumo != null ?
+                new ObjectParameter("EstadoInsumo", estadoInsumo) :
+                new ObjectParameter("EstadoInsumo", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARINSUMO", codigoFichaParameter, codigoInsumoParameter, cantidadInsumoParameter, estadoInsumoParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARPROGRAMACIONTURNO(Nullable<int> codigo, Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoSedeParameter = codigoSede.HasValue ?
+                new ObjectParameter("CodigoSede", codigoSede) :
+                new ObjectParameter("CodigoSede", typeof(int));
+    
+            var codigoAnioParameter = codigoAnio.HasValue ?
+                new ObjectParameter("CodigoAnio", codigoAnio) :
+                new ObjectParameter("CodigoAnio", typeof(int));
+    
+            var codigoMesParameter = codigoMes.HasValue ?
+                new ObjectParameter("CodigoMes", codigoMes) :
+                new ObjectParameter("CodigoMes", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARPROGRAMACIONTURNO", codigoParameter, codigoSedeParameter, codigoAnioParameter, codigoMesParameter, fechaInicioParameter, fechaFinParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual int USP_INSERTARRIESGOQUIRURGICO(Nullable<int> codigo, Nullable<int> codigoFicha, Nullable<int> codigoAnalisisPreliminar, string complicaciones, string consideraciones, string clasificacion, Nullable<int> codigoEmpleado, Nullable<int> codigoEstado, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigoFichaParameter = codigoFicha.HasValue ?
+                new ObjectParameter("CodigoFicha", codigoFicha) :
+                new ObjectParameter("CodigoFicha", typeof(int));
+    
+            var codigoAnalisisPreliminarParameter = codigoAnalisisPreliminar.HasValue ?
+                new ObjectParameter("CodigoAnalisisPreliminar", codigoAnalisisPreliminar) :
+                new ObjectParameter("CodigoAnalisisPreliminar", typeof(int));
+    
+            var complicacionesParameter = complicaciones != null ?
+                new ObjectParameter("Complicaciones", complicaciones) :
+                new ObjectParameter("Complicaciones", typeof(string));
+    
+            var consideracionesParameter = consideraciones != null ?
+                new ObjectParameter("Consideraciones", consideraciones) :
+                new ObjectParameter("Consideraciones", typeof(string));
+    
+            var clasificacionParameter = clasificacion != null ?
+                new ObjectParameter("Clasificacion", clasificacion) :
+                new ObjectParameter("Clasificacion", typeof(string));
+    
+            var codigoEmpleadoParameter = codigoEmpleado.HasValue ?
+                new ObjectParameter("CodigoEmpleado", codigoEmpleado) :
+                new ObjectParameter("CodigoEmpleado", typeof(int));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTARRIESGOQUIRURGICO", codigoParameter, codigoFichaParameter, codigoAnalisisPreliminarParameter, complicacionesParameter, consideracionesParameter, clasificacionParameter, codigoEmpleadoParameter, codigoEstadoParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEANASTESIA_Result> USP_OBTENERDETALLEANASTESIA(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEANASTESIA_Result>("USP_OBTENERDETALLEANASTESIA", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEDIAGNOSTICO_Result> USP_OBTENERDETALLEDIAGNOSTICO(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEDIAGNOSTICO_Result>("USP_OBTENERDETALLEDIAGNOSTICO", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEDIAGNOSTICOV2_Result> USP_OBTENERDETALLEDIAGNOSTICOV2(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEDIAGNOSTICOV2_Result>("USP_OBTENERDETALLEDIAGNOSTICOV2", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEEPICRISIS_Result> USP_OBTENERDETALLEEPICRISIS(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEEPICRISIS_Result>("USP_OBTENERDETALLEEPICRISIS", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEFICHA_Result> USP_OBTENERDETALLEFICHA(Nullable<int> codigoFicha)
+        {
+            var codigoFichaParameter = codigoFicha.HasValue ?
+                new ObjectParameter("CodigoFicha", codigoFicha) :
+                new ObjectParameter("CodigoFicha", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEFICHA_Result>("USP_OBTENERDETALLEFICHA", codigoFichaParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEOPERACION_Result> USP_OBTENERDETALLEOPERACION(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEOPERACION_Result>("USP_OBTENERDETALLEOPERACION", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEORDENINTERVENCION_Result> USP_OBTENERDETALLEORDENINTERVENCION(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEORDENINTERVENCION_Result>("USP_OBTENERDETALLEORDENINTERVENCION", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEPROFESIONAL_Result> USP_OBTENERDETALLEPROFESIONAL(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEPROFESIONAL_Result>("USP_OBTENERDETALLEPROFESIONAL", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLEPROGRAMACIONTURNO_Result> USP_OBTENERDETALLEPROGRAMACIONTURNO(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLEPROGRAMACIONTURNO_Result>("USP_OBTENERDETALLEPROGRAMACIONTURNO", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLERIESGOQUIRURGICO_Result> USP_OBTENERDETALLERIESGOQUIRURGICO(Nullable<int> codigoRiesgoQuirurgico)
+        {
+            var codigoRiesgoQuirurgicoParameter = codigoRiesgoQuirurgico.HasValue ?
+                new ObjectParameter("CodigoRiesgoQuirurgico", codigoRiesgoQuirurgico) :
+                new ObjectParameter("CodigoRiesgoQuirurgico", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLERIESGOQUIRURGICO_Result>("USP_OBTENERDETALLERIESGOQUIRURGICO", codigoRiesgoQuirurgicoParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLERIESGOQUIRURGICODETALLE_Result> USP_OBTENERDETALLERIESGOQUIRURGICODETALLE(Nullable<int> codigoInformeRQ)
+        {
+            var codigoInformeRQParameter = codigoInformeRQ.HasValue ?
+                new ObjectParameter("CodigoInformeRQ", codigoInformeRQ) :
+                new ObjectParameter("CodigoInformeRQ", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLERIESGOQUIRURGICODETALLE_Result>("USP_OBTENERDETALLERIESGOQUIRURGICODETALLE", codigoInformeRQParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERDETALLESIGNOSVITALES_Result> USP_OBTENERDETALLESIGNOSVITALES(Nullable<int> codigoOrdenIntervencion)
+        {
+            var codigoOrdenIntervencionParameter = codigoOrdenIntervencion.HasValue ?
+                new ObjectParameter("CodigoOrdenIntervencion", codigoOrdenIntervencion) :
+                new ObjectParameter("CodigoOrdenIntervencion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERDETALLESIGNOSVITALES_Result>("USP_OBTENERDETALLESIGNOSVITALES", codigoOrdenIntervencionParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENEREPICRISIS_Result> USP_OBTENEREPICRISIS(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENEREPICRISIS_Result>("USP_OBTENEREPICRISIS", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERINSUMOS_Result> USP_OBTENERINSUMOS(Nullable<int> codigoFicha)
+        {
+            var codigoFichaParameter = codigoFicha.HasValue ?
+                new ObjectParameter("CodigoFicha", codigoFicha) :
+                new ObjectParameter("CodigoFicha", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERINSUMOS_Result>("USP_OBTENERINSUMOS", codigoFichaParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENERPROGRAMACIONTURNO_Result> USP_OBTENERPROGRAMACIONTURNO(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENERPROGRAMACIONTURNO_Result>("USP_OBTENERPROGRAMACIONTURNO", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAROI_Result> USP_CONSULTAROI(Nullable<int> codigo, string medico, string paciente, Nullable<System.DateTime> fechaOperacion, Nullable<int> codigoEstado)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var medicoParameter = medico != null ?
+                new ObjectParameter("Medico", medico) :
+                new ObjectParameter("Medico", typeof(string));
+    
+            var pacienteParameter = paciente != null ?
+                new ObjectParameter("Paciente", paciente) :
+                new ObjectParameter("Paciente", typeof(string));
+    
+            var fechaOperacionParameter = fechaOperacion.HasValue ?
+                new ObjectParameter("FechaOperacion", fechaOperacion) :
+                new ObjectParameter("FechaOperacion", typeof(System.DateTime));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAROI_Result>("USP_CONSULTAROI", codigoParameter, medicoParameter, pacienteParameter, fechaOperacionParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAROIV2_Result> USP_CONSULTAROIV2(Nullable<int> codigo, string medico, string paciente, Nullable<System.DateTime> fechaOperacion, Nullable<int> codigoEstado)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var medicoParameter = medico != null ?
+                new ObjectParameter("Medico", medico) :
+                new ObjectParameter("Medico", typeof(string));
+    
+            var pacienteParameter = paciente != null ?
+                new ObjectParameter("Paciente", paciente) :
+                new ObjectParameter("Paciente", typeof(string));
+    
+            var fechaOperacionParameter = fechaOperacion.HasValue ?
+                new ObjectParameter("FechaOperacion", fechaOperacion) :
+                new ObjectParameter("FechaOperacion", typeof(System.DateTime));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAROIV2_Result>("USP_CONSULTAROIV2", codigoParameter, medicoParameter, pacienteParameter, fechaOperacionParameter, codigoEstadoParameter);
+        }
+    
+        public virtual int USP_INSERTAROI(Nullable<int> codigo, Nullable<int> codigoficha, Nullable<int> codigoDiagnosticoPresuntivo, Nullable<int> codigoDiagnosticoDefinitivo, Nullable<System.DateTime> fechaOperacion, Nullable<int> codigoEstado, string observaciones, string accion, ObjectParameter codigoOut)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var codigofichaParameter = codigoficha.HasValue ?
+                new ObjectParameter("Codigoficha", codigoficha) :
+                new ObjectParameter("Codigoficha", typeof(int));
+    
+            var codigoDiagnosticoPresuntivoParameter = codigoDiagnosticoPresuntivo.HasValue ?
+                new ObjectParameter("CodigoDiagnosticoPresuntivo", codigoDiagnosticoPresuntivo) :
+                new ObjectParameter("CodigoDiagnosticoPresuntivo", typeof(int));
+    
+            var codigoDiagnosticoDefinitivoParameter = codigoDiagnosticoDefinitivo.HasValue ?
+                new ObjectParameter("CodigoDiagnosticoDefinitivo", codigoDiagnosticoDefinitivo) :
+                new ObjectParameter("CodigoDiagnosticoDefinitivo", typeof(int));
+    
+            var fechaOperacionParameter = fechaOperacion.HasValue ?
+                new ObjectParameter("FechaOperacion", fechaOperacion) :
+                new ObjectParameter("FechaOperacion", typeof(System.DateTime));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            var observacionesParameter = observaciones != null ?
+                new ObjectParameter("Observaciones", observaciones) :
+                new ObjectParameter("Observaciones", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INSERTAROI", codigoParameter, codigofichaParameter, codigoDiagnosticoPresuntivoParameter, codigoDiagnosticoDefinitivoParameter, fechaOperacionParameter, codigoEstadoParameter, observacionesParameter, accionParameter, codigoOut);
+        }
+    
+        public virtual ObjectResult<USP_OBTENEROI_Result> USP_OBTENEROI(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENEROI_Result>("USP_OBTENEROI", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_OBTENEROIV2_Result> USP_OBTENEROIV2(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_OBTENEROIV2_Result>("USP_OBTENEROIV2", codigoParameter);
+        }
+    
+        public virtual ObjectResult<USP_CONSULTAPROGRAMACIONV2_Result> USP_CONSULTAPROGRAMACIONV2(Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        {
+            var codigoSedeParameter = codigoSede.HasValue ?
+                new ObjectParameter("CodigoSede", codigoSede) :
+                new ObjectParameter("CodigoSede", typeof(int));
+    
+            var codigoAnioParameter = codigoAnio.HasValue ?
+                new ObjectParameter("CodigoAnio", codigoAnio) :
+                new ObjectParameter("CodigoAnio", typeof(int));
+    
+            var codigoMesParameter = codigoMes.HasValue ?
+                new ObjectParameter("CodigoMes", codigoMes) :
+                new ObjectParameter("CodigoMes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAPROGRAMACIONV2_Result>("USP_CONSULTAPROGRAMACIONV2", codigoSedeParameter, codigoAnioParameter, codigoMesParameter);
+        }
+    
+        public virtual ObjectResult<USP_LOGIN_Result> USP_LOGIN(string usuario, string password)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("Usuario", usuario) :
+                new ObjectParameter("Usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_LOGIN_Result>("USP_LOGIN", usuarioParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<USP_BUSCARFICHARQV2_Result> USP_BUSCARFICHARQV2(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> codigo, string nombreCliente, string nombrePaciente, Nullable<int> codigoEstado)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(int));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var nombrePacienteParameter = nombrePaciente != null ?
+                new ObjectParameter("NombrePaciente", nombrePaciente) :
+                new ObjectParameter("NombrePaciente", typeof(string));
+    
+            var codigoEstadoParameter = codigoEstado.HasValue ?
+                new ObjectParameter("CodigoEstado", codigoEstado) :
+                new ObjectParameter("CodigoEstado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_BUSCARFICHARQV2_Result>("USP_BUSCARFICHARQV2", fechaInicioParameter, fechaFinParameter, codigoParameter, nombreClienteParameter, nombrePacienteParameter, codigoEstadoParameter);
+        }
+    
+        public virtual ObjectResult<USP_VALIDARFICHA_Result> USP_VALIDARFICHA(Nullable<int> codigoCita)
+        {
+            var codigoCitaParameter = codigoCita.HasValue ?
+                new ObjectParameter("CodigoCita", codigoCita) :
+                new ObjectParameter("CodigoCita", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_VALIDARFICHA_Result>("USP_VALIDARFICHA", codigoCitaParameter);
+        }
+    
+        public virtual ObjectResult<USP_VALIDARPROGRAMACIONTURNO_Result> USP_VALIDARPROGRAMACIONTURNO(Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        {
+            var codigoAnioParameter = codigoAnio.HasValue ?
+                new ObjectParameter("CodigoAnio", codigoAnio) :
+                new ObjectParameter("CodigoAnio", typeof(int));
+    
+            var codigoMesParameter = codigoMes.HasValue ?
+                new ObjectParameter("CodigoMes", codigoMes) :
+                new ObjectParameter("CodigoMes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_VALIDARPROGRAMACIONTURNO_Result>("USP_VALIDARPROGRAMACIONTURNO", codigoAnioParameter, codigoMesParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_VALIDARRIESGO(Nullable<int> codigoRiesgo)
+        {
+            var codigoRiesgoParameter = codigoRiesgo.HasValue ?
+                new ObjectParameter("CodigoRiesgo", codigoRiesgo) :
+                new ObjectParameter("CodigoRiesgo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_VALIDARRIESGO", codigoRiesgoParameter);
         }
     }
 }

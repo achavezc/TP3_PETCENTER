@@ -17,32 +17,33 @@ namespace Pet.Data.EF5.EFData
         public OrdenIntervencion()
         {
             this.Epicrisis = new HashSet<Epicrisi>();
+            this.OrdenIntervencionDetalleOperacions = new HashSet<OrdenIntervencionDetalleOperacion>();
             this.OrdenIntervencionDetalleAnastesias = new HashSet<OrdenIntervencionDetalleAnastesia>();
             this.OrdenIntervencionDetalleDiagnosticoes = new HashSet<OrdenIntervencionDetalleDiagnostico>();
-            this.OrdenIntervencionDetalleOperacions = new HashSet<OrdenIntervencionDetalleOperacion>();
-            this.OrdenIntervencionDetalleProfesionals = new HashSet<OrdenIntervencionDetalleProfesional>();
             this.OrdenIntervencionDetalleSignosVitales = new HashSet<OrdenIntervencionDetalleSignosVitale>();
+            this.OrdenIntervencionDetalleProfesionals = new HashSet<OrdenIntervencionDetalleProfesional>();
+            this.OrdenIntervencionDetalleOperacions1 = new HashSet<OrdenIntervencionDetalleOperacion>();
         }
     
         public int Codigo { get; set; }
-        public string NumeroHistoriaClinica { get; set; }
-        public string Nombre { get; set; }
-        public string Genero { get; set; }
-        public string Edad { get; set; }
-        public string Peso { get; set; }
-        public string Raza { get; set; }
-        public string Tipo { get; set; }
-        public string Cliente { get; set; }
-        public string Paciente { get; set; }
+        public int codigo_ficha { get; set; }
+        public Nullable<int> CodigoDiagnosticoPreventivo { get; set; }
+        public Nullable<int> CodigoDiagnosticoPresuntivo { get; set; }
+        public string Observaciones { get; set; }
+        public Nullable<System.DateTime> FechaRegistro { get; set; }
         public Nullable<System.DateTime> FechaIntervencion { get; set; }
-        public string Estado { get; set; }
+        public Nullable<int> CodigoEstado { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
+        public virtual Diagnostico Diagnostico { get; set; }
+        public virtual Diagnostico Diagnostico1 { get; set; }
         public virtual ICollection<Epicrisi> Epicrisis { get; set; }
+        public virtual Ficha_Hospitalizacion Ficha_Hospitalizacion { get; set; }
+        public virtual ICollection<OrdenIntervencionDetalleOperacion> OrdenIntervencionDetalleOperacions { get; set; }
         public virtual ICollection<OrdenIntervencionDetalleAnastesia> OrdenIntervencionDetalleAnastesias { get; set; }
         public virtual ICollection<OrdenIntervencionDetalleDiagnostico> OrdenIntervencionDetalleDiagnosticoes { get; set; }
-        public virtual ICollection<OrdenIntervencionDetalleOperacion> OrdenIntervencionDetalleOperacions { get; set; }
-        public virtual ICollection<OrdenIntervencionDetalleProfesional> OrdenIntervencionDetalleProfesionals { get; set; }
         public virtual ICollection<OrdenIntervencionDetalleSignosVitale> OrdenIntervencionDetalleSignosVitales { get; set; }
+        public virtual ICollection<OrdenIntervencionDetalleProfesional> OrdenIntervencionDetalleProfesionals { get; set; }
+        public virtual ICollection<OrdenIntervencionDetalleOperacion> OrdenIntervencionDetalleOperacions1 { get; set; }
     }
 }

@@ -16,14 +16,21 @@ namespace Pet.Data.EF5.EFData
     {
         public Diagnostico()
         {
-            this.OrdenIntervencionDetalleDiagnosticoes = new HashSet<OrdenIntervencionDetalleDiagnostico>();
+            this.Citas = new HashSet<Cita>();
+            this.OrdenIntervencions = new HashSet<OrdenIntervencion>();
+            this.OrdenIntervencions1 = new HashSet<OrdenIntervencion>();
         }
     
-        public int Codigo { get; set; }
+        public int CodigoDiagnostico { get; set; }
         public string Descripcion { get; set; }
-        public string Estado { get; set; }
+        public Nullable<int> Codigo_Enfermedad { get; set; }
+        public Nullable<int> CodigoTipoDiagnostico { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
-        public virtual ICollection<OrdenIntervencionDetalleDiagnostico> OrdenIntervencionDetalleDiagnosticoes { get; set; }
+        public virtual ICollection<Cita> Citas { get; set; }
+        public virtual tipo_diagnostico tipo_diagnostico { get; set; }
+        public virtual ENFERMEDAD ENFERMEDAD { get; set; }
+        public virtual ICollection<OrdenIntervencion> OrdenIntervencions { get; set; }
+        public virtual ICollection<OrdenIntervencion> OrdenIntervencions1 { get; set; }
     }
 }

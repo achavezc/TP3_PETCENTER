@@ -4,129 +4,151 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="db7d23ac7bdf4b999a6963d3a7f37312" Name="Diagram1">
-        <EntityTypeShape EntityType="PETCENTERModel.Anastesia" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Anio" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Cargo" Width="1.5" PointX="8" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Diagnostico" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Epicrisi" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.EpicrisisDetalle" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.EstadoEpicrisi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Me" Width="1.5" PointX="5.75" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Operacion" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencion" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleAnastesia" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleDiagnostico" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleOperacion" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleProfesional" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleSignosVitale" Width="1.5" PointX="8" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Profesional" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.ProgramacionTurno" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.ProgramacionTurnoDetalle" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Sede" Width="1.5" PointX="5.75" PointY="25.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.SignosVitale" Width="1.5" PointX="5.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.TipoBusqueda" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.TipoInsumo" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PETCENTERModel.Turno" Width="1.5" PointX="8" PointY="23.125" IsExpanded="true" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__60A75C0F" ManuallyRouted="false" />
+      <Diagram DiagramId="7cece9ee99884bfea1018abec6048c91" Name="Diagram1">
+        <EntityTypeShape EntityType="PETCENTERModel.Anastesia" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Anio" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Cargo" Width="1.5" PointX="0.75" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Cita" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.cubiculo" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Diagnostico" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.ENFERMEDAD" Width="1.5" PointX="1.5" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.enfermedad_insumo" Width="1.5" PointX="13.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Epicrisi" Width="1.5" PointX="8.25" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.EpicrisisDetalle" Width="1.5" PointX="10.5" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Estado" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Ficha_Hospitalizacion" Width="1.5" PointX="5.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Ficha_Hospitalizacion_Insumo" Width="1.5" PointX="10.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GAM_Informe_Medico" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GCP_Cliente" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GCP_Especie" Width="1.5" PointX="1.5" PointY="50.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GCP_Mascota" Width="1.5" PointX="0.75" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GCP_Raza" Width="1.5" PointX="1.5" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GCP_Tipo_Documento" Width="1.5" PointX="1.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GFC_Comprobante_Pago" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GG_Empleado" Width="1.5" PointX="3" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GG_Persona" Width="1.5" PointX="0.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Camada" Width="1.5" PointX="15.75" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Declaracion_Jurada_Domicilio" Width="1.5" PointX="7.5" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Detalle_Resultados_KCP" Width="1.5" PointX="9.75" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Informe_Verificacion_Domicilio" Width="1.5" PointX="7.5" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Registro_Resultados_KCP" Width="1.5" PointX="7.5" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Requisito_Domicilio" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud" Width="1.5" PointX="5.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Adopcion" Width="1.5" PointX="10.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Cruces" Width="1.5" PointX="10.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Pedigri" Width="1.5" PointX="13.5" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.HISTORIA_CLINICA" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Informe_Riesgo_Quirurgico" Width="1.5" PointX="8.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Informe_Riesgo_Quirurgico_Detalle" Width="1.5" PointX="10.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.InformeAnalisisPreliminar" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Insumo" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.InsumoRequerido" Width="1.5" PointX="8.25" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.InsumoRequeridoDetalle" Width="1.5" PointX="13.5" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Me" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Operacion" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencion" Width="1.5" PointX="7.5" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleAnastesia" Width="1.5" PointX="12.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleDiagnostico" Width="1.5" PointX="9.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleOperacion" Width="1.5" PointX="12.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleProfesional" Width="1.5" PointX="9.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.OrdenIntervencionDetalleSignosVitale" Width="1.5" PointX="12.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.ProgramacionTurno" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.ProgramacionTurnoDetalle" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Riesgo_Quirurgico" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.sala" Width="1.5" PointX="3" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.sala_cubiculo" Width="1.5" PointX="5.25" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Sede" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.SignosVitale" Width="1.5" PointX="10.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.tipo_diagnostico" Width="1.5" PointX="1.5" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.tipo_sala" Width="1.5" PointX="0.75" PointY="56" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.TipoBusqueda" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.TipoInsumo" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETCENTERModel.Turno" Width="1.5" PointX="3" PointY="35.25" IsExpanded="true" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__44CA3770" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_EMPLEADO_CARGO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_Cita_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_CITA_DIAGNOST" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_Cita_Mascota" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_Cita" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FICHA_HOS_cub" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_SalaCubiculo_cubiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_DIAG_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_diagnostico_enfermedad" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_ORDEN_IN_DIAG" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_ORDEN_IN_DIAG2" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.PK_Enferme_Insu_Enf" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.PK_Enferme_Insu_Ins" ManuallyRouted="false" />
         <AssociationConnector Association="PETCENTERModel.FK__Epicrisis__Codig__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Epicrisis__Codig__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Epicrisis__Codig__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="PETCENTERModel.FK__Epicrisis__Codig__08B54D69" />
-        <EntityTypeShape EntityType="PETCENTERModel.Cita" Width="1.5" PointX="18.125" PointY="19.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.cubiculo" Width="1.5" PointX="23.375" PointY="14.25" />
-        <EntityTypeShape EntityType="PETCENTERModel.Estado" Width="1.5" PointX="5.25" PointY="33" />
-        <EntityTypeShape EntityType="PETCENTERModel.Ficha_Hospitalizacion" Width="1.5" PointX="20.375" PointY="10" />
-        <EntityTypeShape EntityType="PETCENTERModel.Ficha_Hospitalizacion_Insumo" Width="1.5" PointX="22.625" PointY="10.75" />
-        <EntityTypeShape EntityType="PETCENTERModel.GAM_Informe_Medico" Width="1.5" PointX="12.875" PointY="27.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.GCP_Cliente" Width="1.5" PointX="10.625" PointY="23.25" />
-        <EntityTypeShape EntityType="PETCENTERModel.GCP_Especie" Width="1.5" PointX="10.625" PointY="16.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.GCP_Mascota" Width="1.5" PointX="12.875" PointY="18.625" />
-        <EntityTypeShape EntityType="PETCENTERModel.GCP_Raza" Width="1.5" PointX="10.625" PointY="19.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.GCP_Tipo_Documento" Width="1.5" PointX="0.75" PointY="22.375" />
-        <EntityTypeShape EntityType="PETCENTERModel.GFC_Comprobante_Pago" Width="1.5" PointX="12.875" PointY="24.25" />
-        <EntityTypeShape EntityType="PETCENTERModel.GG_Empleado" Width="1.5" PointX="5.25" PointY="1.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.GG_Persona" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Camada" Width="1.5" PointX="17.375" PointY="16" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Declaracion_Jurada_Domicilio" Width="1.5" PointX="15.125" PointY="27.375" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Detalle_Resultados_KCP" Width="1.5" PointX="17.375" PointY="24.375" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Informe_Verificacion_Domicilio" Width="1.5" PointX="15.125" PointY="11.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Registro_Resultados_KCP" Width="1.5" PointX="15.125" PointY="24" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Requisito_Domicilio" Width="1.5" PointX="12.625" PointY="5.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud" Width="1.5" PointX="12.875" PointY="12.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Adopcion" Width="1.5" PointX="15.125" PointY="9.375" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Cruces" Width="1.5" PointX="15.125" PointY="19.25" />
-        <EntityTypeShape EntityType="PETCENTERModel.GPA_Solicitud_Pedigri" Width="1.5" PointX="15.125" PointY="15.5" />
-        <EntityTypeShape EntityType="PETCENTERModel.Insumo" Width="1.5" PointX="20.375" PointY="6.75" />
-        <EntityTypeShape EntityType="PETCENTERModel.InsumoRequerido" Width="1.5" PointX="7.5" PointY="0.75" />
-        <EntityTypeShape EntityType="PETCENTERModel.InsumoRequeridoDetalle" Width="1.5" PointX="22.625" PointY="3.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.Riesgo_Quirurgico" Width="1.5" PointX="18.125" PointY="10.75" />
-        <EntityTypeShape EntityType="PETCENTERModel.sala" Width="1.5" PointX="23.375" PointY="7.125" />
-        <EntityTypeShape EntityType="PETCENTERModel.sala_cubiculo" Width="1.5" PointX="28.625" PointY="10.875" />
-        <EntityTypeShape EntityType="PETCENTERModel.Estadia_Hospitalizacion" Width="1.5" PointX="25.625" PointY="10.5" />
-        <AssociationConnector Association="PETCENTERModel.FK_Cita_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_Cita_Mascota" />
-        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_Cita" />
-        <AssociationConnector Association="PETCENTERModel.FK_EstadiaHospitalizacion_cubiculo" />
-        <AssociationConnector Association="PETCENTERModel.FK_SalaCubiculo_cubiculo" />
-        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequerido_Estado" />
-        <AssociationConnector Association="PETCENTERModel.FK_EstadiaHospitalizacion_Ficha" />
-        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_Empleado" />
-        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_EmpleadoMedico" />
-        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_EmpleadoTecnico" />
-        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_RiesgoQuirurgico" />
-        <AssociationConnector Association="PETCENTERModel.FK_HospitalizacionInsumo_Ficha" />
-        <AssociationConnector Association="PETCENTERModel.FK_HospitalizacionInsumo_Insumo" />
-        <AssociationConnector Association="PETCENTERModel.FK_GAM_Informe_Medico_GCP_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_GCP_Cliente_GG_Persona" />
-        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_GFC_Comprobante_Pago_GCP_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Cliente1" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GCP_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_Mascota_Cliente" />
-        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Especie" />
-        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Raza" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Mascota" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Mascota1" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GCP_Mascota" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GCP_Mascota1" />
-        <AssociationConnector Association="PETCENTERModel.FK_Mascota_Raza" />
-        <AssociationConnector Association="PETCENTERModel.FK_GG_Persona_GCP_Tipo_Documento" />
-        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__503BEA1C" />
-        <AssociationConnector Association="PETCENTERModel.FK_GG_Empleado_GG_Persona" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GG_Empleado" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GG_Empleado1" />
-        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequerido_Empleado" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Camada_GPA_Solicitud_Pedigri" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Registro_Resultados_KCP_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Adopcion_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GPA_Solicitud" />
-        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequeridoDetalle_Insumo" />
-        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequeridoDetalle_InsumoRequerido" />
-        <AssociationConnector Association="PETCENTERModel.FK_EstadiaHospitalizacion_Sala" />
-        <AssociationConnector Association="PETCENTERModel.FK_SalaCubiculo_Sala" />
-        <AssociationConnector Association="PETCENTERModel.FK_mascota_Adpcion" />
-        <AssociationConnector Association="PETCENTERModel.FK_Empleado_Profesional" />
+        <AssociationConnector Association="PETCENTERModel.fk_epicrisis_emp" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_EPICRISIS_ESTADO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.PK_EPICRISIS_OI" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Epicrisis__Codig__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.fk_ficha_h_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_INFQ_ESTADO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequerido_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_PROM_TURNO_ESTADO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FICHA_HOS_SALA" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_EmpleadoMedico" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_FichaHospitalizacion_EmpleadoTecnico" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_HospitalizacionInsumo_Ficha" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_ORDE_IN_FICHA" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_HospitalizacionInsumo_Insumo" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GAM_Informe_Medico_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GCP_Cliente_GG_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GFC_Comprobante_Pago_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GCP_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_Mascota_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Especie" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GCP_Mascota_GCP_Raza" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Mascota" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GCP_Mascota1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GCP_Mascota" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GCP_Mascota1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_mascota_Adpcion" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_Mascota_Raza" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GG_Persona_GCP_Tipo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GG_Empleado_GG_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GG_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_GG_Empleado1" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InformRiesgQu_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequerido_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Camada_GPA_Solicitud_Pedigri" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Declaracion_Jurada_Domicilio_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Detalle_Resultados_KCP_GPA_Registro_Resultados_KCP" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Informe_Verificacion_Domicilio_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Registro_Resultados_KCP_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Adopcion_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Cruces_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_GPA_Solicitud_Pedigri_GPA_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_INF_RQ_ANALI_PREM" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_INRQ_DET" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InformRiesQuiDet_RieQ" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_INSUMO_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequeridoDetalle_Insumo" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_InsumoRequeridoDetalle_InsumoRequerido" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__43D61337" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__4A8310C6" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__59C55456" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_OrdenIntDet_OrdInt" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__OrdenInte__Codig__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__4C6B5938" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK__Programac__Codig__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_SALA_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="PETCENTERModel.FK_SalaCubiculo_Sala" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PETCENTERModel.Usuario" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -23,10 +23,12 @@ namespace Pet.Data.EF5.EFData
         public Nullable<int> codigo_mascota { get; set; }
         public Nullable<int> codigo_cliente { get; set; }
         public Nullable<System.DateTime> fecha_cita { get; set; }
+        public Nullable<int> CodigoDiagnostico { get; set; }
         public string atencion { get; set; }
         public string servicio { get; set; }
     
         public virtual GCP_Cliente GCP_Cliente { get; set; }
+        public virtual Diagnostico Diagnostico { get; set; }
         public virtual GCP_Mascota GCP_Mascota { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
     }

@@ -1,0 +1,445 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraRegistro.cshtml")
+
+    <!-- SECCION DATOS GENERALES -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Orden Intervención</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroEpicrisisFrm" name="RegistroEpicrisisFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código Ficha
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="CodigoFicha"
+                                           name="CodigoFicha" disabled />
+                                    <input type="image" onclick="BuscarFicha();" value="Buscar" src="\Images\buscar.png" class="" style="border-width: 0px; width: 25px; margin-bottom: -10px;">
+                                    <div class="caja11 msgerror CodigoFicha">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoFicha" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Medico
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="NombreCliente"
+                                           name="NombreCliente" disabled />
+                                    <div class="caja11 msgerror NombreCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombreCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Paciente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="NombrePaciente"
+                                           name="NombrePaciente" disabled />
+                                    <div class="caja11 msgerror NombrePaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombrePaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                     
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Diagnostico Presuntivo
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboDiagnosticoPresuntivo">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <div class="caja11 msgerror cboDiagnosticoPresuntivo">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="cboDiagnosticoPresuntivo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Diagnostico Definitivo
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboDiagnosticoDefinitivo">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <div class="caja11 msgerror cboDiagnosticoDefinitivo">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="cboDiagnosticoDefinitivo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha Operación
+                                </div>
+                                <div class="col-md-8">
+                                    
+
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaOperacion,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           data-val-date="El campo Fecha Operación debe ser una fecha."
+                                           id="FechaOperacion"
+                                           name="FechaOperacion"
+                                           required />
+                                    <div class="caja11 msgerror FechaOperacion">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaOperacion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Estado
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="InputSELECT_01" id="cboEstado">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <div class="caja11 msgerror cboEstado">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="cboEstado" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Observaciones
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="Observaciones"
+                                              name="Observaciones" />
+                                    <div class="caja11 msgerror Observaciones">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Observaciones" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS GENERALES -->
+
+</div>
+<script type="text/javascript">
+    var listaRiesgosEliminados = [];
+    $(document).ready(function () {
+      //  CrearGrillas();
+        
+        $.ajax({
+            url: "/OrdenIntervencion/ListaDiagnostico",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboDiagnosticoPresuntivo");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (data[index].TipoDiagnostico == "Presuntivo") {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+        $.ajax({
+            url: "/OrdenIntervencion/ListaDiagnostico",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboDiagnosticoDefinitivo");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (data[index].TipoDiagnostico == "Definitivo") {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+
+        $.ajax({
+            url: "/Epicrisis/ListaEstado",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboEstado");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (data[index].TipoEstado == "ORDEN_INTERVENCION") {
+                        if(data[index].Codigo != 10 && data[index].Codigo != 11 && data[index].Codigo != 12 && data[index].Codigo != 13)
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+       
+        var codigoOrdenIntervencion = getParameterByName('CodigoOrdenIntervencion');
+        if (codigoOrdenIntervencion > 0) {
+            ObtenerOrdenIntervencion(codigoOrdenIntervencion);
+        }
+
+    });
+
+    function Salir_Click()   {
+        window.location.href = '/#!/OrdenIntervencion';
+    }
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+   
+    function Guardar_Click() {
+        if (ValidarCampos()) {
+            
+            //LLAMAR GUARDAR
+            var codigoOrdenIntervencion = getParameterByName('CodigoOrdenIntervencion');
+            var accion = 'I';
+            if (codigoOrdenIntervencion > 0) {
+                accion = 'U';
+            } else {
+                codigoOrdenIntervencion = 0;
+            }
+            var filtro =
+            {
+                codigo: codigoOrdenIntervencion,
+                codigoFicha: $("#CodigoFicha").val(),
+                codigoDiagnosticoPresuntivo: $("#cboDiagnosticoPresuntivo").val(),
+                codigoDiagnosticoDefinitivo: $("#cboDiagnosticoDefinitivo").val(),
+                fechaOperacion: $("#FechaOperacion").val(),
+                codigoEstado: $("#cboEstado").val(),
+                observaciones: $("#Observaciones").val(),
+                accion: accion
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/OrdenIntervencion/InsertarOI/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                       
+                        MiAlertOk("Se ha grabado correctamente la Orden de Intervención", MiAlertOk_success);
+                    } else {
+                        MiError("Ocurrio un problema al guardar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function ValidarCampos() {
+        LimpiarCampos();
+        var resultado = true;
+        var CodigoFicha = $("#CodigoFicha").val();
+        var presuntivo = $("#cboDiagnosticoPresuntivo").val();
+        var definitivo = $("#cboDiagnosticoDefinitivo").val();
+        var fechaoperacion = $("#FechaOperacion").val();
+        var estado = $("#cboEstado").val();
+        var observaciones = $("#Observaciones").val();
+        
+
+       
+        if (CodigoFicha == "") {
+            $(".caja11.msgerror.CodigoFicha").html("Codigo Ficha es requerido.");
+            resultado = false;
+        }
+        if (presuntivo == "") {
+            $(".caja11.msgerror.cboDiagnosticoPresuntivo").html("Diagnostico Presuntivo es requerido.");
+            resultado = false;
+        }
+        if (definitivo == "") {
+            $(".caja11.msgerror.cboDiagnosticoDefinitivo").html("Diagnostico Definitivo es requerido.");
+            resultado = false;
+        }
+        if (fechaoperacion == "") {
+            $(".caja11.msgerror.FechaOperacion").html("Fecha Operación es requerido.");
+            resultado = false;
+        }
+        if (estado == "") {
+            $(".caja11.msgerror.cboEstado").html("Estado es requerido.");
+            resultado = false;
+        }
+        if (observaciones == "") {
+            $(".caja11.msgerror.Observaciones").html("Observaciones es requerido.");
+            resultado = false;
+        }
+        var f = new Date();
+        var FechaActual = f.getDate() + "/" + '0'+(f.getMonth() + 1) + "/" + f.getFullYear();
+        if (fechaoperacion < FechaActual) {
+            $(".caja11.msgerror.FechaOperacion").html("Fecha Operación no puede ser menor a la fecha actual.");
+            resultado = false;
+        }
+        return resultado;
+    }
+    function LimpiarCampos() {
+        $(".caja11.msgerror.CodigoFicha").html("");
+        $(".caja11.msgerror.cboDiagnosticoPresuntivo").html("");
+        $(".caja11.msgerror.cboDiagnosticoDefinitivo").html("");
+        $(".caja11.msgerror.FechaOperacion").html("");
+        $(".caja11.msgerror.cboEstado").html("");
+        $(".caja11.msgerror.Observaciones").html("");
+    }
+ 
+    
+    function BuscarFicha() {
+        var altura = 800;
+        getPopupResponsive({
+            formURL: "RiesgoQuirurgico/BuscarFicha",
+            title: "Buscar Ficha Hospitalización",
+            nombreDiv: "divPopupBuscarFicha",
+            nombreGrid: "",
+            width: "1200px",
+            height: altura,
+            params: {},
+            HideSelection: true,
+            multiSelect: false,
+            select: function (row) {
+                return true;
+            },
+            beforeShow: function (obj) {
+                //$rootScope.hashPopup = $(obj).attr("mapurl");
+               // $compile($("#divPopupBuscarOrdenIntervencion"))($scope);
+
+               // var scopePopup = angular.element("#divPopupRegistroClienteFactrura").scope();
+               // scopePopup.row = JSON.parse(JSON.stringify(rowObject));
+               // scopePopup.rowOk = rowObject;
+
+            }
+        });
+    }
+    function ObtenerOrdenIntervencion(codigoOrdenIntervencion) {
+        var filtro = {
+            codigo: codigoOrdenIntervencion
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/OrdenIntervencion/ObtenerOI/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                CargarFichaCodigo(myData[0].codigo_ficha)
+                $("#CodigoFicha").val(myData[0].codigo_ficha);
+                $("#cboDiagnosticoPresuntivo").val(myData[0].CodigoDiagnosticoPresuntivo);
+                $("#cboDiagnosticoDefinitivo").val(myData[0].CodigoDiagnosticoPreventivo);
+                $("#FechaOperacion").val(myData[0].FechaIntervencion);
+                $("#cboEstado").val(myData[0].CodigoEstado);
+                $("#Observaciones").val(myData[0].Observaciones);
+             
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+
+        
+       
+
+       
+       
+    }
+    function CargarFichaCodigo(codigoFicha) {
+        var filtro = {
+            fechaInicio: null,
+            fechaFin: null,
+            codigo: codigoFicha,
+            nombreCliente: '',
+            nombrePaciente: '',
+            codigoEstado: null
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/RiesgoQuirurgico/listarFichaRQ/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                $("#NombreCliente").val(myData[0].NombreCliente);
+                $("#NombrePaciente").val(myData[0].NombrePaciente);
+                //$("#Diagnostico").val(myData[0].Diagnostico);
+                $("#CodigoFicha").val(myData[0].CodigoFicha);
+                
+                 
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+    }
+    function MiAlertOk_success() {
+        window.location.href = '/#!/OrdenIntervencion';
+    }
+   
+</script>

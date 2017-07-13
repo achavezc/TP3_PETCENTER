@@ -13,7 +13,7 @@ namespace Pet.Data.EF5.EFData
     
     public partial class USP_OBTENERDETALLEPROFESIONAL_Result
     {
-        public Nullable<int> NumeroOrden { get; set; }
+        public string NumeroOrden { get; set; }
         public string Dni { get; set; }
         public string Profesional { get; set; }
         public string Especialidad { get; set; }

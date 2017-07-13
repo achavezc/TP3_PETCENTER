@@ -52,6 +52,10 @@
     <Compile Include="BEMes.cs" />
     <Compile Include="BECargo.cs" />
     <Compile Include="BEEstado.cs" />
+    <Compile Include="BECubiculo.cs" />
+    <Compile Include="BERiesgoQuirurgico.cs" />
+    <Compile Include="BESala.cs" />
+    <Compile Include="BEDiagnostico.cs" />
     <Compile Include="BETipoConsumo.cs" />
     <Compile Include="BETipoBusqueda.cs" />
     <Compile Include="BETurno.cs" />

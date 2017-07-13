@@ -16,7 +16,11 @@ namespace Pet.Data.EF5.EFData
     {
         public Estado()
         {
+            this.Epicrisis = new HashSet<Epicrisi>();
+            this.Ficha_Hospitalizacion = new HashSet<Ficha_Hospitalizacion>();
+            this.Informe_Riesgo_Quirurgico = new HashSet<Informe_Riesgo_Quirurgico>();
             this.InsumoRequeridoes = new HashSet<InsumoRequerido>();
+            this.ProgramacionTurnoes = new HashSet<ProgramacionTurno>();
         }
     
         public int CodigoEstado { get; set; }
@@ -24,6 +28,10 @@ namespace Pet.Data.EF5.EFData
         public string DescripcionEstado { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
+        public virtual ICollection<Epicrisi> Epicrisis { get; set; }
+        public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
+        public virtual ICollection<Informe_Riesgo_Quirurgico> Informe_Riesgo_Quirurgico { get; set; }
         public virtual ICollection<InsumoRequerido> InsumoRequeridoes { get; set; }
+        public virtual ICollection<ProgramacionTurno> ProgramacionTurnoes { get; set; }
     }
 }

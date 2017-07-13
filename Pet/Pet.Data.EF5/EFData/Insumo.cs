@@ -16,6 +16,7 @@ namespace Pet.Data.EF5.EFData
     {
         public Insumo()
         {
+            this.enfermedad_insumo = new HashSet<enfermedad_insumo>();
             this.Ficha_Hospitalizacion_Insumo = new HashSet<Ficha_Hospitalizacion_Insumo>();
             this.InsumoRequeridoDetalles = new HashSet<InsumoRequeridoDetalle>();
         }
@@ -26,7 +27,9 @@ namespace Pet.Data.EF5.EFData
         public Nullable<int> StockActual { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
+        public virtual ICollection<enfermedad_insumo> enfermedad_insumo { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion_Insumo> Ficha_Hospitalizacion_Insumo { get; set; }
+        public virtual TipoInsumo TipoInsumo { get; set; }
         public virtual ICollection<InsumoRequeridoDetalle> InsumoRequeridoDetalles { get; set; }
     }
 }

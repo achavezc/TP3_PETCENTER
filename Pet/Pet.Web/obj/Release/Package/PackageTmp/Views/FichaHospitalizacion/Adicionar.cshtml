@@ -1,0 +1,459 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraRegistro.cshtml")
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-md-12 row">
+                    <div class="col-md-4">
+                        Ingrese Código de Cita 
+                    </div>
+                    <div class="col-md-8">
+                        <input class="InputTEXT_05"
+                               maxlength="10"
+                               type="text"
+                               id="CodigoCita"
+                               name="CodigoCita" />
+                        <input type="image" onclick="BuscarCita();" value="Buscar" src="\Images\buscar.png" class="" style="border-width: 0px; width: 25px; margin-bottom: -10px;">
+                        <div class="caja11 msgerror CodigoCita">
+                            <span class="field-validation-valid msgerror" data-valmsg-for="CodigoCita" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!-- SECCION DATOS CLIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Cliente</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroClienteFrm" name="RegistroClienteFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="CodigoCliente"
+                                            name="CodigoCliente" disabled />
+                                    <div class="caja11 msgerror CodigoCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Telefono
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="Telefono"
+                                            name="Telefono" disabled />
+                                    <div class="caja11 msgerror Telefono">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Telefono" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nombre Cliente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="NombreCliente"
+                                            name="Nombre" disabled />
+                                    <div class="caja11 msgerror NombreCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombreCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Dirección
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="Direccion"
+                                            name="Direccion" disabled />
+                                    <div class="caja11 msgerror Direccion">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Direccion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                               
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS CLIENTE -->
+    <!-- SECCION DATOS PACIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Paciente</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroPacienteFrm" name="RegistroPacienteFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="CodigoPaciente"
+                                           name="CodigoPaciente" disabled />
+                                    <div class="caja11 msgerror CodigoPaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoPaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Raza
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Raza"
+                                           name="Raza" disabled />
+                                    <div class="caja11 msgerror Raza">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Raza" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nombre Paciente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="NombrePaciente"
+                                           name="NombrePaciente" disabled />
+                                    <div class="caja11 msgerror NombrePaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombrePaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Genero
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Genero"
+                                           name="Genero" disabled />
+                                    <div class="caja11 msgerror Genero">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="Genero" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-------------------3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Especie
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Especie"
+                                           name="Especie" disabled />
+                                    <div class="caja11 msgerror Especie">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Especie" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Edad
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Edad"
+                                           name="Edad" disabled />
+                                    <div class="caja11 msgerror Edad">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="Edad" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS PACIENTE -->
+   
+    <!-- SECCION COMENTARIOS-->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>DATOS FICHA HOSPITALIZACIÓN</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroComentariosFrm" name="RegistroComentariosFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Comentarios
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="Comentarios"
+                                              name="Comentarios" />
+                                    <div class="caja11 msgerror Comentarios">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Comentarios" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha  Emisión 
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaEmision,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           data-val-date="El campo Fecha Emisión debe ser una fecha."
+                                           id="FechaEmision"
+                                           name="FechaEmision"
+                                           disabled />
+                                    <div class="caja11 msgerror FechaEmision">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaEmision" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION COMENTARIOS-->
+
+</div>
+
+<script type="text/javascript">
+            $(document).ready(function () {
+      
+                setTimeout(function () {
+                    var f = new Date();
+                    $("#FechaEmision").val(f.getDate() + "/" + ('0' + (f.getMonth() + 1)) + "/" + f.getFullYear());
+                    $(".ui-datepicker-trigger").remove();
+                }, 200);
+            });
+            var f = new Date();
+            $("#FechaEmision").val(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+            function Guardar_Click() {
+                debugger;
+                if (ValidarCampos()) {
+                    //LLAMAR GUARDAR
+                    var existe = false;
+                    var codigoCita = $("#CodigoCita").val();
+                    var accion = 'I';
+
+                    var filtroValidacion =
+                     {
+                         codigoCita: codigoCita
+                     }
+                    $.ajax({
+                        type: "POST",
+                        async: false,
+                        url: '/FichaHospitalizacion/ValidarFicha/',
+                        cache: false,
+                        data: JSON.stringify(filtroValidacion),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (datosv) {
+                            if (datosv.length > 0) {
+                                MiAlert("Ya existe una ficha de hospitalización para el codigo de cita seleccionado.");
+                                existe = true;
+
+                            } else {
+                                MiError("Ocurrio un problema al validar");
+                            }
+                        },
+                        error: function (xqr, errorMessage) {
+                        }
+                    });
+
+                    if (existe)
+                    {
+                        return false;
+                    }
+
+                    var filtro =
+                    {
+                        codigo: 0,
+                        codigoEmpleado: null,
+                        codigoCita: codigoCita,
+                        comentario: $("#Comentarios").val(),
+                        codigoEmpleadoMedico: null,
+                        codigoEmpleadoTecnico: null,
+                        codigoSala: null,
+                        codigoCubiculo: null,
+                        codigoEstado: 1,
+                        accion: accion
+                    }
+                    $.ajax({
+                        type: "POST",
+                        async: false,
+                        url: '/FichaHospitalizacion/InsertarFicha/',
+                        cache: false,
+                        data: JSON.stringify(filtro),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (myData) {
+                            if (myData > 0) {
+                                MiAlertOk("Se ha grabado correctamente la ficha hospitalización", MiAlertOk_success);
+                            } else {
+                                MiError("Ocurrio un problema al guardar");
+                            }
+                        },
+                        error: function (xqr, errorMessage) {
+                        }
+                    });
+                }
+            }
+            function ValidarCampos() {
+                var resultado = true;
+                $(".caja11.msgerror.CodigoCita").html("");
+                if ($("#CodigoCita").val() == "") {
+                    $(".caja11.msgerror.CodigoCita").html("Codigo Cita es requerido.");
+                    resultado =false;
+                }
+                return resultado;
+            }
+            function MiAlertOk_success() {
+                window.location.href = '/#!/FichaHospitalizacion';
+            }
+
+         
+            function BuscarCita() {
+                var filtro =
+                 {
+                     codigoCita: $("#CodigoCita").val()
+                 }
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '/FichaHospitalizacion/BuscarCita/',
+                    cache: false,
+                    data: JSON.stringify(filtro),
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    success: function (myData) {
+                        //DATOS CLIENTE
+                        $("#CodigoCliente").val(myData[0].CodigoCliente);
+                        $("#NombreCliente").val(myData[0].NombreCliente);
+                        $("#Telefono").val(myData[0].Telefono);
+                        $("#Direccion").val(myData[0].Direccion);
+
+                        //DATOS PACIENTE
+                        $("#CodigoPaciente").val(myData[0].CodigoPaciente);
+                        $("#Raza").val(myData[0].Raza);
+                        $("#NombrePaciente").val(myData[0].NombrePaciente);
+                        $("#Genero").val(myData[0].Genero);
+                        $("#Especie").val(myData[0].Especie);
+                        $("#Edad").val(myData[0].Edad);
+                    },
+                    error: function (xqr, errorMessage) {
+                    }
+                });
+            }
+            
+        </script>

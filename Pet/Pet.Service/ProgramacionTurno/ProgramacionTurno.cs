@@ -9,6 +9,14 @@ namespace Pet.Service.ProgramacionTurno
 {
     public class ProgramacionTurno
     {
+        public static object Login(string usuario, string password)
+        {
+            return Pet.Data.EF5.ProgramacionTurno.ProgramacionTurno.Login(usuario, password);
+        }
+        public static object ValidarProgramacion(Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        {
+            return Pet.Data.EF5.ProgramacionTurno.ProgramacionTurno.ValidarProgramacionTurno(codigoAnio, codigoMes);
+        }
         public static object ConsultarProgramacionTurno(Nullable<int> codigoSede, Nullable<int> codigoAnio, Nullable<int> codigoMes)
         {
             return Pet.Data.EF5.ProgramacionTurno.ProgramacionTurno.ConsultarProgramacionTurno(codigoSede, codigoAnio, codigoMes);

@@ -66,13 +66,16 @@
     <Compile Include="EFData\Cita.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\ComplexType1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EFData\cubiculo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\Diagnostico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\ENFERMEDAD.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\enfermedad_insumo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\Epicrisi.cs">
@@ -82,13 +85,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\Epicrisis\Epicrisis.cs" />
-    <Compile Include="EFData\Estadia_Hospitalizacion.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EFData\Estado.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EFData\EstadoEpicrisi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\Ficha_Hospitalizacion.cs">
@@ -154,6 +151,18 @@
     <Compile Include="EFData\GPA_Solicitud_Pedigri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\HISTORIA_CLINICA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\InformeAnalisisPreliminar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\Informe_Riesgo_Quirurgico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\Informe_Riesgo_Quirurgico_Detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\Insumo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -202,9 +211,6 @@
     <Compile Include="EFData\OrdenIntervencionDetalleSignosVitale.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\Profesional.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EFData\ProgramacionTurno.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -229,6 +235,12 @@
     <Compile Include="EFData\sp_ConsultarSolicitud_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\sp_ObtenerCamada_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -241,55 +253,91 @@
     <Compile Include="EFData\sp_ObtenerRazas_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\TipoBusqueda.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\TipoInsumo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\tipo_diagnostico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\tipo_sala.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\Turno.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAEPICRISISFINAL_Result.cs">
+    <Compile Include="EFData\USP_BUSCARCITA_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAEPICRISISV2_Result.cs">
+    <Compile Include="EFData\USP_BUSCARFICHARQV2_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAEPICRISISV3_Result.cs">
+    <Compile Include="EFData\USP_BUSCARFICHARQ_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAEPICRISISV4_Result.cs">
+    <Compile Include="EFData\USP_BUSCARINSUMOS_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_CONSULTAEPICRISISV5_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAEPICRISIS_Result.cs">
+    <Compile Include="EFData\USP_CONSULTAFICHAV1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAORDENINTERVENCIONV2_Result.cs">
+    <Compile Include="EFData\USP_CONSULTAFICHAV2_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAORDENINTERVENCIONV3_Result.cs">
+    <Compile Include="EFData\USP_CONSULTAFICHAV3_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_CONSULTAFICHAV4_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_CONSULTAFICHA_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_CONSULTAORDENINTERVENCIONV4_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFData\USP_CONSULTAORDENINTERVENCION_Result.cs">
+    <Compile Include="EFData\USP_CONSULTAORDENINTERVENCIONV5_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_CONSULTAPROGRAMACIONV2_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_CONSULTAPROGRAMACION_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\USP_CONSULTARIESGOQUIRURGICO_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_CONSULTAROIV2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_CONSULTAROI_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_LOGIN_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\USP_OBTENERDETALLEANASTESIA_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_OBTENERDETALLEDIAGNOSTICOV2_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_OBTENERDETALLEDIAGNOSTICO_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_OBTENERDETALLEEPICRISIS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_OBTENERDETALLEFICHA_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_OBTENERDETALLEOPERACION_Result.cs">
@@ -304,15 +352,42 @@
     <Compile Include="EFData\USP_OBTENERDETALLEPROGRAMACIONTURNO_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\USP_OBTENERDETALLERIESGOQUIRURGICODETALLE_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_OBTENERDETALLERIESGOQUIRURGICO_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\USP_OBTENERDETALLESIGNOSVITALES_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EFData\USP_OBTENEREPICRISIS_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\USP_OBTENERINSUMOS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_OBTENEROIV2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_OBTENEROI_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\USP_OBTENERPROGRAMACIONTURNO_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\USP_VALIDARFICHA_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\USP_VALIDARPROGRAMACIONTURNO_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData\Usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ficha\FichaHospitalizacion.cs" />
+    <Compile Include="OrdenIntervencion\OrdenIntervencion.cs" />
+    <Compile Include="RiesgoQuirurgicoCombo.cs" />
     <Compile Include="ProgramacionTurno\ProgramacionTurno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Anio.cs" />
@@ -320,6 +395,10 @@
     <Compile Include="Empleado.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Estado.cs" />
+    <Compile Include="Cubiculo.cs" />
+    <Compile Include="RiesgoQuirurgico\RiesgoQuirurgico.cs" />
+    <Compile Include="Sala.cs" />
+    <Compile Include="Diagnostico.cs" />
     <Compile Include="TipoConsumo.cs" />
     <Compile Include="TipoBusqueda.cs" />
     <Compile Include="Turno.cs" />

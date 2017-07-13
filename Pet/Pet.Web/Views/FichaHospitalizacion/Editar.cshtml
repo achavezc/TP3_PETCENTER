@@ -1,0 +1,1217 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="block ng-scope" style="">
+
+    @Html.Partial("~/Views/Botonera/BotoneraRegistro.cshtml")
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-md-12 row">
+                    <div class="col-md-4">
+                        Ingrese Código de Cita 
+                    </div>
+                    <div class="col-md-8">
+                        <input class="InputTEXT_05"
+                               maxlength="10"
+                               type="text"
+                               id="CodigoCita"
+                               name="CodigoCita" disabled/>
+                        <div class="caja11 msgerror CodigoCita">
+                            <span class="field-validation-valid msgerror" data-valmsg-for="CodigoCita" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!-- SECCION DATOS CLIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Cliente</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroClienteFrm" name="RegistroClienteFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="CodigoCliente"
+                                            name="CodigoCliente" disabled />
+                                    <div class="caja11 msgerror CodigoCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Telefono
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="Telefono"
+                                            name="Telefono" disabled />
+                                    <div class="caja11 msgerror Telefono">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Telefono" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nombre Cliente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="NombreCliente"
+                                            name="Nombre" disabled />
+                                    <div class="caja11 msgerror NombreCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombreCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Dirección
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                            maxlength="10"
+                                            type="text"
+                                            id="Direccion"
+                                            name="Direccion" disabled />
+                                    <div class="caja11 msgerror Direccion">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Direccion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                               
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS CLIENTE -->
+    <!-- SECCION DATOS PACIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Paciente</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroPacienteFrm" name="RegistroPacienteFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="CodigoPaciente"
+                                           name="CodigoPaciente" disabled />
+                                    <div class="caja11 msgerror CodigoPaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoPaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Raza
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Raza"
+                                           name="Raza" disabled />
+                                    <div class="caja11 msgerror Raza">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Raza" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nombre Paciente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="NombrePaciente"
+                                           name="NombrePaciente" disabled />
+                                    <div class="caja11 msgerror NombrePaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombrePaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Genero
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Genero"
+                                           name="Genero" disabled />
+                                    <div class="caja11 msgerror Genero">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="Genero" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-------------------3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Especie
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Especie"
+                                           name="Especie" disabled />
+                                    <div class="caja11 msgerror Especie">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Especie" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Edad
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="Edad"
+                                           name="Edad" disabled />
+                                    <div class="caja11 msgerror Edad">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="Edad" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS PACIENTE -->
+   
+
+    <!-- SECCION DATOS PACIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Orden de Intervención</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroOrdenIntervencionFrm" name="RegistroOrdenIntervencionFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nro
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="CodigoOI"
+                                           name="CodigoOI" disabled />
+                                    <div class="caja11 msgerror CodigoOI">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoOI" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Raza
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="EstadoOI"
+                                           name="EstadoOI" disabled />
+                                    <div class="caja11 msgerror EstadoOI">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="EstadoOI" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="FechaOI"
+                                           name="FechaOI" disabled />
+                                    <div class="caja11 msgerror FechaOI">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaOI" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Observaciones
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="ObservacionesOI"
+                                              name="ObservacionesOI" disabled />
+                                    <div class="caja11 msgerror ObservacionesOI">
+                                        <span class="field-validation-valid ObservacionesOI" data-valmsg-for="ObservacionesOI" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-------------------3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha de Operación
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="FechaOperacionOI"
+                                           name="FechaOperacionOI" disabled />
+                                    <div class="caja11 msgerror FechaOperacionOI">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaOperacionOI" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS PACIENTE -->
+
+
+    <!-- SECCION DATOS PACIENTE -->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Riesgo Quirurgico</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroRQFrm" name="RegistroRQFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Nro
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="CodigoRQ"
+                                           name="CodigoRQ" disabled />
+                                    <div class="caja11 msgerror CodigoRQ">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Complicaciones
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="ComplicacionesRQ"
+                                           name="ComplicacionesRQ" disabled />
+                                    <div class="caja11 msgerror ComplicacionesRQ">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="ComplicacionesRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="FechaRQ"
+                                           name="FechaRQ" disabled />
+                                    <div class="caja11 msgerror FechaRQ">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Complicaciones Particulares
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="ComplicacionesParticularesRQ"
+                                           name="ComplicacionesParticularesRQ" disabled />
+                                    <div class="caja11 msgerror ComplicacionesParticularesRQ">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="ComplicacionesParticularesRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-------------------3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        @*<div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Hora
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="HoraRQ"
+                                           name="HoraRQ" disabled />
+                                    <div class="caja11 msgerror HoraRQ">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="HoraRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Clasificación Riesgo Quirurgico
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="ClasificacionRQ"
+                                           name="ClasificacionRQ" disabled />
+                                    <div class="caja11 msgerror ClasificacionRQ">
+                                        <span class="field-validation-valid Genero" data-valmsg-for="ClasificacionRQ" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS PACIENTE -->
+
+    <!-- SECCION COMENTARIOS-->
+    <div id="seccion-1">
+
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>DATOS FICHA HOSPITALIZACIÓN</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroComentariosFrm" name="RegistroComentariosFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Comentarios
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="Comentarios"
+                                              name="Comentarios" disabled />
+                                    <div class="caja11 msgerror Comentarios">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Comentarios" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Fecha  Emisión
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_04Fecha"
+                                           maxlength="10" type="text"
+                                           data-bind="dateValue: FechaEmision,datePattern: 'dd/MM/yyyy'"
+                                           data-val="true"
+                                           data-val-date="El campo Fecha Emisión debe ser una fecha."
+                                           id="FechaEmision"
+                                           name="FechaEmision"
+                                           required disabled/>
+                                    <div class="caja11 msgerror FechaEmision">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="FechaEmision" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- SECCION COMENTARIOS-->
+
+
+    <!-- SECCION DETALLE-->
+    <div id="seccion-4">
+
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>DATOS RECURSOS DE HOSPITALIZACION</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+      
+            <form id="RegistroRecursoFrm" name="RegistroRecursoFrm" class="ng-pristine ng-invalid ng-invalid-required">
+                <div class="block_content" style="width: 100%">
+                    <!------------------- 1 Seccion -------------------------------------------->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Nro Sala
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboSala">
+                                            <option value="">[Seleccione]</option>
+
+
+                                        </select>
+                                        <div class="caja11 msgerror cboSala">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboSala" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Turno
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboTurno">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboTurno">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboTurno" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Nro Cubiculo
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboCubiculo">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboCubiculo">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboCubiculo" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <!------------------- 2 Seccion -------------------------------------------->
+                    <div class="col-md-12">
+                        <div class="row">
+                            @*<div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Nro Cubiculo
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboCubiculo">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboCubiculo">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboCubiculo" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Medico Asignado
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboMedicoAsignado">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboMedicoAsignado">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboMedicoAsignado" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Técnico Asignado
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboTecnicoAsignado">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboTecnicoAsignado">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboTecnicoAsignado" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!------------------- 3 Seccion -------------------------------------------->
+                    <div class="col-md-12">
+                        <div class="row">
+                            @*<div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Nro Repositorio
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboRepositorio">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboRepositorio">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboRepositorio" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            @*<div class="col-md-4">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                        Técnico Asignado
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="InputSELECT_01" id="cboTecnicoAsignado">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <div class="caja11 msgerror cboTecnicoAsignado">
+                                            <span class="field-validation-valid msgerror" data-valmsg-for="cboTecnicoAsignado" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        </div>
+                    </div>
+                </div>
+                <div class="caja11 msgerror objetoRecurso">
+                    <span class="field-validation-valid msgerror" data-valmsg-for="objetoRecurso" data-valmsg-replace="true"></span>
+                </div>
+            </form>
+            <div class="block_menu">
+                <div style="max-width: 100%; height: 100%">
+                    <div class="boton">
+                        <button id="btnAgregar" onclick="AgregarInsumo()" class="SeparatorLeft boton1Style boton1" style="">
+                            <span class="boton1Span">
+                                <img class="boton1Img csBtnAgregar" alt="Agregar" src="/Images/formatmap32x32.png">
+                            </span>
+                            <span class="boton1txt">Agregar</span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+                <div id="ContentListadoInsumos" class="block_content">
+                    <div class="form_section" style="width: 100%">
+                        <table id="consultaInsumos"></table>
+                        <div id="pagerconsultaInsumos"></div>
+                    </div>
+                    <div class="caja11 msgerror ListaInsumos">
+                        <span class="field-validation-valid msgerror" data-valmsg-for="ListaInsumos" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+           
+            
+        </div>
+        <!-- SECCION DETALLE-->
+
+
+    </div>
+    <!-- SECCION DETALLE-->
+
+</div>
+
+<script type="text/javascript">
+    var listaInsumosEliminados = [];
+    $(document).ready(function () {
+        CrearGrillas();
+        CargarCombos();
+        var codigoFicha = getParameterByName('CodigoFicha');
+        CargarDetalleFicha(codigoFicha);
+        if ($("#CodigoRQ").val() == "" && $("#CodigoOI").val() == "") {
+            $("#btnAgregar").prop("disabled", "true");
+            $(".boton1Img.csBtnAgregar").css("opacity", "0.5");
+            $(".caja11.msgerror.objetoRecurso").html("Se debe agregar Orden de Intervención y Riesgo Quirurgico para agregar insumos.");
+        }
+        if ($("#CodigoRQ").val() != "" && $("#CodigoOI").val() != "") {
+            $("#btnAgregar").prop("enabled", "true");
+            $(".boton1Img.csBtnAgregar").css("opacity", "1");
+            $(".caja11.msgerror.objetoRecurso").html("");
+        }
+
+        setTimeout(function () {
+            var f = new Date();
+            $("#FechaEmision").val(f.getDate() + "/" + ('0' + (f.getMonth() + 1)) + "/" + f.getFullYear());
+            $(".ui-datepicker-trigger").remove();
+        }, 200);
+    });
+    
+    function CargarCombos() {
+        $.ajax({
+            url: "/FichaHospitalizacion/ListaSala",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboSala");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+
+        $.ajax({
+            url: "/FichaHospitalizacion/ListaCubiculo",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboCubiculo");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (!data[index].Ocupado) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+
+        $.ajax({
+            url: "/ProgramacionTurno/ListaTurno",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboTurno");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
+        });
+
+        $.ajax({
+            url: "/Epicrisis/ListaEmpleado",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboMedicoAsignado");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (data[index].Cargo.Codigo == 1) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+        $.ajax({
+            url: "/Epicrisis/ListaEmpleado",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboTecnicoAsignado");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    if (data[index].Cargo.Codigo == 2 || data[index].Cargo.Codigo == 4) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
+                });
+            }
+        });
+    }
+    function Guardar_Click() {
+        if (ValidarCampos()) {
+            //LLAMAR GUARDAR
+            var codigoFicha = getParameterByName('CodigoFicha');
+            var codigoCita = $("#CodigoCita").val();
+            var accion = 'U';
+            var filtro =
+            {
+                codigo: codigoFicha,
+                codigoEmpleado: null,
+                codigoCita: codigoCita,
+                comentario: $("#Comentarios").val(),
+                codigoEmpleadoMedico: $("#cboMedicoAsignado").val(),
+                codigoEmpleadoTecnico: $("#cboTecnicoAsignado").val(),
+                codigoSala: $("#cboSala").val(),
+                codigoCubiculo: $("#cboCubiculo").val(),
+                codigoEstado: 1,
+                accion: accion
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/FichaHospitalizacion/InsertarFicha/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                        
+                        GuardarDetalle(codigoFicha)
+                        MiAlertOk("Se ha actualizado correctamente la ficha hospitalización", MiAlertOk_success);
+                    } else {
+                        MiError("Ocurrio un problema al guardar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function GuardarDetalle(codigoFicha) {
+        var grid = jQuery("#consultaInsumos");
+        var datos = grid.getRowData();
+        for (var i = 0; i < datos.length; i++) {
+            var filtro =
+           {
+               codigoFicha: codigoFicha,
+               codigoInsumo: datos[i].Codigo,
+               cantidadInsumo: datos[i].Cantidad,
+               estadoInsumo: 'Activo',
+               accion: datos[i].Accion
+           }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/FichaHospitalizacion/InsertarInsumo/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+        EliminarDetalleRegistrados();
+
+    }
+    function EliminarDetalleRegistrados() {
+        for (var i = 0; i < listaInsumosEliminados.length; i++) {
+            var codigoFicha = getParameterByName('CodigoFicha');
+            var filtro =
+           {
+               codigoFicha: codigoFicha,
+               codigoInsumo: listaInsumosEliminados[i],
+               cantidadInsumo: 0,
+               estadoInsumo: 'Inactivo',
+               accion: 'D'
+           }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/FichaHospitalizacion/InsertarInsumo/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function EliminarInsumo(rowId) {
+
+        MiConfirm("¿Esta seguro de eliminar el Insumo?.", function () {
+            var grid = jQuery("#consultaInsumos");
+            var datos = grid.getRowData();
+            for (var i = 0; i < datos.length; i++) {
+                if (datos[i].Codigo == rowId) {
+                    if (datos[i].Accion == "U") {
+                        listaInsumosEliminados.push(datos[i].Codigo);
+                    }
+                }
+            }
+            grid.jqGrid('delRowData', rowId);
+            $("#consultaInsumos").trigger("reloadGrid");
+
+        });
+    }
+    function ValidarCampos() {
+        var resultado = true;
+        limpiar();
+        if ($("#CodigoCita").val() == "") {
+            $(".caja11.msgerror.CodigoCita").html("Codigo Cita es requerido.");
+            resultado =false;
+        }
+        if ($("#cboSala").val() == "") {
+            $(".caja11.msgerror.cboSala").html("Sala es requerido.");
+            resultado = false;
+        }
+        if ($("#cboCubiculo").val() == "") {
+            $(".caja11.msgerror.cboCubiculo").html("Cubiculo es requerido.");
+            resultado = false;
+        }
+        if ($("#cboMedicoAsignado").val() == "") {
+            $(".caja11.msgerror.cboMedicoAsignado").html("Medigo Asignado es requerido.");
+            resultado = false;
+        }
+        if ($("#cboTecnicoAsignado").val() == "") {
+            $(".caja11.msgerror.cboTecnicoAsignado").html("Técnico Asignado es requerido.");
+            resultado = false;
+        }
+        var grid = jQuery("#consultaInsumos");
+        var dataInsumos = grid.getRowData();
+        if (dataInsumos.length == 0) {
+            $(".caja11.msgerror.ListaInsumos").html("Debe agregar por lo menos un Insumo.");
+            resultado = false;
+        }
+        return resultado;
+    }
+    function limpiar() {
+        $(".caja11.msgerror.CodigoCita").html("");
+        $(".caja11.msgerror.cboSala").html("");
+        $(".caja11.msgerror.cboCubiculo").html("");
+        $(".caja11.msgerror.cboMedicoAsignado").html("");
+        $(".caja11.msgerror.cboTecnicoAsignado").html("");
+        $(".caja11.msgerror.ListaInsumos").html("");
+    }
+    function MiAlertOk_success() {
+        window.location.href = '/#!/FichaHospitalizacion';
+    }
+    function CargarDetalleFicha(codigoFicha) {
+        var filtro =
+        {
+            codigoFicha: codigoFicha
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/FichaHospitalizacion/ObtenerDetalleFicha/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                $("#CodigoCita").val(myData[0].CodigoCita);
+                $("#Comentarios").val(myData[0].Comentario);
+                $("#cboSala").val(myData[0].CodigoSala);
+                $("#cboCubiculo").val(myData[0].CodigoCubiculo);
+                //$("#cboTurno").val(myData[0].Comentario);
+                $("#cboMedicoAsignado").val(myData[0].CodigoMedico);
+                $("#cboTecnicoAsignado").val(myData[0].CodigoTecnico);
+                CargarDetalleInsumos(codigoFicha)
+                BuscarCita(myData[0].CodigoCita);
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+               
+    }
+    function CargarDetalleInsumos(codigoFicha) {
+        var filtro =
+        {
+            codigoFicha: codigoFicha
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/FichaHospitalizacion/ObtenerInsumo/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaInsumos");
+                for (var i = 0; i < myData.length; i++) {
+                    myData[i].Accion = "U";
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                }
+                $("#consultaInsumos").trigger("reloadGrid");
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+    }
+    function BuscarCita(codigoCita) {
+        var filtro =
+            {
+                codigoCita: codigoCita
+            }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/FichaHospitalizacion/BuscarCita/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                //DATOS CLIENTE
+                $("#CodigoCliente").val(myData[0].CodigoCliente);
+                $("#NombreCliente").val(myData[0].NombreCliente);
+                $("#Telefono").val(myData[0].Telefono);
+                $("#Direccion").val(myData[0].Direccion);
+
+                //DATOS PACIENTE
+                $("#CodigoPaciente").val(myData[0].CodigoPaciente);
+                $("#Raza").val(myData[0].Raza);
+                $("#NombrePaciente").val(myData[0].NombrePaciente);
+                $("#Genero").val(myData[0].Genero);
+                $("#Especie").val(myData[0].Especie);
+                $("#Edad").val(myData[0].Edad);
+
+                //DATOS ORDEN INTERVENCION
+                $("#CodigoOI").val(myData[0].CodigoOI);
+                $("#EstadoOI").val(myData[0].EstadoOI);
+                $("#FechaOI").val(myData[0].FechaOI);
+                $("#FechaOperacionOI").val(myData[0].FechaOperacionOI);
+                $("#ObservacionesOI").val(myData[0].ObservacionesOI);
+
+                //DATOS RIESGO QUIRURGICO
+                $("#CodigoRQ").val(myData[0].CodigoRQ);
+                $("#ComplicacionesRQ").val(myData[0].ComplicacionesRQ);
+                $("#FechaRQ").val(myData[0].FechaRQ);
+                $("#ComplicacionesParticularesRQ").val(myData[0].ComplicacionesParticularesRQ);
+                $("#HoraRQ").val(myData[0].HoraRQ);
+                $("#ClasificacionRQ").val(myData[0].ClasificacionRQ);
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+    }
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    function Salir_Click() {
+        window.location.href = '/#!/FichaHospitalizacion';
+    }
+    function CrearGrillas() {
+        jQuery("#consultaInsumos").jqGrid({
+            datatype: "local",
+            colNames: ['Enfermedad Asociada', 'Tipo de Insumo', 'Código de Insumo', 'Nombre Insumo', 'Cantidad', 'Eliminar', 'Accion'],
+            colModel: [
+                { name: 'EnfermedadAsociada', index: 'EnfermedadAsociada',hidden:true, width: 210, align: "center", sortable: false },
+                { name: 'TipoInsumo', index: 'TipoInsumo', width: 210, align: "center", sortable: false },
+                { name: 'Codigo', index: 'Codigo', width: 210, align: "center", sortable: false },
+                { name: 'NombreInsumo', index: 'NombreInsumo', width: 210, align: "center", sortable: false },
+                { name: 'Cantidad', index: 'Cantidad', width: 210, align: "center", sortable: false },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    width: 150,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='EliminarInsumo(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                },
+                { name: 'Accion', index: 'Accion', width: 210, align: "center", sortable: false, hidden: true }
+
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+        });
+
+    }
+   
+    function AgregarInsumo() {
+        var altura = 800;
+        getPopupResponsive({
+            formURL: "FichaHospitalizacion/BuscarInsumos",
+            title: "Buscar Insumos a Agregar",
+            nombreDiv: "divPopupBuscarInsumos",
+            nombreGrid: "",
+            width: "1200px",
+            height: altura,
+            params: {},
+            HideSelection: true,
+            multiSelect: false,
+            select: function (row) {
+                return true;
+            },
+            beforeShow: function (obj) {
+                //$rootScope.hashPopup = $(obj).attr("mapurl");
+                // $compile($("#divPopupBuscarOrdenIntervencion"))($scope);
+
+                // var scopePopup = angular.element("#divPopupRegistroClienteFactrura").scope();
+                // scopePopup.row = JSON.parse(JSON.stringify(rowObject));
+                // scopePopup.rowOk = rowObject;
+
+            }
+        });
+    }
+   
+</script>

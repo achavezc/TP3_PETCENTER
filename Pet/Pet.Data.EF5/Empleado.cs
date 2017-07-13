@@ -13,14 +13,15 @@ namespace Pet.Data.EF5
         {
             List<BEEmpleado> lista = new List<BEEmpleado>();
 
-            using (var db = new EFData.PETCENTEREntities1())
+            using (var db = new EFData.PETCENTEREntities())
             {
                 foreach (var item in db.GG_Empleado.ToList())
                 {
                     BEEmpleado it = new BEEmpleado();
+                    
                     it.Codigo = item.codigo_empleado;
-                    it.Cargo = item.cargo;
-                    it.Descripcion = item.Descripcion;
+                    it.Cargo.Codigo = item.Cargo.Codigo;
+                    it.Descripcion = item.GG_Persona.nombres + ' '+ item.GG_Persona.apellidoPaterno + ' '+ item.GG_Persona.apellidoMaterno;//item.Descripcion;
                     it.EstadoRegistro = item.EstadoRegistro;
                     lista.Add(it);
                 }

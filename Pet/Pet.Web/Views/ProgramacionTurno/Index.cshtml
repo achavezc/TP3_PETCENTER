@@ -26,10 +26,8 @@
                                     Sede
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="InputSELECT_01" id="cboSede">
+                                    <select class="InputSELECT_01" id="cboSede" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">San Isidro</option>
-                                        <option value="2">San Borja</option>
 
                                     </select>
                                     <div class="caja11 msgerror Sede">
@@ -46,8 +44,6 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboAnio">
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">2016</option>
-                                        <option value="2">2017</option>
                                     </select>
                                     <div class="caja11 msgerror Anio">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Anio" data-valmsg-replace="true"></span>
@@ -63,8 +59,6 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboMes">
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">Enero</option>
-                                        <option value="2">Febrero</option>
                                     </select>
                                     <div class="caja11 msgerror Mes">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Mes" data-valmsg-replace="true"></span>
@@ -106,13 +100,18 @@
   
     $(document).ready(function () {
         CrearGrillas();
-        $.getJSON("/ProgramacionTurno/ListaSede").done(function (data) {
-            var options = $("#cboSede");
-            options.empty();
-            options.append('<option value="">[Seleccione]</option>');
-            $.each(data, function (index, item) {
-                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
-            });
+        $.ajax({
+            url: "/ProgramacionTurno/ListaSede",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboSede");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                });
+            }
         });
         $.getJSON("/ProgramacionTurno/ListaAnio").done(function (data) {
             var options = $("#cboAnio");
@@ -130,6 +129,9 @@
                 options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
             });
         });
+
+        $("#cboSede").val("1");
+        Buscar_Click();
     });
     function Nuevo_Click() {
         window.location.href = '/#!/ProgramacionTurno/Adicionar';
@@ -138,41 +140,70 @@
         window.location.href = '/#!/ProgramacionTurno/Lectura?CodigoProgramacion=' + Codigo;
     }
     function Editar(Codigo) {
-        window.location.href = '/#!/ProgramacionTurno/Adicionar?CodigoProgramacion=' + Codigo;
+        var rowData = jQuery('#consultaProgramaciones').jqGrid('getRowData', Codigo);
+        if (rowData.DescripcionEstado != 'ANULADO') {
+            if (rowData.Anio >= 2017) {
+                if (rowData.Mes == "JULIO" || rowData.Mes == "AGOSTO" || rowData.Mes == "SETIEMBRE" || rowData.Mes == "OCTUBRE"
+                    || rowData.Mes == "NOVIEMBRE" || rowData.Mes == "DICIEMBRE") {
+                    window.location.href = '/#!/ProgramacionTurno/Adicionar?CodigoProgramacion=' + Codigo;
+                } else {
+                    MiAlert("No se puede actualizar un programación de turno anterior");
+                }
+            } else {
+                MiAlert("No se puede actualizar un programación de turno anterior");
+            }
+        } else {
+            MiAlert("No se puede actualizar un programación de turno anulada");
+        }
     }
     function Eliminar(rowId) {
-        MiConfirm("¿Esta seguro de eliminar la programación de turno?.", function () {
-            var filtro =
-            {
-                codigo: rowId,
-                codigoSede: 0,
-                codigoAnio: 0,
-                codigoMes: 0,
-                fechaInicio: "08/06/2017",
-                fechaFin: "08/06/2017",
-                accion: "D"
-            }
-            $.ajax({
-                type: "POST",
-                async: false,
-                url: '/ProgramacionTurno/IngresarProgramacionTurno/',
-                cache: false,
-                data: JSON.stringify(filtro),
-                dataType: "JSON",
-                contentType: "application/json",
-                success: function (myData) {
-                    if (myData > 0) {
-                        MiAlertOk("Se ha eliminado correctamente la programación");
+        MiConfirm("¿Esta seguro de anular la programación de turno?.", function () {
+            var rowData = jQuery('#consultaProgramaciones').jqGrid('getRowData', rowId);
+            if (rowData.DescripcionEstado != 'ANULADO') {
+                if (rowData.Anio >= 2017) {
+                    if (rowData.Mes == "JUNIO" || rowData.Mes == "JULIO" || rowData.Mes == "AGOSTO" || rowData.Mes == "SETIEMBRE" || rowData.Mes == "OCTUBRE"
+                    || rowData.Mes == "NOVIEMBRE" || rowData.Mes == "DICIEMBRE") {
+                        var filtro =
+                        {
+                            codigo: rowId,
+                            codigoSede: 0,
+                            codigoAnio: 0,
+                            codigoMes: 0,
+                            fechaInicio: "08/06/2017",
+                            fechaFin: "08/06/2017",
+                            accion: "D"
+                        }
+                        $.ajax({
+                            type: "POST",
+                            async: false,
+                            url: '/ProgramacionTurno/IngresarProgramacionTurno/',
+                            cache: false,
+                            data: JSON.stringify(filtro),
+                            dataType: "JSON",
+                            contentType: "application/json",
+                            success: function (myData) {
+                                if (myData > 0) {
+                                    MiAlertOk("Se ha anulado correctamente la programación");
+                                } else {
+                                    MiError("Ocurrio un problema al eliminar");
+                                }
+                            },
+                            error: function (xqr, errorMessage) {
+                            }
+                        });
+                        var grid = jQuery("#consultaProgramaciones");
+                        grid.jqGrid('delRowData', rowId);
+                        $("#consultaProgramaciones").trigger("reloadGrid");
                     } else {
-                        MiError("Ocurrio un problema al eliminar");
+                        MiAlert("No se puede anular un programación de turno anterior");
                     }
-                },
-                error: function (xqr, errorMessage) {
+                } else {
+                    MiAlert("No se puede anular un programación de turno anterior");
                 }
-            });
-            var grid = jQuery("#consultaProgramaciones");
-            grid.jqGrid('delRowData', rowId);
-            $("#consultaProgramaciones").trigger("reloadGrid");
+            } else {
+                MiAlert("No se puede anular una programación de turno anulada");
+            }
+
         });
       
     }
@@ -212,7 +243,7 @@
         jQuery("#consultaProgramaciones").jqGrid({
             //url: 'ObtenerSolicitudes',
             datatype: "local",
-            colNames: ['Código', 'Sede', 'Año','Mes' ,'Fecha Inicio', 'Fecha Fin', 'Ver Detalle', 'Editar', 'Eliminar'],
+            colNames: ['Código', 'Sede', 'Año','Mes' ,'Fecha Inicio', 'Fecha Fin','Estado', 'Ver Detalle', 'Editar', 'Anular'],
             colModel: [
                 { name: 'Codigo', index: 'Codigo', shrinkToFit: false, align: "center", sortable: false },
                 { name: 'Sede', index: 'Sede', shrinkToFit: false, align: "center", sortable: false },
@@ -220,6 +251,8 @@
                 { name: 'Mes', index: 'Mes', shrinkToFit: false, align: "center", sortable: false },
                 { name: 'FechaInicio', index: 'FechaInicio', shrinkToFit: false, align: "center", sortable: false },
                 { name: 'FechaFin', index: 'FechaFin', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'DescripcionEstado', index: 'DescripcionEstado', shrinkToFit: false,hidden:true, align: "center", sortable: false },
+                
                 {
                     name: 'VerDetalle',
                     align: 'center',

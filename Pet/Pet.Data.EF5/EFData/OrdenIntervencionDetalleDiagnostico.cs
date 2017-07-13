@@ -19,7 +19,6 @@ namespace Pet.Data.EF5.EFData
         public Nullable<int> CodigoDiagnostico { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
-        public virtual Diagnostico Diagnostico { get; set; }
         public virtual OrdenIntervencion OrdenIntervencion { get; set; }
     }
 }

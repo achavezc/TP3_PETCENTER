@@ -13,13 +13,14 @@ namespace Pet.Data.EF5
         {
             List<BEEstado> lista = new List<BEEstado>();
 
-            using (var db = new EFData.PETCENTEREntities1())
+            using (var db = new EFData.PETCENTEREntities())
             {
-                foreach (var item in db.EstadoEpicrisis.ToList())
+                foreach (var item in db.Estadoes.ToList())
                 {
                     BEEstado it = new BEEstado();
-                    it.Codigo = item.Codigo;
-                    it.Descripcion = item.Descripcion;
+                    it.Codigo = item.CodigoEstado;
+                    it.Descripcion = item.DescripcionEstado;
+                    it.TipoEstado = item.TipoEstado;
                     it.EstadoRegistro = item.EstadoRegistro;
                     lista.Add(it);
                 }

@@ -13,7 +13,7 @@ namespace Pet.Data.EF5
         {
             List<BETipoConsumo> lista = new List<BETipoConsumo>();
 
-            using (var db = new EFData.PETCENTEREntities1())
+            using (var db = new EFData.PETCENTEREntities())
             {
                 foreach (var item in db.TipoInsumoes.ToList())
                 {

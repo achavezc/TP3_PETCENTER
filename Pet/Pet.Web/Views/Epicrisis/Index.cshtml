@@ -184,7 +184,9 @@
             options.empty();
             options.append('<option value="">[Seleccione]</option>');
             $.each(data, function (index, item) {
-                options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                if (data[index].TipoEstado == "EPICRISIS") {
+                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                }
             });
         });
     });
@@ -201,11 +203,16 @@
         var f = new Date();
         var fechaActual = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
         var dias = obtenerDias(fechaRegistro, fechaActual);
+
+
         if (dias > 1) {
 
             MiAlert("No se puede actualizar un epicrisis con mas de un día de emisión");
             return false;
-        } else {
+        } if (rowData.Estado == "ANULADO") {
+            MiAlert("No se puede actualizar un epicrisis Anulada");
+        }
+        else {
             window.location.href = '/#!/Epicrisis/Adicionar?CodigoEpicrisis=' + Codigo;
         }
     }
@@ -222,6 +229,8 @@
 
                 MiAlert("No se puede eliminar un epicrisis con mas de un día de emisión");
                 return false;
+            } if (rowData.Estado == "ANULADO") {
+                MiAlert("No se puede Anular un epicrisis Anulada");
             } else {
 
                 var filtro =
@@ -249,7 +258,7 @@
                     contentType: "application/json",
                     success: function (myData) {
                         if (myData > 0) {
-                            MiAlertOk("Se ha eliminado correctamente la epicrisis");
+                            MiAlertOk("Se ha anulado correctamente la epicrisis");
                         } else {
                             MiError("Ocurrio un problema al eliminar");
                         }
@@ -292,6 +301,14 @@
             success: function (myData) {
                 var grid = jQuery("#consultaEpicrisis");
                 grid.clearGridData();
+                //debugger;
+                //var groupBy = function (xs, key) {
+                //    return xs.reduce(function (rv, x) {
+                //        (rv[x[key]] = rv[x[key]] || []).push(x);
+                //        return rv;
+                //    }, {});
+                //};
+                //var dataagrupada = groupBy(myData, 'Codigo');
 
                 for (var i = 0; i < myData.length; i++) {
                     grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);

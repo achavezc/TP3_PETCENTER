@@ -207,7 +207,8 @@
            fechaInicio: $('#FechaIntervencionInicio').val(),
            fechaFin: $('#FechaIntervencionFin').val(),
             codigo: $("#Codigo").val(),
-            nombre: $("#NombreIntervencion").val()
+            nombre: $("#NombreIntervencion").val(),
+            codigoTipoBusqueda: $("#cboTipoBusqueda").val()
             
         }
 
@@ -256,7 +257,7 @@
         celValue = myGrid.jqGrid('getCell', selRowId, 'Codigo');
         celValueEstado = myGrid.jqGrid('getCell', selRowId, 'Estado');
         if (celValue) {
-            if (celValueEstado != "Dado de Alta") {
+            if (celValueEstado != "TERMINADO") {
                 CargarOrdenPorCodigo(celValue);
                 $("#" + 'divPopupBuscarOrdenIntervencion').modal("hide");
             } else {

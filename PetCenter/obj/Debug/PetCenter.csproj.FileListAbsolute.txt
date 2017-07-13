@@ -67,7 +67,6 @@ D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\PetCenter.pdb
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Net.Http.Formatting.dll
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.dll
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.WebHost.dll
-D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\Newtonsoft.Json.xml
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Net.Http.Formatting.xml
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.xml
 D:\Documents\UPC\TP3\PetCenterGitHub\TP3_PETCENTER\PetCenter\bin\System.Web.Http.WebHost.xml

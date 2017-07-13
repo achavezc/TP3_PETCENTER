@@ -13,7 +13,7 @@ namespace Pet.Data.EF5.EFData
     
     public partial class USP_OBTENERDETALLEDIAGNOSTICO_Result
     {
-        public int Codigo { get; set; }
+        public int CodigoDiagnostico { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
     }

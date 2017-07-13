@@ -16,24 +16,29 @@ namespace Pet.Data.EF5.EFData
     {
         public Ficha_Hospitalizacion()
         {
-            this.Estadia_Hospitalizacion = new HashSet<Estadia_Hospitalizacion>();
             this.Ficha_Hospitalizacion_Insumo = new HashSet<Ficha_Hospitalizacion_Insumo>();
+            this.OrdenIntervencions = new HashSet<OrdenIntervencion>();
         }
     
         public int codigo_ficha { get; set; }
-        public Nullable<int> codigo_rq { get; set; }
         public Nullable<int> codigo_empleado { get; set; }
         public System.DateTime fecha_ficha { get; set; }
         public Nullable<int> codigo_cita { get; set; }
+        public string Comentario { get; set; }
         public Nullable<int> codigoEmpleado_medico { get; set; }
         public Nullable<int> codigoEmpleado_tecnico { get; set; }
+        public Nullable<int> codigo_sala { get; set; }
+        public Nullable<int> codigo_cubiculo { get; set; }
+        public Nullable<int> CodigoEstado { get; set; }
     
         public virtual Cita Cita { get; set; }
-        public virtual ICollection<Estadia_Hospitalizacion> Estadia_Hospitalizacion { get; set; }
+        public virtual cubiculo cubiculo { get; set; }
+        public virtual Estado Estado { get; set; }
+        public virtual sala sala { get; set; }
         public virtual GG_Empleado GG_Empleado { get; set; }
         public virtual GG_Empleado GG_Empleado1 { get; set; }
         public virtual GG_Empleado GG_Empleado2 { get; set; }
-        public virtual Riesgo_Quirurgico Riesgo_Quirurgico { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion_Insumo> Ficha_Hospitalizacion_Insumo { get; set; }
+        public virtual ICollection<OrdenIntervencion> OrdenIntervencions { get; set; }
     }
 }

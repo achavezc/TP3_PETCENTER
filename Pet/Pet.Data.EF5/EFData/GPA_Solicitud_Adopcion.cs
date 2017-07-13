@@ -19,7 +19,7 @@ namespace Pet.Data.EF5.EFData
         public Nullable<bool> domicilioLocal { get; set; }
         public Nullable<int> codigo_mascota { get; set; }
     
-        public virtual GPA_Solicitud GPA_Solicitud { get; set; }
         public virtual GCP_Mascota GCP_Mascota { get; set; }
+        public virtual GPA_Solicitud GPA_Solicitud { get; set; }
     }
 }

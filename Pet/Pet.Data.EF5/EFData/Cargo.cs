@@ -17,6 +17,7 @@ namespace Pet.Data.EF5.EFData
         public Cargo()
         {
             this.ProgramacionTurnoDetalles = new HashSet<ProgramacionTurnoDetalle>();
+            this.GG_Empleado = new HashSet<GG_Empleado>();
         }
     
         public int Codigo { get; set; }
@@ -24,5 +25,6 @@ namespace Pet.Data.EF5.EFData
         public Nullable<bool> EstadoRegistro { get; set; }
     
         public virtual ICollection<ProgramacionTurnoDetalle> ProgramacionTurnoDetalles { get; set; }
+        public virtual ICollection<GG_Empleado> GG_Empleado { get; set; }
     }
 }

@@ -16,22 +16,26 @@ namespace Pet.Data.EF5.EFData
     {
         public GG_Empleado()
         {
+            this.Epicrisis = new HashSet<Epicrisi>();
             this.Ficha_Hospitalizacion = new HashSet<Ficha_Hospitalizacion>();
             this.Ficha_Hospitalizacion1 = new HashSet<Ficha_Hospitalizacion>();
             this.Ficha_Hospitalizacion2 = new HashSet<Ficha_Hospitalizacion>();
             this.ProgramacionTurnoDetalles = new HashSet<ProgramacionTurnoDetalle>();
             this.GPA_Solicitud = new HashSet<GPA_Solicitud>();
             this.GPA_Solicitud1 = new HashSet<GPA_Solicitud>();
+            this.Informe_Riesgo_Quirurgico = new HashSet<Informe_Riesgo_Quirurgico>();
             this.InsumoRequeridoes = new HashSet<InsumoRequerido>();
         }
     
         public int codigo_empleado { get; set; }
         public Nullable<int> codigo_persona { get; set; }
-        public string cargo { get; set; }
+        public Nullable<int> CodigoCargo { get; set; }
         public string area { get; set; }
         public string Descripcion { get; set; }
         public Nullable<bool> EstadoRegistro { get; set; }
     
+        public virtual Cargo Cargo { get; set; }
+        public virtual ICollection<Epicrisi> Epicrisis { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion1 { get; set; }
         public virtual ICollection<Ficha_Hospitalizacion> Ficha_Hospitalizacion2 { get; set; }
@@ -39,7 +43,7 @@ namespace Pet.Data.EF5.EFData
         public virtual GG_Persona GG_Persona { get; set; }
         public virtual ICollection<GPA_Solicitud> GPA_Solicitud { get; set; }
         public virtual ICollection<GPA_Solicitud> GPA_Solicitud1 { get; set; }
+        public virtual ICollection<Informe_Riesgo_Quirurgico> Informe_Riesgo_Quirurgico { get; set; }
         public virtual ICollection<InsumoRequerido> InsumoRequeridoes { get; set; }
-        public virtual Profesional Profesional { get; set; }
     }
 }

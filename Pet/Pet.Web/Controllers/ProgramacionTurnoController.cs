@@ -53,6 +53,11 @@ namespace Pet.Web.Controllers
         {
             return Json(ProgramacionTurno.InsertarDetalleProgramacionTurno(codigo, codigoTurno, codigoCargo, codigoEmpleado, codigoProgramacionTurno, responsable, accion), JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult ValidarProgramacion(Nullable<int> codigoAnio, Nullable<int> codigoMes)
+        {
+            return Json(ProgramacionTurno.ValidarProgramacion(codigoAnio, codigoMes), JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet]
         public JsonResult ListaSede()

@@ -1,0 +1,235 @@
+﻿@{
+    Layout = null;
+}
+<div class="block" style="">
+
+        <!-- SECCION BOTONERA -->
+        @Html.Partial("~/Views/Botonera/BotoneraBusquedaClásicaConBotonSalir.cshtml")
+        <div style="display: none">0</div>
+        <!-- SECCION BOTONERA -->
+
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+        <div>
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>Criterios de Búsqueda</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <form id="BusquedaOrdenIntervencionFrm" name="BusquedaOrdenIntervencionFrm">
+                
+                <div class="block_content" style="width:100%">
+                    <!--SECCION 1-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Cliente
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05 soloalfanumerico"
+                                               maxlength="10"
+                                               type="text"
+                                               id="Cliente"
+                                               name="Cliente" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Mascota
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_05 soloalfanumerico"
+                                               maxlength="10"
+                                               type="text"
+                                               id="Mascota"
+                                               name="Mascota" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--SECCION 2-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Fecha  Inicio
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_04Fecha"
+                                               maxlength="10" type="text"
+                                               data-bind="dateValue: FechaInicio,datePattern: 'dd/MM/yyyy'"
+                                               data-val="true"
+                                               data-val-date="El campo Fecha Inicio debe ser una fecha."
+                                               id="FechaInicio"
+                                               name="FechaInicio"
+                                               required
+                                               control_max_date="FechaFin" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        Fecha Fin
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="InputTEXT_04Fecha"
+                                               maxlength="10" type="text"
+                                               data-bind="dateValue: FechaFin,datePattern: 'dd/MM/yyyy'"
+                                               data-val="true"
+                                               ng-enter="Enter()"
+                                               data-val-date="El campo Fecha Fin debe ser una fecha."
+                                               id="FechaFin"
+                                               name="FechaFin"
+                                               required
+                                               control_min_date="FechaInicio" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                  
+                    <div class="caja11 msgerror Objeto"></div>
+                </div>
+            </form>
+        </div>
+        <!-- SECCION CRITERIO BUSQUEDA CLIENTES -->
+
+        <!-- SECCION RESULTADO -->
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>RESULTADO DE BÚSQUEDA</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+            <div id="ContentListadoFichas" class="block_content">
+                <div class="form_section" style="width: 100%">
+                    <table id="consultaFichas"></table>
+                    <div id="pagerconsultaFichas"></div>
+                </div>
+                <div class="caja11 msgerror ListaFichas">
+                    <span class="field-validation-valid msgerror" data-valmsg-for="ListaFichas" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+        <!-- SECCION RESULTADO -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        ponerFechas("divPopupBuscarFicha");
+        CrearGrillas();
+        var f = new Date();
+        var fechaInicio = f.getDate() + "/" +0+ (f.getMonth() - 2) + "/" + f.getFullYear();
+        var fechaFin = f.getDate() + "/" + 0+(f.getMonth() +1) + "/" + f.getFullYear()
+        $('#FechaInicio').val(fechaInicio);
+        $('#FechaFin').val(fechaFin);
+    });
+    function CrearGrillas() {
+
+        jQuery("#consultaFichas").jqGrid({
+            //url: 'ObtenerSolicitudes',
+            datatype: "local",
+            colNames: ['Codigo Ficha', 'Cliente', 'Mascota', 'Diagnostico','Fecha', 'Estado'],
+            colModel: [
+                { name: 'CodigoFicha', index: 'CodigoFicha',width:"100px", align: "center", sortable: false },
+                { name: 'NombreCliente', index: 'NombreCliente', width: "100px", align: "center", sortable: false },
+                { name: 'NombrePaciente', index: 'NombrePaciente', width: "100px", align: "center", sortable: false },
+                { name: 'Diagnostico', index: 'Diagnostico', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'FechaEmision', index: 'FechaEmision', shrinkToFit: false, align: "center", sortable: false },
+                { name: 'Estado', index: 'Estado', shrinkToFit: false,align: "center", sortable: false },
+
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pagerconsultaFichas',
+            //sortname: 'Codigo',
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+            //sortorder: "desc"
+        });
+    }
+
+    function Buscar_Click() {
+
+
+        var filtro = {
+            fechaInicio: $('#FechaInicio').val(),
+            fechaFin: $('#FechaFin').val(),
+            codigo: null,
+            nombreCliente: $("#Cliente").val(),
+            nombrePaciente: $("#Mascota").val(),
+            codigoEstado: null
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/RiesgoQuirurgico/listarFichaRQ/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                var grid = jQuery("#consultaFichas");
+                grid.clearGridData();
+                
+                for (var i = 0; i < myData.length; i++) {
+                    if (myData[i].Estado == "REGISTRADO") {
+                    grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                    }
+                }
+                $("#consultaFichas").trigger("reloadGrid");
+
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+        
+    }
+
+     
+    
+    function Seleccionar_Click() {
+        var myGrid = $('#consultaFichas'),
+        selRowId = myGrid.jqGrid('getGridParam', 'selrow'),
+        celValue = myGrid.jqGrid('getCell', selRowId, 'CodigoFicha');
+        celValueEstado = myGrid.jqGrid('getCell', selRowId, 'Estado');
+        //if (celValue) {
+        //    if (celValueEstado == "REGISTRADO") {
+                CargarFichaCodigo(celValue);
+            $("#" + 'divPopupBuscarFicha').modal("hide");
+        //    } else {
+        //        MiAlert("No se puede agregar una ficha de hospitalización ya relacionada con un riesgo quirurgico o orden de intervención");
+        //    }
+        //} else {
+        //    MiAlert("Debe seleccionar un registro.");
+        //}
+    }
+    function Limpiar_Click() {
+        $("#FechaInicio").val("");
+        $("#FechaFin").val("");
+        $("#Cliente").val("");
+        $("#Mascota").val("");
+    }
+    function Salir_Click() {
+        $("#" + 'divPopupBuscarFicha').modal("hide");
+    }
+</script>

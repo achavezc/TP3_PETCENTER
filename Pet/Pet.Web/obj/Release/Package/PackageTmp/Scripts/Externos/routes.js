@@ -45,6 +45,54 @@
             templateUrl: "OrdenIntervencion/BuscarOrdenIntervencion",
             controller: 'FormularioBaseController',
             controllerAs: 'currentController'
+        }).when("/FichaHospitalizacion", {
+            templateUrl: "FichaHospitalizacion",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/FichaHospitalizacion/Adicionar", {
+            templateUrl: "FichaHospitalizacion/Adicionar",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/FichaHospitalizacion/Lectura", {
+            templateUrl: "FichaHospitalizacion/Lectura",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/FichaHospitalizacion/Editar", {
+            templateUrl: "FichaHospitalizacion/Editar",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/sistema/busqueda/BuscarInsumos", {
+            templateUrl: "FichaHospitalizacion/BuscarInsumos",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/RiesgoQuirurgico", {
+            templateUrl: "RiesgoQuirurgico",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/RiesgoQuirurgico/Adicionar", {
+            templateUrl: "RiesgoQuirurgico/Adicionar",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/RiesgoQuirurgico/Lectura", {
+            templateUrl: "RiesgoQuirurgico/Lectura",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/sistema/busqueda/BuscarFicha", {
+            templateUrl: "RiesgoQuirurgico/BuscarFicha",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/OrdenIntervencion", {
+            templateUrl: "OrdenIntervencion",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/OrdenIntervencion/Adicionar", {
+            templateUrl: "OrdenIntervencion/Adicionar",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
+        }).when("/OrdenIntervencion/Lectura", {
+            templateUrl: "OrdenIntervencion/Lectura",
+            controller: 'FormularioBaseController',
+            controllerAs: 'currentController'
         }).otherwise({
             redirectTo: '/pagina/no_encontrado'
         });

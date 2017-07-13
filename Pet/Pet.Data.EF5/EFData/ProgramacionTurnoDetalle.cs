@@ -23,8 +23,8 @@ namespace Pet.Data.EF5.EFData
         public Nullable<bool> EstadoRegistro { get; set; }
     
         public virtual Cargo Cargo { get; set; }
+        public virtual GG_Empleado GG_Empleado { get; set; }
         public virtual ProgramacionTurno ProgramacionTurno { get; set; }
         public virtual Turno Turno { get; set; }
-        public virtual GG_Empleado GG_Empleado { get; set; }
     }
 }

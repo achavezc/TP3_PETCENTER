@@ -16,7 +16,7 @@ namespace Pet.Data.EF5.EFData
     {
         public int codigo_cubiculo { get; set; }
         public int codigo_sala { get; set; }
-        public string estado { get; set; }
+        public bool estado { get; set; }
     
         public virtual cubiculo cubiculo { get; set; }
         public virtual sala sala { get; set; }

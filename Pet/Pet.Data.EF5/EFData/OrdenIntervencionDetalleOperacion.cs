@@ -17,8 +17,10 @@ namespace Pet.Data.EF5.EFData
         public int Codigo { get; set; }
         public Nullable<int> CodigoOrdenIntervencion { get; set; }
         public Nullable<int> CodigoOperacion { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
     
         public virtual Operacion Operacion { get; set; }
         public virtual OrdenIntervencion OrdenIntervencion { get; set; }
+        public virtual OrdenIntervencion OrdenIntervencion1 { get; set; }
     }
 }

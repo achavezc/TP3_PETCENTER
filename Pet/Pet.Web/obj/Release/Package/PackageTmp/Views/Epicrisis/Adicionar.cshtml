@@ -199,7 +199,7 @@
                                     Área Hospitalaria
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="InputTEXT_05"
+                                    <input class="InputTEXT_05 soloalfanumerico"
                                            maxlength="100"
                                            type="text"
                                            id="Area"
@@ -216,7 +216,7 @@
                                     Servicio
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="InputTEXT_05"
+                                    <input class="InputTEXT_05 soloalfanumerico"
                                            maxlength="100"
                                            type="text"
                                            id="Servicio"
@@ -685,7 +685,9 @@
                 options.empty();
                 options.append('<option value="">[Seleccione]</option>');
                 $.each(data, function (index, item) {
-                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    if (data[index].Cargo.Codigo == 1) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
                 });
             }
         });
@@ -827,7 +829,7 @@
             datatype: "local",
             colNames: ['Código', 'Descripción', 'Estado'],
             colModel: [
-                { name: 'Codigo', index: 'Codigo', width: 210, align: "center", sortable: false },
+                { name: 'CodigoDiagnostico', index: 'CodigoDiagnostico', width: 210, align: "center", sortable: false },
                 { name: 'Descripcion', index: 'Descripcion', width: 210, align: "center", sortable: false },
                 { name: 'Estado', index: 'Estado', width: 210, align: "center", sortable: false }
             ],
@@ -888,7 +890,7 @@
             var veterinario = $("#Veterinario").val();
             var tratamientoRecibido = $("#TratamientoRecibido").val();
             var observaciones = $("#ObservacionesTratamiento").val();
-            var codigoEstado = 1 ;
+            var codigoEstado = 14 ;
             var codigoEpicrisis = getParameterByName('CodigoEpicrisis');
             var accion = 'I';
             if (codigoEpicrisis > 0) {
@@ -1337,6 +1339,7 @@
                 contentType: "application/json",
                 success: function (myData) {
                     var grid = jQuery("#consultaAnastesias");
+                    grid.clearGridData();
                     for (var i = 0; i < myData.length; i++) {
                         myData[i].Accion = "U";
                         grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
@@ -1355,6 +1358,7 @@
                 contentType: "application/json",
                 success: function (myData) {
                     var grid = jQuery("#consultaOperaciones");
+                    grid.clearGridData();
                     for (var i = 0; i < myData.length; i++) {
                         myData[i].Accion = "U";
                         grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
@@ -1372,6 +1376,7 @@
                 contentType: "application/json",
                 success: function (myData) {
                     var grid = jQuery("#consultaDiagnosticos");
+                    grid.clearGridData();
                     for (var i = 0; i < myData.length; i++) {
                         myData[i].Accion = "U";
                         grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
@@ -1390,6 +1395,7 @@
                 contentType: "application/json",
                 success: function (myData) {
                     var grid = jQuery("#consultaProfesional");
+                    grid.clearGridData();
                     for (var i = 0; i < myData.length; i++) {
                         myData[i].Accion = "U";
                         grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
@@ -1408,6 +1414,7 @@
                 contentType: "application/json",
                 success: function (myData) {
                     var grid = jQuery("#consultaSignosVitales");
+                    grid.clearGridData();
                     for (var i = 0; i < myData.length; i++) {
                         myData[i].Accion = "U";
                         grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);

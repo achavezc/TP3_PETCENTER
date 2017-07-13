@@ -28,10 +28,8 @@
                                     Sede
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="InputSELECT_01" id="cboSede">
+                                    <select class="InputSELECT_01" id="cboSede" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">San Isidro</option>
-                                        <option value="2">San Borja</option>
 
                                     </select>
                                     <div class="caja11 msgerror Sede">
@@ -46,10 +44,8 @@
                                     Año
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="InputSELECT_01" id="cboAnio">
+                                    <select class="InputSELECT_01" id="cboAnio" style="background: #dddddd;" disabled>
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">2016</option>
-                                        <option value="2">2017</option>
                                     </select>
                                     <div class="caja11 msgerror Anio">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Anio" data-valmsg-replace="true"></span>
@@ -65,8 +61,6 @@
                                 <div class="col-md-8">
                                     <select class="InputSELECT_01" id="cboMes">
                                         <option value="">[Seleccione]</option>
-                                        <option value="1">Enero</option>
-                                        <option value="2">Febrero</option>
                                     </select>
                                     <div class="caja11 msgerror Mes">
                                         <span class="field-validation-valid msgerror" data-valmsg-for="Mes" data-valmsg-replace="true"></span>
@@ -92,7 +86,7 @@
                                        id="FechaInicio"
                                        name="FechaInicio"
                                        required
-                                       control_max_date="FechaFin" />
+                                       control_max_date="FechaFin" disabled />
                                 <div class="caja11 msgerror FechaInicio">
                                     <span class="field-validation-valid msgerror" data-valmsg-for="FechaInicio" data-valmsg-replace="true"></span>
                                 </div>
@@ -112,7 +106,7 @@
                                        id="FechaFin"
                                        name="FechaFin"
                                        required
-                                       control_min_date="FechaInicio" />
+                                       control_min_date="FechaInicio" disabled />
                                 <div class="caja11 msgerror FechaFin">
                                     <span class="field-validation-valid msgerror" data-valmsg-for="FechaFin" data-valmsg-replace="true"></span>
                                 </div>
@@ -165,10 +159,10 @@
                                         <div class="col-md-8">
                                             <select class="InputSELECT_01" id="cboTurno">
                                                 <option value="">[Seleccione]</option>
-                                                <option value="1">Madrugada</option>
+                                                @*<option value="1">Madrugada</option>
                                                 <option value="2">Mañana</option>
                                                 <option value="2">Tarde</option>
-                                                <option value="2">Noche</option>
+                                                <option value="2">Noche</option>*@
 
                                             </select>
                                             <div class="caja11 msgerror Turno">
@@ -185,9 +179,9 @@
                                         <div class="col-md-8">
                                             <select class="InputSELECT_01" id="cboCargo">
                                                 <option value="">[Seleccione]</option>
-                                                <option value="1">Medico</option>
+                                                @*<option value="1">Medico</option>
                                                 <option value="2">Enfermero</option>
-                                                <option value="2">Anestesiologo</option>
+                                                <option value="2">Anestesiologo</option>*@
                                             </select>
                                             <div class="caja11 msgerror Cargo">
                                                 <span class="field-validation-valid msgerror" data-valmsg-for="Cargo" data-valmsg-replace="true"></span>
@@ -203,8 +197,8 @@
                                         <div class="col-md-8">
                                             <select class="InputSELECT_01" id="cboEmpleado">
                                                 <option value="">[Seleccione]</option>
-                                                <option value="1">Jorge Fia Diaz</option>
-                                                <option value="2">Jorge Uni Lucas</option>
+                                                @*<option value="1">Jorge Fia Diaz</option>
+                                                <option value="2">Jorge Uni Lucas</option>*@
                                             </select>
                                             <div class="caja11 msgerror Empleado">
                                                 <span class="field-validation-valid msgerror" data-valmsg-for="Empleado" data-valmsg-replace="true"></span>
@@ -237,11 +231,34 @@
     var listaEmpleadosEliminados = [];
     $(document).ready(function () {
         CargarCombos();
+        $("#cboSede").val("1");
+        $("#cboAnio").val("3");
+        
         CrearGrillas();
         var codigoProgramacion = getParameterByName('CodigoProgramacion');
-        if (codigoProgramacion>0) {
+        if (codigoProgramacion > 0) {
+            $.ajax({
+                url: "/ProgramacionTurno/ListaMes",
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    var options = $("#cboMes");
+                    options.empty();
+                    options.append('<option value="">[Seleccione]</option>');
+                    $.each(data, function (index, item) {
+                            options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                       
+                    });
+                }
+            });
+            $("#cboMes").prop('disabled', true);
             ObtenerProgramacionTurno(codigoProgramacion);
+            if ($("#cboMes").val() < 8) {
+                $('input[type="checkbox"]').prop("disabled", "true");
+            }
         }
+        setTimeout(function () { $(".ui-datepicker-trigger").hide();; }, 400);
+        
     });
     function CargarCombos() {
         $.ajax({
@@ -266,7 +283,9 @@
                 options.empty();
                 options.append('<option value="">[Seleccione]</option>');
                 $.each(data, function (index, item) {
-                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    if (data[index].Descripcion == "2017") {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
                 });
             }
         });
@@ -279,7 +298,11 @@
                 options.empty();
                 options.append('<option value="">[Seleccione]</option>');
                 $.each(data, function (index, item) {
-                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    //if ( data[index].Descripcion == "JULIO" || data[index].Descripcion == "AGOSTO"
+                    //    || data[index].Descripcion == "SETIEMBRE" || data[index].Descripcion == "OCTUBRE" || data[index].Descripcion == "NOVIEMBRE"
+                    //    || data[index].Descripcion == "DICIEMBRE") {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    //}
                 });
             }
         });
@@ -309,6 +332,36 @@
                 });
             }
         });
+        //$.ajax({
+        //    url: "/ProgramacionTurno/ListaEmpleado",
+        //    dataType: 'json',
+        //    async: false,
+        //    success: function (data) {
+        //        var options = $("#cboEmpleado");
+        //        options.empty();
+        //        options.append('<option value="">[Seleccione]</option>');
+        //        $.each(data, function (index, item) {
+        //            options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+        //        });
+        //    }
+        //});
+    }
+    $("#cboMes").change(function () {
+        var valorMes = $("#cboMes").val();
+        var anio = "2017";
+        var mes = "";
+        if (valorMes < 10) {
+            mes= "0" + $("#cboMes").val();
+        } else {
+            mes = $("#cboMes").val();
+        }
+        var date = new Date();
+        var primerDia = new Date(date.getFullYear(), mes, 1);
+        var ultimoDia = new Date(date.getFullYear(), mes, 0);
+        $("#FechaInicio").val("0"+primerDia.getDate() + "/" + mes + "/" + anio);
+        $("#FechaFin").val(ultimoDia.getDate() + "/" + mes + "/" + anio);
+    });
+    $("#cboCargo").change(function () {
         $.ajax({
             url: "/ProgramacionTurno/ListaEmpleado",
             dataType: 'json',
@@ -318,30 +371,64 @@
                 options.empty();
                 options.append('<option value="">[Seleccione]</option>');
                 $.each(data, function (index, item) {
-                    options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    if (data[index].Cargo.Codigo == $("#cboCargo").val()) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    }
                 });
             }
         });
-    }
+    });
     function AgregarEmpleado() {
         if (ValidarCamposDetalle()) {
             var grid = jQuery("#consultaEmpleados");
-            var codDetalle = GenerarId(grid.getRowData(), "Codigo");
-            var myData =
-                {
-                    "Turno": $("#cboTurno option:selected").text(),
-                    "Cargo": $("#cboCargo option:selected").text(),
-                    "Empleado": $("#cboEmpleado option:selected").text(),
-                    "CodigoTurno": $("#cboTurno").val(),
-                    "CodigoCargo": $("#cboCargo").val(),
-                    "CodigoEmpleado": $("#cboEmpleado").val(),
-                    "Codigo": codDetalle,
-                    "Accion" : "I"
-                };
-            grid.jqGrid('addRowData', codDetalle, myData);
+            var dataEmpleados = grid.getRowData();
+            var arrExiste = jQuery.grep(dataEmpleados, function (a) {
+                return a.Turno == $("#cboTurno option:selected").text() && a.Cargo == $("#cboCargo option:selected").text()
+                       && a.Empleado == $("#cboEmpleado option:selected").text();
+            });
+            var arrExisteCargo = jQuery.grep(dataEmpleados, function (a) {
+                return a.Turno == $("#cboTurno option:selected").text() && a.Cargo == $("#cboCargo option:selected").text()
+            });
+            var arrExisteTurno = jQuery.grep(dataEmpleados, function (a) {
+                return a.Turno == $("#cboTurno option:selected").text();
+            });
+            var arrExisteEmpleado = jQuery.grep(dataEmpleados, function (a) {
+                return a.Empleado == $("#cboEmpleado option:selected").text();
+            });
+            if (arrExiste.length == 0) {
+                if (arrExisteCargo.length == 0) {
+                    if (arrExisteTurno.length <= 4) {
+                        if (arrExisteEmpleado.length == 0) {
+                            // var grid = jQuery("#consultaEmpleados");
+                            var codDetalle = GenerarId(grid.getRowData(), "Codigo");
+                            var myData =
+                                {
+                                    "Turno": $("#cboTurno option:selected").text(),
+                                    "Cargo": $("#cboCargo option:selected").text(),
+                                    "Empleado": $("#cboEmpleado option:selected").text(),
+                                    "CodigoTurno": $("#cboTurno").val(),
+                                    "CodigoCargo": $("#cboCargo").val(),
+                                    "CodigoEmpleado": $("#cboEmpleado").val(),
+                                    "Codigo": codDetalle,
+                                    "Accion": "I"
+                                };
+                            grid.jqGrid('addRowData', codDetalle, myData);
 
-            $("#consultaEmpleados").trigger("reloadGrid");
-            LimpiarDetalleSeleccionado();
+                            $("#consultaEmpleados").trigger("reloadGrid");
+                            LimpiarDetalleSeleccionado();
+                        } else {
+                            $(".caja11.msgerror.ListaEmpleados").html("No se puede agregar al mismo empleado en 2 turnos diferentes.");
+                        }
+                    } else {
+                        $(".caja11.msgerror.ListaEmpleados").html("No se puede agregar mas de 4 empleados para un turno.");
+                    }
+                } else {
+                    $(".caja11.msgerror.ListaEmpleados").html("Ya existe un empleado para el turno y cargo seleccionado.");
+                }
+            } else {
+                $(".caja11.msgerror.ListaEmpleados").html("Ya existe un empleado para el turno y cargo seleccionado.");
+                return false;
+            }
         }
     }
     function EliminarEmpleado(rowId) {
@@ -466,8 +553,8 @@
                 { name: 'Codigo', index: 'Codigo', width: 210, align: "center", sortable: false, hidden: true },
                 { name: 'Accion', index: 'Accion', width: 210, align: "center", sortable: false, hidden: true }
             ],
-            rowNum: 10,
-            rowList: [10, 20, 30],
+            rowNum: 1000,
+            rowList: [100, 200, 300],
             //sortname: 'Codigo',
             shrinkToFit: false,
             autowidth: true,
@@ -488,10 +575,41 @@
             var fechaFin = $("#FechaFin").val();
             var codigoProgramacion = getParameterByName('CodigoProgramacion');
             var accion = 'I';
+            var existe = false;
             if (codigoProgramacion > 0) {
                 accion = 'U';
             } else {
+
+                var filtroValidacion =
+              {
+                  codigoAnio: codigoAnio,
+                  codigoMes: codigoMes
+              }
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '/ProgramacionTurno/ValidarProgramacion/',
+                    cache: false,
+                    data: JSON.stringify(filtroValidacion),
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    success: function (datosv) {
+                        if (datosv.length > 0) {
+                            MiAlert("Ya existe una programacion de turno para el año y mes seleccionado.");
+                            existe = true;
+
+                        } else {
+                            MiError("Ocurrio un problema al validar");
+                        }
+                    },
+                    error: function (xqr, errorMessage) {
+                    }
+                });
+
                 codigoProgramacion = 0;
+            }
+            if (existe) {
+                return false;
             }
             var filtro =
             {
@@ -503,6 +621,7 @@
                 fechaFin: fechaFin,
                 accion: accion
             }
+
             $.ajax({
                 type: "POST",
                 async: false,
@@ -622,6 +741,87 @@
             $(".caja11.msgerror.ListaEmpleados").html("Debe agregar por lo menos un empleado.");
             resultado = false;
         }
+        if (dataEmpleados.length < 12) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar todos los empleados para los diferentes turnos.");
+            resultado = false;
+        }
+
+        var arrManiana = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno =="Mañana" ;
+        });
+        var arrTarde = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Tarde";
+        });
+        var arrNoche = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Noche";
+        });
+        var arrMadrugada = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Madrugada";
+        });
+        var arrResponsableMañana = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Mañana" && a.Responsable == "True";
+        });
+        var arrResponsableTarde = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Tarde" && a.Responsable == "True";
+        });
+        var arrResponsableNoche = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Noche" && a.Responsable == "True";
+        });
+        var arrResponsableMadrugada = jQuery.grep(dataEmpleados, function (a) {
+            return a.Turno == "Madrugada" && a.Responsable == "True";
+        });
+
+        if (arrManiana.length < 3 && arrManiana.length>0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar todos los empleados para el turno Mañana.");
+            resultado = false;
+        }
+        if (arrTarde.length < 3 && arrTarde.length > 0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar todos los empleados para el turno Tarde.");
+            resultado = false;
+        }
+        if (arrNoche.length < 3 && arrNoche.length > 0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar todos los empleados para el turno Noche.");
+            resultado = false;
+        }
+        if (arrMadrugada.length < 3 && arrMadrugada.length > 0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe agregar todos los empleados para el turno Madrugada.");
+            resultado = false;
+        }
+        if (arrResponsableMañana.length == 0 && arrManiana.length>0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe seleccionar un responsable para el turno Mañana.");
+            resultado = false;
+        }
+        if (arrResponsableMañana.length > 1) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe existir solo un responsable para el turno Mañana.");
+            resultado = false;
+        }
+       ///////
+        if (arrResponsableTarde.length == 0 && arrTarde.length>0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe seleccionar un responsable para el turno Tarde.");
+            resultado = false;
+        }
+        if (arrResponsableTarde.length > 1) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe existir solo un responsable para el turno Tarde.");
+            resultado = false;
+        }
+        ///////
+        if (arrResponsableNoche.length == 0 && arrNoche.length>0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe seleccionar un responsable para el turno Noche.");
+            resultado = false;
+        }
+        if (arrResponsableNoche.length > 1) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe existir solo un responsable para el turno Noche.");
+            resultado = false;
+        }
+        ////
+        if (arrResponsableMadrugada.length == 0 && arrMadrugada.length>0) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe seleccionar un responsable para el turno Madrugada.");
+            resultado = false;
+        }
+        if (arrResponsableMadrugada.length > 1) {
+            $(".caja11.msgerror.ListaEmpleados").html("Debe existir solo un responsable para el turno Madrugada.");
+            resultado = false;
+        }
         return resultado;
     }
     function LimpiarCampos() {
@@ -657,6 +857,7 @@
         $(".caja11.msgerror.Turno").html("");
         $(".caja11.msgerror.Cargo").html("");
         $(".caja11.msgerror.Empleado").html("");
+        $(".caja11.msgerror.ListaEmpleados").html("");
     }
     function LimpiarDetalleSeleccionado() {
        $("#cboTurno").val("");

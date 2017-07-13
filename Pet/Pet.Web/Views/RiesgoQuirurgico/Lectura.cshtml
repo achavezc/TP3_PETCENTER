@@ -1,0 +1,682 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="block ng-scope" style="">
+
+
+    <div class="block_menu">
+        <div style="max-width: 100%; height: 100%">
+            <div class="boton">
+                <button class="SeparatorLeft boton1Style boton1" onclick="Salir_Click();" style="">
+                    <span class="boton1Span">
+                        <img class="boton1Img csBtnSalir" alt="Salir" src="/Images/formatmap32x32.png">
+                    </span>
+                    <span class="boton1txt">Salir</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCION DATOS GENERALES -->
+    <div id="seccion-1">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Ficha Hospitalización</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroEpicrisisFrm" name="RegistroEpicrisisFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Código Ficha
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="CodigoFicha"
+                                           name="CodigoFicha" disabled />
+                                    <div class="caja11 msgerror CodigoFicha">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoFicha" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Cliente
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="NombreCliente"
+                                           name="NombreCliente" disabled />
+                                    <div class="caja11 msgerror NombreCliente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombreCliente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Mascota
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="NombrePaciente"
+                                           name="NombrePaciente" disabled />
+                                    <div class="caja11 msgerror NombrePaciente">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="NombrePaciente" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 2 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                     
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Diagnostico
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="Diagnostico"
+                                           name="Diagnostico" disabled />
+                                    <div class="caja11 msgerror Diagnostico">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Diagnostico" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Observaciones Analisis Preliminar
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                           maxlength="1000"
+                                           id="ObservacionPreliminar"
+                                           name="ObservacionPreliminar" disabled />
+                                    <div class="caja11 msgerror ObservacionPreliminar">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="ObservacionPreliminar" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------- 3 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Codigo Analisis Preliminar
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="10"
+                                           type="text"
+                                           id="CodigoAnalisisPreliminar"
+                                           name="CodigoAnalisisPreliminar" disabled />
+                                    <div class="caja11 msgerror CodigoAnalisisPreliminar">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="CodigoAnalisisPreliminar" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+        
+
+            </div>
+        </form>
+    </div>
+    <!-- SECCION DATOS GENERALES -->
+
+    <!-- SECCION ACTO MEDIDO-->
+    <div id="seccion-2">
+        <div class="block_cab block_cab_active">
+            <h2>
+                <span>Datos Riesgo Quirurgico</span>
+            </h2>
+            <h3></h3>
+            <div class="acordeon">
+            </div>
+        </div>
+        <form id="RegistroActoMedicoFrm" name="RegistroActoMedicoFrm" class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="block_content" style="width: 100%">
+                <!------------------- 1 Seccion -------------------------------------------->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Complicaciones
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="Complicaciones"
+                                              name="Complicaciones" disabled />
+                                    <div class="caja11 msgerror Complicaciones" >
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Complicaciones" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Complicaciones Particulares
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="InputTEXT_03"
+                                              maxlength="1000"
+                                              id="ComplicacionesParticulares"
+                                              name="ComplicacionesParticulares" disabled />
+                                    <div class="caja11 msgerror ComplicacionesParticulares">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="ComplicacionesParticulares" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 row">
+                                <div class="col-md-4">
+                                    Clasificación Riesgo Cardiaco
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="InputTEXT_05"
+                                           maxlength="100"
+                                           type="text"
+                                           id="Clasificacion"
+                                           name="Clasificacion" disabled />
+                                    <div class="caja11 msgerror Clasificacion">
+                                        <span class="field-validation-valid msgerror" data-valmsg-for="Clasificacion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- SECCION ACTO MEDIDO-->
+
+  
+
+    <!-- SECCION DETALLE-->
+    <div id="seccion-4">
+        
+        <div style="width: 100%; float: left">
+            <div class="block_cab block_cab_active">
+                <h2>
+                    <span>DETALLE RIESGO</span>
+                </h2>
+                <h3></h3>
+                <div class="acordeon">
+                </div>
+            </div>
+          
+                    <div id="ContentListadoRiesgos" class="block_content">
+                        <div class="form_section" style="width: 100%">
+                            <table id="consultaRiesgos"></table>
+                            <div id="pagerconsultaRiesgos"></div>
+                        </div>
+                        <div class="caja11 msgerror ListaRiesgos">
+                            <span class="field-validation-valid msgerror" data-valmsg-for="ListaRiesgos" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+               
+            </div>
+            <!-- SECCION DETALLE-->
+
+
+        </div>
+    <!-- SECCION DETALLE-->
+
+</div>
+<script type="text/javascript">
+    var listaRiesgosEliminados = [];
+    $(document).ready(function () {
+        CrearGrillas();
+        
+        $.ajax({
+            url: "/RiesgoQuirurgico/ListaRiesgoQuirurgico",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                var options = $("#cboRiesgo");
+                options.empty();
+                options.append('<option value="">[Seleccione]</option>');
+                $.each(data, function (index, item) {
+                    //if (data[index].Cargo.Codigo == 1) {
+                        options.append($("<option />").val(data[index].Codigo).text(data[index].Descripcion));
+                    //}
+                });
+            }
+        });
+       
+        var codigoRiesgoQuirurgico = getParameterByName('CodigoRiesgoQuirurgico');
+        if (codigoRiesgoQuirurgico > 0) {
+            ObtenerRiesgoQuirurgico(codigoRiesgoQuirurgico);
+        }
+    });
+    function AgregarRiesgo() {
+        if (ValidarCamposDetalle()) {
+            var grid = jQuery("#consultaRiesgos");
+            var codDetalle = GenerarId(grid.getRowData(), "Codigo");
+            var myData =
+                {
+                    "Codigo": $("#cboRiesgo").val(),
+                    "RiesgoQuirurgico":$("#cboRiesgo option:selected").text(),
+                    "DetalleRiesgo": $("#DetalleRiesgo").val(),
+                    "ConsideracionesQuirurgicas": $("#ConsideracionesQuirurgicas").val(),
+                    "Accion": "I"
+                };
+            grid.jqGrid('addRowData', $("#cboRiesgo").val(), myData);
+
+            $("#consultaRiesgos").trigger("reloadGrid");
+            LimpiarDetalleSeleccionado();
+        }
+    }
+    function EliminarRiesgo(rowId) {
+        MiConfirm("¿Esta seguro de eliminar el riesgo asignado?.", function () {
+            var grid = jQuery("#consultaRiesgos");
+            var datos = grid.getRowData();
+            for (var i = 0; i < datos.length; i++) {
+                if (datos[i].Codigo == rowId) {
+                    if (datos[i].Accion == "U") {
+                        listaRiesgosEliminados.push(datos[i].Codigo);
+                    }
+                }
+            }
+            grid.jqGrid('delRowData', rowId);
+            $("#consultaRiesgos").trigger("reloadGrid");
+
+        });
+
+      
+    }
+    function GenerarId(listaObjeto, NameIdObjeto)
+    {
+        var objMinId = $from(listaObjeto).min("parseInt($"+NameIdObjeto+")");
+        var	nuevoId=-1;
+        if(objMinId!=undefined)
+            nuevoId=objMinId[NameIdObjeto]-1;
+        return nuevoId;
+    }
+ 
+    function Salir_Click()   {
+        window.location.href = '/#!/RiesgoQuirurgico';
+    }
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    function CrearGrillas() {
+        jQuery("#consultaRiesgos").jqGrid({
+            datatype: "local",
+            colNames: ['Codigo Riesgo', 'Riesgo Quirurgico', 'Detalle Riesgo', 'Consideraciones Quirurgicas', 'Eliminar', 'Accion'],
+            colModel: [
+                { name: 'Codigo', index: 'Codigo', width: 210, align: "center", sortable: false },
+                { name: 'RiesgoQuirurgico', index: 'RiesgoQuirurgico', width: 210, align: "center", sortable: false },
+                { name: 'DetalleRiesgo', index: 'DetalleRiesgo', width: 410, align: "center", sortable: false },
+                { name: 'ConsideracionesQuirurgicas', index: 'ConsideracionesQuirurgicas', width: 410, align: "center", sortable: false },
+                {
+                    name: 'Eliminar',
+                    align: 'center',
+                    sortable: false,
+                    width: 150,
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<div style='width:100%;padding-left:10px'>" +
+                            "<a style='cursor:pointer;width:100%'>" +
+                            "<button title='Eliminar' onclick='EliminarRiesgo(" + rowObject.Codigo + ")'  class='boton1Style botonpequenio'>" +
+                            "<img width='16' height='16' src='/Images/eliminar.png'></button></a></div>";
+                    }
+                },
+                { name: 'Accion', index: 'Accion', width: 210, align: "center", sortable: false, hidden: true }
+                
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            shrinkToFit: false,
+            autowidth: true,
+            gridview: true,
+            viewrecords: true//,
+        });
+
+       
+    }
+
+    function Guardar_Click() {
+        if (ValidarCampos()) {
+            
+            //LLAMAR GUARDAR
+            var codigoRiesgoQuirurgico = getParameterByName('CodigoRiesgoQuirurgico');
+            var accion = 'I';
+            if (codigoRiesgoQuirurgico > 0) {
+                accion = 'U';
+            } else {
+                codigoRiesgoQuirurgico = 0;
+            }
+            var filtro =
+            {
+                codigo: codigoRiesgoQuirurgico,
+                codigoFicha: $("#CodigoFicha").val(),
+                codigoAnalisisPreliminar: null,
+                complicaciones: $("#Complicaciones").val(),
+                consideraciones: $("#ComplicacionesParticulares").val(),
+                clasificacion: $("#Clasificacion").val(),
+                codigoEmpleado: null,
+                codigoEstado: 6,
+                accion: accion
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/RiesgoQuirurgico/InsertarRiesgoQuirurgico/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+                    if (myData > 0) {
+                        GuardarDetalle(myData)
+                        MiAlertOk("Se ha grabado correctamente el Riesgo Quirurgico", MiAlertOk_success);
+                    } else {
+                        MiError("Ocurrio un problema al guardar");
+                    }
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function ValidarCampos() {
+        LimpiarCampos();
+        var resultado = true;
+        var CodigoFicha = $("#CodigoFicha").val();
+        var Complicaciones = $("#Complicaciones").val();
+        var Clasificacion = $("#Clasificacion").val();
+        var ComplicacionesParticulares = $("#ComplicacionesParticulares").val();
+        
+
+       
+        if (CodigoFicha == "") {
+            $(".caja11.msgerror.CodigoFicha").html("Codigo Ficha es requerido.");
+            resultado = false;
+        }
+        if (Complicaciones == "") {
+            $(".caja11.msgerror.Complicaciones").html("Complicaciones es requerido.");
+            resultado = false;
+        }
+        if (Clasificacion == "") {
+            $(".caja11.msgerror.Clasificacion").html("Clasificacion es requerido.");
+            resultado = false;
+        }
+        if (ComplicacionesParticulares == "") {
+            $(".caja11.msgerror.ComplicacionesParticulares").html("Complicaciones Particulares es requerido.");
+            resultado = false;
+        }
+        
+        var grid = jQuery("#consultaRiesgos");
+        var dataTratamientos = grid.getRowData();
+        if (dataTratamientos.length == 0) {
+            $(".caja11.msgerror.ListaRiesgos").html("Debe agregar por lo menos un riesgo.");
+            resultado = false;
+        }
+        return resultado;
+    }
+    function LimpiarCampos() {
+        $(".caja11.msgerror.CodigoFicha").html("");
+        $(".caja11.msgerror.Complicaciones").html("");
+        $(".caja11.msgerror.Clasificacion").html("");
+        $(".caja11.msgerror.ComplicacionesParticulares").html("");
+        $(".caja11.msgerror.ListaRiesgos").html("");
+    }
+    function GuardarDetalle(codigoRiesgoQuirurgico) {
+        var grid = jQuery("#consultaRiesgos");
+        var datos = grid.getRowData();
+        for (var i = 0; i < datos.length; i++) {
+           
+            var filtro =
+           {
+               codigoInformeRiesgoQuirurgico: codigoRiesgoQuirurgico,
+               codigoRiesgoQuirurgico: datos[i].Codigo,
+               detalleRiesgo: datos[i].DetalleRiesgo,
+               consideraciones: datos[i].ConsideracionesQuirurgicas,
+               estadoRiesgo: 'Activo',
+               accion: datos[i].Accion
+           }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/RiesgoQuirurgico/InsertarDetalleRiesgoQuirurgico/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+        EliminarDetalleRegistrados();
+
+    }
+    function EliminarDetalleRegistrados() {
+        for (var i = 0; i < listaRiesgosEliminados.length; i++) {
+            var codigoRiesgoQuirurgico = getParameterByName('CodigoRiesgoQuirurgico');
+            var filtro =
+             {
+                 codigoInformeRiesgoQuirurgico: codigoRiesgoQuirurgico,
+                 codigoRiesgoQuirurgico: listaRiesgosEliminados[i],
+                 detalleRiesgo: '',
+                 consideraciones: '',
+                 estadoRiesgo: 'Inactivo',
+                 accion: 'D'
+             }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '/RiesgoQuirurgico/InsertarDetalleRiesgoQuirurgico/',
+                cache: false,
+                data: JSON.stringify(filtro),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (myData) {
+
+                },
+                error: function (xqr, errorMessage) {
+                }
+            });
+        }
+    }
+    function ValidarCamposDetalle() {
+        LimpiarCamposDetalle();
+        var resultado = true;
+        var codigoTipoInsumo = $("#cboRiesgo").val();
+        var descripcion = $("#DetalleRiesgo").val();
+        var observacion = $("#ConsideracionesQuirurgicas").val();
+      
+        if (codigoTipoInsumo == "") {
+            $(".caja11.msgerror.cboRiesgo").html("Riesgo es requerido.");
+            resultado = false;
+        }
+        if (descripcion == "") {
+            $(".caja11.msgerror.DetalleRiesgo").html("Detalle Riesgo es requerido.");
+            resultado = false;
+        }
+        if (observacion == "") {
+            $(".caja11.msgerror.ConsideracionesQuirurgicas").html("Consideraciones Quirurgicas es requerido.");
+            resultado = false;
+        }
+       
+        return resultado;
+    }
+    function LimpiarCamposDetalle() {
+        $(".caja11.msgerror.cboRiesgo").html("");
+        $(".caja11.msgerror.DetalleRiesgo").html("");
+        $(".caja11.msgerror.ConsideracionesQuirurgicas").html("");
+    }
+    function LimpiarDetalleSeleccionado() {
+        $("#cboRiesgo").val("");
+        $("#DetalleRiesgo").val("");
+        $("#ConsideracionesQuirurgicas").val("");
+    }
+    function BuscarFicha() {
+        var altura = 800;
+        getPopupResponsive({
+            formURL: "RiesgoQuirurgico/BuscarFicha",
+            title: "Buscar Ficha Hospitalización",
+            nombreDiv: "divPopupBuscarFicha",
+            nombreGrid: "",
+            width: "1200px",
+            height: altura,
+            params: {},
+            HideSelection: true,
+            multiSelect: false,
+            select: function (row) {
+                return true;
+            },
+            beforeShow: function (obj) {
+                //$rootScope.hashPopup = $(obj).attr("mapurl");
+               // $compile($("#divPopupBuscarOrdenIntervencion"))($scope);
+
+               // var scopePopup = angular.element("#divPopupRegistroClienteFactrura").scope();
+               // scopePopup.row = JSON.parse(JSON.stringify(rowObject));
+               // scopePopup.rowOk = rowObject;
+
+            }
+        });
+    }
+    function ObtenerRiesgoQuirurgico(codigoRiesgoQuirurgico) {
+        var filtro = {
+            codigoRiesgoQuirurgico: codigoRiesgoQuirurgico
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/RiesgoQuirurgico/ObtenerRiesgoQuirurgico/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                CargarFichaCodigo(myData[0].CodigoFicha)
+                $("#CodigoFicha").val(myData[0].CodigoFicha);
+                
+                $("#ObservacionPreliminar").val(myData[0].ObservacionesAnalisisPreliminar);
+                $("#CodigoAnalisisPreliminar").val(myData[0].CodigoAnalisisPreliminar);
+
+                $("#Complicaciones").val(myData[0].Complicaciones);
+                $("#ComplicacionesParticulares").val(myData[0].Consideraciones);
+                $("#Clasificacion").val(myData[0].Clasificacion);
+                var filtroDetalle = {
+                    codigoRiesgoQuirurgico: myData[0].CodigoRiesgoQuirurgico
+                }
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '/RiesgoQuirurgico/ObtenerDetalleRiesgoQuirurgico/',
+                    cache: false,
+                    data: JSON.stringify(filtroDetalle),
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    success: function (myData) {
+                        var grid = jQuery("#consultaRiesgos");
+                        for (var i = 0; i < myData.length; i++) {
+                            myData[i].Accion = "U";
+                            grid.jqGrid('addRowData', myData[i].Codigo, myData[i]);
+                        }
+                        $("#consultaRiesgos").trigger("reloadGrid");
+                    },
+                    error: function (xqr, errorMessage) {
+                    }
+                });
+
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+
+        
+       
+
+       
+       
+    }
+    function CargarFichaCodigo(codigoFicha) {
+        var filtro = {
+            fechaInicio: null,
+            fechaFin: null,
+            codigo: codigoFicha,
+            nombreCliente: '',
+            nombrePaciente: '',
+            codigoEstado: null
+        }
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '/RiesgoQuirurgico/listarFichaRQ/',
+            cache: false,
+            data: JSON.stringify(filtro),
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (myData) {
+                $("#NombreCliente").val(myData[0].NombreCliente);
+                $("#NombrePaciente").val(myData[0].NombrePaciente);
+                $("#Diagnostico").val(myData[0].Diagnostico);
+                $("#CodigoFicha").val(myData[0].CodigoFicha);
+                
+                 
+            },
+            error: function (xqr, errorMessage) {
+            }
+        });
+    }
+    function MiAlertOk_success() {
+        window.location.href = '/#!/RiesgoQuirurgico';
+    }
+   
+</script>

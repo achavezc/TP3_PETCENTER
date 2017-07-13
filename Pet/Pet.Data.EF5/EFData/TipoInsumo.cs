@@ -17,6 +17,7 @@ namespace Pet.Data.EF5.EFData
         public TipoInsumo()
         {
             this.EpicrisisDetalles = new HashSet<EpicrisisDetalle>();
+            this.Insumoes = new HashSet<Insumo>();
         }
     
         public int Codigo { get; set; }
@@ -24,5 +25,6 @@ namespace Pet.Data.EF5.EFData
         public Nullable<bool> EstadoRegistro { get; set; }
     
         public virtual ICollection<EpicrisisDetalle> EpicrisisDetalles { get; set; }
+        public virtual ICollection<Insumo> Insumoes { get; set; }
     }
 }

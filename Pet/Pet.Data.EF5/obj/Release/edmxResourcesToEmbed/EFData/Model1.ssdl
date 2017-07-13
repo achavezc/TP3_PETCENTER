@@ -30,10 +30,11 @@
     <Key>
       <PropertyRef Name="codigo_cita" />
     </Key>
-    <Property Name="codigo_cita" Type="int" Nullable="false" />
+    <Property Name="codigo_cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codigo_mascota" Type="int" />
     <Property Name="codigo_cliente" Type="int" />
     <Property Name="fecha_cita" Type="date" />
+    <Property Name="CodigoDiagnostico" Type="int" />
     <Property Name="atencion" Type="varchar" MaxLength="40" />
     <Property Name="servicio" Type="varchar" MaxLength="40" />
   </EntityType>
@@ -41,19 +42,40 @@
     <Key>
       <PropertyRef Name="codigo_cubiculo" />
     </Key>
-    <Property Name="codigo_cubiculo" Type="int" Nullable="false" />
+    <Property Name="codigo_cubiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre_cubiculo" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="observacion_cubiculo" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="tipo_cubiculo" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="estado_cubiculo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="estado_cubiculo" Type="bit" Nullable="false" />
+    <Property Name="Ocupado" Type="bit" />
   </EntityType>
   <EntityType Name="Diagnostico">
     <Key>
-      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="CodigoDiagnostico" />
     </Key>
-    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoDiagnostico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
-    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="Codigo_Enfermedad" Type="int" />
+    <Property Name="CodigoTipoDiagnostico" Type="int" />
+    <Property Name="EstadoRegistro" Type="bit" />
+  </EntityType>
+  <EntityType Name="ENFERMEDAD">
+    <Key>
+      <PropertyRef Name="Codigo_Enfermedad" />
+    </Key>
+    <Property Name="Codigo_Enfermedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="4000" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="4000" />
+    <Property Name="Sintomas" Type="varchar" MaxLength="4000" />
+    <Property Name="Causas" Type="varchar" MaxLength="4000" />
+    <Property Name="EstadoRegistro" Type="bit" />
+  </EntityType>
+  <EntityType Name="enfermedad_insumo">
+    <Key>
+      <PropertyRef Name="Codigo_Enfermedad" />
+      <PropertyRef Name="CodigoInsumo" />
+    </Key>
+    <Property Name="Codigo_Enfermedad" Type="int" Nullable="false" />
+    <Property Name="CodigoInsumo" Type="int" Nullable="false" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="Epicrisis">
@@ -67,10 +89,10 @@
     <Property Name="DiasEstancia" Type="varchar" MaxLength="50" />
     <Property Name="FechaIngreso" Type="datetime" />
     <Property Name="FechaAlta" Type="datetime" />
-    <Property Name="Veterianario" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoEstado" Type="int" />
+    <Property Name="CodigoEmpleadoVeterinario" Type="int" />
     <Property Name="TratamientoRecibido" Type="varchar" MaxLength="50" />
     <Property Name="Observaciones" Type="varchar" MaxLength="50" />
-    <Property Name="CodigoEstado" Type="int" />
     <Property Name="FechaRegistro" Type="datetime" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
@@ -87,52 +109,29 @@
     <Property Name="Dosis" Type="varchar" MaxLength="50" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="Estadia_Hospitalizacion">
-    <Key>
-      <PropertyRef Name="codigo_ficha" />
-      <PropertyRef Name="codigo_sala" />
-      <PropertyRef Name="codigo_cubiculo" />
-      <PropertyRef Name="estado" />
-      <PropertyRef Name="fecha_inicio" />
-      <PropertyRef Name="fecha_fin" />
-    </Key>
-    <Property Name="codigo_ficha" Type="int" Nullable="false" />
-    <Property Name="codigo_sala" Type="int" Nullable="false" />
-    <Property Name="codigo_cubiculo" Type="int" Nullable="false" />
-    <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="fecha_inicio" Type="datetime" Nullable="false" />
-    <Property Name="fecha_fin" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="Estado">
     <Key>
       <PropertyRef Name="CodigoEstado" />
     </Key>
-    <Property Name="CodigoEstado" Type="int" Nullable="false" />
+    <Property Name="CodigoEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoEstado" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="DescripcionEstado" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="EstadoRegistro" Type="bit" />
-  </EntityType>
-  <EntityType Name="EstadoEpicrisis">
-    <Key>
-      <PropertyRef Name="Codigo" />
-    </Key>
-    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="Ficha_Hospitalizacion">
     <Key>
       <PropertyRef Name="codigo_ficha" />
     </Key>
-    <Property Name="codigo_ficha" Type="int" Nullable="false" />
-    <Property Name="codigo_rq" Type="int" />
+    <Property Name="codigo_ficha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codigo_empleado" Type="int" />
     <Property Name="fecha_ficha" Type="datetime" Nullable="false" />
     <Property Name="codigo_cita" Type="int" />
+    <Property Name="Comentario" Type="varchar" MaxLength="4000" />
     <Property Name="codigoEmpleado_medico" Type="int" />
     <Property Name="codigoEmpleado_tecnico" Type="int" />
+    <Property Name="codigo_sala" Type="int" />
+    <Property Name="codigo_cubiculo" Type="int" />
+    <Property Name="CodigoEstado" Type="int" />
   </EntityType>
   <EntityType Name="Ficha_Hospitalizacion_Insumo">
     <Key>
@@ -217,7 +216,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     </Key>
     <Property Name="codigo_empleado" Type="int" Nullable="false" />
     <Property Name="codigo_persona" Type="int" />
-    <Property Name="cargo" Type="varchar" MaxLength="40" />
+    <Property Name="CodigoCargo" Type="int" />
     <Property Name="area" Type="varchar" MaxLength="40" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
     <Property Name="EstadoRegistro" Type="bit" />
@@ -336,6 +335,52 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Property Name="codigo_mascota_madre" Type="int" />
     <Property Name="fechaRecepcionInf_KCP" Type="date" />
   </EntityType>
+  <EntityType Name="HISTORIA_CLINICA">
+    <Key>
+      <PropertyRef Name="CODIGO_HISTORIA_CLINICA" />
+    </Key>
+    <Property Name="CODIGO_HISTORIA_CLINICA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="CODIGO_FICHA" Type="int" Nullable="false" />
+    <Property Name="OBSERVACION" Type="varchar" MaxLength="4000" />
+    <Property Name="ESTADO_REGISTRO" Type="bit" />
+  </EntityType>
+  <EntityType Name="Informe_Riesgo_Quirurgico">
+    <Key>
+      <PropertyRef Name="codigo_rq" />
+    </Key>
+    <Property Name="codigo_rq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Rq" Type="datetime" Nullable="false" />
+    <Property Name="NombreInforme" Type="varchar" MaxLength="4000" />
+    <Property Name="codigo_ficha" Type="int" />
+    <Property Name="codigo_Analisis_Preliminar" Type="int" />
+    <Property Name="complicaciones_rq" Type="varchar" MaxLength="4000" />
+    <Property Name="consideraciones_particulares_rq" Type="varchar" MaxLength="4000" />
+    <Property Name="clasificacion_riesgo_cardiaco" Type="varchar" MaxLength="400" />
+    <Property Name="codigo_empleado" Type="int" />
+    <Property Name="CodigoEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="Informe_Riesgo_Quirurgico_Detalle">
+    <Key>
+      <PropertyRef Name="CodigoInformRQ" />
+      <PropertyRef Name="CodigoRiesgoQuirurgico" />
+    </Key>
+    <Property Name="CodigoInformRQ" Type="int" Nullable="false" />
+    <Property Name="CodigoRiesgoQuirurgico" Type="int" Nullable="false" />
+    <Property Name="DetalleRiesgo" Type="varchar" MaxLength="4000" />
+    <Property Name="Consider_Quirurgicas" Type="varchar" MaxLength="4000" />
+    <Property Name="EstadoRiesgo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InformeAnalisisPreliminar">
+    <Key>
+      <PropertyRef Name="codigoAnalisis_Preliminar" />
+    </Key>
+    <Property Name="codigoAnalisis_Preliminar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_ficha" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="4000" />
+    <Property Name="EstadoRegistro" Type="bit" />
+  </EntityType>
   <EntityType Name="Insumo">
     <Key>
       <PropertyRef Name="CodigoInsumo" />
@@ -391,17 +436,13 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       <PropertyRef Name="Codigo" />
     </Key>
     <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NumeroHistoriaClinica" Type="varchar" MaxLength="50" />
-    <Property Name="Nombre" Type="varchar" MaxLength="50" />
-    <Property Name="Genero" Type="varchar" MaxLength="50" />
-    <Property Name="Edad" Type="varchar" MaxLength="50" />
-    <Property Name="Peso" Type="varchar" MaxLength="50" />
-    <Property Name="Raza" Type="varchar" MaxLength="50" />
-    <Property Name="Tipo" Type="varchar" MaxLength="50" />
-    <Property Name="Cliente" Type="varchar" MaxLength="50" />
-    <Property Name="Paciente" Type="varchar" MaxLength="50" />
+    <Property Name="codigo_ficha" Type="int" Nullable="false" />
+    <Property Name="CodigoDiagnosticoPreventivo" Type="int" />
+    <Property Name="CodigoDiagnosticoPresuntivo" Type="int" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="4000" />
+    <Property Name="FechaRegistro" Type="datetime" />
     <Property Name="FechaIntervencion" Type="datetime" />
-    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoEstado" Type="int" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="OrdenIntervencionDetalleAnastesia">
@@ -437,7 +478,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     </Key>
     <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CodigoOrdenIntervencion" Type="int" />
-    <Property Name="CodigoProfesional" Type="int" />
+    <Property Name="CodigoEmpleado" Type="int" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="OrdenIntervencionDetalleSignosVitales">
@@ -449,17 +490,6 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Property Name="CodigoSignosVitales" Type="int" />
     <Property Name="EstadoRegisto" Type="bit" />
   </EntityType>
-  <EntityType Name="Profesional">
-    <Key>
-      <PropertyRef Name="Codigo" />
-    </Key>
-    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NumeroOrden" Type="int" />
-    <Property Name="DNI" Type="varchar" MaxLength="50" />
-    <Property Name="Profesional" Type="varchar" MaxLength="50" />
-    <Property Name="Especialidad" Type="varchar" MaxLength="50" />
-    <Property Name="EstadoRegistro" Type="bit" />
-  </EntityType>
   <EntityType Name="ProgramacionTurno">
     <Key>
       <PropertyRef Name="Codigo" />
@@ -470,7 +500,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Property Name="CodigoSede" Type="int" />
     <Property Name="CodigoAnio" Type="int" />
     <Property Name="CodigoMes" Type="int" />
-    <Property Name="EstadoRegistro" Type="bit" />
+    <Property Name="CodigoEstado" Type="int" />
   </EntityType>
   <EntityType Name="ProgramacionTurnoDetalle">
     <Key>
@@ -486,23 +516,21 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
   </EntityType>
   <EntityType Name="Riesgo_Quirurgico">
     <Key>
-      <PropertyRef Name="codigo_rq" />
+      <PropertyRef Name="CodigoRiesgoQuirurgico" />
     </Key>
-    <Property Name="codigo_rq" Type="int" Nullable="false" />
-    <Property Name="fecha_rq" Type="datetime" Nullable="false" />
-    <Property Name="complicaciones_rq" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="consideraciones_particulares_rq" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="clasificacion_riesgo_cardiaco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CodigoRiesgoQuirurgico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="4000" />
+    <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="sala">
     <Key>
       <PropertyRef Name="codigo_sala" />
     </Key>
-    <Property Name="codigo_sala" Type="int" Nullable="false" />
+    <Property Name="codigo_sala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre_sala" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="observacion_sala" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="tipo_sala" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="estado_sala" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Codigo_Tipo_Sala" Type="int" Nullable="false" />
+    <Property Name="estado_sala" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="sala_cubiculo">
     <Key>
@@ -511,7 +539,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     </Key>
     <Property Name="codigo_cubiculo" Type="int" Nullable="false" />
     <Property Name="codigo_sala" Type="int" Nullable="false" />
-    <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Sede">
     <Key>
@@ -527,6 +555,32 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     </Key>
     <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="EstadoRegistro" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipo_diagnostico">
+    <Key>
+      <PropertyRef Name="id_tipo" />
+    </Key>
+    <Property Name="id_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="EstadoRegistro" Type="bit" />
+  </EntityType>
+  <EntityType Name="tipo_sala">
+    <Key>
+      <PropertyRef Name="Codigo_Tipo_Sala" />
+    </Key>
+    <Property Name="Codigo_Tipo_Sala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
   <EntityType Name="TipoBusqueda">
@@ -553,19 +607,15 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
     <Property Name="EstadoRegistro" Type="bit" />
   </EntityType>
-  <Association Name="FK__Epicrisis__Codig__160F4887">
-    <End Role="EstadoEpicrisis" Type="Self.EstadoEpicrisis" Multiplicity="0..1" />
-    <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EstadoEpicrisis">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="Epicrisis">
-        <PropertyRef Name="CodigoEstado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Epicrisis__Codig__17F790F9">
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="CodigoUsuario" />
+    </Key>
+    <Property Name="CodigoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="200" />
+    <Property Name="Password" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK__Epicrisis__Codig__18EBB532">
     <End Role="TipoInsumo" Type="Self.TipoInsumo" Multiplicity="0..1" />
     <End Role="EpicrisisDetalle" Type="Self.EpicrisisDetalle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -589,79 +639,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Epicrisis__Codig__4F7CD00D">
-    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
-    <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrdenIntervencion">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="Epicrisis">
-        <PropertyRef Name="CodigoOrdenIntervencion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__40F9A68C">
-    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrdenIntervencion">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="OrdenIntervencionDetalleAnastesia">
-        <PropertyRef Name="CodigoOrdenIntervencion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__41EDCAC5">
-    <End Role="Anastesia" Type="Self.Anastesia" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Anastesia">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="OrdenIntervencionDetalleAnastesia">
-        <PropertyRef Name="CodigoAnastesia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__42E1EEFE">
-    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrdenIntervencion">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="OrdenIntervencionDetalleDiagnostico">
-        <PropertyRef Name="CodigoOrdenIntervencion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__43D61337">
-    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Diagnostico">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="OrdenIntervencionDetalleDiagnostico">
-        <PropertyRef Name="CodigoDiagnostico" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__44CA3770">
-    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrdenIntervencion">
-        <PropertyRef Name="Codigo" />
-      </Principal>
-      <Dependent Role="OrdenIntervencionDetalleOperacion">
-        <PropertyRef Name="CodigoOrdenIntervencion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrdenInte__Codig__45BE5BA9">
+  <Association Name="FK__OrdenInte__Codig">
     <End Role="Operacion" Type="Self.Operacion" Multiplicity="0..1" />
     <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -673,31 +651,55 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__OrdenInte__Codig__46B27FE2">
+  <Association Name="FK__OrdenInte__Codig__">
     <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+    <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrdenIntervencion">
         <PropertyRef Name="Codigo" />
       </Principal>
-      <Dependent Role="OrdenIntervencionDetalleProfesional">
+      <Dependent Role="OrdenIntervencionDetalleOperacion">
         <PropertyRef Name="CodigoOrdenIntervencion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__OrdenInte__Codig__47A6A41B">
-    <End Role="Profesional" Type="Self.Profesional" Multiplicity="0..1" />
-    <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+  <Association Name="FK__OrdenInte__Codig__43D61337">
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+    <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Profesional">
+      <Principal Role="OrdenIntervencion">
         <PropertyRef Name="Codigo" />
       </Principal>
-      <Dependent Role="OrdenIntervencionDetalleProfesional">
-        <PropertyRef Name="CodigoProfesional" />
+      <Dependent Role="OrdenIntervencionDetalleAnastesia">
+        <PropertyRef Name="CodigoOrdenIntervencion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__OrdenInte__Codig__489AC854">
+  <Association Name="FK__OrdenInte__Codig__44CA3770">
+    <End Role="Anastesia" Type="Self.Anastesia" Multiplicity="0..1" />
+    <End Role="OrdenIntervencionDetalleAnastesia" Type="Self.OrdenIntervencionDetalleAnastesia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anastesia">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="OrdenIntervencionDetalleAnastesia">
+        <PropertyRef Name="CodigoAnastesia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenInte__Codig__45BE5BA9">
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+    <End Role="OrdenIntervencionDetalleDiagnostico" Type="Self.OrdenIntervencionDetalleDiagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenIntervencion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="OrdenIntervencionDetalleDiagnostico">
+        <PropertyRef Name="CodigoOrdenIntervencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenInte__Codig__4A8310C6">
     <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
     <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitales" Multiplicity="*" />
     <ReferentialConstraint>
@@ -709,7 +711,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__OrdenInte__Codig__498EEC8D">
+  <Association Name="FK__OrdenInte__Codig__4B7734FF">
     <End Role="SignosVitales" Type="Self.SignosVitales" Multiplicity="0..1" />
     <End Role="OrdenIntervencionDetalleSignosVitales" Type="Self.OrdenIntervencionDetalleSignosVitales" Multiplicity="*" />
     <ReferentialConstraint>
@@ -721,7 +723,19 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4A8310C6">
+  <Association Name="FK__OrdenInte__Codig__59C55456">
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+    <End Role="OrdenIntervencionDetalleProfesional" Type="Self.OrdenIntervencionDetalleProfesional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenIntervencion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="OrdenIntervencionDetalleProfesional">
+        <PropertyRef Name="CodigoOrdenIntervencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Programac__Codig__4C6B5938">
     <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
     <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
     <ReferentialConstraint>
@@ -733,7 +747,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4B7734FF">
+  <Association Name="FK__Programac__Codig__4D5F7D71">
     <End Role="Anio" Type="Self.Anio" Multiplicity="0..1" />
     <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
     <ReferentialConstraint>
@@ -745,7 +759,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4C6B5938">
+  <Association Name="FK__Programac__Codig__4E53A1AA">
     <End Role="Mes" Type="Self.Mes" Multiplicity="0..1" />
     <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
     <ReferentialConstraint>
@@ -757,7 +771,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4D5F7D71">
+  <Association Name="FK__Programac__Codig__4F47C5E3">
     <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="0..1" />
     <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -769,7 +783,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4E53A1AA">
+  <Association Name="FK__Programac__Codig__503BEA1C">
     <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
     <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -781,7 +795,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__4F47C5E3">
+  <Association Name="FK__Programac__Codig__51300E55">
     <End Role="Turno" Type="Self.Turno" Multiplicity="0..1" />
     <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -793,7 +807,7 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Programac__Codig__503BEA1C">
+  <Association Name="FK__Programac__Codig__5224328E">
     <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
     <End Role="ProgramacionTurnoDetalle" Type="Self.ProgramacionTurnoDetalle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -817,6 +831,18 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CITA_DIAGNOST">
+    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnostico">
+        <PropertyRef Name="CodigoDiagnostico" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="CodigoDiagnostico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Cita_Mascota">
     <End Role="GCP_Mascota" Type="Self.GCP_Mascota" Multiplicity="0..1" />
     <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
@@ -829,50 +855,98 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Empleado_Profesional">
-    <End Role="Profesional" Type="Self.Profesional" Multiplicity="1" />
-    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
+  <Association Name="FK_DIAG_TIPO">
+    <End Role="tipo_diagnostico" Type="Self.tipo_diagnostico" Multiplicity="0..1" />
+    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Profesional">
-        <PropertyRef Name="Codigo" />
+      <Principal Role="tipo_diagnostico">
+        <PropertyRef Name="id_tipo" />
       </Principal>
-      <Dependent Role="GG_Empleado">
-        <PropertyRef Name="codigo_empleado" />
+      <Dependent Role="Diagnostico">
+        <PropertyRef Name="CodigoTipoDiagnostico" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EstadiaHospitalizacion_cubiculo">
-    <End Role="cubiculo" Type="Self.cubiculo" Multiplicity="1" />
-    <End Role="Estadia_Hospitalizacion" Type="Self.Estadia_Hospitalizacion" Multiplicity="*" />
+  <Association Name="FK_diagnostico_enfermedad">
+    <End Role="ENFERMEDAD" Type="Self.ENFERMEDAD" Multiplicity="0..1" />
+    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENFERMEDAD">
+        <PropertyRef Name="Codigo_Enfermedad" />
+      </Principal>
+      <Dependent Role="Diagnostico">
+        <PropertyRef Name="Codigo_Enfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEADO_CARGO">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="GG_Empleado">
+        <PropertyRef Name="CodigoCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_epicrisis_emp">
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
+    <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Empleado">
+        <PropertyRef Name="codigo_empleado" />
+      </Principal>
+      <Dependent Role="Epicrisis">
+        <PropertyRef Name="CodigoEmpleadoVeterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EPICRISIS_ESTADO">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="CodigoEstado" />
+      </Principal>
+      <Dependent Role="Epicrisis">
+        <PropertyRef Name="CodigoEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ficha_h_estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="CodigoEstado" />
+      </Principal>
+      <Dependent Role="Ficha_Hospitalizacion">
+        <PropertyRef Name="CodigoEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FICHA_HOS_cub">
+    <End Role="cubiculo" Type="Self.cubiculo" Multiplicity="0..1" />
+    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="cubiculo">
         <PropertyRef Name="codigo_cubiculo" />
       </Principal>
-      <Dependent Role="Estadia_Hospitalizacion">
+      <Dependent Role="Ficha_Hospitalizacion">
         <PropertyRef Name="codigo_cubiculo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EstadiaHospitalizacion_Ficha">
-    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="1" />
-    <End Role="Estadia_Hospitalizacion" Type="Self.Estadia_Hospitalizacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Ficha_Hospitalizacion">
-        <PropertyRef Name="codigo_ficha" />
-      </Principal>
-      <Dependent Role="Estadia_Hospitalizacion">
-        <PropertyRef Name="codigo_ficha" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EstadiaHospitalizacion_Sala">
-    <End Role="sala" Type="Self.sala" Multiplicity="1" />
-    <End Role="Estadia_Hospitalizacion" Type="Self.Estadia_Hospitalizacion" Multiplicity="*" />
+  <Association Name="FK_FICHA_HOS_SALA">
+    <End Role="sala" Type="Self.sala" Multiplicity="0..1" />
+    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="sala">
         <PropertyRef Name="codigo_sala" />
       </Principal>
-      <Dependent Role="Estadia_Hospitalizacion">
+      <Dependent Role="Ficha_Hospitalizacion">
         <PropertyRef Name="codigo_sala" />
       </Dependent>
     </ReferentialConstraint>
@@ -922,18 +996,6 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Principal>
       <Dependent Role="Ficha_Hospitalizacion">
         <PropertyRef Name="codigoEmpleado_tecnico" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FichaHospitalizacion_RiesgoQuirurgico">
-    <End Role="Riesgo_Quirurgico" Type="Self.Riesgo_Quirurgico" Multiplicity="0..1" />
-    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Riesgo_Quirurgico">
-        <PropertyRef Name="codigo_rq" />
-      </Principal>
-      <Dependent Role="Ficha_Hospitalizacion">
-        <PropertyRef Name="codigo_rq" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1261,6 +1323,78 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_INF_RQ_ANALI_PREM">
+    <End Role="InformeAnalisisPreliminar" Type="Self.InformeAnalisisPreliminar" Multiplicity="0..1" />
+    <End Role="Informe_Riesgo_Quirurgico" Type="Self.Informe_Riesgo_Quirurgico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InformeAnalisisPreliminar">
+        <PropertyRef Name="codigoAnalisis_Preliminar" />
+      </Principal>
+      <Dependent Role="Informe_Riesgo_Quirurgico">
+        <PropertyRef Name="codigo_Analisis_Preliminar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InformRiesgQu_Empleado">
+    <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
+    <End Role="Informe_Riesgo_Quirurgico" Type="Self.Informe_Riesgo_Quirurgico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GG_Empleado">
+        <PropertyRef Name="codigo_empleado" />
+      </Principal>
+      <Dependent Role="Informe_Riesgo_Quirurgico">
+        <PropertyRef Name="codigo_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InformRiesQuiDet_RieQ">
+    <End Role="Riesgo_Quirurgico" Type="Self.Riesgo_Quirurgico" Multiplicity="1" />
+    <End Role="Informe_Riesgo_Quirurgico_Detalle" Type="Self.Informe_Riesgo_Quirurgico_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Riesgo_Quirurgico">
+        <PropertyRef Name="CodigoRiesgoQuirurgico" />
+      </Principal>
+      <Dependent Role="Informe_Riesgo_Quirurgico_Detalle">
+        <PropertyRef Name="CodigoRiesgoQuirurgico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INFQ_ESTADO">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Informe_Riesgo_Quirurgico" Type="Self.Informe_Riesgo_Quirurgico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="CodigoEstado" />
+      </Principal>
+      <Dependent Role="Informe_Riesgo_Quirurgico">
+        <PropertyRef Name="CodigoEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INRQ_DET">
+    <End Role="Informe_Riesgo_Quirurgico" Type="Self.Informe_Riesgo_Quirurgico" Multiplicity="1" />
+    <End Role="Informe_Riesgo_Quirurgico_Detalle" Type="Self.Informe_Riesgo_Quirurgico_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Informe_Riesgo_Quirurgico">
+        <PropertyRef Name="codigo_rq" />
+      </Principal>
+      <Dependent Role="Informe_Riesgo_Quirurgico_Detalle">
+        <PropertyRef Name="CodigoInformRQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSUMO_TIPO">
+    <End Role="TipoInsumo" Type="Self.TipoInsumo" Multiplicity="1" />
+    <End Role="Insumo" Type="Self.Insumo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoInsumo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Insumo">
+        <PropertyRef Name="CodigoTipoInsumo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InsumoRequerido_Empleado">
     <End Role="GG_Empleado" Type="Self.GG_Empleado" Multiplicity="0..1" />
     <End Role="InsumoRequerido" Type="Self.InsumoRequerido" Multiplicity="*" />
@@ -1345,6 +1479,78 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ORDE_IN_FICHA">
+    <End Role="Ficha_Hospitalizacion" Type="Self.Ficha_Hospitalizacion" Multiplicity="1" />
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ficha_Hospitalizacion">
+        <PropertyRef Name="codigo_ficha" />
+      </Principal>
+      <Dependent Role="OrdenIntervencion">
+        <PropertyRef Name="codigo_ficha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDEN_IN_DIAG">
+    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnostico">
+        <PropertyRef Name="CodigoDiagnostico" />
+      </Principal>
+      <Dependent Role="OrdenIntervencion">
+        <PropertyRef Name="CodigoDiagnosticoPreventivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDEN_IN_DIAG2">
+    <End Role="Diagnostico" Type="Self.Diagnostico" Multiplicity="0..1" />
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnostico">
+        <PropertyRef Name="CodigoDiagnostico" />
+      </Principal>
+      <Dependent Role="OrdenIntervencion">
+        <PropertyRef Name="CodigoDiagnosticoPresuntivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenIntDet_OrdInt">
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+    <End Role="OrdenIntervencionDetalleOperacion" Type="Self.OrdenIntervencionDetalleOperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenIntervencion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="OrdenIntervencionDetalleOperacion">
+        <PropertyRef Name="CodigoOrdenIntervencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROM_TURNO_ESTADO">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ProgramacionTurno" Type="Self.ProgramacionTurno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="CodigoEstado" />
+      </Principal>
+      <Dependent Role="ProgramacionTurno">
+        <PropertyRef Name="CodigoEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALA_TIPO">
+    <End Role="tipo_sala" Type="Self.tipo_sala" Multiplicity="1" />
+    <End Role="sala" Type="Self.sala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_sala">
+        <PropertyRef Name="Codigo_Tipo_Sala" />
+      </Principal>
+      <Dependent Role="sala">
+        <PropertyRef Name="Codigo_Tipo_Sala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SalaCubiculo_cubiculo">
     <End Role="cubiculo" Type="Self.cubiculo" Multiplicity="1" />
     <End Role="sala_cubiculo" Type="Self.sala_cubiculo" Multiplicity="*" />
@@ -1369,6 +1575,49 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PK_Enferme_Insu_Enf">
+    <End Role="ENFERMEDAD" Type="Self.ENFERMEDAD" Multiplicity="1" />
+    <End Role="enfermedad_insumo" Type="Self.enfermedad_insumo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENFERMEDAD">
+        <PropertyRef Name="Codigo_Enfermedad" />
+      </Principal>
+      <Dependent Role="enfermedad_insumo">
+        <PropertyRef Name="Codigo_Enfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_Enferme_Insu_Ins">
+    <End Role="Insumo" Type="Self.Insumo" Multiplicity="1" />
+    <End Role="enfermedad_insumo" Type="Self.enfermedad_insumo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumo">
+        <PropertyRef Name="CodigoInsumo" />
+      </Principal>
+      <Dependent Role="enfermedad_insumo">
+        <PropertyRef Name="CodigoInsumo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_EPICRISIS_OI">
+    <End Role="OrdenIntervencion" Type="Self.OrdenIntervencion" Multiplicity="0..1" />
+    <End Role="Epicrisis" Type="Self.Epicrisis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenIntervencion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Epicrisis">
+        <PropertyRef Name="CodigoOrdenIntervencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
   <Function Name="sp_AnularSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="numero_solicitud" Type="int" Mode="In" />
     <Parameter Name="UsuarioModificacion" Type="int" Mode="In" />
@@ -1383,6 +1632,24 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="fechaInicial" Type="date" Mode="In" />
     <Parameter Name="fechaFinal" Type="date" Mode="In" />
     <Parameter Name="estadoSolicitud" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_ObtenerCamada" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="solicitud_pedigri" Type="int" Mode="In" />
@@ -1419,43 +1686,39 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="UsuarioCreacion" Type="int" Mode="In" />
     <Parameter Name="codigo_solicitud" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="udf_IsEmptyString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
     <Parameter Name="ParString1" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="USP_CONSULTAEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
-    <Parameter Name="Codigo" Type="datetime" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
-    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  <Function Name="USP_BUSCARCITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoCita" Type="int" Mode="In" />
   </Function>
-  <Function Name="USP_CONSULTAEPICRISISFINAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
-    <Parameter Name="Codigo" Type="datetime" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
-    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
-  </Function>
-  <Function Name="USP_CONSULTAEPICRISISV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
-    <Parameter Name="Codigo" Type="datetime" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
-    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
-  </Function>
-  <Function Name="USP_CONSULTAEPICRISISV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
-    <Parameter Name="Codigo" Type="varchar" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
-    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
-  </Function>
-  <Function Name="USP_CONSULTAEPICRISISV4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaIngresoFin" Type="datetime" Mode="In" />
+  <Function Name="USP_BUSCARFICHARQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
     <Parameter Name="Codigo" Type="int" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
     <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_BUSCARFICHARQV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_BUSCARINSUMOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Enfermedad" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoTipoInsumo" Type="int" Mode="In" />
+    <Parameter Name="NombreInsumo" Type="varchar" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_CONSULTAEPICRISISV5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FechaIngresoInicio" Type="datetime" Mode="In" />
@@ -1464,26 +1727,45 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
     <Parameter Name="CodigoEstado" Type="int" Mode="In" />
   </Function>
-  <Function Name="USP_CONSULTAORDENINTERVENCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
-    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
-    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
-    <Parameter Name="Codigo" Type="datetime" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="USP_CONSULTAORDENINTERVENCIONV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+  <Function Name="USP_CONSULTAFICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
     <Parameter Name="FechaFin" Type="datetime" Mode="In" />
     <Parameter Name="Codigo" Type="int" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
   </Function>
-  <Function Name="USP_CONSULTAORDENINTERVENCIONV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+  <Function Name="USP_CONSULTAFICHAV1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
     <Parameter Name="FechaFin" Type="datetime" Mode="In" />
     <Parameter Name="Codigo" Type="int" Mode="In" />
-    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAFICHAV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAFICHAV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAFICHAV4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_CONSULTAORDENINTERVENCIONV4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
@@ -1492,10 +1774,45 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="Codigo" Type="int" Mode="In" />
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="USP_CONSULTAORDENINTERVENCIONV5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoIntervencion" Type="int" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoTipoBusqueda" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_CONSULTAPROGRAMACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoSede" Type="int" Mode="In" />
     <Parameter Name="CodigoAnio" Type="int" Mode="In" />
     <Parameter Name="CodigoMes" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAPROGRAMACIONV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoSede" Type="int" Mode="In" />
+    <Parameter Name="CodigoAnio" Type="int" Mode="In" />
+    <Parameter Name="CodigoMes" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTARIESGOQUIRURGICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="NombreCliente" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePaciente" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAROI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="Medico" Type="varchar" Mode="In" />
+    <Parameter Name="Paciente" Type="varchar" Mode="In" />
+    <Parameter Name="FechaOperacion" Type="datetime" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_CONSULTAROIV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="Medico" Type="varchar" Mode="In" />
+    <Parameter Name="Paciente" Type="varchar" Mode="In" />
+    <Parameter Name="FechaOperacion" Type="datetime" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_INSERTARDETALLEEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
@@ -1518,6 +1835,15 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="Accion" Type="char" Mode="In" />
     <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="USP_INSERTARDETALLERIESGOQUIRURGICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoInformeRiesgoQuirurgico" Type="int" Mode="In" />
+    <Parameter Name="CodigoRiesgoQuirurgico" Type="int" Mode="In" />
+    <Parameter Name="DetalleRiesgo" Type="varchar" Mode="In" />
+    <Parameter Name="Consideraciones" Type="varchar" Mode="In" />
+    <Parameter Name="EstadoRiesgo" Type="varchar" Mode="In" />
+    <Parameter Name="Accion" Type="char" Mode="In" />
+    <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+  </Function>
   <Function Name="USP_INSERTAREPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
     <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
@@ -1533,6 +1859,38 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="Accion" Type="char" Mode="In" />
     <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="USP_INSERTARFICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="CodigoEmpleado" Type="int" Mode="In" />
+    <Parameter Name="CodigoCita" Type="int" Mode="In" />
+    <Parameter Name="Comentario" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEmpleadoMedico" Type="int" Mode="In" />
+    <Parameter Name="CodigoEmpleadoTecnico" Type="int" Mode="In" />
+    <Parameter Name="CodigoSala" Type="int" Mode="In" />
+    <Parameter Name="CodigoCubiculo" Type="int" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="char" Mode="In" />
+    <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="USP_INSERTARINSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoFicha" Type="int" Mode="In" />
+    <Parameter Name="CodigoInsumo" Type="int" Mode="In" />
+    <Parameter Name="CantidadInsumo" Type="int" Mode="In" />
+    <Parameter Name="EstadoInsumo" Type="varchar" Mode="In" />
+    <Parameter Name="Accion" Type="char" Mode="In" />
+    <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="USP_INSERTAROI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="Codigoficha" Type="int" Mode="In" />
+    <Parameter Name="CodigoDiagnosticoPresuntivo" Type="int" Mode="In" />
+    <Parameter Name="CodigoDiagnosticoDefinitivo" Type="int" Mode="In" />
+    <Parameter Name="FechaOperacion" Type="datetime" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+    <Parameter Name="Accion" Type="char" Mode="In" />
+    <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+  </Function>
   <Function Name="USP_INSERTARPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
     <Parameter Name="CodigoSede" Type="int" Mode="In" />
@@ -1543,14 +1901,36 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <Parameter Name="Accion" Type="char" Mode="In" />
     <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="USP_INSERTARRIESGOQUIRURGICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="CodigoFicha" Type="int" Mode="In" />
+    <Parameter Name="CodigoAnalisisPreliminar" Type="int" Mode="In" />
+    <Parameter Name="Complicaciones" Type="varchar" Mode="In" />
+    <Parameter Name="Consideraciones" Type="varchar" Mode="In" />
+    <Parameter Name="Clasificacion" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoEmpleado" Type="int" Mode="In" />
+    <Parameter Name="CodigoEstado" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="char" Mode="In" />
+    <Parameter Name="CodigoOut" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="USP_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="USP_OBTENERDETALLEANASTESIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_OBTENERDETALLEDIAGNOSTICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
   </Function>
+  <Function Name="USP_OBTENERDETALLEDIAGNOSTICOV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_OBTENERDETALLEEPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_OBTENERDETALLEFICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoFicha" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_OBTENERDETALLEOPERACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
@@ -1564,14 +1944,39 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
   <Function Name="USP_OBTENERDETALLEPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
   </Function>
+  <Function Name="USP_OBTENERDETALLERIESGOQUIRURGICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoRiesgoQuirurgico" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_OBTENERDETALLERIESGOQUIRURGICODETALLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoInformeRQ" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_OBTENERDETALLESIGNOSVITALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CodigoOrdenIntervencion" Type="int" Mode="In" />
   </Function>
   <Function Name="USP_OBTENEREPICRISIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
   </Function>
+  <Function Name="USP_OBTENERINSUMOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoFicha" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_OBTENEROI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_OBTENEROIV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_OBTENERPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Codigo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_VALIDARFICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoCita" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_VALIDARPROGRAMACIONTURNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoAnio" Type="int" Mode="In" />
+    <Parameter Name="CodigoMes" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_VALIDARRIESGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoRiesgo" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="PETCENTERModelStoreContainer">
     <EntitySet Name="Anastesia" EntityType="Self.Anastesia" Schema="dbo" store:Type="Tables" />
@@ -1580,10 +1985,11 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cubiculo" EntityType="Self.cubiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENFERMEDAD" EntityType="Self.ENFERMEDAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enfermedad_insumo" EntityType="Self.enfermedad_insumo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Epicrisis" EntityType="Self.Epicrisis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EpicrisisDetalle" EntityType="Self.EpicrisisDetalle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EstadoEpicrisis" EntityType="Self.EstadoEpicrisis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ficha_Hospitalizacion" EntityType="Self.Ficha_Hospitalizacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ficha_Hospitalizacion_Insumo" EntityType="Self.Ficha_Hospitalizacion_Insumo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GAM_Informe_Medico" EntityType="Self.GAM_Informe_Medico" Schema="dbo" store:Type="Tables" />
@@ -1605,6 +2011,10 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <EntitySet Name="GPA_Solicitud_Adopcion" EntityType="Self.GPA_Solicitud_Adopcion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GPA_Solicitud_Cruces" EntityType="Self.GPA_Solicitud_Cruces" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GPA_Solicitud_Pedigri" EntityType="Self.GPA_Solicitud_Pedigri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HISTORIA_CLINICA" EntityType="Self.HISTORIA_CLINICA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Informe_Riesgo_Quirurgico" EntityType="Self.Informe_Riesgo_Quirurgico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Informe_Riesgo_Quirurgico_Detalle" EntityType="Self.Informe_Riesgo_Quirurgico_Detalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InformeAnalisisPreliminar" EntityType="Self.InformeAnalisisPreliminar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Insumo" EntityType="Self.Insumo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InsumoRequerido" EntityType="Self.InsumoRequerido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InsumoRequeridoDetalle" EntityType="Self.InsumoRequeridoDetalle" Schema="dbo" store:Type="Tables" />
@@ -1616,7 +2026,6 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <EntitySet Name="OrdenIntervencionDetalleOperacion" EntityType="Self.OrdenIntervencionDetalleOperacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrdenIntervencionDetalleProfesional" EntityType="Self.OrdenIntervencionDetalleProfesional" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrdenIntervencionDetalleSignosVitales" EntityType="Self.OrdenIntervencionDetalleSignosVitales" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Profesional" EntityType="Self.Profesional" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProgramacionTurno" EntityType="Self.ProgramacionTurno" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProgramacionTurnoDetalle" EntityType="Self.ProgramacionTurnoDetalle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Riesgo_Quirurgico" EntityType="Self.Riesgo_Quirurgico" Schema="dbo" store:Type="Tables" />
@@ -1624,24 +2033,14 @@ advertencia 6002: La tabla o vista 'PETCENTER.dbo.Estadia_Hospitalizacion' no ti
     <EntitySet Name="sala_cubiculo" EntityType="Self.sala_cubiculo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SignosVitales" EntityType="Self.SignosVitales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_diagnostico" EntityType="Self.tipo_diagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_sala" EntityType="Self.tipo_sala" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoBusqueda" EntityType="Self.TipoBusqueda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoInsumo" EntityType="Self.TipoInsumo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Estadia_Hospitalizacion" EntityType="Self.Estadia_Hospitalizacion" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Estadia_Hospitalizacion].[codigo_ficha] AS [codigo_ficha], 
-[Estadia_Hospitalizacion].[codigo_sala] AS [codigo_sala], 
-[Estadia_Hospitalizacion].[codigo_cubiculo] AS [codigo_cubiculo], 
-[Estadia_Hospitalizacion].[estado] AS [estado], 
-[Estadia_Hospitalizacion].[fecha_inicio] AS [fecha_inicio], 
-[Estadia_Hospitalizacion].[fecha_fin] AS [fecha_fin]
-FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK__Epicrisis__Codig__160F4887" Association="Self.FK__Epicrisis__Codig__160F4887">
-      <End Role="EstadoEpicrisis" EntitySet="EstadoEpicrisis" />
-      <End Role="Epicrisis" EntitySet="Epicrisis" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Epicrisis__Codig__17F790F9" Association="Self.FK__Epicrisis__Codig__17F790F9">
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Epicrisis__Codig__18EBB532" Association="Self.FK__Epicrisis__Codig__18EBB532">
       <End Role="TipoInsumo" EntitySet="TipoInsumo" />
       <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalle" />
     </AssociationSet>
@@ -1649,75 +2048,63 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
       <End Role="Epicrisis" EntitySet="Epicrisis" />
       <End Role="EpicrisisDetalle" EntitySet="EpicrisisDetalle" />
     </AssociationSet>
-    <AssociationSet Name="FK__Epicrisis__Codig__4F7CD00D" Association="Self.FK__Epicrisis__Codig__4F7CD00D">
-      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
-      <End Role="Epicrisis" EntitySet="Epicrisis" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__40F9A68C" Association="Self.FK__OrdenInte__Codig__40F9A68C">
-      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
-      <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__41EDCAC5" Association="Self.FK__OrdenInte__Codig__41EDCAC5">
-      <End Role="Anastesia" EntitySet="Anastesia" />
-      <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__42E1EEFE" Association="Self.FK__OrdenInte__Codig__42E1EEFE">
-      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
-      <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnostico" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__43D61337" Association="Self.FK__OrdenInte__Codig__43D61337">
-      <End Role="Diagnostico" EntitySet="Diagnostico" />
-      <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnostico" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__44CA3770" Association="Self.FK__OrdenInte__Codig__44CA3770">
-      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
-      <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__45BE5BA9" Association="Self.FK__OrdenInte__Codig__45BE5BA9">
+    <AssociationSet Name="FK__OrdenInte__Codig" Association="Self.FK__OrdenInte__Codig">
       <End Role="Operacion" EntitySet="Operacion" />
       <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__46B27FE2" Association="Self.FK__OrdenInte__Codig__46B27FE2">
+    <AssociationSet Name="FK__OrdenInte__Codig__" Association="Self.FK__OrdenInte__Codig__">
       <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
-      <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesional" />
+      <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__47A6A41B" Association="Self.FK__OrdenInte__Codig__47A6A41B">
-      <End Role="Profesional" EntitySet="Profesional" />
-      <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesional" />
+    <AssociationSet Name="FK__OrdenInte__Codig__43D61337" Association="Self.FK__OrdenInte__Codig__43D61337">
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+      <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__489AC854" Association="Self.FK__OrdenInte__Codig__489AC854">
+    <AssociationSet Name="FK__OrdenInte__Codig__44CA3770" Association="Self.FK__OrdenInte__Codig__44CA3770">
+      <End Role="Anastesia" EntitySet="Anastesia" />
+      <End Role="OrdenIntervencionDetalleAnastesia" EntitySet="OrdenIntervencionDetalleAnastesia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenInte__Codig__45BE5BA9" Association="Self.FK__OrdenInte__Codig__45BE5BA9">
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+      <End Role="OrdenIntervencionDetalleDiagnostico" EntitySet="OrdenIntervencionDetalleDiagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenInte__Codig__4A8310C6" Association="Self.FK__OrdenInte__Codig__4A8310C6">
       <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
       <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrdenInte__Codig__498EEC8D" Association="Self.FK__OrdenInte__Codig__498EEC8D">
+    <AssociationSet Name="FK__OrdenInte__Codig__4B7734FF" Association="Self.FK__OrdenInte__Codig__4B7734FF">
       <End Role="SignosVitales" EntitySet="SignosVitales" />
       <End Role="OrdenIntervencionDetalleSignosVitales" EntitySet="OrdenIntervencionDetalleSignosVitales" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4A8310C6" Association="Self.FK__Programac__Codig__4A8310C6">
+    <AssociationSet Name="FK__OrdenInte__Codig__59C55456" Association="Self.FK__OrdenInte__Codig__59C55456">
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+      <End Role="OrdenIntervencionDetalleProfesional" EntitySet="OrdenIntervencionDetalleProfesional" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Programac__Codig__4C6B5938" Association="Self.FK__Programac__Codig__4C6B5938">
       <End Role="Sede" EntitySet="Sede" />
       <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4B7734FF" Association="Self.FK__Programac__Codig__4B7734FF">
+    <AssociationSet Name="FK__Programac__Codig__4D5F7D71" Association="Self.FK__Programac__Codig__4D5F7D71">
       <End Role="Anio" EntitySet="Anio" />
       <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4C6B5938" Association="Self.FK__Programac__Codig__4C6B5938">
+    <AssociationSet Name="FK__Programac__Codig__4E53A1AA" Association="Self.FK__Programac__Codig__4E53A1AA">
       <End Role="Mes" EntitySet="Mes" />
       <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4D5F7D71" Association="Self.FK__Programac__Codig__4D5F7D71">
+    <AssociationSet Name="FK__Programac__Codig__4F47C5E3" Association="Self.FK__Programac__Codig__4F47C5E3">
       <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
       <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4E53A1AA" Association="Self.FK__Programac__Codig__4E53A1AA">
+    <AssociationSet Name="FK__Programac__Codig__503BEA1C" Association="Self.FK__Programac__Codig__503BEA1C">
       <End Role="Cargo" EntitySet="Cargo" />
       <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__4F47C5E3" Association="Self.FK__Programac__Codig__4F47C5E3">
+    <AssociationSet Name="FK__Programac__Codig__51300E55" Association="Self.FK__Programac__Codig__51300E55">
       <End Role="Turno" EntitySet="Turno" />
       <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
     </AssociationSet>
-    <AssociationSet Name="FK__Programac__Codig__503BEA1C" Association="Self.FK__Programac__Codig__503BEA1C">
+    <AssociationSet Name="FK__Programac__Codig__5224328E" Association="Self.FK__Programac__Codig__5224328E">
       <End Role="GG_Empleado" EntitySet="GG_Empleado" />
       <End Role="ProgramacionTurnoDetalle" EntitySet="ProgramacionTurnoDetalle" />
     </AssociationSet>
@@ -1725,25 +2112,45 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
       <End Role="GCP_Cliente" EntitySet="GCP_Cliente" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
+    <AssociationSet Name="FK_CITA_DIAGNOST" Association="Self.FK_CITA_DIAGNOST">
+      <End Role="Diagnostico" EntitySet="Diagnostico" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
     <AssociationSet Name="FK_Cita_Mascota" Association="Self.FK_Cita_Mascota">
       <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
-    <AssociationSet Name="FK_Empleado_Profesional" Association="Self.FK_Empleado_Profesional">
-      <End Role="Profesional" EntitySet="Profesional" />
+    <AssociationSet Name="FK_DIAG_TIPO" Association="Self.FK_DIAG_TIPO">
+      <End Role="tipo_diagnostico" EntitySet="tipo_diagnostico" />
+      <End Role="Diagnostico" EntitySet="Diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_diagnostico_enfermedad" Association="Self.FK_diagnostico_enfermedad">
+      <End Role="ENFERMEDAD" EntitySet="ENFERMEDAD" />
+      <End Role="Diagnostico" EntitySet="Diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEADO_CARGO" Association="Self.FK_EMPLEADO_CARGO">
+      <End Role="Cargo" EntitySet="Cargo" />
       <End Role="GG_Empleado" EntitySet="GG_Empleado" />
     </AssociationSet>
-    <AssociationSet Name="FK_EstadiaHospitalizacion_cubiculo" Association="Self.FK_EstadiaHospitalizacion_cubiculo">
-      <End Role="cubiculo" EntitySet="cubiculo" />
-      <End Role="Estadia_Hospitalizacion" EntitySet="Estadia_Hospitalizacion" />
+    <AssociationSet Name="fk_epicrisis_emp" Association="Self.fk_epicrisis_emp">
+      <End Role="GG_Empleado" EntitySet="GG_Empleado" />
+      <End Role="Epicrisis" EntitySet="Epicrisis" />
     </AssociationSet>
-    <AssociationSet Name="FK_EstadiaHospitalizacion_Ficha" Association="Self.FK_EstadiaHospitalizacion_Ficha">
+    <AssociationSet Name="FK_EPICRISIS_ESTADO" Association="Self.FK_EPICRISIS_ESTADO">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Epicrisis" EntitySet="Epicrisis" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ficha_h_estado" Association="Self.fk_ficha_h_estado">
+      <End Role="Estado" EntitySet="Estado" />
       <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
-      <End Role="Estadia_Hospitalizacion" EntitySet="Estadia_Hospitalizacion" />
     </AssociationSet>
-    <AssociationSet Name="FK_EstadiaHospitalizacion_Sala" Association="Self.FK_EstadiaHospitalizacion_Sala">
+    <AssociationSet Name="FK_FICHA_HOS_cub" Association="Self.FK_FICHA_HOS_cub">
+      <End Role="cubiculo" EntitySet="cubiculo" />
+      <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FICHA_HOS_SALA" Association="Self.FK_FICHA_HOS_SALA">
       <End Role="sala" EntitySet="sala" />
-      <End Role="Estadia_Hospitalizacion" EntitySet="Estadia_Hospitalizacion" />
+      <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
     </AssociationSet>
     <AssociationSet Name="FK_FichaHospitalizacion_Cita" Association="Self.FK_FichaHospitalizacion_Cita">
       <End Role="Cita" EntitySet="Cita" />
@@ -1759,10 +2166,6 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
     </AssociationSet>
     <AssociationSet Name="FK_FichaHospitalizacion_EmpleadoTecnico" Association="Self.FK_FichaHospitalizacion_EmpleadoTecnico">
       <End Role="GG_Empleado" EntitySet="GG_Empleado" />
-      <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FichaHospitalizacion_RiesgoQuirurgico" Association="Self.FK_FichaHospitalizacion_RiesgoQuirurgico">
-      <End Role="Riesgo_Quirurgico" EntitySet="Riesgo_Quirurgico" />
       <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
     </AssociationSet>
     <AssociationSet Name="FK_GAM_Informe_Medico_GCP_Cliente" Association="Self.FK_GAM_Informe_Medico_GCP_Cliente">
@@ -1873,6 +2276,30 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
       <End Role="Insumo" EntitySet="Insumo" />
       <End Role="Ficha_Hospitalizacion_Insumo" EntitySet="Ficha_Hospitalizacion_Insumo" />
     </AssociationSet>
+    <AssociationSet Name="FK_INF_RQ_ANALI_PREM" Association="Self.FK_INF_RQ_ANALI_PREM">
+      <End Role="InformeAnalisisPreliminar" EntitySet="InformeAnalisisPreliminar" />
+      <End Role="Informe_Riesgo_Quirurgico" EntitySet="Informe_Riesgo_Quirurgico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InformRiesgQu_Empleado" Association="Self.FK_InformRiesgQu_Empleado">
+      <End Role="GG_Empleado" EntitySet="GG_Empleado" />
+      <End Role="Informe_Riesgo_Quirurgico" EntitySet="Informe_Riesgo_Quirurgico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InformRiesQuiDet_RieQ" Association="Self.FK_InformRiesQuiDet_RieQ">
+      <End Role="Riesgo_Quirurgico" EntitySet="Riesgo_Quirurgico" />
+      <End Role="Informe_Riesgo_Quirurgico_Detalle" EntitySet="Informe_Riesgo_Quirurgico_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INFQ_ESTADO" Association="Self.FK_INFQ_ESTADO">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Informe_Riesgo_Quirurgico" EntitySet="Informe_Riesgo_Quirurgico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INRQ_DET" Association="Self.FK_INRQ_DET">
+      <End Role="Informe_Riesgo_Quirurgico" EntitySet="Informe_Riesgo_Quirurgico" />
+      <End Role="Informe_Riesgo_Quirurgico_Detalle" EntitySet="Informe_Riesgo_Quirurgico_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSUMO_TIPO" Association="Self.FK_INSUMO_TIPO">
+      <End Role="TipoInsumo" EntitySet="TipoInsumo" />
+      <End Role="Insumo" EntitySet="Insumo" />
+    </AssociationSet>
     <AssociationSet Name="FK_InsumoRequerido_Empleado" Association="Self.FK_InsumoRequerido_Empleado">
       <End Role="GG_Empleado" EntitySet="GG_Empleado" />
       <End Role="InsumoRequerido" EntitySet="InsumoRequerido" />
@@ -1901,6 +2328,30 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
       <End Role="GCP_Raza" EntitySet="GCP_Raza" />
       <End Role="GCP_Mascota" EntitySet="GCP_Mascota" />
     </AssociationSet>
+    <AssociationSet Name="FK_ORDE_IN_FICHA" Association="Self.FK_ORDE_IN_FICHA">
+      <End Role="Ficha_Hospitalizacion" EntitySet="Ficha_Hospitalizacion" />
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDEN_IN_DIAG" Association="Self.FK_ORDEN_IN_DIAG">
+      <End Role="Diagnostico" EntitySet="Diagnostico" />
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDEN_IN_DIAG2" Association="Self.FK_ORDEN_IN_DIAG2">
+      <End Role="Diagnostico" EntitySet="Diagnostico" />
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenIntDet_OrdInt" Association="Self.FK_OrdenIntDet_OrdInt">
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+      <End Role="OrdenIntervencionDetalleOperacion" EntitySet="OrdenIntervencionDetalleOperacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROM_TURNO_ESTADO" Association="Self.FK_PROM_TURNO_ESTADO">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ProgramacionTurno" EntitySet="ProgramacionTurno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALA_TIPO" Association="Self.FK_SALA_TIPO">
+      <End Role="tipo_sala" EntitySet="tipo_sala" />
+      <End Role="sala" EntitySet="sala" />
+    </AssociationSet>
     <AssociationSet Name="FK_SalaCubiculo_cubiculo" Association="Self.FK_SalaCubiculo_cubiculo">
       <End Role="cubiculo" EntitySet="cubiculo" />
       <End Role="sala_cubiculo" EntitySet="sala_cubiculo" />
@@ -1908,6 +2359,18 @@ FROM [dbo].[Estadia_Hospitalizacion] AS [Estadia_Hospitalizacion]</DefiningQuery
     <AssociationSet Name="FK_SalaCubiculo_Sala" Association="Self.FK_SalaCubiculo_Sala">
       <End Role="sala" EntitySet="sala" />
       <End Role="sala_cubiculo" EntitySet="sala_cubiculo" />
+    </AssociationSet>
+    <AssociationSet Name="PK_Enferme_Insu_Enf" Association="Self.PK_Enferme_Insu_Enf">
+      <End Role="ENFERMEDAD" EntitySet="ENFERMEDAD" />
+      <End Role="enfermedad_insumo" EntitySet="enfermedad_insumo" />
+    </AssociationSet>
+    <AssociationSet Name="PK_Enferme_Insu_Ins" Association="Self.PK_Enferme_Insu_Ins">
+      <End Role="Insumo" EntitySet="Insumo" />
+      <End Role="enfermedad_insumo" EntitySet="enfermedad_insumo" />
+    </AssociationSet>
+    <AssociationSet Name="PK_EPICRISIS_OI" Association="Self.PK_EPICRISIS_OI">
+      <End Role="OrdenIntervencion" EntitySet="OrdenIntervencion" />
+      <End Role="Epicrisis" EntitySet="Epicrisis" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

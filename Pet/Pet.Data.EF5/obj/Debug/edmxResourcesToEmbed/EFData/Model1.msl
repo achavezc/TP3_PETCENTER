@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PETCENTERModelStoreContainer" CdmEntityContainer="PETCENTEREntities1">
+  <EntityContainerMapping StorageEntityContainer="PETCENTERModelStoreContainer" CdmEntityContainer="PETCENTEREntities">
     <EntitySetMapping Name="Anastesias">
       <EntityTypeMapping TypeName="PETCENTERModel.Anastesia">
         <MappingFragment StoreEntitySet="Anastesia">
@@ -30,12 +30,58 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="PETCENTERModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="codigo_cita" ColumnName="codigo_cita" />
+          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="fecha_cita" ColumnName="fecha_cita" />
+          <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
+          <ScalarProperty Name="atencion" ColumnName="atencion" />
+          <ScalarProperty Name="servicio" ColumnName="servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cubiculoes">
+      <EntityTypeMapping TypeName="PETCENTERModel.cubiculo">
+        <MappingFragment StoreEntitySet="cubiculo">
+          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
+          <ScalarProperty Name="nombre_cubiculo" ColumnName="nombre_cubiculo" />
+          <ScalarProperty Name="observacion_cubiculo" ColumnName="observacion_cubiculo" />
+          <ScalarProperty Name="estado_cubiculo" ColumnName="estado_cubiculo" />
+          <ScalarProperty Name="Ocupado" ColumnName="Ocupado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Diagnosticoes">
       <EntityTypeMapping TypeName="PETCENTERModel.Diagnostico">
         <MappingFragment StoreEntitySet="Diagnostico">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Codigo_Enfermedad" ColumnName="Codigo_Enfermedad" />
+          <ScalarProperty Name="CodigoTipoDiagnostico" ColumnName="CodigoTipoDiagnostico" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENFERMEDADs">
+      <EntityTypeMapping TypeName="PETCENTERModel.ENFERMEDAD">
+        <MappingFragment StoreEntitySet="ENFERMEDAD">
+          <ScalarProperty Name="Codigo_Enfermedad" ColumnName="Codigo_Enfermedad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Sintomas" ColumnName="Sintomas" />
+          <ScalarProperty Name="Causas" ColumnName="Causas" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enfermedad_insumo">
+      <EntityTypeMapping TypeName="PETCENTERModel.enfermedad_insumo">
+        <MappingFragment StoreEntitySet="enfermedad_insumo">
+          <ScalarProperty Name="Codigo_Enfermedad" ColumnName="Codigo_Enfermedad" />
+          <ScalarProperty Name="CodigoInsumo" ColumnName="CodigoInsumo" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -43,9 +89,6 @@
     <EntitySetMapping Name="Epicrisis">
       <EntityTypeMapping TypeName="PETCENTERModel.Epicrisi">
         <MappingFragment StoreEntitySet="Epicrisis">
-          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
           <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
@@ -53,9 +96,12 @@
           <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
           <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
           <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+          <ScalarProperty Name="CodigoEmpleadoVeterinario" ColumnName="CodigoEmpleadoVeterinario" />
           <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -73,12 +119,335 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EstadoEpicrisis">
-      <EntityTypeMapping TypeName="PETCENTERModel.EstadoEpicrisi">
-        <MappingFragment StoreEntitySet="EstadoEpicrisis">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+    <EntitySetMapping Name="Estadoes">
+      <EntityTypeMapping TypeName="PETCENTERModel.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+          <ScalarProperty Name="TipoEstado" ColumnName="TipoEstado" />
+          <ScalarProperty Name="DescripcionEstado" ColumnName="DescripcionEstado" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ficha_Hospitalizacion">
+      <EntityTypeMapping TypeName="PETCENTERModel.Ficha_Hospitalizacion">
+        <MappingFragment StoreEntitySet="Ficha_Hospitalizacion">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+          <ScalarProperty Name="fecha_ficha" ColumnName="fecha_ficha" />
+          <ScalarProperty Name="codigo_cita" ColumnName="codigo_cita" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="codigoEmpleado_medico" ColumnName="codigoEmpleado_medico" />
+          <ScalarProperty Name="codigoEmpleado_tecnico" ColumnName="codigoEmpleado_tecnico" />
+          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
+          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ficha_Hospitalizacion_Insumo">
+      <EntityTypeMapping TypeName="PETCENTERModel.Ficha_Hospitalizacion_Insumo">
+        <MappingFragment StoreEntitySet="Ficha_Hospitalizacion_Insumo">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="codigoInsumo" ColumnName="codigoInsumo" />
+          <ScalarProperty Name="cantidad_insumo" ColumnName="cantidad_insumo" />
+          <ScalarProperty Name="estado_insumo" ColumnName="estado_insumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GAM_Informe_Medico">
+      <EntityTypeMapping TypeName="PETCENTERModel.GAM_Informe_Medico">
+        <MappingFragment StoreEntitySet="GAM_Informe_Medico">
+          <ScalarProperty Name="informe_medico" ColumnName="informe_medico" />
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
+          <ScalarProperty Name="fechaAtencion" ColumnName="fechaAtencion" />
+          <ScalarProperty Name="detalleInforme" ColumnName="detalleInforme" />
+          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GCP_Cliente">
+      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Cliente">
+        <MappingFragment StoreEntitySet="GCP_Cliente">
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
+          <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
+          <ScalarProperty Name="autorizaUsoDatos" ColumnName="autorizaUsoDatos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GCP_Especie">
+      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Especie">
+        <MappingFragment StoreEntitySet="GCP_Especie">
+          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
+          <ScalarProperty Name="descripcionEspecie" ColumnName="descripcionEspecie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GCP_Mascota">
+      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Mascota">
+        <MappingFragment StoreEntitySet="GCP_Mascota">
+          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
+          <ScalarProperty Name="codigo_raza" ColumnName="codigo_raza" />
+          <ScalarProperty Name="nombreMascota" ColumnName="nombreMascota" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="tamano" ColumnName="tamano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GCP_Raza">
+      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Raza">
+        <MappingFragment StoreEntitySet="GCP_Raza">
+          <ScalarProperty Name="codigo_raza" ColumnName="codigo_raza" />
+          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
+          <ScalarProperty Name="nombreRaza" ColumnName="nombreRaza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GCP_Tipo_Documento">
+      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Tipo_Documento">
+        <MappingFragment StoreEntitySet="GCP_Tipo_Documento">
+          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+          <ScalarProperty Name="descrDocumento" ColumnName="descrDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GFC_Comprobante_Pago">
+      <EntityTypeMapping TypeName="PETCENTERModel.GFC_Comprobante_Pago">
+        <MappingFragment StoreEntitySet="GFC_Comprobante_Pago">
+          <ScalarProperty Name="comprobante_pago" ColumnName="comprobante_pago" />
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="nroComprobante" ColumnName="nroComprobante" />
+          <ScalarProperty Name="descripcionItem" ColumnName="descripcionItem" />
+          <ScalarProperty Name="fechaComprobante" ColumnName="fechaComprobante" />
+          <ScalarProperty Name="montoTotal" ColumnName="montoTotal" />
+          <ScalarProperty Name="igv" ColumnName="igv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GG_Empleado">
+      <EntityTypeMapping TypeName="PETCENTERModel.GG_Empleado">
+        <MappingFragment StoreEntitySet="GG_Empleado">
+          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
+          <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+          <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GG_Persona">
+      <EntityTypeMapping TypeName="PETCENTERModel.GG_Persona">
+        <MappingFragment StoreEntitySet="GG_Persona">
+          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
+          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+          <ScalarProperty Name="numeroDocumento" ColumnName="numeroDocumento" />
+          <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+          <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Camada">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Camada">
+        <MappingFragment StoreEntitySet="GPA_Camada">
+          <ScalarProperty Name="numero_camada" ColumnName="numero_camada" />
+          <ScalarProperty Name="solicitud_pedigri" ColumnName="solicitud_pedigri" />
+          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Declaracion_Jurada_Domicilio">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Declaracion_Jurada_Domicilio">
+        <MappingFragment StoreEntitySet="GPA_Declaracion_Jurada_Domicilio">
+          <ScalarProperty Name="numero_declaracion_jurada" ColumnName="numero_declaracion_jurada" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="fechaDeclaracion" ColumnName="fechaDeclaracion" />
+          <ScalarProperty Name="descCuerpo" ColumnName="descCuerpo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Detalle_Resultados_KCP">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Detalle_Resultados_KCP">
+        <MappingFragment StoreEntitySet="GPA_Detalle_Resultados_KCP">
+          <ScalarProperty Name="detalle_resultados_KCP" ColumnName="detalle_resultados_KCP" />
+          <ScalarProperty Name="numero_registro_resultado_KCP" ColumnName="numero_registro_resultado_KCP" />
+          <ScalarProperty Name="numRegistroKCP" ColumnName="numRegistroKCP" />
+          <ScalarProperty Name="descResultado" ColumnName="descResultado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Informe_Verificacion_Domicilio">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Informe_Verificacion_Domicilio">
+        <MappingFragment StoreEntitySet="GPA_Informe_Verificacion_Domicilio">
+          <ScalarProperty Name="numero_informe_verificacion" ColumnName="numero_informe_verificacion" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="fechaInformeVerificacion" ColumnName="fechaInformeVerificacion" />
+          <ScalarProperty Name="direccionVerificacion" ColumnName="direccionVerificacion" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="ResultadoInformeVerificacion" ColumnName="ResultadoInformeVerificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Registro_Resultados_KCP">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Registro_Resultados_KCP">
+        <MappingFragment StoreEntitySet="GPA_Registro_Resultados_KCP">
+          <ScalarProperty Name="numero_registro_resultado_KCP" ColumnName="numero_registro_resultado_KCP" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="fechaRegistroKCP" ColumnName="fechaRegistroKCP" />
+          <ScalarProperty Name="numMascotas" ColumnName="numMascotas" />
+          <ScalarProperty Name="numRegistroKCPPadre" ColumnName="numRegistroKCPPadre" />
+          <ScalarProperty Name="numRegistroKCPMadre" ColumnName="numRegistroKCPMadre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Requisito_Domicilio">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Requisito_Domicilio">
+        <MappingFragment StoreEntitySet="GPA_Requisito_Domicilio">
+          <ScalarProperty Name="numero_requisito_domicilio" ColumnName="numero_requisito_domicilio" />
+          <ScalarProperty Name="descRequisitoDomicilio" ColumnName="descRequisitoDomicilio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Solicitud">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud">
+        <MappingFragment StoreEntitySet="GPA_Solicitud">
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+          <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
+          <ScalarProperty Name="tipoSolicitud" ColumnName="tipoSolicitud" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Solicitud_Adopcion">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Adopcion">
+        <MappingFragment StoreEntitySet="GPA_Solicitud_Adopcion">
+          <ScalarProperty Name="solicitud_adopcion" ColumnName="solicitud_adopcion" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="domicilioLocal" ColumnName="domicilioLocal" />
+          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Solicitud_Cruces">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Cruces">
+        <MappingFragment StoreEntitySet="GPA_Solicitud_Cruces">
+          <ScalarProperty Name="solicitud_cruce" ColumnName="solicitud_cruce" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="codigo_cliente1" ColumnName="codigo_cliente1" />
+          <ScalarProperty Name="codigo_mascota1" ColumnName="codigo_mascota1" />
+          <ScalarProperty Name="codigo_cliente2" ColumnName="codigo_cliente2" />
+          <ScalarProperty Name="codigo_mascota2" ColumnName="codigo_mascota2" />
+          <ScalarProperty Name="fechaCruce" ColumnName="fechaCruce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPA_Solicitud_Pedigri">
+      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Pedigri">
+        <MappingFragment StoreEntitySet="GPA_Solicitud_Pedigri">
+          <ScalarProperty Name="solicitud_pedigri" ColumnName="solicitud_pedigri" />
+          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
+          <ScalarProperty Name="codigo_mascota_padre" ColumnName="codigo_mascota_padre" />
+          <ScalarProperty Name="codigo_mascota_madre" ColumnName="codigo_mascota_madre" />
+          <ScalarProperty Name="fechaRecepcionInf_KCP" ColumnName="fechaRecepcionInf_KCP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HISTORIA_CLINICA">
+      <EntityTypeMapping TypeName="PETCENTERModel.HISTORIA_CLINICA">
+        <MappingFragment StoreEntitySet="HISTORIA_CLINICA">
+          <ScalarProperty Name="CODIGO_HISTORIA_CLINICA" ColumnName="CODIGO_HISTORIA_CLINICA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="CODIGO_FICHA" ColumnName="CODIGO_FICHA" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="ESTADO_REGISTRO" ColumnName="ESTADO_REGISTRO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Informe_Riesgo_Quirurgico">
+      <EntityTypeMapping TypeName="PETCENTERModel.Informe_Riesgo_Quirurgico">
+        <MappingFragment StoreEntitySet="Informe_Riesgo_Quirurgico">
+          <ScalarProperty Name="codigo_rq" ColumnName="codigo_rq" />
+          <ScalarProperty Name="Fecha_Rq" ColumnName="Fecha_Rq" />
+          <ScalarProperty Name="NombreInforme" ColumnName="NombreInforme" />
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="codigo_Analisis_Preliminar" ColumnName="codigo_Analisis_Preliminar" />
+          <ScalarProperty Name="complicaciones_rq" ColumnName="complicaciones_rq" />
+          <ScalarProperty Name="consideraciones_particulares_rq" ColumnName="consideraciones_particulares_rq" />
+          <ScalarProperty Name="clasificacion_riesgo_cardiaco" ColumnName="clasificacion_riesgo_cardiaco" />
+          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Informe_Riesgo_Quirurgico_Detalle">
+      <EntityTypeMapping TypeName="PETCENTERModel.Informe_Riesgo_Quirurgico_Detalle">
+        <MappingFragment StoreEntitySet="Informe_Riesgo_Quirurgico_Detalle">
+          <ScalarProperty Name="CodigoInformRQ" ColumnName="CodigoInformRQ" />
+          <ScalarProperty Name="CodigoRiesgoQuirurgico" ColumnName="CodigoRiesgoQuirurgico" />
+          <ScalarProperty Name="DetalleRiesgo" ColumnName="DetalleRiesgo" />
+          <ScalarProperty Name="Consider_Quirurgicas" ColumnName="Consider_Quirurgicas" />
+          <ScalarProperty Name="EstadoRiesgo" ColumnName="EstadoRiesgo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InformeAnalisisPreliminars">
+      <EntityTypeMapping TypeName="PETCENTERModel.InformeAnalisisPreliminar">
+        <MappingFragment StoreEntitySet="InformeAnalisisPreliminar">
+          <ScalarProperty Name="codigoAnalisis_Preliminar" ColumnName="codigoAnalisis_Preliminar" />
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insumoes">
+      <EntityTypeMapping TypeName="PETCENTERModel.Insumo">
+        <MappingFragment StoreEntitySet="Insumo">
+          <ScalarProperty Name="CodigoInsumo" ColumnName="CodigoInsumo" />
+          <ScalarProperty Name="DescripcionInsumo" ColumnName="DescripcionInsumo" />
+          <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
+          <ScalarProperty Name="StockActual" ColumnName="StockActual" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsumoRequeridoes">
+      <EntityTypeMapping TypeName="PETCENTERModel.InsumoRequerido">
+        <MappingFragment StoreEntitySet="InsumoRequerido">
+          <ScalarProperty Name="CodigoInsumoRequerido" ColumnName="CodigoInsumoRequerido" />
+          <ScalarProperty Name="NombreInforme" ColumnName="NombreInforme" />
+          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Sustento" ColumnName="Sustento" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="EstadoInformeInsumo" ColumnName="EstadoInformeInsumo" />
+          <ScalarProperty Name="CodigoEmpleadoEvaluador" ColumnName="CodigoEmpleadoEvaluador" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsumoRequeridoDetalles">
+      <EntityTypeMapping TypeName="PETCENTERModel.InsumoRequeridoDetalle">
+        <MappingFragment StoreEntitySet="InsumoRequeridoDetalle">
+          <ScalarProperty Name="CodigoInsumoRequerido" ColumnName="CodigoInsumoRequerido" />
+          <ScalarProperty Name="CodigoInsumo" ColumnName="CodigoInsumo" />
+          <ScalarProperty Name="StockDisponible" ColumnName="StockDisponible" />
+          <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -104,17 +473,13 @@
       <EntityTypeMapping TypeName="PETCENTERModel.OrdenIntervencion">
         <MappingFragment StoreEntitySet="OrdenIntervencion">
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
-          <ScalarProperty Name="Edad" ColumnName="Edad" />
-          <ScalarProperty Name="Peso" ColumnName="Peso" />
-          <ScalarProperty Name="Raza" ColumnName="Raza" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="CodigoDiagnosticoPreventivo" ColumnName="CodigoDiagnosticoPreventivo" />
+          <ScalarProperty Name="CodigoDiagnosticoPresuntivo" ColumnName="CodigoDiagnosticoPresuntivo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
           <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -145,6 +510,7 @@
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
           <ScalarProperty Name="CodigoOperacion" ColumnName="CodigoOperacion" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -153,7 +519,7 @@
         <MappingFragment StoreEntitySet="OrdenIntervencionDetalleProfesional">
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="CodigoProfesional" ColumnName="CodigoProfesional" />
+          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -168,18 +534,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Profesionals">
-      <EntityTypeMapping TypeName="PETCENTERModel.Profesional">
-        <MappingFragment StoreEntitySet="Profesional">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
-          <ScalarProperty Name="DNI" ColumnName="DNI" />
-          <ScalarProperty Name="Profesional1" ColumnName="Profesional" />
-          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProgramacionTurnoes">
       <EntityTypeMapping TypeName="PETCENTERModel.ProgramacionTurno">
         <MappingFragment StoreEntitySet="ProgramacionTurno">
@@ -189,7 +543,7 @@
           <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
           <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
           <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -206,6 +560,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Riesgo_Quirurgico">
+      <EntityTypeMapping TypeName="PETCENTERModel.Riesgo_Quirurgico">
+        <MappingFragment StoreEntitySet="Riesgo_Quirurgico">
+          <ScalarProperty Name="CodigoRiesgoQuirurgico" ColumnName="CodigoRiesgoQuirurgico" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salas">
+      <EntityTypeMapping TypeName="PETCENTERModel.sala">
+        <MappingFragment StoreEntitySet="sala">
+          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
+          <ScalarProperty Name="nombre_sala" ColumnName="nombre_sala" />
+          <ScalarProperty Name="observacion_sala" ColumnName="observacion_sala" />
+          <ScalarProperty Name="Codigo_Tipo_Sala" ColumnName="Codigo_Tipo_Sala" />
+          <ScalarProperty Name="estado_sala" ColumnName="estado_sala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sala_cubiculo">
+      <EntityTypeMapping TypeName="PETCENTERModel.sala_cubiculo">
+        <MappingFragment StoreEntitySet="sala_cubiculo">
+          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
+          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sedes">
       <EntityTypeMapping TypeName="PETCENTERModel.Sede">
         <MappingFragment StoreEntitySet="Sede">
@@ -219,6 +602,35 @@
       <EntityTypeMapping TypeName="PETCENTERModel.SignosVitale">
         <MappingFragment StoreEntitySet="SignosVitales">
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PETCENTERModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_diagnostico">
+      <EntityTypeMapping TypeName="PETCENTERModel.tipo_diagnostico">
+        <MappingFragment StoreEntitySet="tipo_diagnostico">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_sala">
+      <EntityTypeMapping TypeName="PETCENTERModel.tipo_sala">
+        <MappingFragment StoreEntitySet="tipo_sala">
+          <ScalarProperty Name="Codigo_Tipo_Sala" ColumnName="Codigo_Tipo_Sala" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
         </MappingFragment>
@@ -251,627 +663,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAPROGRAMACION" FunctionName="PETCENTERModel.Store.USP_CONSULTAPROGRAMACION">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAPROGRAMACION_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Sede" ColumnName="Sede" />
-          <ScalarProperty Name="Anio" ColumnName="Anio" />
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROGRAMACIONTURNO">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROGRAMACIONTURNO_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="CodigoProgramacionTurno" ColumnName="CodigoProgramacionTurno" />
-          <ScalarProperty Name="CodigoTurno" ColumnName="CodigoTurno" />
-          <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
-          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
-          <ScalarProperty Name="Turno" ColumnName="Turno" />
-          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-          <ScalarProperty Name="Empleado" ColumnName="Empleado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERPROGRAMACIONTURNO">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERPROGRAMACIONTURNO_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
-          <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
-          <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
-          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEPROGRAMACIONTURNO" />
-    <FunctionImportMapping FunctionImportName="USP_INSERTARPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARPROGRAMACIONTURNO" />
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISIS" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISIS">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISIS_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
-          <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
-          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-          <ScalarProperty Name="Codigo1" ColumnName="Codigo1" />
-          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
-          <ScalarProperty Name="Edad" ColumnName="Edad" />
-          <ScalarProperty Name="Peso" ColumnName="Peso" />
-          <ScalarProperty Name="Raza" ColumnName="Raza" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="EstadoRegistro1" ColumnName="EstadoRegistro1" />
-          <ScalarProperty Name="Codigo2" ColumnName="Codigo2" />
-          <ScalarProperty Name="CodigoOrdenIntervencion1" ColumnName="CodigoOrdenIntervencion1" />
-          <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
-          <ScalarProperty Name="EstadoRegistro2" ColumnName="EstadoRegistro2" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCION" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCION">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCION_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEEPICRISIS" />
-    <FunctionImportMapping FunctionImportName="USP_INSERTAREPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTAREPICRISIS" />
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEEPICRISIS">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEEPICRISIS_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="CodigoEpicrisis" ColumnName="CodigoEpicrisis" />
-          <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
-          <ScalarProperty Name="Dosis" ColumnName="Dosis" />
-          <ScalarProperty Name="TipoConsumo" ColumnName="TipoConsumo" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENEREPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENEREPICRISIS">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENEREPICRISIS_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
-          <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
-          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISFINAL" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISFINAL">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISFINAL_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV2">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV2_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV3" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV3">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV3_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV4">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV4_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
-          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
-          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
-          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV2">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV2_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV3" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV3">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV3_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV4">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV4_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
-          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
-          <ScalarProperty Name="Edad" ColumnName="Edad" />
-          <ScalarProperty Name="Peso" ColumnName="Peso" />
-          <ScalarProperty Name="Raza" ColumnName="Raza" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEANASTESIA" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEANASTESIA">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEANASTESIA_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Horario" ColumnName="Horario" />
-          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEDIAGNOSTICO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEDIAGNOSTICO">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEDIAGNOSTICO_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEOPERACION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEOPERACION">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEOPERACION_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROFESIONAL" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROFESIONAL">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROFESIONAL_Result">
-          <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
-          <ScalarProperty Name="Dni" ColumnName="Dni" />
-          <ScalarProperty Name="Profesional" ColumnName="Profesional" />
-          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLESIGNOSVITALES" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLESIGNOSVITALES">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLESIGNOSVITALES_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEORDENINTERVENCION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEORDENINTERVENCION">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEORDENINTERVENCION_Result">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
-          <ScalarProperty Name="Peso" ColumnName="Peso" />
-          <ScalarProperty Name="Raza" ColumnName="Raza" />
-          <ScalarProperty Name="Edad" ColumnName="Edad" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <EntitySetMapping Name="Citas">
-      <EntityTypeMapping TypeName="PETCENTERModel.Cita">
-        <MappingFragment StoreEntitySet="Cita">
-          <ScalarProperty Name="servicio" ColumnName="servicio" />
-          <ScalarProperty Name="atencion" ColumnName="atencion" />
-          <ScalarProperty Name="fecha_cita" ColumnName="fecha_cita" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
-          <ScalarProperty Name="codigo_cita" ColumnName="codigo_cita" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="cubiculoes">
-      <EntityTypeMapping TypeName="PETCENTERModel.cubiculo">
-        <MappingFragment StoreEntitySet="cubiculo">
-          <ScalarProperty Name="estado_cubiculo" ColumnName="estado_cubiculo" />
-          <ScalarProperty Name="tipo_cubiculo" ColumnName="tipo_cubiculo" />
-          <ScalarProperty Name="observacion_cubiculo" ColumnName="observacion_cubiculo" />
-          <ScalarProperty Name="nombre_cubiculo" ColumnName="nombre_cubiculo" />
-          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Estadoes">
-      <EntityTypeMapping TypeName="PETCENTERModel.Estado">
-        <MappingFragment StoreEntitySet="Estado">
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-          <ScalarProperty Name="DescripcionEstado" ColumnName="DescripcionEstado" />
-          <ScalarProperty Name="TipoEstado" ColumnName="TipoEstado" />
-          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Ficha_Hospitalizacion">
-      <EntityTypeMapping TypeName="PETCENTERModel.Ficha_Hospitalizacion">
-        <MappingFragment StoreEntitySet="Ficha_Hospitalizacion">
-          <ScalarProperty Name="codigoEmpleado_tecnico" ColumnName="codigoEmpleado_tecnico" />
-          <ScalarProperty Name="codigoEmpleado_medico" ColumnName="codigoEmpleado_medico" />
-          <ScalarProperty Name="codigo_cita" ColumnName="codigo_cita" />
-          <ScalarProperty Name="fecha_ficha" ColumnName="fecha_ficha" />
-          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
-          <ScalarProperty Name="codigo_rq" ColumnName="codigo_rq" />
-          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Ficha_Hospitalizacion_Insumo">
-      <EntityTypeMapping TypeName="PETCENTERModel.Ficha_Hospitalizacion_Insumo">
-        <MappingFragment StoreEntitySet="Ficha_Hospitalizacion_Insumo">
-          <ScalarProperty Name="estado_insumo" ColumnName="estado_insumo" />
-          <ScalarProperty Name="cantidad_insumo" ColumnName="cantidad_insumo" />
-          <ScalarProperty Name="codigoInsumo" ColumnName="codigoInsumo" />
-          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GAM_Informe_Medico">
-      <EntityTypeMapping TypeName="PETCENTERModel.GAM_Informe_Medico">
-        <MappingFragment StoreEntitySet="GAM_Informe_Medico">
-          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
-          <ScalarProperty Name="detalleInforme" ColumnName="detalleInforme" />
-          <ScalarProperty Name="fechaAtencion" ColumnName="fechaAtencion" />
-          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-          <ScalarProperty Name="informe_medico" ColumnName="informe_medico" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GCP_Cliente">
-      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Cliente">
-        <MappingFragment StoreEntitySet="GCP_Cliente">
-          <ScalarProperty Name="autorizaUsoDatos" ColumnName="autorizaUsoDatos" />
-          <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
-          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GCP_Especie">
-      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Especie">
-        <MappingFragment StoreEntitySet="GCP_Especie">
-          <ScalarProperty Name="descripcionEspecie" ColumnName="descripcionEspecie" />
-          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GCP_Mascota">
-      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Mascota">
-        <MappingFragment StoreEntitySet="GCP_Mascota">
-          <ScalarProperty Name="tamano" ColumnName="tamano" />
-          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
-          <ScalarProperty Name="genero" ColumnName="genero" />
-          <ScalarProperty Name="nombreMascota" ColumnName="nombreMascota" />
-          <ScalarProperty Name="codigo_raza" ColumnName="codigo_raza" />
-          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GCP_Raza">
-      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Raza">
-        <MappingFragment StoreEntitySet="GCP_Raza">
-          <ScalarProperty Name="nombreRaza" ColumnName="nombreRaza" />
-          <ScalarProperty Name="codigo_especie" ColumnName="codigo_especie" />
-          <ScalarProperty Name="codigo_raza" ColumnName="codigo_raza" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GCP_Tipo_Documento">
-      <EntityTypeMapping TypeName="PETCENTERModel.GCP_Tipo_Documento">
-        <MappingFragment StoreEntitySet="GCP_Tipo_Documento">
-          <ScalarProperty Name="descrDocumento" ColumnName="descrDocumento" />
-          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GFC_Comprobante_Pago">
-      <EntityTypeMapping TypeName="PETCENTERModel.GFC_Comprobante_Pago">
-        <MappingFragment StoreEntitySet="GFC_Comprobante_Pago">
-          <ScalarProperty Name="igv" ColumnName="igv" />
-          <ScalarProperty Name="montoTotal" ColumnName="montoTotal" />
-          <ScalarProperty Name="fechaComprobante" ColumnName="fechaComprobante" />
-          <ScalarProperty Name="descripcionItem" ColumnName="descripcionItem" />
-          <ScalarProperty Name="nroComprobante" ColumnName="nroComprobante" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-          <ScalarProperty Name="comprobante_pago" ColumnName="comprobante_pago" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GG_Empleado">
-      <EntityTypeMapping TypeName="PETCENTERModel.GG_Empleado">
-        <MappingFragment StoreEntitySet="GG_Empleado">
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="area" ColumnName="area" />
-          <ScalarProperty Name="cargo" ColumnName="cargo" />
-          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
-          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GG_Persona">
-      <EntityTypeMapping TypeName="PETCENTERModel.GG_Persona">
-        <MappingFragment StoreEntitySet="GG_Persona">
-          <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="direccion" ColumnName="direccion" />
-          <ScalarProperty Name="nombres" ColumnName="nombres" />
-          <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
-          <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
-          <ScalarProperty Name="numeroDocumento" ColumnName="numeroDocumento" />
-          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
-          <ScalarProperty Name="codigo_persona" ColumnName="codigo_persona" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Camada">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Camada">
-        <MappingFragment StoreEntitySet="GPA_Camada">
-          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
-          <ScalarProperty Name="solicitud_pedigri" ColumnName="solicitud_pedigri" />
-          <ScalarProperty Name="numero_camada" ColumnName="numero_camada" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Declaracion_Jurada_Domicilio">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Declaracion_Jurada_Domicilio">
-        <MappingFragment StoreEntitySet="GPA_Declaracion_Jurada_Domicilio">
-          <ScalarProperty Name="descCuerpo" ColumnName="descCuerpo" />
-          <ScalarProperty Name="fechaDeclaracion" ColumnName="fechaDeclaracion" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="numero_declaracion_jurada" ColumnName="numero_declaracion_jurada" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Detalle_Resultados_KCP">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Detalle_Resultados_KCP">
-        <MappingFragment StoreEntitySet="GPA_Detalle_Resultados_KCP">
-          <ScalarProperty Name="descResultado" ColumnName="descResultado" />
-          <ScalarProperty Name="numRegistroKCP" ColumnName="numRegistroKCP" />
-          <ScalarProperty Name="numero_registro_resultado_KCP" ColumnName="numero_registro_resultado_KCP" />
-          <ScalarProperty Name="detalle_resultados_KCP" ColumnName="detalle_resultados_KCP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Informe_Verificacion_Domicilio">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Informe_Verificacion_Domicilio">
-        <MappingFragment StoreEntitySet="GPA_Informe_Verificacion_Domicilio">
-          <ScalarProperty Name="ResultadoInformeVerificacion" ColumnName="ResultadoInformeVerificacion" />
-          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-          <ScalarProperty Name="direccionVerificacion" ColumnName="direccionVerificacion" />
-          <ScalarProperty Name="fechaInformeVerificacion" ColumnName="fechaInformeVerificacion" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="numero_informe_verificacion" ColumnName="numero_informe_verificacion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Registro_Resultados_KCP">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Registro_Resultados_KCP">
-        <MappingFragment StoreEntitySet="GPA_Registro_Resultados_KCP">
-          <ScalarProperty Name="numRegistroKCPMadre" ColumnName="numRegistroKCPMadre" />
-          <ScalarProperty Name="numRegistroKCPPadre" ColumnName="numRegistroKCPPadre" />
-          <ScalarProperty Name="numMascotas" ColumnName="numMascotas" />
-          <ScalarProperty Name="fechaRegistroKCP" ColumnName="fechaRegistroKCP" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="numero_registro_resultado_KCP" ColumnName="numero_registro_resultado_KCP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Requisito_Domicilio">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Requisito_Domicilio">
-        <MappingFragment StoreEntitySet="GPA_Requisito_Domicilio">
-          <ScalarProperty Name="descRequisitoDomicilio" ColumnName="descRequisitoDomicilio" />
-          <ScalarProperty Name="numero_requisito_domicilio" ColumnName="numero_requisito_domicilio" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Solicitud">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud">
-        <MappingFragment StoreEntitySet="GPA_Solicitud">
-          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
-          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-          <ScalarProperty Name="tipoSolicitud" ColumnName="tipoSolicitud" />
-          <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
-          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
-          <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
-          <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Solicitud_Adopcion">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Adopcion">
-        <MappingFragment StoreEntitySet="GPA_Solicitud_Adopcion">
-          <ScalarProperty Name="codigo_mascota" ColumnName="codigo_mascota" />
-          <ScalarProperty Name="domicilioLocal" ColumnName="domicilioLocal" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="solicitud_adopcion" ColumnName="solicitud_adopcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Solicitud_Cruces">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Cruces">
-        <MappingFragment StoreEntitySet="GPA_Solicitud_Cruces">
-          <ScalarProperty Name="fechaCruce" ColumnName="fechaCruce" />
-          <ScalarProperty Name="codigo_mascota2" ColumnName="codigo_mascota2" />
-          <ScalarProperty Name="codigo_cliente2" ColumnName="codigo_cliente2" />
-          <ScalarProperty Name="codigo_mascota1" ColumnName="codigo_mascota1" />
-          <ScalarProperty Name="codigo_cliente1" ColumnName="codigo_cliente1" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="solicitud_cruce" ColumnName="solicitud_cruce" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GPA_Solicitud_Pedigri">
-      <EntityTypeMapping TypeName="PETCENTERModel.GPA_Solicitud_Pedigri">
-        <MappingFragment StoreEntitySet="GPA_Solicitud_Pedigri">
-          <ScalarProperty Name="fechaRecepcionInf_KCP" ColumnName="fechaRecepcionInf_KCP" />
-          <ScalarProperty Name="codigo_mascota_madre" ColumnName="codigo_mascota_madre" />
-          <ScalarProperty Name="codigo_mascota_padre" ColumnName="codigo_mascota_padre" />
-          <ScalarProperty Name="numero_solicitud" ColumnName="numero_solicitud" />
-          <ScalarProperty Name="solicitud_pedigri" ColumnName="solicitud_pedigri" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Insumoes">
-      <EntityTypeMapping TypeName="PETCENTERModel.Insumo">
-        <MappingFragment StoreEntitySet="Insumo">
-          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
-          <ScalarProperty Name="StockActual" ColumnName="StockActual" />
-          <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
-          <ScalarProperty Name="DescripcionInsumo" ColumnName="DescripcionInsumo" />
-          <ScalarProperty Name="CodigoInsumo" ColumnName="CodigoInsumo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="InsumoRequeridoes">
-      <EntityTypeMapping TypeName="PETCENTERModel.InsumoRequerido">
-        <MappingFragment StoreEntitySet="InsumoRequerido">
-          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
-          <ScalarProperty Name="CodigoEmpleadoEvaluador" ColumnName="CodigoEmpleadoEvaluador" />
-          <ScalarProperty Name="EstadoInformeInsumo" ColumnName="EstadoInformeInsumo" />
-          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-          <ScalarProperty Name="Sustento" ColumnName="Sustento" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
-          <ScalarProperty Name="NombreInforme" ColumnName="NombreInforme" />
-          <ScalarProperty Name="CodigoInsumoRequerido" ColumnName="CodigoInsumoRequerido" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="InsumoRequeridoDetalles">
-      <EntityTypeMapping TypeName="PETCENTERModel.InsumoRequeridoDetalle">
-        <MappingFragment StoreEntitySet="InsumoRequeridoDetalle">
-          <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
-          <ScalarProperty Name="StockDisponible" ColumnName="StockDisponible" />
-          <ScalarProperty Name="CodigoInsumo" ColumnName="CodigoInsumo" />
-          <ScalarProperty Name="CodigoInsumoRequerido" ColumnName="CodigoInsumoRequerido" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Riesgo_Quirurgico">
-      <EntityTypeMapping TypeName="PETCENTERModel.Riesgo_Quirurgico">
-        <MappingFragment StoreEntitySet="Riesgo_Quirurgico">
-          <ScalarProperty Name="clasificacion_riesgo_cardiaco" ColumnName="clasificacion_riesgo_cardiaco" />
-          <ScalarProperty Name="consideraciones_particulares_rq" ColumnName="consideraciones_particulares_rq" />
-          <ScalarProperty Name="complicaciones_rq" ColumnName="complicaciones_rq" />
-          <ScalarProperty Name="fecha_rq" ColumnName="fecha_rq" />
-          <ScalarProperty Name="codigo_rq" ColumnName="codigo_rq" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="salas">
-      <EntityTypeMapping TypeName="PETCENTERModel.sala">
-        <MappingFragment StoreEntitySet="sala">
-          <ScalarProperty Name="estado_sala" ColumnName="estado_sala" />
-          <ScalarProperty Name="tipo_sala" ColumnName="tipo_sala" />
-          <ScalarProperty Name="observacion_sala" ColumnName="observacion_sala" />
-          <ScalarProperty Name="nombre_sala" ColumnName="nombre_sala" />
-          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sala_cubiculo">
-      <EntityTypeMapping TypeName="PETCENTERModel.sala_cubiculo">
-        <MappingFragment StoreEntitySet="sala_cubiculo">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
-          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Estadia_Hospitalizacion">
-      <EntityTypeMapping TypeName="PETCENTERModel.Estadia_Hospitalizacion">
-        <MappingFragment StoreEntitySet="Estadia_Hospitalizacion">
-          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
-          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
-          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PETCENTERModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_AnularSolicitud" FunctionName="PETCENTERModel.Store.sp_AnularSolicitud" />
     <FunctionImportMapping FunctionImportName="sp_ConsultarSolicitud" FunctionName="PETCENTERModel.Store.sp_ConsultarSolicitud">
       <ResultMapping>
@@ -894,6 +686,27 @@
           <ScalarProperty Name="numeroDocumento" ColumnName="numeroDocumento" />
           <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
           <ScalarProperty Name="autorizaUsoDatos" ColumnName="autorizaUsoDatos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PETCENTERModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PETCENTERModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PETCENTERModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PETCENTERModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -955,6 +768,60 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_RegistrarCamada" FunctionName="PETCENTERModel.Store.sp_RegistrarCamada" />
     <FunctionImportMapping FunctionImportName="sp_RegistrarSolicitud" FunctionName="PETCENTERModel.Store.sp_RegistrarSolicitud" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PETCENTERModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PETCENTERModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="USP_BUSCARCITA" FunctionName="PETCENTERModel.Store.USP_BUSCARCITA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_BUSCARCITA_Result">
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CodigoPaciente" ColumnName="CodigoPaciente" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Especie" ColumnName="Especie" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="CodigoOI" ColumnName="CodigoOI" />
+          <ScalarProperty Name="EstadoOI" ColumnName="EstadoOI" />
+          <ScalarProperty Name="FechaOI" ColumnName="FechaOI" />
+          <ScalarProperty Name="FechaOperacionOI" ColumnName="FechaOperacionOI" />
+          <ScalarProperty Name="ObservacionesOI" ColumnName="ObservacionesOI" />
+          <ScalarProperty Name="CodigoRQ" ColumnName="CodigoRQ" />
+          <ScalarProperty Name="ComplicacionesRQ" ColumnName="ComplicacionesRQ" />
+          <ScalarProperty Name="FechaRQ" ColumnName="FechaRQ" />
+          <ScalarProperty Name="ComplicacionesParticularesRQ" ColumnName="ComplicacionesParticularesRQ" />
+          <ScalarProperty Name="HoraRQ" ColumnName="HoraRQ" />
+          <ScalarProperty Name="ClasificacionRQ" ColumnName="ClasificacionRQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_BUSCARFICHARQ" FunctionName="PETCENTERModel.Store.USP_BUSCARFICHARQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_BUSCARFICHARQ_Result">
+          <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+          <ScalarProperty Name="CodigoCita" ColumnName="CodigoCita" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_BUSCARINSUMOS" FunctionName="PETCENTERModel.Store.USP_BUSCARINSUMOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_BUSCARINSUMOS_Result">
+          <ScalarProperty Name="EnfermedadAsociada" ColumnName="EnfermedadAsociada" />
+          <ScalarProperty Name="TipoInsumo" ColumnName="TipoInsumo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="NombreInsumo" ColumnName="NombreInsumo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USP_CONSULTAEPICRISISV5" FunctionName="PETCENTERModel.Store.USP_CONSULTAEPICRISISV5">
       <ResultMapping>
         <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAEPICRISISV5_Result">
@@ -970,5 +837,440 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAFICHA" FunctionName="PETCENTERModel.Store.USP_CONSULTAFICHA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAFICHA_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAFICHAV1" FunctionName="PETCENTERModel.Store.USP_CONSULTAFICHAV1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAFICHAV1_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAFICHAV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAFICHAV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAFICHAV2_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAFICHAV3" FunctionName="PETCENTERModel.Store.USP_CONSULTAFICHAV3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAFICHAV3_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAFICHAV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAFICHAV4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAFICHAV4_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+          <ScalarProperty Name="CodigoCita" ColumnName="CodigoCita" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV4" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV4_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAORDENINTERVENCIONV5" FunctionName="PETCENTERModel.Store.USP_CONSULTAORDENINTERVENCIONV5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAORDENINTERVENCIONV5_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAPROGRAMACION" FunctionName="PETCENTERModel.Store.USP_CONSULTAPROGRAMACION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAPROGRAMACION_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Sede" ColumnName="Sede" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTARIESGOQUIRURGICO" FunctionName="PETCENTERModel.Store.USP_CONSULTARIESGOQUIRURGICO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTARIESGOQUIRURGICO_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoCita" ColumnName="CodigoCita" />
+          <ScalarProperty Name="NombreInforme" ColumnName="NombreInforme" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEEPICRISIS" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLEPROGRAMACIONTURNO" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARDETALLERIESGOQUIRURGICO" FunctionName="PETCENTERModel.Store.USP_INSERTARDETALLERIESGOQUIRURGICO" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTAREPICRISIS" FunctionName="PETCENTERModel.Store.USP_INSERTAREPICRISIS" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARFICHA" FunctionName="PETCENTERModel.Store.USP_INSERTARFICHA" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARINSUMO" FunctionName="PETCENTERModel.Store.USP_INSERTARINSUMO" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_INSERTARPROGRAMACIONTURNO" />
+    <FunctionImportMapping FunctionImportName="USP_INSERTARRIESGOQUIRURGICO" FunctionName="PETCENTERModel.Store.USP_INSERTARRIESGOQUIRURGICO" />
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEANASTESIA" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEANASTESIA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEANASTESIA_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEDIAGNOSTICO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEDIAGNOSTICO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEDIAGNOSTICO_Result">
+          <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEDIAGNOSTICOV2" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEDIAGNOSTICOV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEDIAGNOSTICOV2_Result">
+          <ScalarProperty Name="CodigoDiagnostico" ColumnName="CodigoDiagnostico" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEEPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEEPICRISIS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEEPICRISIS_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoEpicrisis" ColumnName="CodigoEpicrisis" />
+          <ScalarProperty Name="CodigoTipoInsumo" ColumnName="CodigoTipoInsumo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="Dosis" ColumnName="Dosis" />
+          <ScalarProperty Name="TipoConsumo" ColumnName="TipoConsumo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEFICHA" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEFICHA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEFICHA_Result">
+          <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
+          <ScalarProperty Name="CodigoCita" ColumnName="CodigoCita" />
+          <ScalarProperty Name="CodigoSala" ColumnName="CodigoSala" />
+          <ScalarProperty Name="CodigoCubiculo" ColumnName="CodigoCubiculo" />
+          <ScalarProperty Name="CodigoMedico" ColumnName="CodigoMedico" />
+          <ScalarProperty Name="CodigoTecnico" ColumnName="CodigoTecnico" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEOPERACION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEOPERACION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEOPERACION_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEORDENINTERVENCION" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEORDENINTERVENCION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEORDENINTERVENCION_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="NumeroHistoriaClinica" ColumnName="NumeroHistoriaClinica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROFESIONAL" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROFESIONAL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROFESIONAL_Result">
+          <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+          <ScalarProperty Name="Dni" ColumnName="Dni" />
+          <ScalarProperty Name="Profesional" ColumnName="Profesional" />
+          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLEPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLEPROGRAMACIONTURNO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLEPROGRAMACIONTURNO_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoProgramacionTurno" ColumnName="CodigoProgramacionTurno" />
+          <ScalarProperty Name="CodigoTurno" ColumnName="CodigoTurno" />
+          <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLERIESGOQUIRURGICO" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLERIESGOQUIRURGICO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLERIESGOQUIRURGICO_Result">
+          <ScalarProperty Name="CodigoRiesgoQuirurgico" ColumnName="CodigoRiesgoQuirurgico" />
+          <ScalarProperty Name="FechasRiesgoQuirurgico" ColumnName="FechasRiesgoQuirurgico" />
+          <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
+          <ScalarProperty Name="CodigoAnalisisPreliminar" ColumnName="CodigoAnalisisPreliminar" />
+          <ScalarProperty Name="ObservacionesAnalisisPreliminar" ColumnName="ObservacionesAnalisisPreliminar" />
+          <ScalarProperty Name="Complicaciones" ColumnName="Complicaciones" />
+          <ScalarProperty Name="Consideraciones" ColumnName="Consideraciones" />
+          <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLERIESGOQUIRURGICODETALLE" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLERIESGOQUIRURGICODETALLE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLERIESGOQUIRURGICODETALLE_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="RiesgoQuirurgico" ColumnName="RiesgoQuirurgico" />
+          <ScalarProperty Name="DetalleRiesgo" ColumnName="DetalleRiesgo" />
+          <ScalarProperty Name="ConsideracionesQuirurgicas" ColumnName="ConsideracionesQuirurgicas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERDETALLESIGNOSVITALES" FunctionName="PETCENTERModel.Store.USP_OBTENERDETALLESIGNOSVITALES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERDETALLESIGNOSVITALES_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENEREPICRISIS" FunctionName="PETCENTERModel.Store.USP_OBTENEREPICRISIS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENEREPICRISIS_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+          <ScalarProperty Name="AreaHospitalaria" ColumnName="AreaHospitalaria" />
+          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+          <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="Veterianario" ColumnName="Veterianario" />
+          <ScalarProperty Name="TratamientoRecibido" ColumnName="TratamientoRecibido" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERINSUMOS" FunctionName="PETCENTERModel.Store.USP_OBTENERINSUMOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERINSUMOS_Result">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="NombreInsumo" ColumnName="NombreInsumo" />
+          <ScalarProperty Name="TipoInsumo" ColumnName="TipoInsumo" />
+          <ScalarProperty Name="EnfermedadAsociada" ColumnName="EnfermedadAsociada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENERPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_OBTENERPROGRAMACIONTURNO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENERPROGRAMACIONTURNO_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+          <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
+          <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAROI" FunctionName="PETCENTERModel.Store.USP_CONSULTAROI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAROI_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaProgramada" ColumnName="FechaProgramada" />
+          <ScalarProperty Name="Medico" ColumnName="Medico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAROIV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAROIV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAROIV2_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaProgramada" ColumnName="FechaProgramada" />
+          <ScalarProperty Name="Medico" ColumnName="Medico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_INSERTAROI" FunctionName="PETCENTERModel.Store.USP_INSERTAROI" />
+    <FunctionImportMapping FunctionImportName="USP_OBTENEROI" FunctionName="PETCENTERModel.Store.USP_OBTENEROI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENEROI_Result">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="CodigoDiagnosticoPreventivo" ColumnName="CodigoDiagnosticoPreventivo" />
+          <ScalarProperty Name="CodigoDiagnosticoPresuntivo" ColumnName="CodigoDiagnosticoPresuntivo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_OBTENEROIV2" FunctionName="PETCENTERModel.Store.USP_OBTENEROIV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_OBTENEROIV2_Result">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="CodigoDiagnosticoPreventivo" ColumnName="CodigoDiagnosticoPreventivo" />
+          <ScalarProperty Name="CodigoDiagnosticoPresuntivo" ColumnName="CodigoDiagnosticoPresuntivo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaIntervencion" ColumnName="FechaIntervencion" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+          <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTAPROGRAMACIONV2" FunctionName="PETCENTERModel.Store.USP_CONSULTAPROGRAMACIONV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_CONSULTAPROGRAMACIONV2_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Sede" ColumnName="Sede" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="DescripcionEstado" ColumnName="DescripcionEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="PETCENTERModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+          <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_LOGIN" FunctionName="PETCENTERModel.Store.USP_LOGIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_LOGIN_Result">
+          <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_BUSCARFICHARQV2" FunctionName="PETCENTERModel.Store.USP_BUSCARFICHARQV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_BUSCARFICHARQV2_Result">
+          <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoOrdenIntervencion" ColumnName="CodigoOrdenIntervencion" />
+          <ScalarProperty Name="CodigoCita" ColumnName="CodigoCita" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+          <ScalarProperty Name="CodigoAnalisisPreliminar" ColumnName="CodigoAnalisisPreliminar" />
+          <ScalarProperty Name="ObservacionesAnalisisPreliminar" ColumnName="ObservacionesAnalisisPreliminar" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_VALIDARFICHA" FunctionName="PETCENTERModel.Store.USP_VALIDARFICHA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_VALIDARFICHA_Result">
+          <ScalarProperty Name="codigo_ficha" ColumnName="codigo_ficha" />
+          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+          <ScalarProperty Name="fecha_ficha" ColumnName="fecha_ficha" />
+          <ScalarProperty Name="codigo_cita" ColumnName="codigo_cita" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="codigoEmpleado_medico" ColumnName="codigoEmpleado_medico" />
+          <ScalarProperty Name="codigoEmpleado_tecnico" ColumnName="codigoEmpleado_tecnico" />
+          <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
+          <ScalarProperty Name="codigo_cubiculo" ColumnName="codigo_cubiculo" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_VALIDARPROGRAMACIONTURNO" FunctionName="PETCENTERModel.Store.USP_VALIDARPROGRAMACIONTURNO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PETCENTERModel.USP_VALIDARPROGRAMACIONTURNO_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+          <ScalarProperty Name="CodigoAnio" ColumnName="CodigoAnio" />
+          <ScalarProperty Name="CodigoMes" ColumnName="CodigoMes" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_VALIDARRIESGO" FunctionName="PETCENTERModel.Store.USP_VALIDARRIESGO" />
   </EntityContainerMapping>
 </Mapping>
